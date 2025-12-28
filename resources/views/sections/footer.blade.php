@@ -45,10 +45,11 @@
             <div class="footer-section">
                 <h4 class="footer-title">Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#ai-features">AI Features</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="{{ url('/') }}#services">Services</a></li>
+                    <li><a href="{{ route('success-stories') }}">Success Stories</a></li>
+                    <li><a href="{{ url('/') }}#portfolio">Portfolio</a></li>
+                    <li><a href="{{ url('/') }}#contact">Contact</a></li>
+                    <li><a href="{{ route('profile') }}">Company Profile</a></li>
                 </ul>
             </div>
             
@@ -56,10 +57,11 @@
             <div class="footer-section">
                 <h4 class="footer-title">Services</h4>
                 <ul class="footer-links">
-                    <li><a href="#services">Mobile App Development</a></li>
-                    <li><a href="#services">Web Applications</a></li>
-                    <li><a href="#services">E-commerce Platforms</a></li>
-                    <li><a href="#services">AI/ML Solutions</a></li>
+                    <li><a href="{{ url('/') }}#services">Mobile App Development</a></li>
+                    <li><a href="{{ url('/') }}#services">Web Applications</a></li>
+                    <li><a href="{{ url('/') }}#services">E-commerce Platforms</a></li>
+                    <li><a href="{{ url('/') }}#services">AI/ML Solutions</a></li>
+                    <li><a href="{{ url('/') }}#services">HRMS & CRM</a></li>
                 </ul>
             </div>
             
@@ -92,7 +94,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} KA Software. All rights reserved.</p>
+            <p>© {{ date('Y') }} KA Software. All rights reserved.</p>
             <p>Building the future with AI-powered software solutions.</p>
         </div>
     </div>

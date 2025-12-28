@@ -218,19 +218,191 @@ function initContactForm() {
             
             const data = await response.json();
             
-            if (response.ok) {
-                showNotification('success', 'Message sent successfully! We\'ll get back to you soon.');
+            if (response.ok && data.success) {
+                // Show success modal
+                showSuccessModal();
                 form.reset();
             } else {
                 throw new Error(data.message || 'Something went wrong');
             }
         } catch (error) {
-            showNotification('error', error.message || 'Failed to send message. Please try again.');
+            showNotification('error', error.message || 'Failed to send message. Please try again or call us directly at +91 8056653499');
         } finally {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalText;
         }
     });
+}
+
+/**
+ * Show success modal after form submission
+ */
+function showSuccessModal() {
+    // Remove existing modal
+    const existing = document.querySelector('.success-modal-overlay');
+    if (existing) existing.remove();
+    
+    const modal = document.createElement('div');
+    modal.className = 'success-modal-overlay';
+    modal.innerHTML = `
+        <div class="success-modal">
+            <div class="success-modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <h2 class="success-modal-title">Thank You!</h2>
+            <p class="success-modal-message">
+                Your inquiry has been received successfully.
+            </p>
+            <div class="success-modal-info">
+                <div class="info-icon">📞</div>
+                <p><strong>Our sales team will contact you shortly!</strong></p>
+                <p>Expect a call or email within 24 hours (typically much sooner during business hours).</p>
+            </div>
+            <div class="success-modal-details">
+                <p>📧 A confirmation email has been sent to your inbox.</p>
+                <p>🕐 Business Hours: Mon-Fri, 9:00 AM - 6:00 PM IST</p>
+            </div>
+            <button class="success-modal-btn" onclick="closeSuccessModal()">
+                Got it, Thanks!
+            </button>
+        </div>
+    `;
+    
+    // Add styles
+    if (!document.querySelector('#success-modal-styles')) {
+        const styles = document.createElement('style');
+        styles.id = 'success-modal-styles';
+        styles.textContent = `
+            .success-modal-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(5px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10001;
+                animation: fadeIn 0.3s ease;
+                padding: 1rem;
+            }
+            .success-modal {
+                background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+                border: 1px solid rgba(99, 102, 241, 0.3);
+                border-radius: 20px;
+                padding: 2.5rem;
+                max-width: 450px;
+                width: 100%;
+                text-align: center;
+                animation: scaleIn 0.3s ease;
+            }
+            .success-modal-icon {
+                width: 100px;
+                height: 100px;
+                background: rgba(16, 185, 129, 0.1);
+                border: 2px solid rgba(16, 185, 129, 0.3);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 1.5rem;
+                color: #10b981;
+            }
+            .success-modal-title {
+                font-size: 1.75rem;
+                color: white;
+                margin-bottom: 0.5rem;
+            }
+            .success-modal-message {
+                color: #9ca3af;
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            .success-modal-info {
+                background: rgba(99, 102, 241, 0.1);
+                border: 1px solid rgba(99, 102, 241, 0.2);
+                border-radius: 12px;
+                padding: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+            .success-modal-info .info-icon {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+            .success-modal-info p {
+                color: #e5e7eb;
+                margin: 0.25rem 0;
+                font-size: 0.9375rem;
+            }
+            .success-modal-info p strong {
+                color: #8b5cf6;
+                font-size: 1.125rem;
+            }
+            .success-modal-details {
+                margin-bottom: 1.5rem;
+            }
+            .success-modal-details p {
+                color: #6b7280;
+                font-size: 0.875rem;
+                margin: 0.5rem 0;
+            }
+            .success-modal-btn {
+                background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+                color: white;
+                border: none;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                width: 100%;
+            }
+            .success-modal-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes scaleIn {
+                from { transform: scale(0.9); opacity: 0; }
+                to { transform: scale(1); opacity: 1; }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(styles);
+    }
+    
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+    
+    // Close on overlay click
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeSuccessModal();
+        }
+    });
+}
+
+/**
+ * Close success modal
+ */
+function closeSuccessModal() {
+    const modal = document.querySelector('.success-modal-overlay');
+    if (modal) {
+        modal.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => {
+            modal.remove();
+            document.body.style.overflow = '';
+        }, 300);
+    }
 }
 
 /**
@@ -273,6 +445,7 @@ function showNotification(type, message) {
                 z-index: 10000;
                 animation: slideIn 0.3s ease;
                 max-width: 400px;
+                background: #1f2937;
             }
             .notification-success {
                 background: rgba(16, 185, 129, 0.1);

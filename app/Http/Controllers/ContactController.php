@@ -6,9 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
+use App\Mail\ContactInquiry;
+use App\Mail\CustomerAutoReply;
 
 class ContactController extends Controller
 {
+    /**
+     * Admin email to receive inquiries
+     */
+    private $adminEmail = 'info@kasoftware.in';
+    
     /**
      * Handle contact form submission
      *
@@ -24,47 +31,58 @@ class ContactController extends Controller
             'company' => 'nullable|string|max:100',
             'phone' => 'nullable|string|max:20',
             'service' => 'required|string|max:50',
-            'budget' => 'nullable|string|max:20',
+            'budget' => 'nullable|string|max:50',
             'message' => 'required|string|max:2000',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
                 'success' => false,
-                'message' => 'Validation failed',
+                'message' => 'Please fill in all required fields correctly.',
                 'errors' => $validator->errors()
             ], 422);
         }
 
         try {
-            // Store the contact inquiry (you can create a model for this)
+            // Prepare contact data
             $contactData = [
                 'name' => $request->name,
                 'email' => $request->email,
-                'company' => $request->company,
-                'phone' => $request->phone,
+                'company' => $request->company ?? 'Not provided',
+                'phone' => $request->phone ?? 'Not provided',
                 'service' => $request->service,
-                'budget' => $request->budget,
+                'budget' => $request->budget ?? 'Not specified',
                 'message' => $request->message,
                 'ip_address' => $request->ip(),
-                'created_at' => now(),
+                'user_agent' => $request->userAgent(),
+                'created_at' => now()->format('Y-m-d H:i:s'),
             ];
 
             // Log the inquiry
             Log::info('New contact inquiry received', $contactData);
 
-            // Option 1: Store in database (uncomment if you have a Contact model)
-            // \App\Models\Contact::create($contactData);
-
-            // Option 2: Send email notification (uncomment and configure mail settings)
-            // Mail::to('info@kasoftware.in')->send(new \App\Mail\ContactInquiry($contactData));
-
-            // For now, just store in a file (simple approach)
+            // Store inquiry in file (backup)
             $this->storeInquiry($contactData);
+
+            // Send email to admin
+            try {
+                Mail::to($this->adminEmail)->send(new ContactInquiry($contactData));
+                Log::info('Admin notification email sent successfully');
+            } catch (\Exception $e) {
+                Log::error('Failed to send admin email: ' . $e->getMessage());
+            }
+
+            // Send auto-reply to customer
+            try {
+                Mail::to($request->email)->send(new CustomerAutoReply($contactData));
+                Log::info('Customer auto-reply email sent successfully');
+            } catch (\Exception $e) {
+                Log::error('Failed to send customer auto-reply: ' . $e->getMessage());
+            }
 
             return response()->json([
                 'success' => true,
-                'message' => 'Thank you for your inquiry! We\'ll get back to you within 24 hours.'
+                'message' => 'Thank you for your inquiry! Our sales team will contact you shortly.'
             ]);
 
         } catch (\Exception $e) {
@@ -72,13 +90,13 @@ class ContactController extends Controller
             
             return response()->json([
                 'success' => false,
-                'message' => 'Sorry, there was an error processing your request. Please try again.'
+                'message' => 'Sorry, there was an error processing your request. Please try again or call us directly.'
             ], 500);
         }
     }
 
     /**
-     * Store inquiry in a JSON file (simple storage)
+     * Store inquiry in a JSON file (backup storage)
      *
      * @param array $data
      * @return void
