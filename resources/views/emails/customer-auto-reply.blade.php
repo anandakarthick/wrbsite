@@ -12,24 +12,35 @@
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f5f5f5;
+            background-color: #1a1a35;
         }
         .container {
             background: #ffffff;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
         .header {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #f97316 0%, #ef4444 50%, #dc2626 100%);
             color: white;
             padding: 40px 30px;
             text-align: center;
         }
         .logo {
+            margin-bottom: 15px;
+        }
+        .logo img {
+            width: 60px;
+            height: 60px;
+        }
+        .logo-text {
             font-size: 28px;
             font-weight: 800;
             margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff 0%, #ffd4a8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .header h1 {
             margin: 0;
@@ -49,15 +60,15 @@
             margin-bottom: 25px;
         }
         .highlight-box {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+            border: 1px solid rgba(249, 115, 22, 0.3);
             border-radius: 12px;
             padding: 25px;
             margin: 25px 0;
             text-align: center;
         }
         .highlight-box h3 {
-            color: #6366f1;
+            color: #ea580c;
             margin: 0 0 10px;
             font-size: 18px;
         }
@@ -66,7 +77,7 @@
             margin: 0;
         }
         .what-next {
-            background: #f9fafb;
+            background: #fafaf9;
             border-radius: 12px;
             padding: 25px;
             margin: 25px 0;
@@ -82,7 +93,7 @@
             margin-bottom: 15px;
         }
         .step-number {
-            background: #6366f1;
+            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
             color: white;
             width: 28px;
             height: 28px;
@@ -102,7 +113,7 @@
             color: #1f2937;
         }
         .contact-info {
-            background: #1f2937;
+            background: #1a1a35;
             color: #e5e7eb;
             border-radius: 12px;
             padding: 25px;
@@ -122,7 +133,7 @@
             margin-left: 10px;
         }
         .contact-item a {
-            color: #8b5cf6;
+            color: #fb923c;
             text-decoration: none;
         }
         .cta-section {
@@ -131,12 +142,13 @@
         }
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
             color: white;
             padding: 14px 30px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
         }
         .services-grid {
             display: grid;
@@ -145,7 +157,8 @@
             margin: 25px 0;
         }
         .service-item {
-            background: #f9fafb;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(239, 68, 68, 0.05) 100%);
+            border: 1px solid rgba(249, 115, 22, 0.1);
             padding: 15px;
             border-radius: 8px;
             text-align: center;
@@ -159,12 +172,20 @@
             margin: 0;
             color: #4b5563;
             font-size: 13px;
+            font-weight: 600;
         }
         .footer {
-            background: #f9fafb;
+            background: #1a1a35;
             padding: 25px 30px;
             text-align: center;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer p {
+            color: #a8a29e;
+            margin: 5px 0;
+        }
+        .footer strong {
+            color: #fb923c;
         }
         .social-links {
             margin: 15px 0;
@@ -172,11 +193,11 @@
         .social-links a {
             display: inline-block;
             margin: 0 8px;
-            color: #6b7280;
+            color: #fb923c;
             text-decoration: none;
         }
         .footer-text {
-            color: #9ca3af;
+            color: #78716c;
             font-size: 12px;
             margin-top: 15px;
         }
@@ -185,7 +206,10 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">KA Software</div>
+            <div class="logo">
+                <img src="https://kasoftware.in/images/logo.png" alt="KA Software Logo">
+            </div>
+            <div class="logo-text">KA Software</div>
             <h1>Thank You for Reaching Out!</h1>
         </div>
         
@@ -281,9 +305,9 @@
             <p>Building the future with AI-powered software solutions</p>
             
             <div class="social-links">
-                <a href="#">LinkedIn</a> |
-                <a href="#">Twitter</a> |
-                <a href="#">GitHub</a>
+                <a href="https://www.linkedin.com/company/kasoftware">LinkedIn</a> |
+                <a href="https://twitter.com/kasoftware">Twitter</a> |
+                <a href="https://github.com/kasoftware">GitHub</a>
             </div>
             
             <p class="footer-text">

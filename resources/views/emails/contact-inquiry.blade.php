@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Project Inquiry</title>
+    <title>New Project Inquiry - KA Software</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,55 +12,90 @@
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f5f5f5;
+            background-color: #1a1a35;
         }
         .container {
             background: #ffffff;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
         .header {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #f97316 0%, #ef4444 50%, #dc2626 100%);
             color: white;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
+        }
+        .logo {
+            margin-bottom: 15px;
+        }
+        .logo img {
+            width: 60px;
+            height: 60px;
+        }
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 10px;
         }
         .header h1 {
             margin: 0;
             font-size: 24px;
+            font-weight: 600;
         }
         .header p {
             margin: 10px 0 0;
             opacity: 0.9;
+            font-size: 14px;
         }
         .content {
             padding: 30px;
         }
         .badge {
             display: inline-block;
-            background: #6366f1;
+            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
             color: white;
-            padding: 5px 15px;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             margin-bottom: 20px;
+        }
+        .priority-box {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+            border: 1px solid #fdba74;
+            border-left: 4px solid #f97316;
+            color: #c2410c;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 25px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        .priority-box span {
+            font-size: 20px;
+            margin-right: 10px;
         }
         .info-section {
             margin-bottom: 25px;
         }
         .info-section h3 {
-            color: #6366f1;
+            color: #ea580c;
             margin: 0 0 15px;
             font-size: 16px;
-            border-bottom: 2px solid #e5e7eb;
+            border-bottom: 2px solid #fed7aa;
             padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .info-section h3 span {
+            margin-right: 8px;
         }
         .info-row {
             display: flex;
             margin-bottom: 12px;
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #f3f4f6;
         }
         .info-label {
@@ -71,49 +106,93 @@
         }
         .info-value {
             color: #1f2937;
-        }
-        .message-box {
-            background: #f9fafb;
-            border-left: 4px solid #6366f1;
-            padding: 15px;
-            margin-top: 10px;
-            border-radius: 0 8px 8px 0;
-        }
-        .priority-high {
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            color: #dc2626;
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
             font-weight: 500;
         }
-        .footer {
-            background: #1f2937;
-            color: #9ca3af;
-            padding: 20px 30px;
-            text-align: center;
-            font-size: 13px;
-        }
-        .footer a {
-            color: #8b5cf6;
+        .info-value a {
+            color: #ea580c;
             text-decoration: none;
+        }
+        .info-value a:hover {
+            text-decoration: underline;
+        }
+        .message-box {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(239, 68, 68, 0.05) 100%);
+            border-left: 4px solid #f97316;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 0 8px 8px 0;
+            color: #374151;
+            line-height: 1.8;
+        }
+        .cta-section {
+            text-align: center;
+            margin: 30px 0 10px;
         }
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
             color: white;
-            padding: 12px 25px;
+            padding: 14px 30px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 15px;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+        }
+        .cta-button:hover {
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+        }
+        .quick-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .quick-action {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #f97316;
+            color: #ea580c;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            background: white;
+        }
+        .footer {
+            background: #1a1a35;
+            color: #a8a29e;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        .footer p {
+            margin: 5px 0;
+            font-size: 13px;
+        }
+        .footer strong {
+            color: #fb923c;
+        }
+        .footer a {
+            color: #fb923c;
+            text-decoration: none;
+        }
+        .footer-logo {
+            margin-bottom: 10px;
+        }
+        .footer-logo img {
+            width: 40px;
+            height: 40px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
+            <div class="logo">
+                <img src="https://kasoftware.in/images/logo.png" alt="KA Software Logo">
+            </div>
+            <div class="logo-text">KA Software</div>
             <h1>🚀 New Project Inquiry</h1>
             <p>A potential client has submitted a project inquiry</p>
         </div>
@@ -121,12 +200,13 @@
         <div class="content">
             <span class="badge">{{ $contactData['service'] }}</span>
             
-            <div class="priority-high">
-                ⚡ New lead requires follow-up within 24 hours
+            <div class="priority-box">
+                <span>⚡</span>
+                <div>New lead requires follow-up within <strong>24 hours</strong></div>
             </div>
             
             <div class="info-section">
-                <h3>👤 Contact Information</h3>
+                <h3><span>👤</span> Contact Information</h3>
                 <div class="info-row">
                     <span class="info-label">Name:</span>
                     <span class="info-value">{{ $contactData['name'] }}</span>
@@ -150,7 +230,7 @@
             </div>
             
             <div class="info-section">
-                <h3>📋 Project Details</h3>
+                <h3><span>📋</span> Project Details</h3>
                 <div class="info-row">
                     <span class="info-label">Service:</span>
                     <span class="info-value">{{ $contactData['service'] }}</span>
@@ -164,14 +244,14 @@
             </div>
             
             <div class="info-section">
-                <h3>💬 Message</h3>
+                <h3><span>💬</span> Client Message</h3>
                 <div class="message-box">
                     {{ $contactData['message'] }}
                 </div>
             </div>
             
             <div class="info-section">
-                <h3>🔍 Additional Info</h3>
+                <h3><span>🔍</span> Additional Information</h3>
                 <div class="info-row">
                     <span class="info-label">IP Address:</span>
                     <span class="info-value">{{ $contactData['ip_address'] ?? 'N/A' }}</span>
@@ -182,16 +262,30 @@
                 </div>
             </div>
             
-            <center>
+            <div class="cta-section">
                 <a href="mailto:{{ $contactData['email'] }}" class="cta-button">
-                    Reply to {{ $contactData['name'] }}
+                    ✉️ Reply to {{ $contactData['name'] }}
                 </a>
-            </center>
+                
+                <div class="quick-actions">
+                    @if($contactData['phone'])
+                    <a href="tel:{{ $contactData['phone'] }}" class="quick-action">📞 Call Now</a>
+                    @endif
+                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $contactData['phone'] ?? '') }}" class="quick-action">💬 WhatsApp</a>
+                </div>
+            </div>
         </div>
         
         <div class="footer">
-            <p>This email was sent from the KA Software website contact form.</p>
+            <div class="footer-logo">
+                <img src="https://kasoftware.in/images/logo.png" alt="KA Software">
+            </div>
+            <p><strong>KA Software</strong></p>
+            <p>This inquiry was received from your website contact form</p>
             <p><a href="https://kasoftware.in">www.kasoftware.in</a></p>
+            <p style="margin-top: 15px; color: #78716c; font-size: 11px;">
+                © {{ date('Y') }} KA Software. All rights reserved.
+            </p>
         </div>
     </div>
 </body>

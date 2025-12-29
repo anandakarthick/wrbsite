@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <title>Company Profile - KA Software | About Us, Our Mission & Expertise</title>
-    <meta name="description" content="Learn about KA Software - A leading AI-powered software development company based in Chennai, India. Founded in 2024, we have delivered 500+ projects with expertise in mobile apps, web applications, AI/ML, e-commerce, HRMS, and CRM solutions. Meet our team and discover our mission.">
+    <meta name="description" content="Learn about KA Software - A leading AI-powered software development company based in Chennai, India. Founded in 2018, we have delivered 500+ projects with expertise in mobile apps, web applications, AI/ML, e-commerce, HRMS, and CRM solutions. Meet our team and discover our mission.">
     <meta name="keywords" content="KA Software company profile, about KA Software, software company chennai, software development team india, AI development company chennai, mobile app company india, web development company, KA Software team, KA Software mission, technology company chennai">
     <meta name="author" content="KA Software">
     <meta name="robots" content="index, follow, max-image-preview:large">
@@ -29,6 +29,12 @@
     <meta name="theme-color" content="#f97316">
     <meta name="geo.region" content="IN-TN">
     <meta name="geo.placename" content="Chennai">
+    
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,7 +109,7 @@
                         <h2 class="section-title">Who We Are</h2>
                         <p class="about-text">
                             <strong>KA Software</strong> is a leading software development company based in Chennai, India. 
-                            Founded in 2024, we specialize in creating innovative, AI-powered solutions that help businesses 
+                            Founded in 2018, we specialize in creating innovative, AI-powered solutions that help businesses 
                             thrive in the digital age.
                         </p>
                         <p class="about-text">
@@ -162,7 +168,7 @@
                             </svg>
                         </div>
                         <h3 class="info-title">Founded</h3>
-                        <p class="info-value">2024</p>
+                        <p class="info-value">2018</p>
                     </div>
                     
                     <div class="info-card">

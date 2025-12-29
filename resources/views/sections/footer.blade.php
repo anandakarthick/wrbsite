@@ -6,16 +6,7 @@
             <div class="footer-section">
                 <a href="{{ url('/') }}" class="footer-logo">
                     <span class="logo-icon">
-                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" rx="8" fill="url(#footer-logo-gradient)"/>
-                            <path d="M12 28V12H16L20 20L24 12H28V28H24V18L20 26H20L16 18V28H12Z" fill="white"/>
-                            <defs>
-                                <linearGradient id="footer-logo-gradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#f97316"/>
-                                    <stop offset="1" stop-color="#ef4444"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
+                        <img src="{{ asset('images/logo.png') }}" alt="KA Software Logo" width="36" height="36" style="object-fit: contain;">
                     </span>
                     <span class="logo-text">KA Software</span>
                 </a>

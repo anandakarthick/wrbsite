@@ -19,7 +19,7 @@ class SEOHelper
             ],
             'profile' => [
                 'title' => 'Company Profile - KA Software | About Us, Services & Expertise',
-                'description' => 'Learn about KA Software - A leading AI-powered software development company based in Chennai, India. Founded in 2024, we have delivered 500+ projects with expertise in mobile apps, web applications, AI/ML, e-commerce, HRMS, and CRM solutions.',
+                'description' => 'Learn about KA Software - A leading AI-powered software development company based in Chennai, India. Founded in 2018, we have delivered 500+ projects with expertise in mobile apps, web applications, AI/ML, e-commerce, HRMS, and CRM solutions.',
                 'keywords' => 'KA Software company profile, software company chennai, about KA Software, software development team india, AI development company, mobile app company chennai',
                 'canonical' => url('/profile'),
                 'og_type' => 'profile',
