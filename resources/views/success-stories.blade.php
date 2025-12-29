@@ -48,62 +48,62 @@
     
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
+        "@@context": "https://schema.org",
+        "@@type": "BreadcrumbList",
         "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://kasoftware.in"},
-            {"@type": "ListItem", "position": 2, "name": "Success Stories", "item": "https://kasoftware.in/success-stories"}
+            {"@@type": "ListItem", "position": 1, "name": "Home", "item": "https://kasoftware.in"},
+            {"@@type": "ListItem", "position": 2, "name": "Success Stories", "item": "https://kasoftware.in/success-stories"}
         ]
     }
     </script>
     
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
+        "@@context": "https://schema.org",
+        "@@type": "CollectionPage",
         "name": "Success Stories & Case Studies",
         "description": "Explore KA Software's client success stories and case studies across healthcare, e-commerce, HRMS, CRM, FinTech, and manufacturing industries.",
         "url": "https://kasoftware.in/success-stories",
         "mainEntity": {
-            "@type": "ItemList",
+            "@@type": "ItemList",
             "itemListElement": [
                 {
-                    "@type": "Article",
+                    "@@type": "Article",
                     "position": 1,
                     "name": "AI-Powered Healthcare Diagnostic Platform",
                     "description": "Achieving 95% accuracy in disease detection, reducing diagnosis time by 60%",
                     "url": "https://kasoftware.in/success-stories/healthcare-ai-platform"
                 },
                 {
-                    "@type": "Article",
+                    "@@type": "Article",
                     "position": 2,
                     "name": "Smart E-commerce Platform with AI Recommendations",
                     "description": "40% increase in sales, 65% improvement in customer retention",
                     "url": "https://kasoftware.in/success-stories/smart-ecommerce"
                 },
                 {
-                    "@type": "Article",
+                    "@@type": "Article",
                     "position": 3,
                     "name": "Enterprise HRMS with AI-Powered Recruitment",
                     "description": "70% reduction in hiring time, 45% improvement in employee engagement",
                     "url": "https://kasoftware.in/success-stories/enterprise-hrms"
                 },
                 {
-                    "@type": "Article",
+                    "@@type": "Article",
                     "position": 4,
                     "name": "Intelligent CRM with Predictive Lead Scoring",
                     "description": "60% improvement in lead conversion, 35% revenue growth",
                     "url": "https://kasoftware.in/success-stories/intelligent-crm"
                 },
                 {
-                    "@type": "Article",
+                    "@@type": "Article",
                     "position": 5,
                     "name": "FinTech Mobile App with AI Fraud Detection",
                     "description": "$2M+ fraud prevented, 99.9% uptime, 50K+ users",
                     "url": "https://kasoftware.in/success-stories/fintech-mobile-app"
                 },
                 {
-                    "@type": "Article",
+                    "@@type": "Article",
                     "position": 6,
                     "name": "Smart Manufacturing with IoT & Predictive Maintenance",
                     "description": "80% reduction in downtime, $500K annual savings",
@@ -116,13 +116,13 @@
     
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Organization",
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
         "name": "KA Software",
         "url": "https://kasoftware.in",
         "logo": "https://kasoftware.in/images/logo.png",
         "contactPoint": {
-            "@type": "ContactPoint",
+            "@@type": "ContactPoint",
             "telephone": "+91-8056653499",
             "contactType": "sales"
         }
