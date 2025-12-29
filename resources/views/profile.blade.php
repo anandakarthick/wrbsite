@@ -1,54 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Profile - KA Software | AI-Powered Software Development</title>
-    <meta name="description" content="Learn about KA Software - A leading AI-powered software development company based in Chennai, India. We specialize in mobile apps, web applications, e-commerce, HRMS, CRM and AI/ML solutions.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Company Profile - KA Software | About Us, Our Mission & Expertise</title>
+    <meta name="description" content="Learn about KA Software - A leading AI-powered software development company based in Chennai, India. Founded in 2024, we have delivered 500+ projects with expertise in mobile apps, web applications, AI/ML, e-commerce, HRMS, and CRM solutions. Meet our team and discover our mission.">
+    <meta name="keywords" content="KA Software company profile, about KA Software, software company chennai, software development team india, AI development company chennai, mobile app company india, web development company, KA Software team, KA Software mission, technology company chennai">
+    <meta name="author" content="KA Software">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <link rel="canonical" href="https://kasoftware.in/profile">
+    
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://kasoftware.in/profile">
+    <meta property="og:title" content="Company Profile - KA Software | About Us & Our Expertise">
+    <meta property="og:description" content="Learn about KA Software - Leading AI-powered software development company. 500+ projects, 98% satisfaction, 25+ experts.">
+    <meta property="og:image" content="{{ asset('images/og-profile.jpg') }}">
+    <meta property="og:site_name" content="KA Software">
+    <meta property="og:locale" content="en_IN">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Company Profile - KA Software">
+    <meta name="twitter:description" content="Leading AI-powered software development company in Chennai, India.">
+    <meta name="twitter:image" content="{{ asset('images/og-profile.jpg') }}">
+    
+    <meta name="theme-color" content="#6366f1">
+    <meta name="geo.region" content="IN-TN">
+    <meta name="geo.placename" content="Chennai">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@@type": "ListItem", "position": 1, "name": "Home", "item": "https://kasoftware.in"},
+            {"@@type": "ListItem", "position": 2, "name": "Company Profile", "item": "https://kasoftware.in/profile"}
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@@type": "AboutPage",
+        "name": "About KA Software",
+        "description": "Learn about KA Software - A leading AI-powered software development company based in Chennai, India.",
+        "url": "https://kasoftware.in/profile",
+        "mainEntity": {
+            "@@type": "Organization",
+            "name": "KA Software",
+            "foundingDate": "2024",
+            "foundingLocation": "Chennai, India",
+            "numberOfEmployees": "25+",
+            "slogan": "Building the future with AI-powered software solutions"
+        }
+    }
+    </script>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <nav class="nav-container">
-            <a href="{{ url('/') }}" class="logo">
-                <span class="logo-icon">
-                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="40" height="40" rx="8" fill="url(#logo-gradient)"/>
-                        <path d="M12 28V12H16L20 20L24 12H28V28H24V18L20 26H20L16 18V28H12Z" fill="white"/>
-                        <defs>
-                            <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#6366F1"/>
-                                <stop offset="1" stop-color="#8B5CF6"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </span>
-                <span class="logo-text">KA Software</span>
-            </a>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="{{ url('/') }}" class="nav-link">Home</a></li>
-                <li><a href="{{ url('/#services') }}" class="nav-link">Services</a></li>
-                <li><a href="{{ url('/#portfolio') }}" class="nav-link">Portfolio</a></li>
-                <li><a href="{{ url('/#contact') }}" class="nav-link">Contact</a></li>
-                <li><a href="{{ route('profile') }}" class="nav-link active">Profile</a></li>
-            </ul>
-            
-            <a href="{{ url('/#contact') }}" class="btn btn-primary nav-cta">Get Started</a>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
+    @include('sections.header')
 
     <main>
         <!-- Profile Hero -->
@@ -211,12 +230,11 @@
                         <div class="service-detail-number">01</div>
                         <div class="service-detail-content">
                             <h3>Mobile App Development</h3>
-                            <p>Native and cross-platform mobile applications for iOS and Android with AI-powered features, intuitive UX, and seamless performance.</p>
+                            <p>Native and cross-platform mobile applications for iOS and Android with AI-powered features.</p>
                             <ul class="service-features">
-                                <li>Native iOS & Android Apps</li>
-                                <li>Cross-platform (Flutter, React Native)</li>
+                                <li>Native iOS & Android</li>
+                                <li>Flutter & React Native</li>
                                 <li>AI-powered Features</li>
-                                <li>App Store Optimization</li>
                             </ul>
                         </div>
                     </div>
@@ -225,12 +243,11 @@
                         <div class="service-detail-number">02</div>
                         <div class="service-detail-content">
                             <h3>Web Application Development</h3>
-                            <p>Responsive, scalable web applications with modern frameworks, cloud integration, and intelligent automation capabilities.</p>
+                            <p>Responsive, scalable web applications with modern frameworks and cloud integration.</p>
                             <ul class="service-features">
                                 <li>React, Vue.js, Angular</li>
                                 <li>Node.js, Python, Laravel</li>
-                                <li>Cloud Deployment (AWS, GCP)</li>
-                                <li>Progressive Web Apps</li>
+                                <li>Cloud Deployment</li>
                             </ul>
                         </div>
                     </div>
@@ -239,12 +256,11 @@
                         <div class="service-detail-number">03</div>
                         <div class="service-detail-content">
                             <h3>E-commerce Solutions</h3>
-                            <p>Complete e-commerce platforms with AI-driven recommendations, dynamic pricing, and seamless payment integration.</p>
+                            <p>Complete e-commerce platforms with AI-driven recommendations and payment integration.</p>
                             <ul class="service-features">
-                                <li>Custom E-commerce Platforms</li>
-                                <li>Shopify, WooCommerce, Magento</li>
-                                <li>AI Product Recommendations</li>
-                                <li>Payment Gateway Integration</li>
+                                <li>Custom Platforms</li>
+                                <li>AI Recommendations</li>
+                                <li>Payment Integration</li>
                             </ul>
                         </div>
                     </div>
@@ -253,11 +269,10 @@
                         <div class="service-detail-number">04</div>
                         <div class="service-detail-content">
                             <h3>HRMS Solutions</h3>
-                            <p>Comprehensive HR management systems with AI-powered recruitment, performance analytics, and employee engagement tools.</p>
+                            <p>Comprehensive HR management systems with AI-powered recruitment and analytics.</p>
                             <ul class="service-features">
                                 <li>Employee Management</li>
-                                <li>AI-powered Recruitment</li>
-                                <li>Payroll & Attendance</li>
+                                <li>AI Recruitment</li>
                                 <li>Performance Analytics</li>
                             </ul>
                         </div>
@@ -267,12 +282,11 @@
                         <div class="service-detail-number">05</div>
                         <div class="service-detail-content">
                             <h3>CRM Systems</h3>
-                            <p>Intelligent customer relationship management with predictive analytics, automated workflows, and sales forecasting.</p>
+                            <p>Intelligent CRM with predictive analytics and automated workflows.</p>
                             <ul class="service-features">
                                 <li>Lead Management</li>
                                 <li>Sales Automation</li>
                                 <li>Predictive Analytics</li>
-                                <li>Customer Insights</li>
                             </ul>
                         </div>
                     </div>
@@ -281,12 +295,11 @@
                         <div class="service-detail-number">06</div>
                         <div class="service-detail-content">
                             <h3>AI/ML Solutions</h3>
-                            <p>Custom artificial intelligence and machine learning solutions including computer vision, NLP, and predictive modeling.</p>
+                            <p>Custom AI and machine learning solutions including computer vision and NLP.</p>
                             <ul class="service-features">
-                                <li>Machine Learning Models</li>
-                                <li>Natural Language Processing</li>
+                                <li>Machine Learning</li>
                                 <li>Computer Vision</li>
-                                <li>Predictive Analytics</li>
+                                <li>NLP Solutions</li>
                             </ul>
                         </div>
                     </div>
@@ -334,8 +347,6 @@
                             <span class="tech-tag">React Native</span>
                             <span class="tech-tag">Swift</span>
                             <span class="tech-tag">Kotlin</span>
-                            <span class="tech-tag">iOS</span>
-                            <span class="tech-tag">Android</span>
                         </div>
                     </div>
                     
@@ -346,8 +357,6 @@
                             <span class="tech-tag">PyTorch</span>
                             <span class="tech-tag">OpenAI</span>
                             <span class="tech-tag">Scikit-learn</span>
-                            <span class="tech-tag">AWS ML</span>
-                            <span class="tech-tag">Google AI</span>
                         </div>
                     </div>
                     
@@ -358,8 +367,6 @@
                             <span class="tech-tag">MySQL</span>
                             <span class="tech-tag">MongoDB</span>
                             <span class="tech-tag">Redis</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Elasticsearch</span>
                         </div>
                     </div>
                     
@@ -370,57 +377,7 @@
                             <span class="tech-tag">Google Cloud</span>
                             <span class="tech-tag">Azure</span>
                             <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">CI/CD</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Choose Us Section -->
-        <section class="profile-section why-us-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-badge">Why Choose Us</span>
-                    <h2 class="section-title">Our Competitive Edge</h2>
-                </div>
-                
-                <div class="why-us-grid">
-                    <div class="why-us-card">
-                        <div class="why-us-icon">💡</div>
-                        <h3>Innovation First</h3>
-                        <p>We stay ahead of technology trends, integrating AI and cutting-edge solutions into every project.</p>
-                    </div>
-                    
-                    <div class="why-us-card">
-                        <div class="why-us-icon">🎯</div>
-                        <h3>Result-Oriented</h3>
-                        <p>Our focus is on delivering measurable business outcomes, not just technical deliverables.</p>
-                    </div>
-                    
-                    <div class="why-us-card">
-                        <div class="why-us-icon">🤝</div>
-                        <h3>Client Partnership</h3>
-                        <p>We work as an extension of your team, ensuring transparent communication and collaboration.</p>
-                    </div>
-                    
-                    <div class="why-us-card">
-                        <div class="why-us-icon">⚡</div>
-                        <h3>Agile Delivery</h3>
-                        <p>Our agile methodology ensures faster time-to-market with iterative development and feedback.</p>
-                    </div>
-                    
-                    <div class="why-us-card">
-                        <div class="why-us-icon">🔒</div>
-                        <h3>Security First</h3>
-                        <p>Enterprise-grade security practices integrated into every stage of development.</p>
-                    </div>
-                    
-                    <div class="why-us-card">
-                        <div class="why-us-icon">📞</div>
-                        <h3>24/7 Support</h3>
-                        <p>Round-the-clock support and maintenance to ensure your systems run smoothly.</p>
                     </div>
                 </div>
             </div>
@@ -434,29 +391,23 @@
                         <span class="section-badge">Get In Touch</span>
                         <h2 class="section-title">Contact Information</h2>
                         <p class="section-description">
-                            Ready to start your project? Reach out to us through any of the following channels.
+                            Ready to start your project? Reach out to us.
                         </p>
                         
                         <div class="contact-details-list">
                             <div class="contact-detail-item">
                                 <div class="contact-detail-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                        <polyline points="22,6 12,13 2,6"></polyline>
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                 </div>
                                 <div class="contact-detail-content">
                                     <h4>Email</h4>
                                     <p><a href="mailto:info@kasoftware.in">info@kasoftware.in</a></p>
-                                    <p><a href="mailto:helpdesk@kasoftware.in">helpdesk@kasoftware.in</a></p>
                                 </div>
                             </div>
                             
                             <div class="contact-detail-item">
                                 <div class="contact-detail-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                                 </div>
                                 <div class="contact-detail-content">
                                     <h4>Phone</h4>
@@ -466,30 +417,12 @@
                             
                             <div class="contact-detail-item">
                                 <div class="contact-detail-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                                 </div>
                                 <div class="contact-detail-content">
                                     <h4>Address</h4>
                                     <p>18/15, Subramaniam Street, Rajaji Nagar</p>
-                                    <p>Villivakkam Road, Anna Nagar</p>
-                                    <p>Chennai - 600049, India</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-detail-item">
-                                <div class="contact-detail-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <polyline points="12 6 12 12 16 14"></polyline>
-                                    </svg>
-                                </div>
-                                <div class="contact-detail-content">
-                                    <h4>Business Hours</h4>
-                                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                                    <p>Saturday: 10:00 AM - 4:00 PM</p>
+                                    <p>Anna Nagar, Chennai - 600049</p>
                                 </div>
                             </div>
                         </div>
@@ -503,8 +436,7 @@
                                 height="100%" 
                                 style="border:0; border-radius: 16px;" 
                                 allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade">
+                                loading="lazy">
                             </iframe>
                         </div>
                     </div>
@@ -518,20 +450,13 @@
                 <div class="cta-content">
                     <h2 class="cta-title">Ready to Start Your Project?</h2>
                     <p class="cta-description">
-                        Let's discuss how we can help transform your ideas into powerful, AI-driven solutions.
+                        Let's discuss how we can help transform your ideas into powerful solutions.
                     </p>
                     <div class="cta-buttons">
                         <a href="{{ url('/#contact') }}" class="btn btn-white btn-lg">
                             <span>Get Free Consultation</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
                         </a>
                         <a href="tel:+918056653499" class="btn btn-outline-white btn-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
                             <span>Call Us Now</span>
                         </a>
                     </div>
@@ -544,9 +469,7 @@
         </section>
     </main>
 
-    <!-- Footer -->
     @include('sections.footer')
-
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!-- Header -->
 <header id="header">
     <nav class="nav-container">
-        <a href="{{ url('/') }}" class="logo">
+        <a href="{{ url('/') }}" class="logo" aria-label="KA Software - Home">
             <span class="logo-icon">
                 <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="40" height="40" rx="8" fill="url(#logo-gradient)"/>
@@ -18,7 +18,7 @@
         </a>
         
         <ul class="nav-links" id="navLinks">
-            <li><a href="{{ url('/') }}#home" class="nav-link">Home</a></li>
+            <li><a href="{{ url('/') }}" class="nav-link">Home</a></li>
             <li><a href="{{ url('/') }}#services" class="nav-link">Services</a></li>
             <li><a href="{{ route('success-stories') }}" class="nav-link">Success Stories</a></li>
             <li><a href="{{ url('/') }}#portfolio" class="nav-link">Portfolio</a></li>
