@@ -99,12 +99,15 @@
     <script type="application/ld+json">
     {
         "@@context": "https://schema.org",
-        "@@type": "SoftwareCompany",
+        "@@type": "LocalBusiness",
+        "@@id": "https://kasoftware.in/#localbusiness",
         "name": "KA Software",
+        "image": "https://kasoftware.in/images/logo.png",
         "url": "https://kasoftware.in",
         "telephone": "+91-8056653499",
         "email": "info@@kasoftware.in",
         "priceRange": "₹₹₹",
+        "description": "Leading AI-powered software development company in Chennai specializing in mobile apps, web applications, e-commerce, HRMS, CRM, and AI/ML solutions.",
         "address": {
             "@@type": "PostalAddress",
             "streetAddress": "18/15, Subramaniam Street, Rajaji Nagar",
@@ -164,8 +167,33 @@
                     "@@type": "Answer",
                     "text": "Yes, we provide comprehensive post-launch support including bug fixes, performance optimization, feature updates, and 24/7 technical support."
                 }
+            },
+            {
+                "@@type": "Question",
+                "name": "What technologies does KA Software use?",
+                "acceptedAnswer": {
+                    "@@type": "Answer",
+                    "text": "We use modern technologies including React, Flutter, Node.js, Python, Laravel, AI/ML frameworks like TensorFlow and PyTorch, and cloud platforms like AWS and Google Cloud."
+                }
+            },
+            {
+                "@@type": "Question",
+                "name": "How can I contact KA Software for a project?",
+                "acceptedAnswer": {
+                    "@@type": "Answer",
+                    "text": "You can contact us via email at info@@kasoftware.in, call us at +91-8056653499, or fill out the contact form on our website. We typically respond within 24 hours."
+                }
             }
         ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
+        "name": "KA Software",
+        "url": "https://kasoftware.in"
     }
     </script>
 </head>

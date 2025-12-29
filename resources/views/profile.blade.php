@@ -45,24 +45,24 @@
     
     <script type="application/ld+json">
     {
-        "@@context": "https://schema.org",
-        "@@type": "BreadcrumbList",
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
         "itemListElement": [
-            {"@@type": "ListItem", "position": 1, "name": "Home", "item": "https://kasoftware.in"},
-            {"@@type": "ListItem", "position": 2, "name": "Company Profile", "item": "https://kasoftware.in/profile"}
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://kasoftware.in"},
+            {"@type": "ListItem", "position": 2, "name": "Company Profile", "item": "https://kasoftware.in/profile"}
         ]
     }
     </script>
     
     <script type="application/ld+json">
     {
-        "@@context": "https://schema.org",
-        "@@type": "AboutPage",
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
         "name": "About KA Software",
         "description": "Learn about KA Software - A leading AI-powered software development company based in Chennai, India.",
         "url": "https://kasoftware.in/profile",
         "mainEntity": {
-            "@@type": "Organization",
+            "@type": "Organization",
             "name": "KA Software",
             "foundingDate": "2024",
             "foundingLocation": "Chennai, India",
