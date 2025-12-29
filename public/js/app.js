@@ -4,7 +4,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
+    console.log('DOM loaded');
+    
     initHeader();
     initMobileMenu();
     initSmoothScroll();
@@ -47,7 +48,6 @@ function initMobileMenu() {
         document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
     });
     
-    // Close menu when clicking on a link
     navLinks.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function() {
             menuBtn.classList.remove('active');
@@ -56,7 +56,6 @@ function initMobileMenu() {
         });
     });
     
-    // Close menu when clicking outside
     document.addEventListener('click', function(e) {
         if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
             menuBtn.classList.remove('active');
@@ -86,7 +85,6 @@ function initSmoothScroll() {
         });
     });
     
-    // Update active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     
@@ -113,16 +111,10 @@ function initSmoothScroll() {
 }
 
 /**
- * Scroll animations (AOS-like)
+ * Scroll animations
  */
 function initAnimations() {
     const animatedElements = document.querySelectorAll('[data-aos]');
-    
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -133,7 +125,7 @@ function initAnimations() {
                 }, parseInt(delay));
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
     
     animatedElements.forEach(el => observer.observe(el));
 }
@@ -144,12 +136,6 @@ function initAnimations() {
 function initStatsCounter() {
     const stats = document.querySelectorAll('.stat-number[data-target]');
     
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5
-    };
-    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -159,14 +145,11 @@ function initStatsCounter() {
                 observer.unobserve(target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.5 });
     
     stats.forEach(stat => observer.observe(stat));
 }
 
-/**
- * Animate counter from 0 to target
- */
 function animateCounter(element, target) {
     const duration = 2000;
     const increment = target / (duration / 16);
@@ -187,423 +170,79 @@ function animateCounter(element, target) {
  * Contact form handling
  */
 function initContactForm() {
-    const form = document.getElementById('contactForm');
+    var form = document.getElementById('contactForm');
     
     if (!form) {
-        console.log('Contact form not found');
+        console.log('No contact form found');
         return;
     }
     
-    console.log('Contact form initialized');
+    console.log('Contact form found');
     
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
-        console.log('Form submitted');
         
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var originalHTML = submitBtn.innerHTML;
         
-        // Show loading state
+        // Show loading
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `
-            <svg class="animate-spin" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
-                <path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="1"></path>
-            </svg>
-            <span>Sending...</span>
-        `;
+        submitBtn.innerHTML = 'Sending...';
         
-        try {
-            const formData = new FormData(form);
-            
-            console.log('Sending request to:', form.action);
-            
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'Accept': 'application/json'
-                }
-            });
-            
-            console.log('Response status:', response.status);
-            
-            const data = await response.json();
-            console.log('Response data:', data);
-            
-            // Reset button first
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
-            
-            if (data.success) {
-                console.log('Success! Showing modal...');
-                form.reset();
-                showSuccessModal();
-            } else {
-                throw new Error(data.message || 'Something went wrong');
+        var formData = new FormData(form);
+        
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept': 'application/json'
             }
-        } catch (error) {
-            console.error('Form error:', error);
-            
+        })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
             // Reset button
             submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
+            submitBtn.innerHTML = originalHTML;
             
-            showNotification('error', error.message || 'Failed to send message. Please try again or call us directly at +91 8056653499');
-        }
+            if (data.success) {
+                // Reset form
+                form.reset();
+                
+                // Show JavaScript alert
+                alert('🎉 Thank You!\n\nYour inquiry has been received successfully.\n\nOur sales team will contact you within 24 hours.\n\nA confirmation email has been sent to your inbox.');
+            } else {
+                alert('Error: ' + (data.message || 'Something went wrong. Please try again.'));
+            }
+        })
+        .catch(function(error) {
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalHTML;
+            
+            alert('Error: Failed to send message.\n\nPlease try again or call us directly at +91 8056653499');
+            console.error('Error:', error);
+        });
     });
 }
 
 /**
- * Show success modal after form submission
- */
-function showSuccessModal() {
-    console.log('showSuccessModal called');
-    
-    // Remove existing modal
-    const existing = document.querySelector('.success-modal-overlay');
-    if (existing) {
-        console.log('Removing existing modal');
-        existing.remove();
-    }
-    
-    // Add styles first
-    addModalStyles();
-    
-    const modal = document.createElement('div');
-    modal.className = 'success-modal-overlay';
-    modal.id = 'successModal';
-    modal.innerHTML = `
-        <div class="success-modal">
-            <button class="modal-close-btn" onclick="closeSuccessModal()" aria-label="Close">&times;</button>
-            <div class="success-modal-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg>
-            </div>
-            <h2 class="success-modal-title">🎉 Thank You!</h2>
-            <p class="success-modal-message">
-                Your inquiry has been received successfully.
-            </p>
-            <div class="success-modal-info">
-                <div class="info-icon">📞</div>
-                <p><strong>Our sales team will contact you shortly!</strong></p>
-                <p>Expect a call or email within 24 hours.</p>
-            </div>
-            <div class="success-modal-details">
-                <p>📧 A confirmation email has been sent to your inbox.</p>
-                <p>🕐 Business Hours: Mon-Fri, 9:00 AM - 6:00 PM IST</p>
-            </div>
-            <button class="success-modal-btn" onclick="closeSuccessModal()">
-                Got it, Thanks!
-            </button>
-        </div>
-    `;
-    
-    document.body.appendChild(modal);
-    document.body.style.overflow = 'hidden';
-    
-    console.log('Modal added to DOM');
-    
-    // Close on overlay click
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeSuccessModal();
-        }
-    });
-    
-    // Close on Escape key
-    const escHandler = function(e) {
-        if (e.key === 'Escape') {
-            closeSuccessModal();
-            document.removeEventListener('keydown', escHandler);
-        }
-    };
-    document.addEventListener('keydown', escHandler);
-}
-
-/**
- * Add modal styles to document
- */
-function addModalStyles() {
-    if (document.querySelector('#success-modal-styles')) return;
-    
-    const styles = document.createElement('style');
-    styles.id = 'success-modal-styles';
-    styles.textContent = `
-        .success-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(26, 26, 53, 0.95);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 99999;
-            padding: 1rem;
-            animation: modalFadeIn 0.3s ease forwards;
-        }
-        .success-modal {
-            background: linear-gradient(135deg, #1e1e3a 0%, #252550 100%);
-            border: 1px solid rgba(249, 115, 22, 0.3);
-            border-radius: 20px;
-            padding: 2.5rem;
-            max-width: 450px;
-            width: 100%;
-            text-align: center;
-            animation: modalScaleIn 0.3s ease forwards;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
-        .modal-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #a8a29e;
-            font-size: 24px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        .modal-close-btn:hover {
-            background: rgba(249, 115, 22, 0.2);
-            color: #fb923c;
-        }
-        .success-modal-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
-            border: 2px solid rgba(16, 185, 129, 0.4);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: #10b981;
-        }
-        .success-modal-title {
-            font-size: 1.75rem;
-            color: white;
-            margin-bottom: 0.5rem;
-            font-family: 'Poppins', sans-serif;
-        }
-        .success-modal-message {
-            color: #a8a29e;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        .success-modal-info {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
-            border: 1px solid rgba(249, 115, 22, 0.3);
-            border-radius: 12px;
-            padding: 1.25rem;
-            margin-bottom: 1.5rem;
-        }
-        .success-modal-info .info-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        .success-modal-info p {
-            color: #e5e7eb;
-            margin: 0.25rem 0;
-            font-size: 0.9375rem;
-        }
-        .success-modal-info p strong {
-            color: #fb923c;
-            font-size: 1.125rem;
-        }
-        .success-modal-details {
-            margin-bottom: 1.5rem;
-        }
-        .success-modal-details p {
-            color: #78716c;
-            font-size: 0.875rem;
-            margin: 0.5rem 0;
-        }
-        .success-modal-btn {
-            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
-        }
-        .success-modal-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.5);
-        }
-        @keyframes modalFadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes modalScaleIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        @keyframes modalFadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        
-        /* Notification styles */
-        .notification-toast {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            z-index: 100000;
-            animation: slideIn 0.3s ease;
-            max-width: 400px;
-            background: #1e1e3a;
-        }
-        .notification-success {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            color: #10b981;
-        }
-        .notification-error {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.2) 100%);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: #ef4444;
-        }
-        .notification-content {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .notification-message {
-            font-size: 0.9375rem;
-        }
-        .notification-close {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: inherit;
-            opacity: 0.7;
-            padding: 0;
-            line-height: 1;
-        }
-        .notification-close:hover {
-            opacity: 1;
-        }
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-        .animate-spin {
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-    `;
-    document.head.appendChild(styles);
-}
-
-/**
- * Close success modal
- */
-function closeSuccessModal() {
-    console.log('closeSuccessModal called');
-    const modal = document.querySelector('.success-modal-overlay');
-    if (modal) {
-        modal.style.animation = 'modalFadeOut 0.3s ease forwards';
-        setTimeout(() => {
-            modal.remove();
-            document.body.style.overflow = '';
-            console.log('Modal removed');
-        }, 300);
-    }
-}
-
-// Make closeSuccessModal available globally
-window.closeSuccessModal = closeSuccessModal;
-
-/**
- * Show notification toast
- */
-function showNotification(type, message) {
-    // Remove existing notification
-    const existing = document.querySelector('.notification-toast');
-    if (existing) existing.remove();
-    
-    // Add styles
-    addModalStyles();
-    
-    const notification = document.createElement('div');
-    notification.className = `notification-toast notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-icon">
-                ${type === 'success' 
-                    ? '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>'
-                    : '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>'
-                }
-            </span>
-            <span class="notification-message">${message}</span>
-        </div>
-        <button class="notification-close">&times;</button>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Close button
-    notification.querySelector('.notification-close').addEventListener('click', () => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => notification.remove(), 300);
-    });
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.animation = 'slideOut 0.3s ease';
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, 5000);
-}
-
-/**
- * Parallax effect for hero section
+ * Parallax effect
  */
 window.addEventListener('scroll', function() {
-    const hero = document.querySelector('.hero');
+    var hero = document.querySelector('.hero');
     if (!hero) return;
     
-    const scrolled = window.scrollY;
-    const heroHeight = hero.offsetHeight;
+    var scrolled = window.scrollY;
+    var heroHeight = hero.offsetHeight;
     
     if (scrolled < heroHeight) {
-        const glows = hero.querySelectorAll('.hero-glow');
-        glows.forEach((glow, index) => {
-            const speed = (index + 1) * 0.1;
-            glow.style.transform = `translateY(${scrolled * speed}px)`;
+        var glows = hero.querySelectorAll('.hero-glow');
+        glows.forEach(function(glow, index) {
+            var speed = (index + 1) * 0.1;
+            glow.style.transform = 'translateY(' + (scrolled * speed) + 'px)';
         });
     }
 });

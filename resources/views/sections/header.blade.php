@@ -17,7 +17,7 @@
             <li><a href="{{ route('profile') }}" class="nav-link">Profile</a></li>
         </ul>
         
-        <a href="{{ url('/') }}#contact" class="btn btn-primary nav-cta">Get Started</a>
+        <a href="#contact" class="btn btn-primary nav-cta" onclick="scrollToContact(event)">Get Started</a>
         
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
             <span></span>
@@ -26,3 +26,16 @@
         </button>
     </nav>
 </header>
+
+<script>
+function scrollToContact(e) {
+    var contactSection = document.getElementById('contact');
+    if (contactSection) {
+        e.preventDefault();
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        // If not on home page, redirect to home page with #contact
+        window.location.href = '{{ url("/") }}#contact';
+    }
+}
+</script>
