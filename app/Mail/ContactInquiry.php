@@ -3,17 +3,32 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Address;
 
-class ContactInquiry extends Mailable
+class ContactInquiry extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
     public $contactData;
+
+    /**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */
+    public $tries = 3;
+
+    /**
+     * The number of seconds to wait before retrying.
+     *
+     * @var int
+     */
+    public $backoff = 30;
 
     /**
      * Create a new message instance.

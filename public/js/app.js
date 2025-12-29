@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function initHeader() {
     const header = document.getElementById('header');
+    if (!header) return;
     
     function updateHeader() {
         if (window.scrollY > 50) {
@@ -188,10 +189,16 @@ function animateCounter(element, target) {
 function initContactForm() {
     const form = document.getElementById('contactForm');
     
-    if (!form) return;
+    if (!form) {
+        console.log('Contact form not found');
+        return;
+    }
+    
+    console.log('Contact form initialized');
     
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
+        console.log('Form submitted');
         
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
@@ -208,6 +215,9 @@ function initContactForm() {
         
         try {
             const formData = new FormData(form);
+            
+            console.log('Sending request to:', form.action);
+            
             const response = await fetch(form.action, {
                 method: 'POST',
                 body: formData,
@@ -217,20 +227,30 @@ function initContactForm() {
                 }
             });
             
-            const data = await response.json();
+            console.log('Response status:', response.status);
             
-            if (response.ok && data.success) {
-                // Show success modal
-                showSuccessModal();
+            const data = await response.json();
+            console.log('Response data:', data);
+            
+            // Reset button first
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+            
+            if (data.success) {
+                console.log('Success! Showing modal...');
                 form.reset();
+                showSuccessModal();
             } else {
                 throw new Error(data.message || 'Something went wrong');
             }
         } catch (error) {
-            showNotification('error', error.message || 'Failed to send message. Please try again or call us directly at +91 8056653499');
-        } finally {
+            console.error('Form error:', error);
+            
+            // Reset button
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalText;
+            
+            showNotification('error', error.message || 'Failed to send message. Please try again or call us directly at +91 8056653499');
         }
     });
 }
@@ -239,16 +259,26 @@ function initContactForm() {
  * Show success modal after form submission
  */
 function showSuccessModal() {
+    console.log('showSuccessModal called');
+    
     // Remove existing modal
     const existing = document.querySelector('.success-modal-overlay');
-    if (existing) existing.remove();
+    if (existing) {
+        console.log('Removing existing modal');
+        existing.remove();
+    }
+    
+    // Add styles first
+    addModalStyles();
     
     const modal = document.createElement('div');
     modal.className = 'success-modal-overlay';
+    modal.id = 'successModal';
     modal.innerHTML = `
         <div class="success-modal">
+            <button class="modal-close-btn" onclick="closeSuccessModal()" aria-label="Close">&times;</button>
             <div class="success-modal-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
                 </svg>
@@ -260,7 +290,7 @@ function showSuccessModal() {
             <div class="success-modal-info">
                 <div class="info-icon">📞</div>
                 <p><strong>Our sales team will contact you shortly!</strong></p>
-                <p>Expect a call or email within 24 hours (typically much sooner during business hours).</p>
+                <p>Expect a call or email within 24 hours.</p>
             </div>
             <div class="success-modal-details">
                 <p>📧 A confirmation email has been sent to your inbox.</p>
@@ -272,120 +302,10 @@ function showSuccessModal() {
         </div>
     `;
     
-    // Add styles
-    if (!document.querySelector('#success-modal-styles')) {
-        const styles = document.createElement('style');
-        styles.id = 'success-modal-styles';
-        styles.textContent = `
-            .success-modal-overlay {
-                position: fixed;
-                inset: 0;
-                background: rgba(26, 26, 53, 0.9);
-                backdrop-filter: blur(8px);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 10001;
-                animation: fadeIn 0.3s ease;
-                padding: 1rem;
-            }
-            .success-modal {
-                background: linear-gradient(135deg, #1e1e3a 0%, #252550 100%);
-                border: 1px solid rgba(249, 115, 22, 0.3);
-                border-radius: 20px;
-                padding: 2.5rem;
-                max-width: 450px;
-                width: 100%;
-                text-align: center;
-                animation: scaleIn 0.3s ease;
-                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            }
-            .success-modal-icon {
-                width: 100px;
-                height: 100px;
-                background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
-                border: 2px solid rgba(16, 185, 129, 0.4);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 1.5rem;
-                color: #10b981;
-            }
-            .success-modal-title {
-                font-size: 1.75rem;
-                color: white;
-                margin-bottom: 0.5rem;
-                font-family: 'Poppins', sans-serif;
-            }
-            .success-modal-message {
-                color: #a8a29e;
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-            .success-modal-info {
-                background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
-                border: 1px solid rgba(249, 115, 22, 0.3);
-                border-radius: 12px;
-                padding: 1.25rem;
-                margin-bottom: 1.5rem;
-            }
-            .success-modal-info .info-icon {
-                font-size: 2rem;
-                margin-bottom: 0.5rem;
-            }
-            .success-modal-info p {
-                color: #e5e7eb;
-                margin: 0.25rem 0;
-                font-size: 0.9375rem;
-            }
-            .success-modal-info p strong {
-                color: #fb923c;
-                font-size: 1.125rem;
-            }
-            .success-modal-details {
-                margin-bottom: 1.5rem;
-            }
-            .success-modal-details p {
-                color: #78716c;
-                font-size: 0.875rem;
-                margin: 0.5rem 0;
-            }
-            .success-modal-btn {
-                background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
-                color: white;
-                border: none;
-                padding: 1rem 2rem;
-                border-radius: 10px;
-                font-size: 1rem;
-                font-weight: 600;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                width: 100%;
-                box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
-            }
-            .success-modal-btn:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 10px 30px rgba(249, 115, 22, 0.5);
-            }
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
-            }
-            @keyframes scaleIn {
-                from { transform: scale(0.9); opacity: 0; }
-                to { transform: scale(1); opacity: 1; }
-            }
-            @keyframes fadeOut {
-                from { opacity: 1; }
-                to { opacity: 0; }
-            }
-        `;
-        document.head.appendChild(styles);
-    }
-    
     document.body.appendChild(modal);
     document.body.style.overflow = 'hidden';
+    
+    console.log('Modal added to DOM');
     
     // Close on overlay click
     modal.addEventListener('click', function(e) {
@@ -395,26 +315,236 @@ function showSuccessModal() {
     });
     
     // Close on Escape key
-    document.addEventListener('keydown', function(e) {
+    const escHandler = function(e) {
         if (e.key === 'Escape') {
             closeSuccessModal();
+            document.removeEventListener('keydown', escHandler);
         }
-    });
+    };
+    document.addEventListener('keydown', escHandler);
+}
+
+/**
+ * Add modal styles to document
+ */
+function addModalStyles() {
+    if (document.querySelector('#success-modal-styles')) return;
+    
+    const styles = document.createElement('style');
+    styles.id = 'success-modal-styles';
+    styles.textContent = `
+        .success-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 26, 53, 0.95);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            padding: 1rem;
+            animation: modalFadeIn 0.3s ease forwards;
+        }
+        .success-modal {
+            background: linear-gradient(135deg, #1e1e3a 0%, #252550 100%);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            animation: modalScaleIn 0.3s ease forwards;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #a8a29e;
+            font-size: 24px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .modal-close-btn:hover {
+            background: rgba(249, 115, 22, 0.2);
+            color: #fb923c;
+        }
+        .success-modal-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
+            border: 2px solid rgba(16, 185, 129, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: #10b981;
+        }
+        .success-modal-title {
+            font-size: 1.75rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .success-modal-message {
+            color: #a8a29e;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .success-modal-info {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        .success-modal-info .info-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .success-modal-info p {
+            color: #e5e7eb;
+            margin: 0.25rem 0;
+            font-size: 0.9375rem;
+        }
+        .success-modal-info p strong {
+            color: #fb923c;
+            font-size: 1.125rem;
+        }
+        .success-modal-details {
+            margin-bottom: 1.5rem;
+        }
+        .success-modal-details p {
+            color: #78716c;
+            font-size: 0.875rem;
+            margin: 0.5rem 0;
+        }
+        .success-modal-btn {
+            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+        }
+        .success-modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.5);
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes modalScaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes modalFadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        /* Notification styles */
+        .notification-toast {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 100000;
+            animation: slideIn 0.3s ease;
+            max-width: 400px;
+            background: #1e1e3a;
+        }
+        .notification-success {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+        }
+        .notification-error {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.2) 100%);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .notification-message {
+            font-size: 0.9375rem;
+        }
+        .notification-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: inherit;
+            opacity: 0.7;
+            padding: 0;
+            line-height: 1;
+        }
+        .notification-close:hover {
+            opacity: 1;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(styles);
 }
 
 /**
  * Close success modal
  */
 function closeSuccessModal() {
+    console.log('closeSuccessModal called');
     const modal = document.querySelector('.success-modal-overlay');
     if (modal) {
-        modal.style.animation = 'fadeOut 0.3s ease';
+        modal.style.animation = 'modalFadeOut 0.3s ease forwards';
         setTimeout(() => {
             modal.remove();
             document.body.style.overflow = '';
+            console.log('Modal removed');
         }, 300);
     }
 }
+
+// Make closeSuccessModal available globally
+window.closeSuccessModal = closeSuccessModal;
 
 /**
  * Show notification toast
@@ -423,6 +553,9 @@ function showNotification(type, message) {
     // Remove existing notification
     const existing = document.querySelector('.notification-toast');
     if (existing) existing.remove();
+    
+    // Add styles
+    addModalStyles();
     
     const notification = document.createElement('div');
     notification.className = `notification-toast notification-${type}`;
@@ -438,75 +571,6 @@ function showNotification(type, message) {
         </div>
         <button class="notification-close">&times;</button>
     `;
-    
-    // Add styles if not exists
-    if (!document.querySelector('#notification-styles')) {
-        const styles = document.createElement('style');
-        styles.id = 'notification-styles';
-        styles.textContent = `
-            .notification-toast {
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                padding: 1rem 1.5rem;
-                border-radius: 12px;
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                z-index: 10000;
-                animation: slideIn 0.3s ease;
-                max-width: 400px;
-                background: #1e1e3a;
-            }
-            .notification-success {
-                background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
-                border: 1px solid rgba(16, 185, 129, 0.3);
-                color: #10b981;
-            }
-            .notification-error {
-                background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.2) 100%);
-                border: 1px solid rgba(239, 68, 68, 0.3);
-                color: #ef4444;
-            }
-            .notification-content {
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-            }
-            .notification-message {
-                font-size: 0.9375rem;
-            }
-            .notification-close {
-                background: none;
-                border: none;
-                font-size: 1.5rem;
-                cursor: pointer;
-                color: inherit;
-                opacity: 0.7;
-                padding: 0;
-                line-height: 1;
-            }
-            .notification-close:hover {
-                opacity: 1;
-            }
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-            .animate-spin {
-                animation: spin 1s linear infinite;
-            }
-            @keyframes spin {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(styles);
-    }
     
     document.body.appendChild(notification);
     

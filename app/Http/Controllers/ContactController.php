@@ -62,35 +62,26 @@ class ContactController extends Controller
             // Store inquiry in file (backup)
             $this->storeInquiry($contactData);
 
-            $adminEmailSent = false;
-            $customerEmailSent = false;
-
-            // Send email to admin
+            // Queue email to admin (using queue)
             try {
-                Mail::to($adminEmail)->send(new ContactInquiry($contactData));
-                $adminEmailSent = true;
-                Log::info('Admin notification email sent successfully to: ' . $adminEmail);
+                Mail::to($adminEmail)->queue(new ContactInquiry($contactData));
+                Log::info('Admin notification email queued successfully to: ' . $adminEmail);
             } catch (\Exception $e) {
-                Log::error('Failed to send admin email: ' . $e->getMessage());
+                Log::error('Failed to queue admin email: ' . $e->getMessage());
             }
 
-            // Send auto-reply to customer
+            // Queue auto-reply to customer
             try {
-                Mail::to($request->email)->send(new CustomerAutoReply($contactData));
-                $customerEmailSent = true;
-                Log::info('Customer auto-reply email sent successfully to: ' . $request->email);
+                Mail::to($request->email)->queue(new CustomerAutoReply($contactData));
+                Log::info('Customer auto-reply email queued successfully to: ' . $request->email);
             } catch (\Exception $e) {
-                Log::error('Failed to send customer auto-reply: ' . $e->getMessage());
+                Log::error('Failed to queue customer auto-reply: ' . $e->getMessage());
             }
 
-            // Return success even if emails fail (inquiry is stored)
+            // Return success immediately (emails will be sent in background)
             return response()->json([
                 'success' => true,
-                'message' => 'Thank you for your inquiry! Our sales team will contact you within 24 hours.',
-                'email_status' => [
-                    'admin_notified' => $adminEmailSent,
-                    'customer_notified' => $customerEmailSent
-                ]
+                'message' => 'Thank you for your inquiry! Our sales team will contact you within 24 hours.'
             ]);
 
         } catch (\Exception $e) {
