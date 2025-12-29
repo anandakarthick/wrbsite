@@ -30,7 +30,10 @@ class ContactInquiry extends Mailable
     {
         return new Envelope(
             from: new Address(config('mail.from.address'), config('mail.from.name')),
-            subject: 'New Project Inquiry - ' . $this->contactData['service'],
+            replyTo: [
+                new Address($this->contactData['email'], $this->contactData['name']),
+            ],
+            subject: '🚀 New Project Inquiry - ' . $this->contactData['service'] . ' | ' . $this->contactData['name'],
         );
     }
 

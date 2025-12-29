@@ -4,289 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Project Inquiry - KA Software</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #1a1a35;
-        }
-        .container {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        .header {
-            background: linear-gradient(135deg, #f97316 0%, #ef4444 50%, #dc2626 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-        .logo {
-            margin-bottom: 15px;
-        }
-        .logo img {
-            width: 60px;
-            height: 60px;
-        }
-        .logo-text {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 600;
-        }
-        .header p {
-            margin: 10px 0 0;
-            opacity: 0.9;
-            font-size: 14px;
-        }
-        .content {
-            padding: 30px;
-        }
-        .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        .priority-box {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
-            border: 1px solid #fdba74;
-            border-left: 4px solid #f97316;
-            color: #c2410c;
-            padding: 15px 20px;
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 25px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-        }
-        .priority-box span {
-            font-size: 20px;
-            margin-right: 10px;
-        }
-        .info-section {
-            margin-bottom: 25px;
-        }
-        .info-section h3 {
-            color: #ea580c;
-            margin: 0 0 15px;
-            font-size: 16px;
-            border-bottom: 2px solid #fed7aa;
-            padding-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .info-section h3 span {
-            margin-right: 8px;
-        }
-        .info-row {
-            display: flex;
-            margin-bottom: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid #f3f4f6;
-        }
-        .info-label {
-            font-weight: 600;
-            color: #6b7280;
-            width: 120px;
-            flex-shrink: 0;
-        }
-        .info-value {
-            color: #1f2937;
-            font-weight: 500;
-        }
-        .info-value a {
-            color: #ea580c;
-            text-decoration: none;
-        }
-        .info-value a:hover {
-            text-decoration: underline;
-        }
-        .message-box {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(239, 68, 68, 0.05) 100%);
-            border-left: 4px solid #f97316;
-            padding: 20px;
-            margin-top: 10px;
-            border-radius: 0 8px 8px 0;
-            color: #374151;
-            line-height: 1.8;
-        }
-        .cta-section {
-            text-align: center;
-            margin: 30px 0 10px;
-        }
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
-            color: white;
-            padding: 14px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
-        }
-        .cta-button:hover {
-            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
-        }
-        .quick-actions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-        .quick-action {
-            display: inline-block;
-            padding: 10px 20px;
-            border: 2px solid #f97316;
-            color: #ea580c;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            background: white;
-        }
-        .footer {
-            background: #1a1a35;
-            color: #a8a29e;
-            padding: 25px 30px;
-            text-align: center;
-        }
-        .footer p {
-            margin: 5px 0;
-            font-size: 13px;
-        }
-        .footer strong {
-            color: #fb923c;
-        }
-        .footer a {
-            color: #fb923c;
-            text-decoration: none;
-        }
-        .footer-logo {
-            margin-bottom: 10px;
-        }
-        .footer-logo img {
-            width: 40px;
-            height: 40px;
-        }
-    </style>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">
-                <img src="https://kasoftware.in/images/logo.png" alt="KA Software Logo">
-            </div>
-            <div class="logo-text">KA Software</div>
-            <h1>🚀 New Project Inquiry</h1>
-            <p>A potential client has submitted a project inquiry</p>
-        </div>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #1a1a35;">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);">
+        <!-- Header -->
+        <tr>
+            <td style="background: linear-gradient(135deg, #f97316 0%, #ef4444 50%, #dc2626 100%); color: white; padding: 40px 30px; text-align: center;">
+                <img src="https://kasoftware.in/images/logo.png" alt="KA Software Logo" width="60" height="60" style="margin-bottom: 15px;">
+                <div style="font-size: 28px; font-weight: 800; margin-bottom: 10px;">KA Software</div>
+                <div style="font-size: 24px; font-weight: 600;">🚀 New Project Inquiry</div>
+                <div style="font-size: 14px; opacity: 0.9; margin-top: 10px;">A potential client has submitted a project inquiry</div>
+            </td>
+        </tr>
         
-        <div class="content">
-            <span class="badge">{{ $contactData['service'] }}</span>
-            
-            <div class="priority-box">
-                <span>⚡</span>
-                <div>New lead requires follow-up within <strong>24 hours</strong></div>
-            </div>
-            
-            <div class="info-section">
-                <h3><span>👤</span> Contact Information</h3>
-                <div class="info-row">
-                    <span class="info-label">Name:</span>
-                    <span class="info-value">{{ $contactData['name'] }}</span>
+        <!-- Content -->
+        <tr>
+            <td style="padding: 30px;">
+                <!-- Service Badge -->
+                <div style="margin-bottom: 20px;">
+                    <span style="display: inline-block; background: linear-gradient(135deg, #f97316 0%, #ef4444 100%); color: white; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600;">{{ $contactData['service'] }}</span>
                 </div>
-                <div class="info-row">
-                    <span class="info-label">Email:</span>
-                    <span class="info-value"><a href="mailto:{{ $contactData['email'] }}">{{ $contactData['email'] }}</a></span>
-                </div>
-                @if($contactData['phone'])
-                <div class="info-row">
-                    <span class="info-label">Phone:</span>
-                    <span class="info-value"><a href="tel:{{ $contactData['phone'] }}">{{ $contactData['phone'] }}</a></span>
-                </div>
-                @endif
-                @if($contactData['company'])
-                <div class="info-row">
-                    <span class="info-label">Company:</span>
-                    <span class="info-value">{{ $contactData['company'] }}</span>
-                </div>
-                @endif
-            </div>
-            
-            <div class="info-section">
-                <h3><span>📋</span> Project Details</h3>
-                <div class="info-row">
-                    <span class="info-label">Service:</span>
-                    <span class="info-value">{{ $contactData['service'] }}</span>
-                </div>
-                @if($contactData['budget'])
-                <div class="info-row">
-                    <span class="info-label">Budget:</span>
-                    <span class="info-value">{{ $contactData['budget'] }}</span>
-                </div>
-                @endif
-            </div>
-            
-            <div class="info-section">
-                <h3><span>💬</span> Client Message</h3>
-                <div class="message-box">
-                    {{ $contactData['message'] }}
-                </div>
-            </div>
-            
-            <div class="info-section">
-                <h3><span>🔍</span> Additional Information</h3>
-                <div class="info-row">
-                    <span class="info-label">IP Address:</span>
-                    <span class="info-value">{{ $contactData['ip_address'] ?? 'N/A' }}</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Submitted:</span>
-                    <span class="info-value">{{ $contactData['created_at'] }}</span>
-                </div>
-            </div>
-            
-            <div class="cta-section">
-                <a href="mailto:{{ $contactData['email'] }}" class="cta-button">
-                    ✉️ Reply to {{ $contactData['name'] }}
-                </a>
                 
-                <div class="quick-actions">
-                    @if($contactData['phone'])
-                    <a href="tel:{{ $contactData['phone'] }}" class="quick-action">📞 Call Now</a>
-                    @endif
-                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $contactData['phone'] ?? '') }}" class="quick-action">💬 WhatsApp</a>
-                </div>
-            </div>
-        </div>
+                <!-- Priority Box -->
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%); border: 1px solid #fdba74; border-left: 4px solid #f97316; border-radius: 0 8px 8px 0; margin-bottom: 25px;">
+                    <tr>
+                        <td style="padding: 15px 20px; color: #c2410c; font-weight: 500;">
+                            ⚡ New lead requires follow-up within <strong>24 hours</strong>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Contact Information Section -->
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom: 25px;">
+                    <tr>
+                        <td style="color: #ea580c; font-size: 16px; font-weight: 600; padding-bottom: 15px; border-bottom: 2px solid #fed7aa;">
+                            👤 Contact Information
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 15px;">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6;">
+                                        <span style="font-weight: 600; color: #6b7280; display: inline-block; width: 100px;">Name:</span>
+                                        <span style="color: #1f2937; font-weight: 500;">{{ $contactData['name'] }}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6;">
+                                        <span style="font-weight: 600; color: #6b7280; display: inline-block; width: 100px;">Email:</span>
+                                        <a href="mailto:{{ $contactData['email'] }}" style="color: #ea580c; text-decoration: none; font-weight: 500;">{{ $contactData['email'] }}</a>
+                                    </td>
+                                </tr>
+                                @if($contactData['phone'])
+                                <tr>
+                                    <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6;">
+                                        <span style="font-weight: 600; color: #6b7280; display: inline-block; width: 100px;">Phone:</span>
+                                        <a href="tel:{{ $contactData['phone'] }}" style="color: #ea580c; text-decoration: none; font-weight: 500;">{{ $contactData['phone'] }}</a>
+                                    </td>
+                                </tr>
+                                @endif
+                                @if($contactData['company'])
+                                <tr>
+                                    <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6;">
+                                        <span style="font-weight: 600; color: #6b7280; display: inline-block; width: 100px;">Company:</span>
+                                        <span style="color: #1f2937; font-weight: 500;">{{ $contactData['company'] }}</span>
+                                    </td>
+                                </tr>
+                                @endif
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Project Details Section -->
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom: 25px;">
+                    <tr>
+                        <td style="color: #ea580c; font-size: 16px; font-weight: 600; padding-bottom: 15px; border-bottom: 2px solid #fed7aa;">
+                            📋 Project Details
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 15px;">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6;">
+                                        <span style="font-weight: 600; color: #6b7280; display: inline-block; width: 100px;">Service:</span>
+                                        <span style="color: #1f2937; font-weight: 500;">{{ $contactData['service'] }}</span>
+                                    </td>
+                                </tr>
+                                @if($contactData['budget'])
+                                <tr>
+                                    <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6;">
+                                        <span style="font-weight: 600; color: #6b7280; display: inline-block; width: 100px;">Budget:</span>
+                                        <span style="color: #1f2937; font-weight: 500;">{{ $contactData['budget'] }}</span>
+                                    </td>
+                                </tr>
+                                @endif
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Message Section -->
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom: 25px;">
+                    <tr>
+                        <td style="color: #ea580c; font-size: 16px; font-weight: 600; padding-bottom: 15px; border-bottom: 2px solid #fed7aa;">
+                            💬 Client Message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 15px;">
+                            <div style="background: linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(239, 68, 68, 0.05) 100%); border-left: 4px solid #f97316; padding: 20px; border-radius: 0 8px 8px 0; color: #374151; line-height: 1.8;">
+                                {{ $contactData['message'] }}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Additional Info Section -->
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom: 25px;">
+                    <tr>
+                        <td style="color: #ea580c; font-size: 16px; font-weight: 600; padding-bottom: 15px; border-bottom: 2px solid #fed7aa;">
+                            🔍 Additional Information
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 15px;">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6;">
+                                        <span style="font-weight: 600; color: #6b7280; display: inline-block; width: 100px;">IP Address:</span>
+                                        <span style="color: #1f2937;">{{ $contactData['ip_address'] ?? 'N/A' }}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6;">
+                                        <span style="font-weight: 600; color: #6b7280; display: inline-block; width: 100px;">Submitted:</span>
+                                        <span style="color: #1f2937;">{{ $contactData['created_at'] }}</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- CTA Buttons -->
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin: 30px 0;">
+                    <tr>
+                        <td style="text-align: center;">
+                            <a href="mailto:{{ $contactData['email'] }}" style="display: inline-block; background: linear-gradient(135deg, #f97316 0%, #ef4444 100%); color: white; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);">
+                                ✉️ Reply to {{ $contactData['name'] }}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding-top: 15px;">
+                            @if($contactData['phone'])
+                            <a href="tel:{{ $contactData['phone'] }}" style="display: inline-block; padding: 10px 20px; border: 2px solid #f97316; color: #ea580c; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; margin: 0 5px;">📞 Call Now</a>
+                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $contactData['phone']) }}" style="display: inline-block; padding: 10px 20px; border: 2px solid #f97316; color: #ea580c; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; margin: 0 5px;">💬 WhatsApp</a>
+                            @endif
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
         
-        <div class="footer">
-            <div class="footer-logo">
-                <img src="https://kasoftware.in/images/logo.png" alt="KA Software">
-            </div>
-            <p><strong>KA Software</strong></p>
-            <p>This inquiry was received from your website contact form</p>
-            <p><a href="https://kasoftware.in">www.kasoftware.in</a></p>
-            <p style="margin-top: 15px; color: #78716c; font-size: 11px;">
-                © {{ date('Y') }} KA Software. All rights reserved.
-            </p>
-        </div>
-    </div>
+        <!-- Footer -->
+        <tr>
+            <td style="background: #1a1a35; padding: 25px 30px; text-align: center;">
+                <img src="https://kasoftware.in/images/logo.png" alt="KA Software" width="40" height="40" style="margin-bottom: 10px;">
+                <div style="color: #fb923c; font-weight: 600; margin-bottom: 5px;">KA Software</div>
+                <div style="color: #a8a29e; font-size: 13px; margin-bottom: 10px;">This inquiry was received from your website contact form</div>
+                <a href="https://kasoftware.in" style="color: #fb923c; text-decoration: none; font-size: 13px;">www.kasoftware.in</a>
+                <div style="color: #78716c; font-size: 11px; margin-top: 15px;">
+                    © {{ date('Y') }} KA Software. All rights reserved.
+                </div>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

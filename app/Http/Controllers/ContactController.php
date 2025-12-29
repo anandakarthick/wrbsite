@@ -12,11 +12,6 @@ use App\Mail\CustomerAutoReply;
 class ContactController extends Controller
 {
     /**
-     * Admin email to receive inquiries
-     */
-    private $adminEmail = 'info@kasoftware.in';
-    
-    /**
      * Handle contact form submission
      *
      * @param Request $request
@@ -44,6 +39,9 @@ class ContactController extends Controller
         }
 
         try {
+            // Get admin email from .env
+            $adminEmail = env('ADMIN_EMAIL', 'info@kasoftware.in');
+            
             // Prepare contact data
             $contactData = [
                 'name' => $request->name,
@@ -64,10 +62,14 @@ class ContactController extends Controller
             // Store inquiry in file (backup)
             $this->storeInquiry($contactData);
 
+            $adminEmailSent = false;
+            $customerEmailSent = false;
+
             // Send email to admin
             try {
-                Mail::to($this->adminEmail)->send(new ContactInquiry($contactData));
-                Log::info('Admin notification email sent successfully');
+                Mail::to($adminEmail)->send(new ContactInquiry($contactData));
+                $adminEmailSent = true;
+                Log::info('Admin notification email sent successfully to: ' . $adminEmail);
             } catch (\Exception $e) {
                 Log::error('Failed to send admin email: ' . $e->getMessage());
             }
@@ -75,14 +77,20 @@ class ContactController extends Controller
             // Send auto-reply to customer
             try {
                 Mail::to($request->email)->send(new CustomerAutoReply($contactData));
-                Log::info('Customer auto-reply email sent successfully');
+                $customerEmailSent = true;
+                Log::info('Customer auto-reply email sent successfully to: ' . $request->email);
             } catch (\Exception $e) {
                 Log::error('Failed to send customer auto-reply: ' . $e->getMessage());
             }
 
+            // Return success even if emails fail (inquiry is stored)
             return response()->json([
                 'success' => true,
-                'message' => 'Thank you for your inquiry! Our sales team will contact you shortly.'
+                'message' => 'Thank you for your inquiry! Our sales team will contact you within 24 hours.',
+                'email_status' => [
+                    'admin_notified' => $adminEmailSent,
+                    'customer_notified' => $customerEmailSent
+                ]
             ]);
 
         } catch (\Exception $e) {
@@ -90,7 +98,7 @@ class ContactController extends Controller
             
             return response()->json([
                 'success' => false,
-                'message' => 'Sorry, there was an error processing your request. Please try again or call us directly.'
+                'message' => 'Sorry, there was an error processing your request. Please try again or call us directly at +91 8056653499.'
             ], 500);
         }
     }
@@ -103,15 +111,21 @@ class ContactController extends Controller
      */
     private function storeInquiry(array $data)
     {
-        $filePath = storage_path('app/contact_inquiries.json');
-        
-        $inquiries = [];
-        if (file_exists($filePath)) {
-            $inquiries = json_decode(file_get_contents($filePath), true) ?? [];
+        try {
+            $filePath = storage_path('app/contact_inquiries.json');
+            
+            $inquiries = [];
+            if (file_exists($filePath)) {
+                $inquiries = json_decode(file_get_contents($filePath), true) ?? [];
+            }
+            
+            $inquiries[] = $data;
+            
+            file_put_contents($filePath, json_encode($inquiries, JSON_PRETTY_PRINT));
+            
+            Log::info('Inquiry stored in backup file');
+        } catch (\Exception $e) {
+            Log::error('Failed to store inquiry in backup file: ' . $e->getMessage());
         }
-        
-        $inquiries[] = $data;
-        
-        file_put_contents($filePath, json_encode($inquiries, JSON_PRETTY_PRINT));
     }
 }

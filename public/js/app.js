@@ -1,5 +1,6 @@
 /**
  * KA Software - Main JavaScript
+ * Theme: Orange & Red
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -252,7 +253,7 @@ function showSuccessModal() {
                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
                 </svg>
             </div>
-            <h2 class="success-modal-title">Thank You!</h2>
+            <h2 class="success-modal-title">🎉 Thank You!</h2>
             <p class="success-modal-message">
                 Your inquiry has been received successfully.
             </p>
@@ -279,8 +280,8 @@ function showSuccessModal() {
             .success-modal-overlay {
                 position: fixed;
                 inset: 0;
-                background: rgba(0, 0, 0, 0.8);
-                backdrop-filter: blur(5px);
+                background: rgba(26, 26, 53, 0.9);
+                backdrop-filter: blur(8px);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -289,20 +290,21 @@ function showSuccessModal() {
                 padding: 1rem;
             }
             .success-modal {
-                background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-                border: 1px solid rgba(99, 102, 241, 0.3);
+                background: linear-gradient(135deg, #1e1e3a 0%, #252550 100%);
+                border: 1px solid rgba(249, 115, 22, 0.3);
                 border-radius: 20px;
                 padding: 2.5rem;
                 max-width: 450px;
                 width: 100%;
                 text-align: center;
                 animation: scaleIn 0.3s ease;
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
             }
             .success-modal-icon {
                 width: 100px;
                 height: 100px;
-                background: rgba(16, 185, 129, 0.1);
-                border: 2px solid rgba(16, 185, 129, 0.3);
+                background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
+                border: 2px solid rgba(16, 185, 129, 0.4);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
@@ -314,15 +316,16 @@ function showSuccessModal() {
                 font-size: 1.75rem;
                 color: white;
                 margin-bottom: 0.5rem;
+                font-family: 'Poppins', sans-serif;
             }
             .success-modal-message {
-                color: #9ca3af;
+                color: #a8a29e;
                 font-size: 1rem;
                 margin-bottom: 1.5rem;
             }
             .success-modal-info {
-                background: rgba(99, 102, 241, 0.1);
-                border: 1px solid rgba(99, 102, 241, 0.2);
+                background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+                border: 1px solid rgba(249, 115, 22, 0.3);
                 border-radius: 12px;
                 padding: 1.25rem;
                 margin-bottom: 1.5rem;
@@ -337,19 +340,19 @@ function showSuccessModal() {
                 font-size: 0.9375rem;
             }
             .success-modal-info p strong {
-                color: #8b5cf6;
+                color: #fb923c;
                 font-size: 1.125rem;
             }
             .success-modal-details {
                 margin-bottom: 1.5rem;
             }
             .success-modal-details p {
-                color: #6b7280;
+                color: #78716c;
                 font-size: 0.875rem;
                 margin: 0.5rem 0;
             }
             .success-modal-btn {
-                background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+                background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
                 color: white;
                 border: none;
                 padding: 1rem 2rem;
@@ -359,10 +362,11 @@ function showSuccessModal() {
                 cursor: pointer;
                 transition: all 0.3s ease;
                 width: 100%;
+                box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
             }
             .success-modal-btn:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+                box-shadow: 0 10px 30px rgba(249, 115, 22, 0.5);
             }
             @keyframes fadeIn {
                 from { opacity: 0; }
@@ -386,6 +390,13 @@ function showSuccessModal() {
     // Close on overlay click
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
+            closeSuccessModal();
+        }
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
             closeSuccessModal();
         }
     });
@@ -445,15 +456,15 @@ function showNotification(type, message) {
                 z-index: 10000;
                 animation: slideIn 0.3s ease;
                 max-width: 400px;
-                background: #1f2937;
+                background: #1e1e3a;
             }
             .notification-success {
-                background: rgba(16, 185, 129, 0.1);
+                background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
                 border: 1px solid rgba(16, 185, 129, 0.3);
                 color: #10b981;
             }
             .notification-error {
-                background: rgba(239, 68, 68, 0.1);
+                background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.2) 100%);
                 border: 1px solid rgba(239, 68, 68, 0.3);
                 color: #ef4444;
             }
