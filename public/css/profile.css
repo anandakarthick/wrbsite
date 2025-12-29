@@ -1,5 +1,6 @@
 /* ============================================
    Profile Page Styles
+   Orange & Red Theme
    ============================================ */
 
 /* Profile Hero */
@@ -91,8 +92,8 @@
 }
 
 .about-card:hover {
-    border-color: rgba(99, 102, 241, 0.3);
-    background: rgba(99, 102, 241, 0.05);
+    border-color: rgba(249, 115, 22, 0.3);
+    background: rgba(249, 115, 22, 0.05);
 }
 
 .about-card-icon {
@@ -114,7 +115,7 @@
 
 /* Company Info Section */
 .company-info-section {
-    background: linear-gradient(180deg, var(--gray-950) 0%, #0c0a1d 100%);
+    background: linear-gradient(180deg, var(--gray-950) 0%, #1a0f0a 100%);
 }
 
 .info-grid {
@@ -134,8 +135,8 @@
 
 .info-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(99, 102, 241, 0.3);
-    background: rgba(99, 102, 241, 0.05);
+    border-color: rgba(249, 115, 22, 0.3);
+    background: rgba(249, 115, 22, 0.05);
 }
 
 .info-icon {
@@ -186,13 +187,13 @@
 }
 
 .service-detail-card:hover {
-    border-color: rgba(99, 102, 241, 0.3);
-    background: rgba(99, 102, 241, 0.05);
+    border-color: rgba(249, 115, 22, 0.3);
+    background: rgba(249, 115, 22, 0.05);
 }
 
 .service-detail-card.featured {
-    border-color: rgba(99, 102, 241, 0.3);
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border-color: rgba(249, 115, 22, 0.3);
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
 }
 
 .service-detail-number {
@@ -228,8 +229,8 @@
 
 .service-features li {
     padding: 0.25rem 0.75rem;
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.2);
     border-radius: var(--radius-full);
     font-size: 0.75rem;
     color: var(--primary-300);
@@ -237,7 +238,7 @@
 
 /* Technologies Section */
 .tech-section {
-    background: linear-gradient(180deg, #0c0a1d 0%, var(--gray-950) 100%);
+    background: linear-gradient(180deg, #1a0f0a 0%, var(--gray-950) 100%);
 }
 
 .tech-categories {
@@ -269,8 +270,8 @@
 
 .tech-tag {
     padding: 0.5rem 1rem;
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.2);
     border-radius: var(--radius-full);
     font-size: 0.875rem;
     color: var(--primary-300);
@@ -278,8 +279,8 @@
 }
 
 .tech-tag:hover {
-    background: rgba(99, 102, 241, 0.2);
-    border-color: rgba(99, 102, 241, 0.4);
+    background: rgba(249, 115, 22, 0.2);
+    border-color: rgba(249, 115, 22, 0.4);
 }
 
 /* Why Us Section */
@@ -304,7 +305,7 @@
 
 .why-us-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(99, 102, 241, 0.3);
+    border-color: rgba(249, 115, 22, 0.3);
     box-shadow: var(--shadow-glow);
 }
 
@@ -327,7 +328,7 @@
 
 /* Contact Section */
 .contact-section {
-    background: linear-gradient(180deg, var(--gray-950) 0%, #0c0a1d 100%);
+    background: linear-gradient(180deg, var(--gray-950) 0%, #1a0f0a 100%);
 }
 
 .contact-profile-grid {
@@ -368,8 +369,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.2);
     border-radius: var(--radius-lg);
     color: var(--primary-400);
     flex-shrink: 0;

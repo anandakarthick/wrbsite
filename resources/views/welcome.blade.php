@@ -38,8 +38,8 @@
     <meta name="twitter:description" content="Leading software development company in Chennai. Mobile apps, web apps, AI/ML solutions.">
     <meta name="twitter:image" content="{{ asset('images/og-home.jpg') }}">
     
-    <meta name="theme-color" content="#6366f1">
-    <meta name="msapplication-TileColor" content="#6366f1">
+    <meta name="theme-color" content="#f97316">
+    <meta name="msapplication-TileColor" content="#f97316">
     <meta name="application-name" content="KA Software">
     <meta name="apple-mobile-web-app-title" content="KA Software">
     <meta name="apple-mobile-web-app-capable" content="yes">

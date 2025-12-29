@@ -26,7 +26,7 @@
     <meta name="twitter:description" content="Leading AI-powered software development company in Chennai, India.">
     <meta name="twitter:image" content="{{ asset('images/og-profile.jpg') }}">
     
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#f97316">
     <meta name="geo.region" content="IN-TN">
     <meta name="geo.placename" content="Chennai">
     

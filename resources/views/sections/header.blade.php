@@ -8,8 +8,8 @@
                     <path d="M12 28V12H16L20 20L24 12H28V28H24V18L20 26H20L16 18V28H12Z" fill="white"/>
                     <defs>
                         <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#6366F1"/>
-                            <stop offset="1" stop-color="#8B5CF6"/>
+                            <stop stop-color="#f97316"/>
+                            <stop offset="1" stop-color="#ef4444"/>
                         </linearGradient>
                     </defs>
                 </svg>

@@ -29,7 +29,7 @@
     <meta name="twitter:description" content="Explore our client success stories - AI solutions, e-commerce, HRMS, CRM and more.">
     <meta name="twitter:image" content="{{ asset('images/og-success-stories.jpg') }}">
     
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#f97316">
     <meta name="geo.region" content="IN-TN">
     <meta name="geo.placename" content="Chennai">
     
