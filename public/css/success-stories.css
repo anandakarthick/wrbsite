@@ -228,7 +228,7 @@
 /* Industries Section */
 .industries-section {
     padding: 6rem 0;
-    background: linear-gradient(180deg, var(--gray-950) 0%, #1a0f0a 100%);
+    background: linear-gradient(180deg, #1a1a35 0%, #252550 100%);
 }
 
 .industries-grid {
@@ -570,7 +570,7 @@
 /* Related Stories */
 .related-stories {
     padding: 4rem 0;
-    background: linear-gradient(180deg, var(--gray-950) 0%, #1a0f0a 100%);
+    background: linear-gradient(180deg, #1a1a35 0%, #252550 100%);
 }
 
 .related-grid {

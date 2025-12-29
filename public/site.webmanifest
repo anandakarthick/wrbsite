@@ -4,7 +4,7 @@
     "description": "Leading AI-powered software development company in Chennai. Mobile apps, web applications, e-commerce, HRMS, CRM, and AI/ML solutions.",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#030712",
+    "background_color": "#1a1a35",
     "theme_color": "#f97316",
     "orientation": "portrait-primary",
     "scope": "/",
