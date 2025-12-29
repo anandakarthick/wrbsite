@@ -1,0 +1,1 @@
+Copy the favicon.ico file from D:\cladue\wrbsite\public\images\favicon.ico to D:\cladue\wrbsite\public\favicon.ico
