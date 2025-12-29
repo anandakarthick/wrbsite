@@ -12,6 +12,16 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     
+    {{-- Google Search Console Verification --}}
+    @if(config('services.google.search_console_verification'))
+    <meta name="google-site-verification" content="{{ config('services.google.search_console_verification') }}">
+    @endif
+    
+    {{-- Bing Webmaster Verification --}}
+    @if(config('services.bing.webmaster_verification'))
+    <meta name="msvalidate.01" content="{{ config('services.bing.webmaster_verification') }}">
+    @endif
+    
     <link rel="canonical" href="https://kasoftware.in/">
     
     <meta name="language" content="English">
@@ -196,6 +206,17 @@
         "url": "https://kasoftware.in"
     }
     </script>
+    
+    {{-- Google Analytics --}}
+    @if(config('services.google.analytics_id'))
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('services.google.analytics_id') }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ config('services.google.analytics_id') }}');
+    </script>
+    @endif
 </head>
 <body>
     @include('sections.header')
