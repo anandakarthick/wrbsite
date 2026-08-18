@@ -30,7 +30,7 @@
                     <span class="tag">Swift</span>
                     <span class="tag">Kotlin</span>
                 </div>
-                <a href="#contact" class="service-link">
+                <a href="{{ route('service.show', 'mobile-app-development') }}" class="service-link">
                     <span>Learn More</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -59,7 +59,7 @@
                     <span class="tag">Node.js</span>
                     <span class="tag">Python</span>
                 </div>
-                <a href="#contact" class="service-link">
+                <a href="{{ route('service.show', 'web-applications') }}" class="service-link">
                     <span>Learn More</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -88,7 +88,7 @@
                     <span class="tag">Magento</span>
                     <span class="tag">Custom</span>
                 </div>
-                <a href="#contact" class="service-link">
+                <a href="{{ route('service.show', 'ecommerce-platforms') }}" class="service-link">
                     <span>Learn More</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -118,7 +118,7 @@
                     <span class="tag">Cloud-Based</span>
                     <span class="tag">Mobile-First</span>
                 </div>
-                <a href="#contact" class="service-link">
+                <a href="{{ route('service.show', 'hrms-solutions') }}" class="service-link">
                     <span>Learn More</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -147,7 +147,7 @@
                     <span class="tag">API Integration</span>
                     <span class="tag">Analytics</span>
                 </div>
-                <a href="#contact" class="service-link">
+                <a href="{{ route('service.show', 'crm-systems') }}" class="service-link">
                     <span>Learn More</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -177,7 +177,7 @@
                     <span class="tag">OpenAI</span>
                     <span class="tag">AWS ML</span>
                 </div>
-                <a href="#contact" class="service-link">
+                <a href="{{ route('service.show', 'ai-ml-solutions') }}" class="service-link">
                     <span>Learn More</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>

@@ -56,9 +56,26 @@
             
             <!-- Contact Form -->
             <div class="contact-form-wrapper" data-aos="fade-left">
-                <form class="contact-form" id="contactForm" action="{{ route('contact.submit') }}" method="POST">
+                @php
+                    $recaptchaSiteKey = config('services.recaptcha.site_key');
+                    $recaptchaType = config('services.recaptcha.type', 'v3');
+                    session(['contact_form_time' => now()->timestamp]);
+                    if (!$recaptchaSiteKey) {
+                        $captchaA = random_int(2, 9);
+                        $captchaB = random_int(1, 9);
+                        session(['captcha_answer' => $captchaA + $captchaB]);
+                    }
+                @endphp
+                <form class="contact-form" id="contactForm" action="{{ route('contact.submit') }}" method="POST"
+                      @if($recaptchaSiteKey) data-recaptcha-key="{{ $recaptchaSiteKey }}" data-recaptcha-type="{{ $recaptchaType }}" @endif>
                     @csrf
                     <h3 class="form-title">Start Your Project</h3>
+
+                    {{-- Honeypot: hidden from humans, bots tend to fill it --}}
+                    <div class="hp-field" aria-hidden="true">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
                     
                     <div class="form-row">
                         <div class="form-group">
@@ -112,7 +129,28 @@
                         <label for="message">Project Description</label>
                         <textarea id="message" name="message" rows="4" placeholder="Tell us about your project requirements, goals, and any specific features you need..." required></textarea>
                     </div>
-                    
+
+                    @if($recaptchaSiteKey && $recaptchaType === 'v2')
+                        <div class="form-group recaptcha-group">
+                            <div class="g-recaptcha" data-sitekey="{{ $recaptchaSiteKey }}"></div>
+                        </div>
+                    @elseif($recaptchaSiteKey)
+                        <p class="recaptcha-note">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Protected by reCAPTCHA &middot;
+                            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy</a> &middot;
+                            <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms</a>
+                        </p>
+                    @else
+                        <div class="form-group captcha-group">
+                            <label for="captcha">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                Security Check: What is {{ $captchaA }} + {{ $captchaB }}?
+                            </label>
+                            <input type="number" id="captcha" name="captcha" placeholder="Enter your answer" required autocomplete="off" inputmode="numeric">
+                        </div>
+                    @endif
+
                     <button type="submit" class="btn btn-primary btn-lg btn-block">
                         <span>Send Message</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -125,3 +163,11 @@
         </div>
     </div>
 </section>
+
+@if(config('services.recaptcha.site_key'))
+    @if(config('services.recaptcha.type', 'v3') === 'v2')
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    @else
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}" async defer></script>
+    @endif
+@endif

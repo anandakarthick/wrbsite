@@ -11,8 +11,8 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="{{ url('/') }}" class="nav-link">Home</a></li>
             <li><a href="{{ url('/') }}#services" class="nav-link">Services</a></li>
+            <li><a href="{{ route('products') }}" class="nav-link">Products</a></li>
             <li><a href="{{ route('success-stories') }}" class="nav-link">Success Stories</a></li>
-            <li><a href="{{ url('/') }}#portfolio" class="nav-link">Portfolio</a></li>
             <li><a href="{{ url('/') }}#contact" class="nav-link">Contact</a></li>
             <li><a href="{{ route('profile') }}" class="nav-link">Profile</a></li>
         </ul>

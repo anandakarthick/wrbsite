@@ -47,6 +47,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Google reCAPTCHA (v2 checkbox)
+    |--------------------------------------------------------------------------
+    | Register at https://www.google.com/recaptcha/admin and set both keys
+    | in .env. When the keys are empty, the contact form falls back to the
+    | built-in math security check.
+    */
+    'recaptcha' => [
+        'site_key' => env('RECAPTCHA_SITE_KEY'),
+        'secret_key' => env('RECAPTCHA_SECRET_KEY'),
+        // 'v3' = invisible score-based, 'v2' = "I'm not a robot" checkbox.
+        // Must match the key type chosen in the reCAPTCHA admin console.
+        'type' => env('RECAPTCHA_TYPE', 'v3'),
+        // v3 only: submissions scoring below this are treated as bots (0..1)
+        'min_score' => (float) env('RECAPTCHA_MIN_SCORE', 0.5),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Bing Services
     |--------------------------------------------------------------------------
     */

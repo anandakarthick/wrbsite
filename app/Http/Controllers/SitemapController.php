@@ -31,6 +31,12 @@ class SitemapController extends Controller
                 'priority' => '0.9'
             ],
             [
+                'url' => url('/products'),
+                'lastmod' => date('Y-m-d'),
+                'changefreq' => 'weekly',
+                'priority' => '0.9'
+            ],
+            [
                 'url' => url('/success-stories/healthcare-ai-platform'),
                 'lastmod' => '2024-12-28',
                 'changefreq' => 'monthly',
@@ -67,6 +73,34 @@ class SitemapController extends Controller
                 'priority' => '0.8'
             ],
         ];
+
+        // Service detail pages from resources/data/services.json
+        $servicesFile = resource_path('data/services.json');
+        if (file_exists($servicesFile)) {
+            $data = json_decode(file_get_contents($servicesFile), true);
+            foreach ($data['services'] ?? [] as $service) {
+                $pages[] = [
+                    'url' => url('/services/' . $service['slug']),
+                    'lastmod' => date('Y-m-d'),
+                    'changefreq' => 'monthly',
+                    'priority' => '0.8'
+                ];
+            }
+        }
+
+        // Product detail pages from resources/data/products.json
+        $productsFile = resource_path('data/products.json');
+        if (file_exists($productsFile)) {
+            $data = json_decode(file_get_contents($productsFile), true);
+            foreach ($data['products'] ?? [] as $product) {
+                $pages[] = [
+                    'url' => url('/products/' . $product['slug']),
+                    'lastmod' => date('Y-m-d'),
+                    'changefreq' => 'monthly',
+                    'priority' => '0.8'
+                ];
+            }
+        }
 
         $content = view('sitemap', compact('pages'));
 

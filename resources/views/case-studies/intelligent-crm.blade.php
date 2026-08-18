@@ -9,15 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="{{ asset('css/success-stories.css') }}">
 </head>
 <body>
     @include('sections.header')
     <main>
-        <section class="case-study-hero" style="background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #b91c1c 100%);">
+        <section class="case-study-hero" style="background: linear-gradient(135deg, #db2777 0%, #ec4899 50%, #be185d 100%);">
             <div class="section-container">
                 <div class="case-study-hero-content">
-                    <span class="case-study-category">📊 Sales & CRM</span>
+                    <span class="case-study-category"><i class="fa-solid fa-chart-pie"></i> Sales & CRM</span>
                     <h1 class="case-study-title">Intelligent CRM with Predictive Lead Scoring</h1>
                     <p class="case-study-excerpt">Empowering sales teams with AI-driven insights, achieving 60% improvement in lead conversion rates.</p>
                     <div class="case-study-meta">

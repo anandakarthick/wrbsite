@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SitemapController;
 
 /*
@@ -50,8 +52,17 @@ Route::get('/success-stories/manufacturing-iot', function () {
     return view('case-studies.manufacturing-iot');
 })->name('case-study.manufacturing');
 
-// Contact Form Submission
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+// Services
+Route::get('/services/{slug}', [ServiceController::class, 'show'])->name('service.show');
+
+// Products
+Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::get('/products/{slug}', [ProductController::class, 'show'])->name('product.show');
+
+// Contact Form Submission (throttled: max 5 submissions per minute per IP)
+Route::post('/contact', [ContactController::class, 'submit'])
+    ->middleware('throttle:5,1')
+    ->name('contact.submit');
 
 // Sitemap
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');

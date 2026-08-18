@@ -26,7 +26,7 @@
     <meta name="twitter:description" content="Leading AI-powered software development company in Chennai, India.">
     <meta name="twitter:image" content="{{ asset('images/og-profile.jpg') }}">
     
-    <meta name="theme-color" content="#f97316">
+    <meta name="theme-color" content="#2563eb">
     <meta name="geo.region" content="IN-TN">
     <meta name="geo.placename" content="Chennai">
     
@@ -41,6 +41,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     
     <script type="application/ld+json">
@@ -124,12 +125,12 @@
                     </div>
                     <div class="about-image">
                         <div class="about-card">
-                            <div class="about-card-icon">🚀</div>
+                            <div class="about-card-icon"><i class="fa-solid fa-rocket"></i></div>
                             <h3>Our Mission</h3>
                             <p>To empower businesses with intelligent software solutions that drive innovation, efficiency, and growth.</p>
                         </div>
                         <div class="about-card">
-                            <div class="about-card-icon">🎯</div>
+                            <div class="about-card-icon"><i class="fa-solid fa-bullseye"></i></div>
                             <h3>Our Vision</h3>
                             <p>To be the leading AI-powered software development company, transforming how businesses operate globally.</p>
                         </div>

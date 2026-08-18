@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="{{ asset('css/success-stories.css') }}">
 </head>
 <body>
@@ -24,7 +25,7 @@
             
             <div class="section-container">
                 <div class="case-study-hero-content">
-                    <span class="case-study-category">🏥 Healthcare</span>
+                    <span class="case-study-category"><i class="fa-solid fa-hospital"></i> Healthcare</span>
                     <h1 class="case-study-title">AI-Powered Diagnostic Platform for Healthcare</h1>
                     <p class="case-study-excerpt">
                         Revolutionizing medical diagnosis with computer vision and machine learning, 
@@ -280,7 +281,7 @@
                             <div class="story-overlay">
                                 <span class="story-category">FinTech</span>
                             </div>
-                            <div class="story-icon">💳</div>
+                            <div class="story-icon"><i class="fa-solid fa-credit-card"></i></div>
                         </div>
                         <div class="story-content">
                             <h3 class="story-title">FinTech App with AI Fraud Detection</h3>
@@ -294,7 +295,7 @@
                             <div class="story-overlay">
                                 <span class="story-category">Manufacturing</span>
                             </div>
-                            <div class="story-icon">🏭</div>
+                            <div class="story-icon"><i class="fa-solid fa-industry"></i></div>
                         </div>
                         <div class="story-content">
                             <h3 class="story-title">Smart Manufacturing with IoT</h3>
@@ -308,7 +309,7 @@
                             <div class="story-overlay">
                                 <span class="story-category">E-commerce</span>
                             </div>
-                            <div class="story-icon">🛒</div>
+                            <div class="story-icon"><i class="fa-solid fa-cart-shopping"></i></div>
                         </div>
                         <div class="story-content">
                             <h3 class="story-title">AI-Powered E-commerce Platform</h3>

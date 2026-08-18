@@ -29,7 +29,7 @@
     <meta name="twitter:description" content="Explore our client success stories - AI solutions, e-commerce, HRMS, CRM and more.">
     <meta name="twitter:image" content="{{ asset('images/og-success-stories.jpg') }}">
     
-    <meta name="theme-color" content="#f97316">
+    <meta name="theme-color" content="#2563eb">
     <meta name="geo.region" content="IN-TN">
     <meta name="geo.placename" content="Chennai">
     
@@ -44,6 +44,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="{{ asset('css/success-stories.css') }}">
     
     <script type="application/ld+json">
@@ -190,7 +191,7 @@
                             <div class="story-overlay">
                                 <span class="story-category">Healthcare</span>
                             </div>
-                            <div class="story-icon">🏥</div>
+                            <div class="story-icon"><i class="fa-solid fa-hospital"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">
@@ -237,7 +238,7 @@
                             <div class="story-overlay">
                                 <span class="story-category">E-commerce</span>
                             </div>
-                            <div class="story-icon">🛒</div>
+                            <div class="story-icon"><i class="fa-solid fa-cart-shopping"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">
@@ -284,7 +285,7 @@
                             <div class="story-overlay">
                                 <span class="story-category">Enterprise</span>
                             </div>
-                            <div class="story-icon">👥</div>
+                            <div class="story-icon"><i class="fa-solid fa-users"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">
@@ -331,7 +332,7 @@
                             <div class="story-overlay">
                                 <span class="story-category">Sales & CRM</span>
                             </div>
-                            <div class="story-icon">📊</div>
+                            <div class="story-icon"><i class="fa-solid fa-chart-pie"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">
@@ -378,7 +379,7 @@
                             <div class="story-overlay">
                                 <span class="story-category">FinTech</span>
                             </div>
-                            <div class="story-icon">💳</div>
+                            <div class="story-icon"><i class="fa-solid fa-credit-card"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">
@@ -425,7 +426,7 @@
                             <div class="story-overlay">
                                 <span class="story-category">Manufacturing</span>
                             </div>
-                            <div class="story-icon">🏭</div>
+                            <div class="story-icon"><i class="fa-solid fa-industry"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">
@@ -479,42 +480,42 @@
                 
                 <div class="industries-grid">
                     <div class="industry-card">
-                        <span class="industry-icon">🏥</span>
+                        <span class="industry-icon"><i class="fa-solid fa-hospital"></i></span>
                         <h3>Healthcare</h3>
                         <p>AI diagnostics, patient management, telemedicine platforms</p>
                     </div>
                     <div class="industry-card">
-                        <span class="industry-icon">🛒</span>
+                        <span class="industry-icon"><i class="fa-solid fa-cart-shopping"></i></span>
                         <h3>E-commerce</h3>
                         <p>Online stores, marketplaces, inventory management</p>
                     </div>
                     <div class="industry-card">
-                        <span class="industry-icon">💰</span>
+                        <span class="industry-icon"><i class="fa-solid fa-coins"></i></span>
                         <h3>FinTech</h3>
                         <p>Banking apps, payment systems, fraud detection</p>
                     </div>
                     <div class="industry-card">
-                        <span class="industry-icon">🏭</span>
+                        <span class="industry-icon"><i class="fa-solid fa-industry"></i></span>
                         <h3>Manufacturing</h3>
                         <p>IoT solutions, predictive maintenance, automation</p>
                     </div>
                     <div class="industry-card">
-                        <span class="industry-icon">🎓</span>
+                        <span class="industry-icon"><i class="fa-solid fa-graduation-cap"></i></span>
                         <h3>Education</h3>
                         <p>E-learning platforms, LMS, virtual classrooms</p>
                     </div>
                     <div class="industry-card">
-                        <span class="industry-icon">🚗</span>
+                        <span class="industry-icon"><i class="fa-solid fa-car"></i></span>
                         <h3>Automotive</h3>
                         <p>Fleet management, connected vehicles, diagnostics</p>
                     </div>
                     <div class="industry-card">
-                        <span class="industry-icon">🏨</span>
+                        <span class="industry-icon"><i class="fa-solid fa-hotel"></i></span>
                         <h3>Hospitality</h3>
                         <p>Booking systems, guest experience, operations</p>
                     </div>
                     <div class="industry-card">
-                        <span class="industry-icon">📦</span>
+                        <span class="industry-icon"><i class="fa-solid fa-boxes-stacked"></i></span>
                         <h3>Logistics</h3>
                         <p>Supply chain, tracking, route optimization</p>
                     </div>
@@ -533,7 +534,7 @@
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <div class="testimonial-stars">★★★★★</div>
+                            <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             <p class="testimonial-text">
                                 "KA Software transformed our healthcare operations with their AI diagnostic platform. 
                                 The accuracy and speed improvements have been remarkable. Highly recommended!"
@@ -550,7 +551,7 @@
                     
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <div class="testimonial-stars">★★★★★</div>
+                            <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             <p class="testimonial-text">
                                 "The e-commerce platform they built exceeded our expectations. Sales increased by 40% 
                                 within the first quarter. Their AI recommendations are game-changing."
@@ -567,7 +568,7 @@
                     
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <div class="testimonial-stars">★★★★★</div>
+                            <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             <p class="testimonial-text">
                                 "Implementing their HRMS solution streamlined our entire HR process. The AI-powered 
                                 recruitment feature saved us countless hours and improved hire quality."

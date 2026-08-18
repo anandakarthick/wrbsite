@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
@@ -19,8 +20,20 @@ class ContactController extends Controller
      */
     public function submit(Request $request)
     {
+        // Honeypot: hidden field that only bots fill in.
+        // Pretend success so bots don't learn they were caught.
+        if ($request->filled('website')) {
+            Log::warning('Contact form honeypot triggered', ['ip' => $request->ip()]);
+            return response()->json([
+                'success' => true,
+                'message' => 'Thank you for your inquiry! Our sales team will contact you within 24 hours.'
+            ]);
+        }
+
+        $recaptchaSecret = config('services.recaptcha.secret_key');
+
         // Validate the request
-        $validator = Validator::make($request->all(), [
+        $rules = [
             'name' => 'required|string|max:100',
             'email' => 'required|email|max:100',
             'company' => 'nullable|string|max:100',
@@ -28,14 +41,53 @@ class ContactController extends Controller
             'service' => 'required|string|max:50',
             'budget' => 'nullable|string|max:50',
             'message' => 'required|string|max:2000',
-        ]);
+        ];
+        if ($recaptchaSecret) {
+            $rules['g-recaptcha-response'] = 'required|string';
+        } else {
+            $rules['captcha'] = 'required|numeric';
+        }
+
+        $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
+            $message = $validator->errors()->has('g-recaptcha-response')
+                ? 'Please confirm you are not a robot.'
+                : 'Please fill in all required fields correctly.';
             return response()->json([
                 'success' => false,
-                'message' => 'Please fill in all required fields correctly.',
+                'message' => $message,
                 'errors' => $validator->errors()
             ], 422);
+        }
+
+        if ($recaptchaSecret) {
+            // Verify the reCAPTCHA token with Google
+            if (!$this->verifyRecaptcha($recaptchaSecret, $request->input('g-recaptcha-response'), $request->ip())) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'reCAPTCHA verification failed. Please try again.'
+                ], 422);
+            }
+        } else {
+            // Fallback math captcha: answer was stored in the session when the form rendered
+            $expected = session('captcha_answer');
+            if ($expected === null || (int) $request->captcha !== (int) $expected) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'The security check answer is incorrect. Please try again.'
+                ], 422);
+            }
+        }
+
+        // Time trap: humans need more than a couple of seconds to fill the form
+        $renderedAt = session('contact_form_time');
+        if ($renderedAt !== null && (now()->timestamp - (int) $renderedAt) < 3) {
+            Log::warning('Contact form submitted too fast (likely bot)', ['ip' => $request->ip()]);
+            return response()->json([
+                'success' => false,
+                'message' => 'Form submitted too quickly. Please try again.'
+            ], 429);
         }
 
         try {
@@ -91,6 +143,53 @@ class ContactController extends Controller
                 'success' => false,
                 'message' => 'Sorry, there was an error processing your request. Please try again or call us directly at +91 8056653499.'
             ], 500);
+        }
+    }
+
+    /**
+     * Verify a reCAPTCHA v2 token with Google's siteverify endpoint
+     *
+     * @param string $secret
+     * @param string $token
+     * @param string|null $ip
+     * @return bool
+     */
+    private function verifyRecaptcha(string $secret, string $token, ?string $ip): bool
+    {
+        try {
+            $response = Http::asForm()->timeout(10)->post('https://www.google.com/recaptcha/api/siteverify', [
+                'secret' => $secret,
+                'response' => $token,
+                'remoteip' => $ip,
+            ]);
+
+            $result = $response->json();
+
+            if (!($result['success'] ?? false)) {
+                Log::warning('reCAPTCHA verification failed', [
+                    'ip' => $ip,
+                    'error-codes' => $result['error-codes'] ?? [],
+                ]);
+                return false;
+            }
+
+            // v3 responses include a score (0 = bot, 1 = human) and the action name
+            if (isset($result['score'])) {
+                $minScore = (float) config('services.recaptcha.min_score', 0.5);
+                if ($result['score'] < $minScore || ($result['action'] ?? 'contact') !== 'contact') {
+                    Log::warning('reCAPTCHA v3 low score or wrong action', [
+                        'ip' => $ip,
+                        'score' => $result['score'],
+                        'action' => $result['action'] ?? null,
+                    ]);
+                    return false;
+                }
+            }
+
+            return true;
+        } catch (\Exception $e) {
+            Log::error('reCAPTCHA verification error: ' . $e->getMessage());
+            return false;
         }
     }
 

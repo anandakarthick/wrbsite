@@ -37,8 +37,8 @@
                 <h4 class="footer-title">Quick Links</h4>
                 <ul class="footer-links">
                     <li><a href="{{ url('/') }}#services">Services</a></li>
+                    <li><a href="{{ route('products') }}">Products</a></li>
                     <li><a href="{{ route('success-stories') }}">Success Stories</a></li>
-                    <li><a href="{{ url('/') }}#portfolio">Portfolio</a></li>
                     <li><a href="{{ url('/') }}#contact">Contact Us</a></li>
                     <li><a href="{{ route('profile') }}">Company Profile</a></li>
                     <li><a href="{{ url('/sitemap.xml') }}">Sitemap</a></li>
@@ -49,12 +49,12 @@
             <div class="footer-section">
                 <h4 class="footer-title">Our Services</h4>
                 <ul class="footer-links">
-                    <li><a href="{{ url('/') }}#services">Mobile App Development</a></li>
-                    <li><a href="{{ url('/') }}#services">Web Application Development</a></li>
-                    <li><a href="{{ url('/') }}#services">E-commerce Solutions</a></li>
-                    <li><a href="{{ url('/') }}#services">AI & Machine Learning</a></li>
-                    <li><a href="{{ url('/') }}#services">HRMS Software</a></li>
-                    <li><a href="{{ url('/') }}#services">CRM Development</a></li>
+                    <li><a href="{{ route('service.show', 'mobile-app-development') }}">Mobile App Development</a></li>
+                    <li><a href="{{ route('service.show', 'web-applications') }}">Web Application Development</a></li>
+                    <li><a href="{{ route('service.show', 'ecommerce-platforms') }}">E-commerce Solutions</a></li>
+                    <li><a href="{{ route('service.show', 'ai-ml-solutions') }}">AI & Machine Learning</a></li>
+                    <li><a href="{{ route('service.show', 'hrms-solutions') }}">HRMS Software</a></li>
+                    <li><a href="{{ route('service.show', 'crm-systems') }}">CRM Development</a></li>
                 </ul>
             </div>
             

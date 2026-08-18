@@ -10,7 +10,7 @@
     <div class="hero-container">
         <div class="hero-content">
             <div class="hero-badge" data-aos="fade-up">
-                <span class="badge-icon">✨</span>
+                <span class="badge-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
                 <span>AI-Powered Development</span>
             </div>
             
@@ -77,15 +77,15 @@
                 
                 <div class="floating-cards">
                     <div class="floating-card card-1">
-                        <span class="card-icon">🤖</span>
+                        <span class="card-icon"><i class="fa-solid fa-robot"></i></span>
                         <span class="card-text">AI Ready</span>
                     </div>
                     <div class="floating-card card-2">
-                        <span class="card-icon">⚡</span>
+                        <span class="card-icon"><i class="fa-solid fa-bolt"></i></span>
                         <span class="card-text">Fast Deploy</span>
                     </div>
                     <div class="floating-card card-3">
-                        <span class="card-icon">🔒</span>
+                        <span class="card-icon"><i class="fa-solid fa-lock"></i></span>
                         <span class="card-text">Secure</span>
                     </div>
                 </div>

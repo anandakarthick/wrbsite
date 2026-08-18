@@ -16,7 +16,7 @@
     @include('sections.stats')
     
     <!-- Portfolio Section -->
-    @include('sections.portfolio')
+    {{-- @include('sections.portfolio') --}}
     
     <!-- Contact Section -->
     @include('sections.contact')

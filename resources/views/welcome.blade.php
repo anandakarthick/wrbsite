@@ -48,8 +48,8 @@
     <meta name="twitter:description" content="Leading software development company in Chennai. Mobile apps, web apps, AI/ML solutions.">
     <meta name="twitter:image" content="{{ asset('images/og-home.jpg') }}">
     
-    <meta name="theme-color" content="#f97316">
-    <meta name="msapplication-TileColor" content="#f97316">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="msapplication-TileColor" content="#2563eb">
     <meta name="application-name" content="KA Software">
     <meta name="apple-mobile-web-app-title" content="KA Software">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -72,6 +72,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     
     <script type="application/ld+json">
     {
@@ -226,7 +227,7 @@
         @include('sections.services')
         @include('sections.ai-features')
         @include('sections.stats')
-        @include('sections.portfolio')
+        {{-- @include('sections.portfolio') --}}
         @include('sections.contact')
         @include('sections.cta')
     </main>

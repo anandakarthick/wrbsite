@@ -14,7 +14,7 @@
             <!-- Healthcare AI App -->
             <div class="portfolio-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="portfolio-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                    <div class="portfolio-icon">📱</div>
+                    <div class="portfolio-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-btn">View Details</a>
                     </div>
@@ -36,7 +36,7 @@
             <!-- Smart E-commerce Platform -->
             <div class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="portfolio-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                    <div class="portfolio-icon">🛒</div>
+                    <div class="portfolio-icon"><i class="fa-solid fa-cart-shopping"></i></div>
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-btn">View Details</a>
                     </div>
@@ -58,7 +58,7 @@
             <!-- Enterprise HRMS -->
             <div class="portfolio-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="portfolio-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                    <div class="portfolio-icon">👥</div>
+                    <div class="portfolio-icon"><i class="fa-solid fa-users"></i></div>
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-btn">View Details</a>
                     </div>
@@ -80,7 +80,7 @@
             <!-- Intelligent CRM System -->
             <div class="portfolio-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="portfolio-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                    <div class="portfolio-icon">📊</div>
+                    <div class="portfolio-icon"><i class="fa-solid fa-chart-pie"></i></div>
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-btn">View Details</a>
                     </div>
@@ -102,7 +102,7 @@
             <!-- FinTech Mobile App -->
             <div class="portfolio-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="portfolio-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                    <div class="portfolio-icon">🏦</div>
+                    <div class="portfolio-icon"><i class="fa-solid fa-building-columns"></i></div>
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-btn">View Details</a>
                     </div>
@@ -124,7 +124,7 @@
             <!-- Manufacturing Analytics -->
             <div class="portfolio-card" data-aos="fade-up" data-aos-delay="600">
                 <div class="portfolio-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                    <div class="portfolio-icon">🏭</div>
+                    <div class="portfolio-icon"><i class="fa-solid fa-industry"></i></div>
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-btn">View Details</a>
                     </div>

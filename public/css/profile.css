@@ -30,7 +30,7 @@
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: white;
+    color: #0b1220;
 }
 
 .profile-hero-desc {
@@ -74,7 +74,7 @@
 }
 
 .about-text strong {
-    color: white;
+    color: #0b1220;
 }
 
 .about-image {
@@ -85,25 +85,30 @@
 
 .about-card {
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(15, 23, 42, 0.07);
     border-radius: var(--radius-xl);
     transition: var(--transition);
 }
 
 .about-card:hover {
-    border-color: rgba(249, 115, 22, 0.3);
-    background: rgba(249, 115, 22, 0.05);
+    border-color: rgba(37, 99, 235, 0.35);
+    background: rgba(37, 99, 235, 0.05);
 }
 
 .about-card-icon {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .about-card h3 {
     font-size: 1.25rem;
-    color: white;
+    color: #0b1220;
     margin-bottom: 0.75rem;
 }
 
@@ -115,7 +120,7 @@
 
 /* Company Info Section */
 .company-info-section {
-    background: linear-gradient(180deg, #1a1a35 0%, #252550 100%);
+    background: linear-gradient(180deg, #eaf2ff 0%, #f5f1ff 100%);
 }
 
 .info-grid {
@@ -126,8 +131,9 @@
 
 .info-card {
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(15, 23, 42, 0.07);
     border-radius: var(--radius-xl);
     text-align: center;
     transition: var(--transition);
@@ -135,8 +141,8 @@
 
 .info-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(249, 115, 22, 0.3);
-    background: rgba(249, 115, 22, 0.05);
+    border-color: rgba(37, 99, 235, 0.35);
+    background: rgba(37, 99, 235, 0.05);
 }
 
 .info-icon {
@@ -162,7 +168,7 @@
 .info-value {
     font-size: 1.25rem;
     font-weight: 700;
-    color: white;
+    color: #0b1220;
 }
 
 /* Services Detail Section */
@@ -180,20 +186,21 @@
     display: flex;
     gap: 1.5rem;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(15, 23, 42, 0.07);
     border-radius: var(--radius-xl);
     transition: var(--transition);
 }
 
 .service-detail-card:hover {
-    border-color: rgba(249, 115, 22, 0.3);
-    background: rgba(249, 115, 22, 0.05);
+    border-color: rgba(37, 99, 235, 0.35);
+    background: rgba(37, 99, 235, 0.05);
 }
 
 .service-detail-card.featured {
-    border-color: rgba(249, 115, 22, 0.3);
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+    border-color: rgba(37, 99, 235, 0.35);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
 }
 
 .service-detail-number {
@@ -209,7 +216,7 @@
 
 .service-detail-content h3 {
     font-size: 1.25rem;
-    color: white;
+    color: #0b1220;
     margin-bottom: 0.75rem;
 }
 
@@ -229,16 +236,16 @@
 
 .service-features li {
     padding: 0.25rem 0.75rem;
-    background: rgba(249, 115, 22, 0.1);
-    border: 1px solid rgba(249, 115, 22, 0.2);
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.2);
     border-radius: var(--radius-full);
     font-size: 0.75rem;
-    color: var(--primary-300);
+    color: var(--primary-700);
 }
 
 /* Technologies Section */
 .tech-section {
-    background: linear-gradient(180deg, #252550 0%, #1a1a35 100%);
+    background: linear-gradient(180deg, #f5f1ff 0%, #eaf2ff 100%);
 }
 
 .tech-categories {
@@ -249,17 +256,18 @@
 
 .tech-category {
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(15, 23, 42, 0.07);
     border-radius: var(--radius-xl);
 }
 
 .tech-category-title {
     font-size: 1rem;
-    color: white;
+    color: #0b1220;
     margin-bottom: 1.25rem;
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.1);
 }
 
 .tech-tags {
@@ -270,17 +278,17 @@
 
 .tech-tag {
     padding: 0.5rem 1rem;
-    background: rgba(249, 115, 22, 0.1);
-    border: 1px solid rgba(249, 115, 22, 0.2);
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.2);
     border-radius: var(--radius-full);
     font-size: 0.875rem;
-    color: var(--primary-300);
+    color: var(--primary-700);
     transition: var(--transition);
 }
 
 .tech-tag:hover {
-    background: rgba(249, 115, 22, 0.2);
-    border-color: rgba(249, 115, 22, 0.4);
+    background: rgba(37, 99, 235, 0.2);
+    border-color: rgba(37, 99, 235, 0.4);
 }
 
 /* Why Us Section */
@@ -296,8 +304,9 @@
 
 .why-us-card {
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(15, 23, 42, 0.07);
     border-radius: var(--radius-xl);
     text-align: center;
     transition: var(--transition);
@@ -305,18 +314,22 @@
 
 .why-us-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(249, 115, 22, 0.3);
+    border-color: rgba(37, 99, 235, 0.35);
     box-shadow: var(--shadow-glow);
 }
 
 .why-us-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1.25rem;
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .why-us-card h3 {
     font-size: 1.125rem;
-    color: white;
+    color: #0b1220;
     margin-bottom: 0.75rem;
 }
 
@@ -328,7 +341,7 @@
 
 /* Contact Section */
 .contact-section {
-    background: linear-gradient(180deg, #1a1a35 0%, #252550 100%);
+    background: linear-gradient(180deg, #eaf2ff 0%, #f5f1ff 100%);
 }
 
 .contact-profile-grid {
@@ -369,16 +382,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(249, 115, 22, 0.1);
-    border: 1px solid rgba(249, 115, 22, 0.2);
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.2);
     border-radius: var(--radius-lg);
-    color: var(--primary-400);
+    color: var(--primary-600);
     flex-shrink: 0;
 }
 
 .contact-detail-content h4 {
     font-size: 1rem;
-    color: white;
+    color: #0b1220;
     margin-bottom: 0.25rem;
 }
 
@@ -394,7 +407,7 @@
 }
 
 .contact-detail-content a:hover {
-    color: var(--primary-400);
+    color: var(--primary-600);
 }
 
 /* Map */
@@ -407,8 +420,9 @@
     width: 100%;
     height: 100%;
     min-height: 450px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(15, 23, 42, 0.07);
     border-radius: var(--radius-xl);
     overflow: hidden;
 }

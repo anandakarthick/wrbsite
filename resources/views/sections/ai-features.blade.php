@@ -14,7 +14,7 @@
             <!-- Machine Learning Integration -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="ai-icon">
-                    <span class="icon-emoji">🧠</span>
+                    <span class="icon-emoji"><i class="fa-solid fa-brain"></i></span>
                 </div>
                 <h3 class="ai-title">Machine Learning Integration</h3>
                 <p class="ai-description">
@@ -26,7 +26,7 @@
             <!-- Intelligent Chatbots -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="ai-icon">
-                    <span class="icon-emoji">💬</span>
+                    <span class="icon-emoji"><i class="fa-solid fa-comments"></i></span>
                 </div>
                 <h3 class="ai-title">Intelligent Chatbots</h3>
                 <p class="ai-description">
@@ -38,7 +38,7 @@
             <!-- Computer Vision -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="ai-icon">
-                    <span class="icon-emoji">👁️</span>
+                    <span class="icon-emoji"><i class="fa-solid fa-eye"></i></span>
                 </div>
                 <h3 class="ai-title">Computer Vision</h3>
                 <p class="ai-description">
@@ -50,7 +50,7 @@
             <!-- Predictive Analytics -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="ai-icon">
-                    <span class="icon-emoji">📈</span>
+                    <span class="icon-emoji"><i class="fa-solid fa-chart-line"></i></span>
                 </div>
                 <h3 class="ai-title">Predictive Analytics</h3>
                 <p class="ai-description">
@@ -62,7 +62,7 @@
             <!-- Smart Recommendations -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="ai-icon">
-                    <span class="icon-emoji">🔍</span>
+                    <span class="icon-emoji"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
                 </div>
                 <h3 class="ai-title">Smart Recommendations</h3>
                 <p class="ai-description">
@@ -74,7 +74,7 @@
             <!-- Process Automation -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="600">
                 <div class="ai-icon">
-                    <span class="icon-emoji">⚡</span>
+                    <span class="icon-emoji"><i class="fa-solid fa-bolt"></i></span>
                 </div>
                 <h3 class="ai-title">Process Automation</h3>
                 <p class="ai-description">

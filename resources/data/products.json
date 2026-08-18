@@ -1,0 +1,1324 @@
+{
+    "products": [
+        {
+            "slug": "vahaai",
+            "name": "VAHA AI",
+            "tagline": "AI Tutor & Smart Learning Platform",
+            "category": "AI & Education",
+            "status": "Live",
+            "featured": true,
+            "icon": "fa-solid fa-graduation-cap",
+            "gradient": "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)",
+            "description": "An AI-powered personal tutor that adapts to every learner. VAHA AI builds custom learning paths, answers doubts instantly in natural language, and tracks progress with intelligent analytics.",
+            "long_description": "VAHA AI is our flagship AI education platform built for schools, colleges, and self-learners. It combines large language models with adaptive learning science to act as a personal tutor for every student. Learners can ask questions by text or voice, get step-by-step explanations, take auto-generated quizzes, and follow study plans that adjust in real time to their strengths and weaknesses. Teachers get dashboards showing exactly where each student struggles, and institutions can plug in their own syllabus and question banks.",
+            "features": [
+                "AI doubt-solving chat with step-by-step explanations",
+                "Adaptive learning paths personalised per student",
+                "Auto-generated quizzes and mock tests",
+                "Voice-based tutoring in English and Tamil",
+                "Teacher dashboards with learning analytics",
+                "Custom syllabus and question bank integration"
+            ],
+            "tech": [
+                "Python",
+                "TensorFlow",
+                "GPT Integration",
+                "Laravel",
+                "Flutter",
+                "PostgreSQL"
+            ],
+            "stats": [
+                {
+                    "number": "50K+",
+                    "label": "Active Learners"
+                },
+                {
+                    "number": "92%",
+                    "label": "Improved Scores"
+                },
+                {
+                    "number": "24/7",
+                    "label": "AI Tutoring"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-user-graduate",
+                    "title": "A Personal Tutor for Every Student",
+                    "text": "No two students learn alike. VAHA AI adapts explanations, pace, and practice to each learner, so weak areas get extra attention automatically."
+                },
+                {
+                    "icon": "fa-solid fa-clock",
+                    "title": "Doubts Cleared in Seconds, 24/7",
+                    "text": "Students never wait for the next class to ask a question. Instant step-by-step answers keep momentum and confidence high."
+                },
+                {
+                    "icon": "fa-solid fa-chart-simple",
+                    "title": "Teachers See Everything",
+                    "text": "Dashboards show exactly which concept each student is stuck on, so teaching time goes where it matters most."
+                },
+                {
+                    "icon": "fa-solid fa-indian-rupee-sign",
+                    "title": "Fraction of the Cost of Tuition",
+                    "text": "Institutions offer premium personalised tutoring at a price every parent can afford - and a new revenue stream for the school."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Plug in Your Syllabus",
+                    "text": "Upload your curriculum, textbooks, and question banks - or start with our ready CBSE, State Board, and competitive exam packs."
+                },
+                {
+                    "title": "Students Start Learning",
+                    "text": "Learners chat with the AI tutor by text or voice, take adaptive quizzes, and follow study plans tuned to their level."
+                },
+                {
+                    "title": "The AI Adapts Daily",
+                    "text": "Every answer updates the student model. Difficulty, revision, and practice adjust automatically each day."
+                },
+                {
+                    "title": "Track and Improve",
+                    "text": "Teachers and parents get weekly progress reports, mastery maps, and early warnings before exams."
+                }
+            ],
+            "use_cases": [
+                "Schools & Colleges",
+                "Coaching Institutes",
+                "NEET / JEE Preparation",
+                "Corporate Training",
+                "Language Learning",
+                "Home Schooling"
+            ],
+            "testimonial": {
+                "quote": "Our average class scores went up 18% in one term. Students actually enjoy asking VAHA AI the questions they were too shy to ask in class.",
+                "author": "Priya Raghavan",
+                "role": "Principal",
+                "company": "Velammal Group of Schools, Chennai"
+            },
+            "faq": [
+                {
+                    "q": "Does VAHA AI work with our own syllabus and question papers?",
+                    "a": "Yes. You can upload your curriculum, notes, and question banks, and the tutor answers strictly within your syllabus. Ready-made packs for CBSE, Tamil Nadu State Board, NEET, and JEE are also included."
+                },
+                {
+                    "q": "What languages does the tutor support?",
+                    "a": "English and Tamil today, with voice input and output in both. Hindi is on the roadmap."
+                },
+                {
+                    "q": "How is pricing structured?",
+                    "a": "Simple per-student annual licensing with unlimited usage. Volume discounts apply for institutions above 500 students - contact us for a quote."
+                }
+            ]
+        },
+        {
+            "slug": "ka-crm",
+            "name": "KA CRM",
+            "tagline": "Intelligent Customer Relationship Suite",
+            "category": "Business Software",
+            "status": "Live",
+            "featured": true,
+            "icon": "fa-solid fa-chart-pie",
+            "gradient": "linear-gradient(135deg, #db2777 0%, #ec4899 100%)",
+            "description": "A full CRM suite with AI lead scoring, sales pipeline automation, and predictive analytics that tells your team who to call next and why.",
+            "long_description": "KA CRM brings together contacts, deals, tasks, and conversations in one clean workspace. Its AI engine scores every lead based on behaviour and history, predicts which deals are likely to close, and automates follow-up reminders so nothing slips through. Built-in WhatsApp and email integration keeps all customer communication in one timeline, while customisable pipelines fit any sales process from real estate to SaaS.",
+            "features": [
+                "AI lead scoring and deal-win prediction",
+                "Visual drag-and-drop sales pipelines",
+                "WhatsApp, email and call tracking in one timeline",
+                "Automated follow-up and task reminders",
+                "Custom reports and revenue forecasting",
+                "Role-based access for sales teams of any size"
+            ],
+            "tech": [
+                "Laravel",
+                "Vue.js",
+                "MySQL",
+                "Redis",
+                "Python ML",
+                "WhatsApp API"
+            ],
+            "stats": [
+                {
+                    "number": "300+",
+                    "label": "Businesses"
+                },
+                {
+                    "number": "35%",
+                    "label": "More Conversions"
+                },
+                {
+                    "number": "1M+",
+                    "label": "Leads Managed"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-bullseye",
+                    "title": "Know Who to Call Next",
+                    "text": "AI lead scoring ranks every prospect by how likely they are to buy, so your team spends time on deals that will actually close."
+                },
+                {
+                    "icon": "fa-solid fa-bell",
+                    "title": "Never Drop a Follow-up Again",
+                    "text": "Automatic reminders and sequences mean every lead gets a timely touch - even the ones from six months ago."
+                },
+                {
+                    "icon": "fa-brands fa-whatsapp",
+                    "title": "WhatsApp-First, Like Your Customers",
+                    "text": "Every WhatsApp chat, email, and call lands in one timeline per customer. No more scrolling personal phones for context."
+                },
+                {
+                    "icon": "fa-solid fa-arrow-trend-up",
+                    "title": "Forecast You Can Trust",
+                    "text": "Deal-win prediction and pipeline analytics give owners a revenue forecast grounded in behaviour, not gut feeling."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Import and Connect",
+                    "text": "Bring in your contacts from Excel or any CRM, and connect WhatsApp, email, and your website forms in minutes."
+                },
+                {
+                    "title": "Set Up Your Pipeline",
+                    "text": "Drag-and-drop stages to mirror how you actually sell - real estate site visits, SaaS demos, distributor onboarding, anything."
+                },
+                {
+                    "title": "Let the AI Prioritise",
+                    "text": "Every lead is scored and routed. Reps open the app each morning to a ranked list of who to contact and why."
+                },
+                {
+                    "title": "Watch Revenue Climb",
+                    "text": "Dashboards track conversion at every stage so you see exactly where deals leak and fix it."
+                }
+            ],
+            "use_cases": [
+                "Real Estate",
+                "SaaS & IT Sales",
+                "Education Admissions",
+                "Automotive Dealers",
+                "Financial Services",
+                "Distributors & B2B"
+            ],
+            "testimonial": {
+                "quote": "We moved from spreadsheets to KA CRM and closed 35% more deals in the first quarter - with the same team. The AI ranking is scary accurate.",
+                "author": "Arjun Mehta",
+                "role": "Sales Director",
+                "company": "UrbanNest Properties"
+            },
+            "faq": [
+                {
+                    "q": "Can we migrate from our existing CRM or Excel?",
+                    "a": "Yes. We provide free assisted migration from Excel, Zoho, Salesforce, and most CRMs, including your historical deals and notes."
+                },
+                {
+                    "q": "Is the official WhatsApp Business API included?",
+                    "a": "Yes - we set up the official API for you, so the whole team shares one number with full history, templates, and compliance."
+                },
+                {
+                    "q": "How long does onboarding take?",
+                    "a": "Most teams are live in under a week: one day for setup and import, and a guided training session for your sales team."
+                }
+            ]
+        },
+        {
+            "slug": "pipeforge",
+            "name": "PipeForge",
+            "tagline": "CI/CD & DevOps Automation Platform",
+            "category": "Developer Tools",
+            "status": "Beta",
+            "featured": false,
+            "icon": "fa-solid fa-code-branch",
+            "gradient": "linear-gradient(135deg, #0891b2 0%, #22d3ee 100%)",
+            "description": "Our own CI/CD platform that takes code from commit to production automatically — build, test, scan, and deploy with zero-config pipelines.",
+            "long_description": "PipeForge is a continuous integration and deployment platform built for teams that want DevOps without the complexity. Connect a Git repository and PipeForge auto-detects the stack, builds the pipeline, runs tests and security scans, and deploys to cloud or on-premise servers. Rollbacks are one click, preview environments spin up for every pull request, and detailed build analytics show exactly where time is spent.",
+            "features": [
+                "Zero-config pipelines with stack auto-detection",
+                "Automated builds, tests and security scanning",
+                "One-click deploy and instant rollback",
+                "Preview environments for every pull request",
+                "Docker and Kubernetes native support",
+                "Slack and email notifications on every stage"
+            ],
+            "tech": [
+                "Go",
+                "Docker",
+                "Kubernetes",
+                "GitHub API",
+                "AWS",
+                "Terraform"
+            ],
+            "stats": [
+                {
+                    "number": "10K+",
+                    "label": "Builds / Month"
+                },
+                {
+                    "number": "8 min",
+                    "label": "Avg Deploy Time"
+                },
+                {
+                    "number": "99.9%",
+                    "label": "Uptime"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-rocket",
+                    "title": "Ship Every Day, Not Every Month",
+                    "text": "Automated pipelines take code from commit to production in minutes, so features reach customers while they still matter."
+                },
+                {
+                    "icon": "fa-solid fa-shield-halved",
+                    "title": "Catch Bugs Before Customers Do",
+                    "text": "Every push runs your tests and security scans automatically. Broken builds never reach production."
+                },
+                {
+                    "icon": "fa-solid fa-rotate-left",
+                    "title": "One-Click Rollback Safety Net",
+                    "text": "A bad release is a 10-second fix, not a midnight emergency. Roll back to any previous version instantly."
+                },
+                {
+                    "icon": "fa-solid fa-coins",
+                    "title": "DevOps Without a DevOps Team",
+                    "text": "Zero-config pipelines mean small teams get big-company automation without hiring specialists."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Connect Your Repository",
+                    "text": "Link GitHub, GitLab, or Bitbucket. PipeForge auto-detects your stack - Laravel, Node, Flutter, Go, and more."
+                },
+                {
+                    "title": "Pipeline Builds Itself",
+                    "text": "Build, test, and scan stages are generated automatically. Customise anything with a simple YAML when you need to."
+                },
+                {
+                    "title": "Deploy Anywhere",
+                    "text": "Push to AWS, DigitalOcean, your own VPS, or Kubernetes. Preview environments spin up for every pull request."
+                },
+                {
+                    "title": "Monitor and Roll Back",
+                    "text": "Build analytics show where time goes; one click reverts any release."
+                }
+            ],
+            "use_cases": [
+                "Startups & SaaS Teams",
+                "Software Agencies",
+                "Enterprise IT",
+                "Mobile App Teams",
+                "Open Source Projects",
+                "Freelance Developers"
+            ],
+            "testimonial": {
+                "quote": "Deploys used to be a Friday-evening ritual of fear. Now interns ship to production safely. PipeForge paid for itself in the first outage it prevented.",
+                "author": "Karthik Subramanian",
+                "role": "CTO",
+                "company": "Finlytica"
+            },
+            "faq": [
+                {
+                    "q": "Do we need to write pipeline configuration files?",
+                    "a": "No. PipeForge auto-detects your stack and generates the pipeline. A YAML override is available for advanced customisation."
+                },
+                {
+                    "q": "Can it deploy to our own servers?",
+                    "a": "Yes - cloud, VPS, on-premise, and Kubernetes are all supported, including air-gapped enterprise setups."
+                },
+                {
+                    "q": "Is there a free tier while in beta?",
+                    "a": "Yes, beta teams get unlimited builds free. Early adopters lock in launch pricing when we go GA."
+                }
+            ]
+        },
+        {
+            "slug": "shopnest",
+            "name": "ShopNest",
+            "tagline": "Complete E-commerce Storefront Suite",
+            "category": "E-commerce",
+            "status": "Live",
+            "featured": true,
+            "icon": "fa-solid fa-cart-shopping",
+            "gradient": "linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%)",
+            "description": "Launch a full online store in days — storefront, payments, shipping, and AI product recommendations, all in one platform built for Indian businesses.",
+            "long_description": "ShopNest is an end-to-end e-commerce platform that lets any business sell online without stitching together plugins. It ships with beautiful mobile-first storefront themes, UPI and card payments, automatic GST invoicing, and integrations with major Indian courier partners. The built-in AI recommends products to each shopper, recovers abandoned carts over WhatsApp, and dynamically bundles items to raise average order value.",
+            "features": [
+                "Mobile-first storefront themes with drag-and-drop editor",
+                "UPI, cards, wallets and COD payments",
+                "Automatic GST invoicing and reports",
+                "Courier partner integration with live tracking",
+                "AI product recommendations and cart recovery",
+                "Multi-language storefronts including Tamil and Hindi"
+            ],
+            "tech": [
+                "Laravel",
+                "React",
+                "MySQL",
+                "Razorpay",
+                "Shiprocket API",
+                "Redis"
+            ],
+            "stats": [
+                {
+                    "number": "500+",
+                    "label": "Stores Live"
+                },
+                {
+                    "number": "2x",
+                    "label": "Avg Sales Growth"
+                },
+                {
+                    "number": "18%",
+                    "label": "Cart Recovery"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-store",
+                    "title": "Your Store Live in Days",
+                    "text": "Pick a theme, add products, connect UPI - and start selling. No developers, no plugin jungle, no monthly surprises."
+                },
+                {
+                    "icon": "fa-brands fa-whatsapp",
+                    "title": "Recover Lost Sales on WhatsApp",
+                    "text": "Abandoned carts get an automatic WhatsApp nudge with a checkout link - recovering up to 18% of lost orders."
+                },
+                {
+                    "icon": "fa-solid fa-wand-magic-sparkles",
+                    "title": "AI That Sells For You",
+                    "text": "Smart recommendations and bundles lift average order value on autopilot, just like the big marketplaces do."
+                },
+                {
+                    "icon": "fa-solid fa-file-invoice",
+                    "title": "GST Sorted, Couriers Connected",
+                    "text": "Automatic GST invoices and integrated courier booking with live tracking - the boring parts run themselves."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Set Up Your Storefront",
+                    "text": "Choose a mobile-first theme, drag your branding into place, and upload products in bulk from Excel."
+                },
+                {
+                    "title": "Connect Payments & Shipping",
+                    "text": "UPI, cards, wallets, and COD via Razorpay; Shiprocket and major couriers for delivery with live tracking."
+                },
+                {
+                    "title": "Launch and Promote",
+                    "text": "Built-in SEO, discount coupons, and Instagram/WhatsApp catalogue sharing bring the first orders in."
+                },
+                {
+                    "title": "Grow With AI",
+                    "text": "Recommendations, cart recovery, and analytics compound your sales month after month."
+                }
+            ],
+            "use_cases": [
+                "D2C Brands",
+                "Boutiques & Fashion",
+                "Grocery & Essentials",
+                "Electronics Retail",
+                "Handmade & Crafts",
+                "Wholesale B2B"
+            ],
+            "testimonial": {
+                "quote": "We shifted from a marketplace to our own ShopNest store and doubled our margin. The WhatsApp cart recovery alone pays the subscription.",
+                "author": "Divya Krishnan",
+                "role": "Founder",
+                "company": "Kaira Ethnic Wear"
+            },
+            "faq": [
+                {
+                    "q": "Can I migrate my products from Shopify or WooCommerce?",
+                    "a": "Yes - free migration of products, customers, and order history from Shopify, WooCommerce, and marketplace exports."
+                },
+                {
+                    "q": "Are payment charges extra?",
+                    "a": "You pay standard payment-gateway rates directly to Razorpay. ShopNest takes no commission on your sales."
+                },
+                {
+                    "q": "Does it work for COD-heavy businesses?",
+                    "a": "Absolutely. COD with courier reconciliation, NDR follow-ups, and fraud-risk flags is built in."
+                }
+            ]
+        },
+        {
+            "slug": "kartpos",
+            "name": "KartPOS",
+            "tagline": "Omnichannel POS & Inventory System",
+            "category": "E-commerce",
+            "status": "Live",
+            "featured": false,
+            "icon": "fa-solid fa-cash-register",
+            "gradient": "linear-gradient(135deg, #d97706 0%, #fbbf24 100%)",
+            "description": "A modern point-of-sale that unifies your physical counter and online store — billing, inventory, barcode, and GST reports in one dashboard.",
+            "long_description": "KartPOS turns any tablet or desktop into a powerful billing counter. It syncs stock in real time between your shop floor and your ShopNest online store, supports barcode scanning and thermal printing, manages suppliers and purchase orders, and produces GST-ready reports at the end of every day. Works offline and syncs automatically when the connection returns — built for supermarkets, pharmacies, and retail chains.",
+            "features": [
+                "Fast billing with barcode scanning and thermal printing",
+                "Real-time stock sync with online store",
+                "Offline mode with automatic sync",
+                "Supplier and purchase order management",
+                "GST-ready daily, weekly and monthly reports",
+                "Multi-branch and multi-counter support"
+            ],
+            "tech": [
+                "Electron",
+                "Node.js",
+                "SQLite",
+                "MySQL",
+                "REST APIs",
+                "ESC/POS"
+            ],
+            "stats": [
+                {
+                    "number": "1,200+",
+                    "label": "Counters"
+                },
+                {
+                    "number": "5M+",
+                    "label": "Bills / Month"
+                },
+                {
+                    "number": "100%",
+                    "label": "Offline Ready"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-bolt",
+                    "title": "Billing at Counter Speed",
+                    "text": "Barcode scan, thermal print, next customer - under five seconds a bill even during festival rush."
+                },
+                {
+                    "icon": "fa-solid fa-wifi",
+                    "title": "Never Stops When Internet Does",
+                    "text": "Full offline mode keeps billing running through outages and syncs automatically when the connection returns."
+                },
+                {
+                    "icon": "fa-solid fa-boxes-stacked",
+                    "title": "One Stock, Every Channel",
+                    "text": "Counter and online store share live inventory, so you never oversell or disappoint a customer."
+                },
+                {
+                    "icon": "fa-solid fa-file-invoice-dollar",
+                    "title": "GST Reports in One Click",
+                    "text": "Daily, monthly, and GSTR-ready reports generated automatically - your accountant will thank you."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Install on Any Device",
+                    "text": "Works on the desktop or tablet you already own, with your existing barcode scanner and thermal printer."
+                },
+                {
+                    "title": "Load Your Inventory",
+                    "text": "Bulk import items from Excel with barcodes, batches, and expiry dates. Suppliers and purchase orders included."
+                },
+                {
+                    "title": "Start Billing",
+                    "text": "Fast keyboard-first billing with holds, returns, discounts, and loyalty - staff learn it in an hour."
+                },
+                {
+                    "title": "Watch It All in One Dashboard",
+                    "text": "Sales, stock, fast-movers, and margins across every branch and counter, live on your phone."
+                }
+            ],
+            "use_cases": [
+                "Supermarkets",
+                "Pharmacies",
+                "Fashion Retail",
+                "Electronics Stores",
+                "Restaurants & Bakeries",
+                "Multi-Branch Chains"
+            ],
+            "testimonial": {
+                "quote": "Three branches, one dashboard. Stock mismatches dropped to almost zero and month-end GST filing went from two days to twenty minutes.",
+                "author": "Mohammed Faizal",
+                "role": "Owner",
+                "company": "Faizal Super Market Chain"
+            },
+            "faq": [
+                {
+                    "q": "Does it work with my existing printer and scanner?",
+                    "a": "Yes - any standard barcode scanner and ESC/POS thermal printer works out of the box."
+                },
+                {
+                    "q": "What happens when the internet goes down?",
+                    "a": "Nothing changes at the counter. KartPOS runs fully offline and syncs bills and stock automatically when you are back online."
+                },
+                {
+                    "q": "Can it handle batch and expiry for a pharmacy?",
+                    "a": "Yes - batch-wise stock, expiry alerts, and scheduled-drug registers are supported."
+                }
+            ]
+        },
+        {
+            "slug": "peoplecore",
+            "name": "PeopleCore",
+            "tagline": "AI-Powered HRMS & Payroll Suite",
+            "category": "Business Software",
+            "status": "Live",
+            "featured": false,
+            "icon": "fa-solid fa-users",
+            "gradient": "linear-gradient(135deg, #2563eb 0%, #60a5fa 100%)",
+            "description": "Complete HR management — attendance, leave, payroll, and AI-assisted recruitment — designed for growing companies from 10 to 10,000 employees.",
+            "long_description": "PeopleCore handles the entire employee lifecycle. Geo-fenced mobile attendance and biometric integration feed straight into automated payroll with statutory compliance (PF, ESI, TDS) built in. The AI recruitment module screens resumes, ranks candidates against the job description, and schedules interviews automatically. Employees get a self-service app for leave, payslips, and reimbursements, cutting HR queries dramatically.",
+            "features": [
+                "Geo-fenced mobile and biometric attendance",
+                "Automated payroll with PF, ESI and TDS compliance",
+                "AI resume screening and candidate ranking",
+                "Employee self-service mobile app",
+                "Leave, shift and overtime management",
+                "Performance reviews and appraisal cycles"
+            ],
+            "tech": [
+                "Laravel",
+                "Flutter",
+                "PostgreSQL",
+                "Python ML",
+                "Biometric SDKs",
+                "AWS"
+            ],
+            "stats": [
+                {
+                    "number": "80K+",
+                    "label": "Employees Managed"
+                },
+                {
+                    "number": "60%",
+                    "label": "Less HR Admin"
+                },
+                {
+                    "number": "100%",
+                    "label": "Statutory Compliant"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-calculator",
+                    "title": "Payroll Done in Minutes",
+                    "text": "Attendance flows straight into salary runs with PF, ESI, and TDS handled automatically. No spreadsheets, no errors."
+                },
+                {
+                    "icon": "fa-solid fa-location-dot",
+                    "title": "Attendance You Can Trust",
+                    "text": "Geo-fenced mobile punch-in and biometric integration end proxy attendance and manual registers."
+                },
+                {
+                    "icon": "fa-solid fa-user-check",
+                    "title": "Hire Better, Faster",
+                    "text": "AI screens hundreds of resumes against your job description in minutes and ranks the best fits with reasons."
+                },
+                {
+                    "icon": "fa-solid fa-mobile-screen",
+                    "title": "HR That Answers Itself",
+                    "text": "Payslips, leave, and reimbursements in a self-service app cut routine HR queries by more than half."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Set Up Your Organisation",
+                    "text": "Departments, shifts, leave policies, and salary structures configured with guided templates in a day."
+                },
+                {
+                    "title": "Connect Attendance",
+                    "text": "Employees punch in from the mobile app inside a geo-fence, or through your existing biometric devices."
+                },
+                {
+                    "title": "Run Payroll Automatically",
+                    "text": "One click computes salaries with statutory deductions and generates bank transfer files and payslips."
+                },
+                {
+                    "title": "Manage the Full Lifecycle",
+                    "text": "Recruitment, onboarding, appraisals, and exit - every stage tracked in one system."
+                }
+            ],
+            "use_cases": [
+                "Manufacturing Plants",
+                "IT & Services",
+                "Hospitals & Clinics",
+                "Retail Chains",
+                "Logistics Fleets",
+                "Educational Institutions"
+            ],
+            "testimonial": {
+                "quote": "Payroll for 1,800 employees across two plants used to take our team a full week. With PeopleCore it is one morning - and audits are painless now.",
+                "author": "Lakshmi Narayanan",
+                "role": "Head of HR",
+                "company": "SRM Auto Components"
+            },
+            "faq": [
+                {
+                    "q": "Is Indian statutory compliance really covered?",
+                    "a": "Yes - PF, ESI, TDS, professional tax, gratuity, and bonus calculations are built in and updated when regulations change."
+                },
+                {
+                    "q": "Can it integrate with our biometric devices?",
+                    "a": "We support all major biometric brands via SDK integration, alongside geo-fenced mobile attendance."
+                },
+                {
+                    "q": "How is it priced?",
+                    "a": "Per employee per month, with slabs that get cheaper as you grow. No setup fee for annual plans."
+                }
+            ]
+        },
+        {
+            "slug": "insightiq",
+            "name": "InsightIQ",
+            "tagline": "Business Intelligence & Analytics Dashboard",
+            "category": "AI & Analytics",
+            "status": "Beta",
+            "featured": false,
+            "icon": "fa-solid fa-chart-line",
+            "gradient": "linear-gradient(135deg, #059669 0%, #34d399 100%)",
+            "description": "Connect your databases and apps, ask questions in plain English, and get live dashboards with AI-generated insights and anomaly alerts.",
+            "long_description": "InsightIQ democratises data for non-technical teams. Connect MySQL, PostgreSQL, Excel files, or app APIs, and build live dashboards with a drag-and-drop editor — or simply type a question like \"show sales by region last quarter\" and let the AI build the chart. Scheduled reports land in your inbox, and the anomaly engine alerts you the moment a metric moves unexpectedly.",
+            "features": [
+                "Natural language questions to instant charts",
+                "Drag-and-drop dashboard builder",
+                "Connectors for databases, Excel and app APIs",
+                "AI anomaly detection with instant alerts",
+                "Scheduled email and WhatsApp reports",
+                "Row-level security and team sharing"
+            ],
+            "tech": [
+                "Python",
+                "FastAPI",
+                "React",
+                "ClickHouse",
+                "GPT Integration",
+                "Docker"
+            ],
+            "stats": [
+                {
+                    "number": "150+",
+                    "label": "Companies"
+                },
+                {
+                    "number": "10x",
+                    "label": "Faster Reporting"
+                },
+                {
+                    "number": "500+",
+                    "label": "Data Sources"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-comment-dots",
+                    "title": "Ask in English, Get a Chart",
+                    "text": "Type \"sales by region last quarter\" and the answer appears. No SQL, no waiting for the data team."
+                },
+                {
+                    "icon": "fa-solid fa-bell",
+                    "title": "Know the Moment Something Moves",
+                    "text": "Anomaly alerts flag unusual dips or spikes in revenue, orders, or costs before they become month-end surprises."
+                },
+                {
+                    "icon": "fa-solid fa-envelope-open-text",
+                    "title": "Reports That Deliver Themselves",
+                    "text": "Scheduled dashboards land in email and WhatsApp every morning - the whole team starts the day aligned."
+                },
+                {
+                    "icon": "fa-solid fa-database",
+                    "title": "All Your Data, One Screen",
+                    "text": "MySQL, PostgreSQL, Excel, Tally, and app APIs combine into unified live dashboards."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Connect Your Sources",
+                    "text": "Point InsightIQ at your databases, Excel sheets, and business apps with read-only connectors."
+                },
+                {
+                    "title": "Build or Ask",
+                    "text": "Drag-and-drop dashboards, or simply ask questions in plain English and let the AI build the chart."
+                },
+                {
+                    "title": "Share With the Team",
+                    "text": "Role-based dashboards with row-level security so each manager sees exactly their slice."
+                },
+                {
+                    "title": "Stay Ahead With Alerts",
+                    "text": "Set thresholds or let anomaly detection watch every metric around the clock."
+                }
+            ],
+            "use_cases": [
+                "Retail & E-commerce",
+                "Manufacturing",
+                "Finance Teams",
+                "Hospitals",
+                "Logistics",
+                "Franchise Networks"
+            ],
+            "testimonial": {
+                "quote": "Our Monday review meeting went from arguing about whose Excel was right to deciding what to do next. One source of truth changed everything.",
+                "author": "Rahul Bhandari",
+                "role": "CEO",
+                "company": "Medlife Pharmacy Network"
+            },
+            "faq": [
+                {
+                    "q": "Do you copy our data to your servers?",
+                    "a": "No. Connectors are read-only and can run fully on-premise; nothing leaves your infrastructure unless you choose cloud hosting."
+                },
+                {
+                    "q": "Can non-technical staff really use it?",
+                    "a": "Yes - that is the point. If they can type a question, they can get a chart. Training takes one session."
+                },
+                {
+                    "q": "Does it work with Tally?",
+                    "a": "Yes, a native Tally connector pulls ledgers, sales, and inventory automatically."
+                }
+            ]
+        },
+        {
+            "slug": "convodesk",
+            "name": "ConvoDesk",
+            "tagline": "AI Chatbot & WhatsApp Automation Platform",
+            "category": "AI & Automation",
+            "status": "Live",
+            "featured": true,
+            "icon": "fa-solid fa-robot",
+            "gradient": "linear-gradient(135deg, #7c3aed 0%, #db2777 100%)",
+            "description": "Build AI chatbots that answer customers 24/7 on WhatsApp, your website, and Instagram — trained on your own documents, products, and FAQs in minutes.",
+            "long_description": "ConvoDesk lets any business deploy a customer-support AI without writing code. Upload your product catalogue, FAQs, and policies, and the bot instantly answers customer questions in natural language across WhatsApp, web chat, and Instagram DMs. It books appointments, tracks orders, collects leads, and hands over to a human agent with full context when the conversation needs one. Supports English, Tamil, and Hindi out of the box, with a live dashboard showing every conversation and resolution rate.",
+            "features": [
+                "No-code bot builder trained on your own content",
+                "WhatsApp, website and Instagram channels in one inbox",
+                "Order tracking, appointment booking and lead capture",
+                "Smart human handover with full conversation context",
+                "Multilingual replies - English, Tamil and Hindi",
+                "Conversation analytics and resolution-rate dashboard"
+            ],
+            "tech": [
+                "Python",
+                "GPT Integration",
+                "LangChain",
+                "WhatsApp API",
+                "Laravel",
+                "Redis"
+            ],
+            "stats": [
+                {
+                    "number": "2M+",
+                    "label": "Chats Handled"
+                },
+                {
+                    "number": "80%",
+                    "label": "Auto-Resolved"
+                },
+                {
+                    "number": "3 min",
+                    "label": "Setup to Live"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-headset",
+                    "title": "Support That Never Sleeps",
+                    "text": "80% of customer questions get accurate, instant answers at 2 AM as easily as 2 PM - without growing your team."
+                },
+                {
+                    "icon": "fa-solid fa-cart-plus",
+                    "title": "Chats That Become Orders",
+                    "text": "The bot shares product cards, checks stock, and takes orders right inside WhatsApp where your customers already are."
+                },
+                {
+                    "icon": "fa-solid fa-user-group",
+                    "title": "Humans for the Hard Stuff",
+                    "text": "Complex conversations hand over to your agents with full context - customers never repeat themselves."
+                },
+                {
+                    "icon": "fa-solid fa-language",
+                    "title": "Speaks Your Customer's Language",
+                    "text": "English, Tamil, and Hindi replies out of the box, matched automatically to the language the customer uses."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Train It on Your Business",
+                    "text": "Upload your catalogue, FAQs, and policies. The bot learns your business in minutes - no code, no flowcharts."
+                },
+                {
+                    "title": "Connect Your Channels",
+                    "text": "Official WhatsApp API, website chat widget, and Instagram DMs feed into one shared inbox."
+                },
+                {
+                    "title": "Go Live and Watch",
+                    "text": "The dashboard shows every conversation, resolution rates, and the questions the bot could not answer."
+                },
+                {
+                    "title": "Improve Continuously",
+                    "text": "One click teaches the bot from missed questions, so it gets smarter every week."
+                }
+            ],
+            "use_cases": [
+                "E-commerce Stores",
+                "Clinics & Hospitals",
+                "Real Estate",
+                "Travel Agencies",
+                "Educational Institutes",
+                "Service Businesses"
+            ],
+            "testimonial": {
+                "quote": "ConvoDesk answers 4 out of 5 customer chats end to end. Our two support agents now handle what used to need eight people.",
+                "author": "Sneha Reddy",
+                "role": "Operations Head",
+                "company": "GlowKart Cosmetics"
+            },
+            "faq": [
+                {
+                    "q": "Will the bot say wrong things about my business?",
+                    "a": "The bot answers only from the content you provide and says \"let me connect you to the team\" when unsure. You review missed questions and approve improvements."
+                },
+                {
+                    "q": "Is this the official WhatsApp API?",
+                    "a": "Yes - fully official Meta WhatsApp Business API, with green-tick verification support."
+                },
+                {
+                    "q": "How fast can we go live?",
+                    "a": "Most businesses launch the same day: upload content, connect WhatsApp, test, and go."
+                }
+            ]
+        },
+        {
+            "slug": "visionkit",
+            "name": "VisionKit",
+            "tagline": "Computer Vision & Image Intelligence Platform",
+            "category": "AI & Automation",
+            "status": "Beta",
+            "featured": false,
+            "icon": "fa-solid fa-eye",
+            "gradient": "linear-gradient(135deg, #0891b2 0%, #2563eb 100%)",
+            "description": "Plug-and-play computer vision for factories and retail — defect detection, people counting, safety compliance, and shelf monitoring from ordinary CCTV cameras.",
+            "long_description": "VisionKit turns the cameras you already own into an AI inspection team. On the factory floor it spots product defects on the line in real time and flags safety violations like missing helmets. In retail it counts footfall, maps customer movement, and alerts staff when shelves run empty. Everything runs on-premise or in the cloud, with a simple dashboard to draw detection zones and set alert rules — no data science team required.",
+            "features": [
+                "Real-time defect detection on production lines",
+                "PPE and safety compliance monitoring",
+                "Footfall counting and customer heat maps",
+                "Shelf stock-out detection and alerts",
+                "Works with existing CCTV and IP cameras",
+                "On-premise or cloud deployment with alert rules"
+            ],
+            "tech": [
+                "Python",
+                "PyTorch",
+                "OpenCV",
+                "YOLO",
+                "NVIDIA Jetson",
+                "FastAPI"
+            ],
+            "stats": [
+                {
+                    "number": "99.2%",
+                    "label": "Detection Accuracy"
+                },
+                {
+                    "number": "40+",
+                    "label": "Factories & Stores"
+                },
+                {
+                    "number": "24/7",
+                    "label": "Live Monitoring"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-magnifying-glass",
+                    "title": "Defects Caught in Real Time",
+                    "text": "Every unit on the line is inspected every second - no sampling, no fatigue, no defective batch reaching a customer."
+                },
+                {
+                    "icon": "fa-solid fa-helmet-safety",
+                    "title": "Safety Enforced Automatically",
+                    "text": "Missing helmets, gloves, or restricted-zone entries trigger instant alerts - audits become evidence-backed."
+                },
+                {
+                    "icon": "fa-solid fa-camera",
+                    "title": "Uses Cameras You Already Own",
+                    "text": "No new hardware: VisionKit connects to existing CCTV and IP cameras and adds the intelligence layer."
+                },
+                {
+                    "icon": "fa-solid fa-store",
+                    "title": "Retail Insight From Footfall",
+                    "text": "Know how many people walked in, where they lingered, and which shelves went empty - hour by hour."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Connect Your Cameras",
+                    "text": "Point VisionKit at your existing CCTV/RTSP streams - on-premise box or cloud, your choice."
+                },
+                {
+                    "title": "Draw Zones and Rules",
+                    "text": "Mark inspection areas, safety zones, and shelves on the camera view and pick the detections you need."
+                },
+                {
+                    "title": "AI Watches 24/7",
+                    "text": "Models tuned for your line detect defects, violations, and events with confidence scores."
+                },
+                {
+                    "title": "Alerts and Reports Flow",
+                    "text": "Instant WhatsApp/SMS alerts for violations, and daily reports with clips as evidence."
+                }
+            ],
+            "use_cases": [
+                "Auto Component Plants",
+                "Textile Mills",
+                "Food Processing",
+                "Warehouses",
+                "Retail Chains",
+                "Construction Sites"
+            ],
+            "testimonial": {
+                "quote": "Customer rejections dropped 70% in three months. The line stops itself the moment a defect pattern appears - before a full batch is ruined.",
+                "author": "Suresh Kumar",
+                "role": "Plant Head",
+                "company": "Sakthi Precision Works"
+            },
+            "faq": [
+                {
+                    "q": "Do we need special cameras or GPUs?",
+                    "a": "Standard IP/CCTV cameras work. For on-premise processing we supply a compact edge device; cloud processing needs nothing extra."
+                },
+                {
+                    "q": "How accurate is defect detection?",
+                    "a": "After tuning on your product samples, typical deployments reach 99%+ detection accuracy with low false alarms."
+                },
+                {
+                    "q": "Is our factory footage sent to the cloud?",
+                    "a": "Only if you choose cloud mode. Fully on-premise deployment keeps every frame inside your network."
+                }
+            ]
+        },
+        {
+            "slug": "documind",
+            "name": "DocuMind",
+            "tagline": "AI Document Processing & Data Extraction",
+            "category": "AI & Automation",
+            "status": "Live",
+            "featured": false,
+            "icon": "fa-solid fa-file-lines",
+            "gradient": "linear-gradient(135deg, #059669 0%, #0891b2 100%)",
+            "description": "Feed it invoices, bills, KYC documents, or contracts — DocuMind reads them with AI, extracts the data, validates it, and pushes it straight into your ERP or Tally.",
+            "long_description": "DocuMind eliminates manual data entry. Drop in scanned invoices, purchase orders, bank statements, Aadhaar/PAN documents, or contracts — in any layout — and its AI reads, extracts, and structures the data with validation rules you define. Extracted records flow directly into Tally, Zoho, SAP, or your own database through ready connectors. A review screen highlights low-confidence fields so your team only checks what actually needs checking, and every document is searchable afterwards.",
+            "features": [
+                "Reads invoices, bills, KYC docs and contracts in any layout",
+                "AI extraction with confidence scores and validation rules",
+                "Direct push to Tally, Zoho, SAP or custom databases",
+                "Human review screen for low-confidence fields only",
+                "Full-text search across every processed document",
+                "Bulk upload, email-in, and API ingestion"
+            ],
+            "tech": [
+                "Python",
+                "OCR",
+                "GPT Integration",
+                "FastAPI",
+                "PostgreSQL",
+                "Tally API"
+            ],
+            "stats": [
+                {
+                    "number": "5M+",
+                    "label": "Docs Processed"
+                },
+                {
+                    "number": "98%",
+                    "label": "Field Accuracy"
+                },
+                {
+                    "number": "90%",
+                    "label": "Less Data Entry"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-keyboard",
+                    "title": "Goodbye, Manual Data Entry",
+                    "text": "Invoices, bills, and statements type themselves into your ERP. Teams shift from typing to verifying."
+                },
+                {
+                    "icon": "fa-solid fa-bullseye",
+                    "title": "Fewer Errors, Cleaner Books",
+                    "text": "Validation rules and confidence scores catch mismatched totals and duplicate bills before they hit your accounts."
+                },
+                {
+                    "icon": "fa-solid fa-plug",
+                    "title": "Flows Into Tally and Your ERP",
+                    "text": "Ready connectors push structured entries straight to Tally, Zoho, SAP, or your own database."
+                },
+                {
+                    "icon": "fa-solid fa-magnifying-glass",
+                    "title": "Every Document, Searchable Forever",
+                    "text": "Find any invoice by vendor, amount, or line item in seconds - even from a scan made years ago."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Feed Documents In",
+                    "text": "Bulk upload, forward to a dedicated email, or push via API - scans, photos, and PDFs all work."
+                },
+                {
+                    "title": "AI Reads and Extracts",
+                    "text": "Fields, tables, and line items are extracted from any layout with a confidence score per field."
+                },
+                {
+                    "title": "Review Only Exceptions",
+                    "text": "High-confidence documents flow straight through; your team reviews only the flagged fields."
+                },
+                {
+                    "title": "Data Lands in Your System",
+                    "text": "Approved entries post automatically to Tally, Zoho, SAP, or your database - fully audit-trailed."
+                }
+            ],
+            "use_cases": [
+                "Accounting Teams",
+                "CA Firms",
+                "Banks & NBFCs",
+                "Logistics Companies",
+                "Insurance",
+                "Procurement Departments"
+            ],
+            "testimonial": {
+                "quote": "We process 40,000 vendor invoices a month. DocuMind cut our entry team's workload by 90% and month-end closing by a full week.",
+                "author": "Anita Desai",
+                "role": "CFO",
+                "company": "TransCargo Logistics"
+            },
+            "faq": [
+                {
+                    "q": "What document types are supported?",
+                    "a": "Invoices, purchase orders, bank statements, receipts, KYC documents (Aadhaar, PAN, passport), and contracts - in any layout, printed or scanned."
+                },
+                {
+                    "q": "How does the Tally integration work?",
+                    "a": "A lightweight connector posts verified vouchers directly into Tally with your ledger mapping - no manual import files."
+                },
+                {
+                    "q": "Is our financial data secure?",
+                    "a": "Documents are encrypted in transit and at rest, with role-based access and an on-premise option for banks and regulated firms."
+                }
+            ]
+        },
+        {
+            "slug": "voxa-ai",
+            "name": "Voxa AI",
+            "tagline": "AI Voice Agent & Call Automation",
+            "category": "AI & Automation",
+            "status": "Beta",
+            "featured": false,
+            "icon": "fa-solid fa-microphone-lines",
+            "gradient": "linear-gradient(135deg, #d97706 0%, #ec4899 100%)",
+            "description": "An AI voice agent that answers your business calls, speaks naturally in English and Tamil, books appointments, and follows up on leads — around the clock.",
+            "long_description": "Voxa AI picks up every call your business receives and handles it like your best receptionist. It answers common questions, checks availability and books appointments into your calendar, qualifies leads with natural follow-up questions, and sends the caller a WhatsApp summary afterwards. Outbound, it runs payment reminders, delivery confirmations, and feedback calls at scale. Every conversation is transcribed, summarised, and scored in the dashboard, and complex calls transfer to a human instantly.",
+            "features": [
+                "Natural voice conversations in English and Tamil",
+                "24/7 call answering with appointment booking",
+                "Outbound reminder, confirmation and feedback calls",
+                "Lead qualification with automatic CRM entry",
+                "Instant human transfer for complex calls",
+                "Call transcripts, summaries and sentiment scoring"
+            ],
+            "tech": [
+                "Python",
+                "Speech-to-Text",
+                "GPT Integration",
+                "Text-to-Speech",
+                "Twilio",
+                "WebRTC"
+            ],
+            "stats": [
+                {
+                    "number": "100K+",
+                    "label": "Calls Handled"
+                },
+                {
+                    "number": "70%",
+                    "label": "Calls Fully Automated"
+                },
+                {
+                    "number": "0 sec",
+                    "label": "Hold Time"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-phone-volume",
+                    "title": "Every Call Answered, Always",
+                    "text": "Missed calls are missed revenue. Voxa picks up on the first ring at midnight, on holidays, and during rush hour."
+                },
+                {
+                    "icon": "fa-solid fa-calendar-check",
+                    "title": "Appointments Book Themselves",
+                    "text": "Voxa checks live availability and books directly into your calendar, then confirms on WhatsApp."
+                },
+                {
+                    "icon": "fa-solid fa-phone-flip",
+                    "title": "Outbound at Scale",
+                    "text": "Payment reminders, delivery confirmations, and feedback calls run automatically - hundreds per hour, politely."
+                },
+                {
+                    "icon": "fa-solid fa-file-audio",
+                    "title": "Every Call on Record",
+                    "text": "Transcripts, summaries, and sentiment for every conversation - coaching material and compliance in one place."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Give Voxa Your Knowledge",
+                    "text": "Services, prices, timings, and policies - Voxa learns how your business talks in a short setup call."
+                },
+                {
+                    "title": "Connect Your Number",
+                    "text": "Keep your existing business number; calls route to Voxa first with instant human transfer rules."
+                },
+                {
+                    "title": "Voxa Handles Calls",
+                    "text": "Natural conversations in English and Tamil - answering, booking, qualifying, and following up."
+                },
+                {
+                    "title": "Review and Refine",
+                    "text": "Dashboard shows transcripts and outcomes; refine responses with one click."
+                }
+            ],
+            "use_cases": [
+                "Clinics & Hospitals",
+                "Salons & Spas",
+                "Real Estate",
+                "Service Centres",
+                "Collections Teams",
+                "Restaurants"
+            ],
+            "testimonial": {
+                "quote": "We used to miss 30% of calls during clinic hours. Voxa now books those patients automatically - it added two full days of appointments a week.",
+                "author": "Dr. Vignesh Prabhu",
+                "role": "Director",
+                "company": "Prabhu Dental Care"
+            },
+            "faq": [
+                {
+                    "q": "Will callers know they are talking to an AI?",
+                    "a": "Voxa introduces itself honestly and sounds natural. Callers who prefer a person say so and are transferred instantly."
+                },
+                {
+                    "q": "Can we keep our existing phone number?",
+                    "a": "Yes - calls forward from your current number. Nothing changes for your customers."
+                },
+                {
+                    "q": "What about sensitive or angry callers?",
+                    "a": "Sentiment detection routes frustrated callers straight to a human, with the transcript attached so they never repeat themselves."
+                }
+            ]
+        },
+        {
+            "slug": "agentforge",
+            "name": "AgentForge",
+            "tagline": "Custom AI Agent Builder for Enterprises",
+            "category": "AI & Automation",
+            "status": "Beta",
+            "featured": false,
+            "icon": "fa-solid fa-diagram-project",
+            "gradient": "linear-gradient(135deg, #2563eb 0%, #06b6d4 100%)",
+            "description": "Design AI agents that actually do work — reading emails, updating systems, generating reports, and chaining multi-step workflows across your business tools.",
+            "long_description": "AgentForge is a visual platform for building AI agents that go beyond chat. Drag together triggers, AI reasoning steps, and actions to create agents that read incoming emails and draft replies, reconcile data between systems, generate weekly reports, monitor dashboards and escalate anomalies, or process approvals end-to-end. Agents connect to Gmail, WhatsApp, Slack, databases, and any REST API, run on schedules or events, and keep a full audit log of every action for compliance.",
+            "features": [
+                "Visual drag-and-drop agent workflow builder",
+                "Connectors for email, WhatsApp, Slack, databases and APIs",
+                "Multi-step reasoning with tool use and approvals",
+                "Scheduled and event-triggered agent runs",
+                "Full audit log of every agent action",
+                "Human-in-the-loop checkpoints for sensitive steps"
+            ],
+            "tech": [
+                "Python",
+                "LangChain",
+                "GPT Integration",
+                "Node.js",
+                "PostgreSQL",
+                "Docker"
+            ],
+            "stats": [
+                {
+                    "number": "500+",
+                    "label": "Agents Running"
+                },
+                {
+                    "number": "12K+",
+                    "label": "Tasks / Day"
+                },
+                {
+                    "number": "30+",
+                    "label": "Integrations"
+                }
+            ],
+            "benefits": [
+                {
+                    "icon": "fa-solid fa-robot",
+                    "title": "AI That Does, Not Just Chats",
+                    "text": "Agents read emails, update systems, reconcile data, and file reports - completing work end to end, not just answering questions."
+                },
+                {
+                    "icon": "fa-solid fa-puzzle-piece",
+                    "title": "Connects Everything You Use",
+                    "text": "Gmail, WhatsApp, Slack, databases, and any REST API - agents work across your real tool stack."
+                },
+                {
+                    "icon": "fa-solid fa-user-shield",
+                    "title": "You Stay in Control",
+                    "text": "Human-in-the-loop checkpoints for sensitive steps and a full audit log of every action an agent takes."
+                },
+                {
+                    "icon": "fa-solid fa-arrows-rotate",
+                    "title": "Runs While You Sleep",
+                    "text": "Scheduled and event-triggered runs mean routine work is simply done when you arrive in the morning."
+                }
+            ],
+            "how_it_works": [
+                {
+                    "title": "Design Visually",
+                    "text": "Drag triggers, AI reasoning steps, and actions onto a canvas - build an agent like drawing a flowchart."
+                },
+                {
+                    "title": "Connect Your Tools",
+                    "text": "Authorise the systems the agent may touch, with per-tool permissions and rate limits."
+                },
+                {
+                    "title": "Test in Sandbox",
+                    "text": "Dry-run mode shows exactly what the agent would do before it touches production data."
+                },
+                {
+                    "title": "Deploy With Guardrails",
+                    "text": "Set approval checkpoints, budgets, and alerts - then let the agent run on schedule or on events."
+                }
+            ],
+            "use_cases": [
+                "Finance Operations",
+                "Customer Support Ops",
+                "HR & Recruitment",
+                "IT Operations",
+                "Sales Operations",
+                "Compliance Teams"
+            ],
+            "testimonial": {
+                "quote": "Our reconciliation agent processes 12,000 transactions nightly and flags exactly the 20 that need a human. That job used to take three analysts.",
+                "author": "Nikhil Sharma",
+                "role": "VP Operations",
+                "company": "PayStream Financial"
+            },
+            "faq": [
+                {
+                    "q": "How is this different from a chatbot?",
+                    "a": "Chatbots talk; agents act. AgentForge agents log into systems, move data, and complete multi-step workflows - with every action logged."
+                },
+                {
+                    "q": "What stops an agent from doing something wrong?",
+                    "a": "Per-tool permissions, sandbox testing, human approval checkpoints for sensitive steps, and full audit trails. You define exactly what an agent may touch."
+                },
+                {
+                    "q": "Do we need AI engineers to use it?",
+                    "a": "No - the visual builder is designed for operations teams. Our engineers help design your first agents during onboarding."
+                }
+            ]
+        }
+    ]
+}

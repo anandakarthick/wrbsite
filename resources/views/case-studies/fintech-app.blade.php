@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="{{ asset('css/success-stories.css') }}">
 </head>
 <body>
@@ -17,7 +18,7 @@
         <section class="case-study-hero" style="background: linear-gradient(135deg, #ca8a04 0%, #eab308 50%, #a16207 100%);">
             <div class="section-container">
                 <div class="case-study-hero-content">
-                    <span class="case-study-category">💳 FinTech</span>
+                    <span class="case-study-category"><i class="fa-solid fa-credit-card"></i> FinTech</span>
                     <h1 class="case-study-title">FinTech Mobile App with AI Fraud Detection</h1>
                     <p class="case-study-excerpt">Securing financial transactions with real-time AI fraud detection, preventing $2M+ in fraudulent transactions.</p>
                     <div class="case-study-meta">

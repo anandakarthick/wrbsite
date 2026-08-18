@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="{{ asset('css/success-stories.css') }}">
 </head>
 <body>
@@ -17,7 +18,7 @@
         <section class="case-study-hero" style="background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #1d4ed8 100%);">
             <div class="section-container">
                 <div class="case-study-hero-content">
-                    <span class="case-study-category">👥 Enterprise</span>
+                    <span class="case-study-category"><i class="fa-solid fa-users"></i> Enterprise</span>
                     <h1 class="case-study-title">Enterprise HRMS with AI-Powered Recruitment</h1>
                     <p class="case-study-excerpt">Transforming HR operations with intelligent automation, reducing hiring time by 70%.</p>
                     <div class="case-study-meta">
