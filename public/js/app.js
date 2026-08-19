@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initBackToTop();
     initTilt();
     initInsightsSlider();
+    initHeroSlideshow();
 });
 
 /**
@@ -511,4 +512,22 @@ function initInsightsSlider() {
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         play();
     }
+}
+
+/**
+ * Hero background slideshow - slow crossfade rotation
+ */
+function initHeroSlideshow() {
+    var box = document.getElementById('heroSlideshow');
+    if (!box) return;
+    var slides = box.querySelectorAll('.hero-slide');
+    if (slides.length < 2) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var current = 0;
+    setInterval(function () {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }, 5500);
 }

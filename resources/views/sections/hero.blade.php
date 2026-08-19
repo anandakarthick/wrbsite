@@ -2,6 +2,15 @@
 <section id="home" class="hero">
     <div class="hero-bg">
         <div class="hero-gradient"></div>
+        <div class="hero-slideshow" id="heroSlideshow">
+            <div class="hero-slide active" style="background-image: url('{{ asset('images/tech/earth-network.jpg') }}');"></div>
+            <div class="hero-slide" style="background-image: url('{{ asset('images/office/team-collaboration.jpg') }}');"></div>
+            <div class="hero-slide" style="background-image: url('{{ asset('images/tech/analyst-screens.jpg') }}');"></div>
+            <div class="hero-slide" style="background-image: url('{{ asset('images/tech/engineer-laptop.jpg') }}');"></div>
+            <div class="hero-slide" style="background-image: url('{{ asset('images/tech/cyber-tech.jpg') }}');"></div>
+            <div class="hero-slide" style="background-image: url('{{ asset('images/office/team-meeting.jpg') }}');"></div>
+        </div>
+        <div class="hero-slideshow-overlay"></div>
         <div class="hero-pattern"></div>
         <div class="hero-glow hero-glow-1"></div>
         <div class="hero-glow hero-glow-2"></div>
