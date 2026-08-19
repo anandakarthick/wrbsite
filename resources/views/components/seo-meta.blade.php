@@ -68,8 +68,6 @@
 <link rel="manifest" href="{{ asset('site.webmanifest') }}">
 
 {{-- Preconnect for Performance --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://www.google-analytics.com">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
