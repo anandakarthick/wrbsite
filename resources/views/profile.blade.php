@@ -390,6 +390,54 @@
             </div>
         </section>
 
+        <!-- Life at KA Software Gallery -->
+        <section class="profile-section gallery-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Life at KA Software</span>
+                    <h2 class="section-title">A Look Inside Our Studio</h2>
+                    <p class="section-description">
+                        The desks, whiteboards, and people behind every product we ship.
+                    </p>
+                </div>
+
+                <div class="office-gallery">
+                    <figure class="gallery-item item-large">
+                        <img src="{{ asset('images/office/team-collaboration.jpg') }}" alt="Team collaborating at KA Software" loading="lazy">
+                        <figcaption>Sprint in progress — the whole pod in one room</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="{{ asset('images/office/office-workspace.jpg') }}" alt="KA Software office workspace" loading="lazy">
+                        <figcaption>Our open workspace</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="{{ asset('images/office/team-meeting.jpg') }}" alt="Team meeting" loading="lazy">
+                        <figcaption>Monday planning huddle</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="{{ asset('images/office/whiteboard-planning.jpg') }}" alt="Whiteboard planning session" loading="lazy">
+                        <figcaption>Architecture on the whiteboard</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="{{ asset('images/office/developer-desk.jpg') }}" alt="Developer desk with code" loading="lazy">
+                        <figcaption>Where the code happens</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="{{ asset('images/office/team-discussion.jpg') }}" alt="Team discussion" loading="lazy">
+                        <figcaption>Design critique session</figcaption>
+                    </figure>
+                    <figure class="gallery-item item-wide">
+                        <img src="{{ asset('images/office/team-laptops.jpg') }}" alt="Team working on laptops" loading="lazy">
+                        <figcaption>Ship day — everyone on deck</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="{{ asset('images/office/office-meeting.jpg') }}" alt="Office meeting room" loading="lazy">
+                        <figcaption>Client demo in the meeting room</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section class="profile-section contact-section">
             <div class="section-container">

@@ -503,3 +503,55 @@
         min-height: 300px;
     }
 }
+
+/* ============================================
+   Life at KA Software Gallery
+   ============================================ */
+.gallery-section { background: linear-gradient(180deg, #eaf2ff 0%, #f7f5ff 100%); }
+.office-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 180px;
+    gap: 1rem;
+}
+.gallery-item {
+    position: relative;
+    margin: 0;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+}
+.gallery-item.item-large { grid-column: span 2; grid-row: span 2; }
+.gallery-item.item-wide { grid-column: span 2; }
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gallery-item:hover img { transform: scale(1.1); }
+.gallery-item figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.75rem 1.25rem 1rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(11, 18, 32, 0.75) 100%);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.gallery-item:hover figcaption { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1024px) {
+    .office-gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+}
+@media (max-width: 600px) {
+    .office-gallery { grid-template-columns: 1fr; grid-auto-rows: 200px; }
+    .gallery-item.item-large, .gallery-item.item-wide { grid-column: span 1; grid-row: span 1; }
+    .gallery-item figcaption { opacity: 1; transform: none; }
+}

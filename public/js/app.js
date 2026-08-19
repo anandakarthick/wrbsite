@@ -386,7 +386,7 @@ function initAutoReveal() {
         '.about-card', '.info-card', '.service-detail-card', '.tech-category',
         '.why-us-card', '.contact-detail-item', '.story-card', '.industry-card',
         '.testimonial-card', '.result-card', '.sidebar-card', '.content-section',
-        '.section-header'
+        '.section-header', '.gallery-item'
     ];
 
     selectors.forEach(function(selector) {

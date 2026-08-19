@@ -226,6 +226,7 @@
         @include('sections.hero')
         @include('sections.services')
         @include('sections.ai-features')
+        @include('sections.workspace')
         @include('sections.stats')
         {{-- @include('sections.portfolio') --}}
         @include('sections.contact')
