@@ -72,6 +72,7 @@
     
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/chatbot.js') }}"></script>
     @stack('scripts')
 </body>
 </html>

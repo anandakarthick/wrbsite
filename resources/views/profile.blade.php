@@ -526,5 +526,6 @@
 
     @include('sections.footer')
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/chatbot.js') }}"></script>
 </body>
 </html>
