@@ -1426,9 +1426,9 @@ img { max-width: 100%; height: auto; }
     justify-content: center;
 }
 .kabot-toggle:hover { transform: translateY(-3px) scale(1.05); }
-.kabot-icon-close { display: none; }
-#kabot.open .kabot-icon-open { display: none; }
-#kabot.open .kabot-icon-close { display: block; }
+.kabot-toggle .kabot-icon-close { display: none; }
+#kabot.open .kabot-toggle .kabot-icon-open { display: none; }
+#kabot.open .kabot-toggle .kabot-icon-close { display: block; }
 .kabot-pulse {
     position: absolute;
     inset: 0;
