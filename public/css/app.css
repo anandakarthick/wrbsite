@@ -910,7 +910,7 @@ img { max-width: 100%; height: auto; }
 .back-to-top {
     position: fixed;
     bottom: 2rem;
-    right: 2rem;
+    left: 2rem;
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -1408,7 +1408,7 @@ img { max-width: 100%; height: auto; }
 /* ============================================
    KA Assistant Chatbot (bottom-left)
    ============================================ */
-#kabot { position: fixed; bottom: 2rem; left: 2rem; z-index: 1600; }
+#kabot { position: fixed; bottom: 2rem; right: 2rem; z-index: 1600; }
 .kabot-toggle {
     position: relative;
     width: 56px;
@@ -1446,7 +1446,7 @@ img { max-width: 100%; height: auto; }
 .kabot-panel {
     position: absolute;
     bottom: 72px;
-    left: 0;
+    right: 0;
     width: 360px;
     max-width: calc(100vw - 2.5rem);
     height: 480px;
@@ -1611,6 +1611,128 @@ img { max-width: 100%; height: auto; }
 .kabot-input button:hover { transform: scale(1.08); }
 
 @media (max-width: 480px) {
-    #kabot { bottom: 1.25rem; left: 1.25rem; }
+    #kabot { bottom: 1.25rem; right: 1.25rem; }
     .kabot-panel { height: 420px; }
+}
+
+/* ============================================
+   WhatsApp Widget (above chatbot, bottom-right)
+   ============================================ */
+#kawa { position: fixed; bottom: 6.75rem; right: 2rem; z-index: 1600; }
+.kawa-toggle {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.kawa-toggle:hover { transform: translateY(-3px) scale(1.05); }
+.kawa-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 211, 102, 0.55);
+    animation: kabotPulse 2.4s ease-out infinite;
+    animation-delay: 1.2s;
+    pointer-events: none;
+}
+#kawa.open .kawa-pulse { display: none; }
+
+.kawa-panel {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 330px;
+    max-width: calc(100vw - 2.5rem);
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(37, 211, 102, 0.25);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.97);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.3s;
+}
+#kawa.open .kawa-panel { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+
+.kawa-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: white;
+}
+.kawa-avatar {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 50%;
+    font-size: 1.35rem;
+}
+.kawa-header strong { display: block; font-size: 0.9375rem; }
+.kawa-header span { font-size: 0.78rem; opacity: 0.95; }
+
+.kawa-body { padding: 1rem 1.25rem 1.25rem; }
+.kawa-hint { font-size: 0.8125rem; color: var(--gray-500); margin-bottom: 0.75rem; }
+.kawa-templates { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+.kawa-templates button {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    text-align: left;
+    padding: 0.7rem 0.9rem;
+    background: #f0faf4;
+    border: 1px solid rgba(18, 140, 126, 0.25);
+    border-radius: var(--radius-lg);
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--gray-200);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.kawa-templates button:hover {
+    background: #e2f7ea;
+    border-color: rgba(18, 140, 126, 0.5);
+    transform: translateY(-1px);
+}
+.kawa-templates button i { color: #128c7e; flex-shrink: 0; }
+.kawa-open-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: inherit;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(37, 211, 102, 0.3);
+    transition: var(--transition);
+}
+.kawa-open-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(37, 211, 102, 0.4); }
+
+@media (max-width: 480px) {
+    #kawa { bottom: 5.9rem; right: 1.25rem; }
 }

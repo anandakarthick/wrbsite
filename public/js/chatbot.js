@@ -211,6 +211,8 @@
 
         toggle.addEventListener('click', function () {
             var open = root.classList.toggle('open');
+            var wa = document.getElementById('kawa');
+            if (open && wa) { wa.classList.remove('open'); }
             if (open && !greeted) {
                 greeted = true;
                 setTimeout(function () {
@@ -231,9 +233,70 @@
         });
     }
 
+    // ---- WhatsApp widget (above the chatbot, bottom-right) ----
+    var WA_TEMPLATES = [
+        { icon: 'fa-solid fa-briefcase', text: 'Hello KA Software! 👋 I want to discuss a new project idea.' },
+        { icon: 'fa-solid fa-file-invoice-dollar', text: 'Hi! I would like to get a quote for an app / website development.' },
+        { icon: 'fa-solid fa-screwdriver-wrench', text: 'Hello, I need support with an existing project.' },
+        { icon: 'fa-solid fa-robot', text: 'Hi! I am interested in your AI products and solutions.' }
+    ];
+
+    function openWhatsApp(message) {
+        window.open(CONTACT.whatsapp + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
+    }
+
+    function initWhatsApp() {
+        var root = document.createElement('div');
+        root.id = 'kawa';
+        root.innerHTML =
+            '<button type="button" class="kawa-toggle" aria-label="Chat on WhatsApp">' +
+                '<i class="fa-brands fa-whatsapp"></i>' +
+                '<span class="kawa-pulse"></span>' +
+            '</button>' +
+            '<div class="kawa-panel" role="dialog" aria-label="WhatsApp contact">' +
+                '<div class="kawa-header">' +
+                    '<div class="kawa-avatar"><i class="fa-brands fa-whatsapp"></i></div>' +
+                    '<div>' +
+                        '<strong>KA Software</strong>' +
+                        '<span>' + CONTACT.phoneDisplay + ' &middot; Replies within minutes</span>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="kawa-body">' +
+                    '<p class="kawa-hint">Pick a message to start the chat:</p>' +
+                    '<div class="kawa-templates"></div>' +
+                    '<button type="button" class="kawa-open-btn">' +
+                        '<i class="fa-brands fa-whatsapp"></i> Open WhatsApp Chat' +
+                    '</button>' +
+                '</div>' +
+            '</div>';
+        document.body.appendChild(root);
+
+        var templatesBox = root.querySelector('.kawa-templates');
+        WA_TEMPLATES.forEach(function (tpl) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.innerHTML = '<i class="' + tpl.icon + '"></i><span></span>';
+            btn.querySelector('span').textContent = tpl.text;
+            btn.addEventListener('click', function () { openWhatsApp(tpl.text); });
+            templatesBox.appendChild(btn);
+        });
+
+        root.querySelector('.kawa-open-btn').addEventListener('click', function () {
+            openWhatsApp('Hello KA Software! 👋 I visited your website and would like to know more.');
+        });
+
+        root.querySelector('.kawa-toggle').addEventListener('click', function () {
+            var open = root.classList.toggle('open');
+            var bot = document.getElementById('kabot');
+            if (open && bot) { bot.classList.remove('open'); }
+        });
+    }
+
+    function boot() { init(); initWhatsApp(); }
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', boot);
     } else {
-        init();
+        boot();
     }
 })();
