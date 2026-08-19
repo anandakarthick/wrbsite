@@ -531,58 +531,70 @@
                     <h2 class="section-title">What Our Clients Say</h2>
                 </div>
                 
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="testimonial-text">
-                                "KA Software transformed our healthcare operations with their AI diagnostic platform. 
-                                The accuracy and speed improvements have been remarkable. Highly recommended!"
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">DR</div>
-                            <div class="author-info">
-                                <h4>Dr. Rajesh Kumar</h4>
-                                <p>CEO, MedTech Solutions</p>
+                @php
+                    $reviewsData = json_decode(file_get_contents(resource_path("data/testimonials.json")), true) ?? [];
+                    $reviews = $reviewsData["testimonials"] ?? [];
+                    $avatarGradients = [
+                        "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)",
+                        "linear-gradient(135deg, #db2777 0%, #ec4899 100%)",
+                        "linear-gradient(135deg, #0891b2 0%, #22d3ee 100%)",
+                        "linear-gradient(135deg, #059669 0%, #34d399 100%)",
+                        "linear-gradient(135deg, #d97706 0%, #fbbf24 100%)",
+                        "linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%)",
+                    ];
+                @endphp
+                <div class="testimonials-grid" id="testimonialsGrid">
+                    @foreach($reviews as $index => $review)
+                        @php
+                            $parts = preg_split("/\s+/", trim($review["name"]));
+                            $initials = strtoupper(substr($parts[0], 0, 1) . (isset($parts[1]) ? substr($parts[1], 0, 1) : ""));
+                            $full = (int) floor($review["rating"]);
+                            $half = ($review["rating"] - $full) >= 0.5;
+                        @endphp
+                        <div class="testimonial-card {{ $index >= 9 ? "hidden-review" : "" }}">
+                            <div class="testimonial-content">
+                                <div class="testimonial-stars">
+                                    @for($i = 0; $i < $full; $i++)<i class="fa-solid fa-star"></i>@endfor
+                                    @if($half)<i class="fa-solid fa-star-half-stroke"></i>@endif
+                                </div>
+                                <p class="testimonial-text">"{{ $review["text"] }}"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar" style="background: {{ $avatarGradients[$index % count($avatarGradients)] }};">{{ $initials }}</div>
+                                <div class="author-info">
+                                    <h4>{{ $review["name"] }}</h4>
+                                    <p>{{ $review["role"] }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="testimonial-text">
-                                "The e-commerce platform they built exceeded our expectations. Sales increased by 40% 
-                                within the first quarter. Their AI recommendations are game-changing."
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">PS</div>
-                            <div class="author-info">
-                                <h4>Priya Sharma</h4>
-                                <p>Founder, ShopEase India</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="testimonial-text">
-                                "Implementing their HRMS solution streamlined our entire HR process. The AI-powered 
-                                recruitment feature saved us countless hours and improved hire quality."
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">AM</div>
-                            <div class="author-info">
-                                <h4>Arun Menon</h4>
-                                <p>HR Director, TechCorp Ltd</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+
+                <div class="testimonials-more">
+                    <button type="button" class="btn btn-outline btn-lg" id="showMoreReviews">
+                        <span>Show More Reviews ({{ max(count($reviews) - 9, 0) }} more)</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var btn = document.getElementById("showMoreReviews");
+                        if (!btn) return;
+                        var hidden = document.querySelectorAll("#testimonialsGrid .hidden-review");
+                        if (!hidden.length) { btn.style.display = "none"; return; }
+                        var expanded = false;
+                        btn.addEventListener("click", function () {
+                            expanded = !expanded;
+                            hidden.forEach(function (card) { card.classList.toggle("show", expanded); });
+                            btn.querySelector("span").textContent = expanded
+                                ? "Show Fewer Reviews"
+                                : "Show More Reviews (" + hidden.length + " more)";
+                            btn.querySelector("i").classList.toggle("fa-chevron-up", expanded);
+                            btn.querySelector("i").classList.toggle("fa-chevron-down", !expanded);
+                        });
+                    });
+                </script>
             </div>
         </section>
 

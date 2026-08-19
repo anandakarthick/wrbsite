@@ -647,3 +647,8 @@
         gap: 1rem;
     }
 }
+
+/* Show more reviews */
+.testimonial-card.hidden-review { display: none; }
+.testimonial-card.hidden-review.show { display: block; }
+.testimonials-more { text-align: center; margin-top: 2.5rem; }
