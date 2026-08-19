@@ -7,17 +7,51 @@
 
     var CONTACT = {
         phone: '+918056653499',
+        phoneDigits: '918056653499',
         phoneDisplay: '+91 80566 53499',
         email: 'info@kasoftware.in',
         whatsapp: 'https://wa.me/918056653499',
         contactUrl: '/#contact'
     };
 
+    /**
+     * Open WhatsApp: on mobile, try the native app first (whatsapp:// deep link);
+     * if the app is not installed, fall back to WhatsApp Web after a short wait.
+     * On desktop, open wa.me (WhatsApp Web) in a new tab.
+     */
+    function openWhatsApp(message) {
+        var text = encodeURIComponent(message);
+        var webUrl = 'https://wa.me/' + CONTACT.phoneDigits + '?text=' + text;
+        var isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent);
+
+        if (!isMobile) {
+            window.open(webUrl, '_blank', 'noopener');
+            return;
+        }
+
+        var appUrl = 'whatsapp://send?phone=' + CONTACT.phoneDigits + '&text=' + text;
+        var appOpened = false;
+
+        function markOpened() { appOpened = true; }
+        document.addEventListener('visibilitychange', markOpened, { once: true });
+        window.addEventListener('pagehide', markOpened, { once: true });
+        window.addEventListener('blur', markOpened, { once: true });
+
+        window.location.href = appUrl;
+
+        setTimeout(function () {
+            document.removeEventListener('visibilitychange', markOpened);
+            if (!appOpened && !document.hidden) {
+                window.location.href = webUrl;
+            }
+        }, 1600);
+    }
+
     var CONTACT_LINKS =
         '<div class="kabot-actions">' +
         '<a href="' + CONTACT.contactUrl + '"><i class="fa-solid fa-envelope-open-text"></i> Contact Form</a>' +
         '<a href="tel:' + CONTACT.phone + '"><i class="fa-solid fa-phone"></i> Call Us</a>' +
-        '<a href="' + CONTACT.whatsapp + '" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>' +
+        '<a href="' + CONTACT.whatsapp + '" class="kabot-wa-link" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>' +
         '<a href="mailto:' + CONTACT.email + '"><i class="fa-solid fa-at"></i> Email</a>' +
         '</div>';
 
@@ -241,10 +275,6 @@
         { icon: 'fa-solid fa-robot', text: 'Hi! I am interested in your AI products and solutions.' }
     ];
 
-    function openWhatsApp(message) {
-        window.open(CONTACT.whatsapp + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
-    }
-
     function initWhatsApp() {
         var root = document.createElement('div');
         root.id = 'kawa';
@@ -292,7 +322,19 @@
         });
     }
 
-    function boot() { init(); initWhatsApp(); }
+    function boot() {
+        init();
+        initWhatsApp();
+
+        // WhatsApp links inside chatbot messages use the app-first deep link too
+        document.addEventListener('click', function (e) {
+            var link = e.target.closest ? e.target.closest('.kabot-wa-link') : null;
+            if (link) {
+                e.preventDefault();
+                openWhatsApp('Hello KA Software! 👋 I visited your website and would like to know more.');
+            }
+        });
+    }
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', boot);
