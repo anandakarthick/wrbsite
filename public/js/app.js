@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollProgress();
     initBackToTop();
     initTilt();
+    initInsightsSlider();
 });
 
 /**
@@ -461,4 +462,53 @@ function initTilt() {
             card.style.transform = '';
         });
     });
+}
+
+/**
+ * Tech Insights slider - autoplay, arrows, dots, swipe
+ */
+function initInsightsSlider() {
+    var slider = document.getElementById('insightsSlider');
+    if (!slider) return;
+
+    var slides = slider.querySelectorAll('.insight-slide');
+    var dots = slider.querySelectorAll('.insight-dot');
+    if (slides.length < 2) return;
+
+    var current = 0;
+    var timer = null;
+    var INTERVAL = 6000;
+
+    function goTo(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach(function (slide, i) { slide.classList.toggle('active', i === current); });
+        dots.forEach(function (dot, i) { dot.classList.toggle('active', i === current); });
+    }
+
+    function play() { stop(); timer = setInterval(function () { goTo(current + 1); }, INTERVAL); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    slider.querySelector('.insight-arrow.next').addEventListener('click', function () { goTo(current + 1); play(); });
+    slider.querySelector('.insight-arrow.prev').addEventListener('click', function () { goTo(current - 1); play(); });
+    dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goTo(i); play(); });
+    });
+
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', play);
+
+    // Touch swipe
+    var startX = null;
+    slider.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
+    slider.addEventListener('touchend', function (e) {
+        if (startX === null) return;
+        var dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 50) { goTo(current + (dx < 0 ? 1 : -1)); }
+        startX = null;
+        play();
+    }, { passive: true });
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        play();
+    }
 }

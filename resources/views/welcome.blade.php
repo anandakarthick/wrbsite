@@ -228,6 +228,7 @@
         @include('sections.ai-features')
         @include('sections.workspace')
         @include('sections.stats')
+        @include('sections.tech-insights')
         {{-- @include('sections.portfolio') --}}
         @include('sections.contact')
         @include('sections.cta')

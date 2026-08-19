@@ -1,0 +1,52 @@
+{
+    "insights": [
+        {
+            "image": "images/tech/ai-generative.jpg",
+            "tag": "Artificial Intelligence",
+            "title": "Generative AI Is Entering Every Business Workflow",
+            "text": "From drafting documents to writing code, generative AI is becoming a daily co-worker. Companies that embed it into real workflows - not just chat windows - are seeing 30-50% productivity gains.",
+            "link": "/services/ai-ml-solutions",
+            "link_text": "Explore our AI services"
+        },
+        {
+            "image": "images/tech/ai-robot-hand.jpg",
+            "tag": "AI Agents",
+            "title": "AI Agents Are Becoming the New Digital Workforce",
+            "text": "The next wave beyond chatbots: autonomous agents that read emails, reconcile data, and complete multi-step tasks across your tools - with human approval where it matters.",
+            "link": "/products/agentforge",
+            "link_text": "See AgentForge in action"
+        },
+        {
+            "image": "images/tech/robot-ai.jpg",
+            "tag": "Computer Vision",
+            "title": "Computer Vision Moves to the Factory Floor",
+            "text": "Cameras you already own can now inspect every unit on the line, enforce safety compliance, and count retail footfall - AI turns CCTV into a 24/7 operations team.",
+            "link": "/products/visionkit",
+            "link_text": "Discover VisionKit"
+        },
+        {
+            "image": "images/tech/data-center.jpg",
+            "tag": "Cloud & DevOps",
+            "title": "Cloud-Native Is Now the Default, Not the Upgrade",
+            "text": "Auto-scaling infrastructure, one-click rollbacks, and deploy pipelines that run themselves - modern teams ship daily because their platform absorbs the risk.",
+            "link": "/products/pipeforge",
+            "link_text": "Meet PipeForge CI/CD"
+        },
+        {
+            "image": "images/tech/matrix-code.jpg",
+            "tag": "Data & Analytics",
+            "title": "Your Data Wants to Talk - In Plain English",
+            "text": "Natural-language analytics lets any manager type a question and get a live chart. The gap between 'we have data' and 'we use data' is finally closing.",
+            "link": "/products/insightiq",
+            "link_text": "Try InsightIQ"
+        },
+        {
+            "image": "images/tech/vr-headset.jpg",
+            "tag": "Emerging Tech",
+            "title": "Voice and Vernacular Interfaces Go Mainstream",
+            "text": "The next billion users prefer speaking to typing - in their own language. Voice AI in English and Tamil is opening digital services to entirely new audiences.",
+            "link": "/products/voxa-ai",
+            "link_text": "Hear Voxa AI"
+        }
+    ]
+}

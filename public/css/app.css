@@ -1233,3 +1233,146 @@ img { max-width: 100%; height: auto; }
     .workspace { padding: 5rem 0; }
     .workspace-gallery { grid-auto-rows: 120px; }
 }
+
+/* ============================================
+   Tech Insights Slider
+   ============================================ */
+.tech-insights {
+    padding: 8rem 0;
+    background: linear-gradient(180deg, #f6f8fc 0%, #eaf2ff 100%);
+    overflow: hidden;
+}
+.insights-slider {
+    position: relative;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    background: #0d1730;
+}
+.insights-track { position: relative; height: 480px; }
+.insight-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.insight-slide.active { opacity: 1; visibility: visible; }
+.insight-image { position: absolute; inset: 0; }
+.insight-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.08);
+    transition: transform 7s ease-out;
+}
+.insight-slide.active .insight-image img { transform: scale(1); }
+.insight-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(11, 18, 32, 0.88) 0%, rgba(11, 18, 32, 0.55) 55%, rgba(11, 18, 32, 0.15) 100%);
+}
+.insight-caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 560px;
+    padding: 2rem 3rem;
+    z-index: 2;
+}
+.insight-slide.active .insight-caption > * { animation: captionUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.insight-slide.active .insight-caption > *:nth-child(2) { animation-delay: 0.12s; }
+.insight-slide.active .insight-caption > *:nth-child(3) { animation-delay: 0.24s; }
+.insight-slide.active .insight-caption > *:nth-child(4) { animation-delay: 0.36s; }
+@keyframes captionUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.insight-tag {
+    display: inline-block;
+    padding: 0.375rem 1rem;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: white;
+    margin-bottom: 1rem;
+}
+.insight-caption h3 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+}
+.insight-caption p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.0313rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+.insight-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #93c5fd;
+    font-weight: 600;
+    font-size: 0.9375rem;
+}
+.insight-link:hover { color: white; gap: 0.75rem; }
+
+.insight-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    z-index: 3;
+    transition: var(--transition);
+}
+.insight-arrow:hover { background: rgba(255, 255, 255, 0.3); transform: translateY(-50%) scale(1.08); }
+.insight-arrow.prev { left: 1.25rem; }
+.insight-arrow.next { right: 1.25rem; }
+
+.insight-dots {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 3;
+}
+.insight-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: var(--transition);
+}
+.insight-dot.active { width: 28px; background: white; }
+
+@media (max-width: 768px) {
+    .tech-insights { padding: 5rem 0; }
+    .insights-track { height: 520px; }
+    .insight-caption { padding: 1.5rem; max-width: 100%; top: auto; bottom: 3rem; transform: none; }
+    .insight-image::after { background: linear-gradient(180deg, rgba(11, 18, 32, 0.2) 0%, rgba(11, 18, 32, 0.9) 70%); }
+    .insight-arrow { width: 38px; height: 38px; }
+    .insight-arrow.prev { left: 0.75rem; }
+    .insight-arrow.next { right: 0.75rem; }
+}
