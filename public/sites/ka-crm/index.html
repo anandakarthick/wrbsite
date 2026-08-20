@@ -15,25 +15,37 @@ img{max-width:100%}
 .container{max-width:1180px;margin:0 auto;padding:0 1.5rem}
 .grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.6rem;border-radius:1rem;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:.3s;font-family:inherit}
-.btn-primary{background:var(--pgrad);color:#fff;box-shadow:0 8px 20px rgba(37,99,235,.3)}
+.btn-primary{background:var(--pgrad);color:#fff;box-shadow:0 8px 20px rgba(37,99,235,.3);position:relative;overflow:hidden}
+.btn-primary::before{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(115deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn-primary:hover::before{left:130%}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(37,99,235,.4)}
 .btn-outline{background:rgba(255,255,255,.7);color:var(--ink);border:2px solid rgba(37,99,235,.3)}
 .btn-outline:hover{background:rgba(37,99,235,.08)}
-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(16px) saturate(160%);border-bottom:1px solid rgba(15,23,42,.06)}
+.progressbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:200}
+.totop{position:fixed;bottom:1.6rem;right:1.6rem;width:46px;height:46px;border-radius:50%;background:var(--pgrad);color:#fff;border:none;cursor:pointer;font-size:1rem;box-shadow:0 10px 24px rgba(37,99,235,.35);opacity:0;visibility:hidden;transform:translateY(10px);transition:.3s;z-index:150}
+.totop.show{opacity:1;visibility:visible;transform:none}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(16px) saturate(160%);border-bottom:1px solid rgba(15,23,42,.06);transition:.3s}
+header.scrolled{background:rgba(255,255,255,.95);box-shadow:0 10px 24px rgba(15,23,42,.08)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem;max-width:1180px;margin:0 auto}
 .brand{display:flex;align-items:center;gap:.65rem;font-weight:800;font-size:1.25rem;color:var(--ink)}
 .brand-mark{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--pgrad);border-radius:.8rem;color:#fff;font-weight:800;font-size:1.1rem}
-.nav ul{display:flex;gap:1.75rem;list-style:none;align-items:center}
-.nav ul a{font-size:.92rem;font-weight:500;color:var(--muted)}
-.nav ul a:hover{color:var(--ink)}
+.nav ul{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav ul a{font-size:.92rem;font-weight:500;color:var(--muted);position:relative;padding:.3rem 0}
+.nav ul a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--grad);transition:.3s}
+.nav ul a:hover,.nav ul a.active{color:var(--ink)}
+.nav ul a:hover::after,.nav ul a.active::after{width:100%}
+.nav ul a.btn::after{display:none}
 .menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:1.4rem;color:var(--ink)}
-section{padding:5.5rem 0}
+section{padding:5rem 0}
 .sec-badge{display:inline-block;padding:.45rem 1.1rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.25);border-radius:999px;font-size:.82rem;font-weight:600;color:var(--blue);margin-bottom:1rem}
 .sec-title{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.9rem}
-.sec-desc{color:var(--muted);max-width:640px}
+.sec-desc{color:var(--muted);max-width:660px}
 .center{text-align:center}.center .sec-desc{margin:0 auto}
 .hero{padding:9.5rem 0 5rem;background:var(--pgrad);color:#fff;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;width:480px;height:480px;border-radius:50%;background:rgba(255,255,255,.12);filter:blur(90px);top:-160px;right:-120px}
+.hero .blob{position:absolute;border-radius:50%;background:rgba(255,255,255,.13);filter:blur(90px);animation:drift 14s ease-in-out infinite}
+.hero .b1{width:480px;height:480px;top:-160px;right:-120px}
+.hero .b2{width:360px;height:360px;bottom:-140px;left:-90px;animation-delay:4s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-24px) scale(1.1)}}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center;position:relative;z-index:1}
 .hero h1{color:#fff;font-size:clamp(2.2rem,4.5vw,3.4rem);margin:.5rem 0 1rem}
 .hero .tag{font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.9}
@@ -46,16 +58,30 @@ section{padding:5.5rem 0}
 .hero-stats{display:flex;gap:2.6rem;flex-wrap:wrap}
 .hero-stats b{display:block;font-size:1.7rem}
 .hero-stats span{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;opacity:.85}
-.hero-photo{border-radius:var(--radius-xl);overflow:hidden;border:1px solid rgba(255,255,255,.35);box-shadow:0 24px 50px rgba(11,18,32,.35);transform:rotate(2deg)}
+.hero-photo{border-radius:var(--radius-xl);overflow:hidden;border:1px solid rgba(255,255,255,.35);box-shadow:0 24px 50px rgba(11,18,32,.35);transform:rotate(2deg);animation:heroin 1s cubic-bezier(.22,1,.36,1) .2s both}
+@keyframes heroin{from{opacity:0;transform:rotate(2deg) translateY(30px)}to{opacity:1;transform:rotate(2deg) translateY(0)}}
 .hero-photo img{display:block;width:100%}
+.page-hero{padding:8.5rem 0 3.5rem;background:var(--pgrad);color:#fff;position:relative;overflow:hidden}
+.page-hero .blob{position:absolute;border-radius:50%;background:rgba(255,255,255,.13);filter:blur(80px);width:420px;height:420px;top:-140px;right:-100px}
+.page-hero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.8rem);position:relative;z-index:1}
+.page-hero p{color:rgba(255,255,255,.88);margin-top:.5rem;max-width:640px;position:relative;z-index:1}
+.crumb{position:relative;z-index:1;font-size:.82rem;color:rgba(255,255,255,.75);margin-bottom:.8rem;display:block}
+.crumb a:hover{color:#fff}
+.marquee{overflow:hidden;background:#0d1730;padding:1rem 0}
+.marquee-track{display:flex;gap:2.6rem;width:max-content;animation:scrollx 22s linear infinite}
+.marquee span{color:#9fb0ce;font-weight:600;font-size:.9rem;white-space:nowrap}
+.marquee span::before{content:'◆ ';color:var(--blue)}
+@keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.6rem}
-.card{background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.07);border-radius:var(--radius-xl);padding:1.7rem;box-shadow:0 1px 3px rgba(15,23,42,.08);transition:.3s}
+.card{background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.07);border-radius:var(--radius-xl);padding:1.7rem;box-shadow:0 1px 3px rgba(15,23,42,.08);transition:.35s}
 .card:hover{transform:translateY(-6px);border-color:rgba(37,99,235,.3);box-shadow:0 18px 40px rgba(37,99,235,.18)}
 .card h3{font-size:1.05rem;margin-bottom:.5rem}
 .card p{color:var(--muted);font-size:.92rem}
-.dot{width:44px;height:44px;border-radius:.9rem;background:var(--pgrad);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;margin-bottom:1rem}
+.dot{width:44px;height:44px;border-radius:.9rem;background:var(--pgrad);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;margin-bottom:1rem;transition:.3s}
+.card:hover .dot{transform:scale(1.1) rotate(-6deg)}
 .checklist{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:2.2rem}
-.checklist li{list-style:none;display:flex;gap:.7rem;background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.07);border-radius:1rem;padding:.95rem 1.15rem;font-size:.93rem}
+.checklist li{list-style:none;display:flex;gap:.7rem;background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.07);border-radius:1rem;padding:.95rem 1.15rem;font-size:.93rem;transition:.3s}
+.checklist li:hover{transform:translateY(-3px);border-color:rgba(37,99,235,.3)}
 .checklist li::before{content:'✓';color:var(--blue);font-weight:800}
 .steps{margin-top:2.4rem;display:flex;flex-direction:column}
 .step{display:flex;gap:1.2rem;padding-bottom:1.7rem;position:relative}
@@ -65,7 +91,8 @@ section{padding:5.5rem 0}
 .step h3{font-size:1.02rem;padding-top:.5rem}
 .step p{color:var(--muted);font-size:.92rem}
 .chips{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
-.chip{padding:.55rem 1.1rem;background:rgba(255,255,255,.85);border:1px solid rgba(37,99,235,.22);border-radius:999px;font-size:.88rem;font-weight:600}
+.chip{padding:.55rem 1.1rem;background:rgba(255,255,255,.85);border:1px solid rgba(37,99,235,.22);border-radius:999px;font-size:.88rem;font-weight:600;transition:.3s}
+.chip:hover{transform:translateY(-2px);border-color:rgba(37,99,235,.45)}
 .quote{margin-top:2.4rem;padding:2rem;background:linear-gradient(135deg,rgba(37,99,235,.05),rgba(124,58,237,.05));border:1px solid rgba(37,99,235,.15);border-radius:var(--radius-xl)}
 .quote blockquote{font-style:italic;color:#1e293b;font-size:1.05rem;margin-bottom:1.2rem}
 .quote .who b{display:block;color:var(--ink);font-size:.93rem}
@@ -79,48 +106,111 @@ details[open] summary::after{transform:rotate(180deg)}
 details p{padding:0 1.4rem 1.15rem;color:var(--muted);font-size:.93rem}
 .tech{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
 .tech span{padding:.4rem .85rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.8rem;color:#1d4ed8;font-weight:600}
-.cta-band{background:var(--grad);border-radius:var(--radius-xl);padding:3rem 2rem;text-align:center;color:#fff}
-.cta-band h2{color:#fff;font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:.6rem}
-.cta-band p{color:rgba(255,255,255,.85);margin-bottom:1.6rem}
-footer{padding:2.5rem 0;background:linear-gradient(180deg,#eaf2ff,#dce8fb);border-top:1px solid rgba(37,99,235,.15);text-align:center;font-size:.88rem;color:var(--soft)}
-footer a{color:var(--blue);font-weight:600}
 .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem;text-align:left}
 .shot{margin:0;border-radius:var(--radius-xl);overflow:hidden;border:1px solid rgba(15,23,42,.07);box-shadow:0 10px 25px rgba(15,23,42,.08);position:relative}
 .shot img{display:block;width:100%;height:230px;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1)}
 .shot:hover img{transform:scale(1.07)}
 .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1.1rem .85rem;background:linear-gradient(180deg,transparent,rgba(11,18,32,.78));color:#fff;font-size:.85rem;font-weight:600}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.6rem;align-items:stretch}
+.plan{position:relative;display:flex;flex-direction:column;background:rgba(255,255,255,.9);border:1px solid rgba(15,23,42,.08);border-radius:var(--radius-xl);padding:2rem 1.7rem;transition:.35s}
+.plan:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(37,99,235,.18)}
+.plan.pop{border:2px solid rgba(37,99,235,.45);box-shadow:0 18px 40px rgba(37,99,235,.15)}
+.plan .pbadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;padding:.28rem .95rem;border-radius:999px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.plan h3{font-size:1.15rem;margin-bottom:.2rem}
+.plan .pfor{color:var(--soft);font-size:.85rem;margin-bottom:1.1rem}
+.plan .pprice{font-size:1.5rem;font-weight:800;color:var(--ink);margin-bottom:1.2rem}
+.plan .pprice small{font-size:.8rem;color:var(--soft);font-weight:500}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.6rem;flex:1}
+.plan ul li{display:flex;gap:.55rem;font-size:.88rem}
+.plan ul li::before{content:'✓';color:var(--blue);font-weight:800}
+.contact-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;margin-top:2.4rem}
+.ccard{background:rgba(255,255,255,.88);border:1px solid rgba(15,23,42,.07);border-radius:var(--radius-xl);padding:1.6rem;text-align:center;transition:.3s}
+.ccard:hover{transform:translateY(-5px);border-color:rgba(37,99,235,.3)}
+.ccard .ci{width:52px;height:52px;margin:0 auto 1rem;border-radius:50%;background:var(--pgrad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.ccard b{display:block;color:var(--ink);margin-bottom:.3rem;font-size:.95rem}
+.ccard span,.ccard a{color:var(--muted);font-size:.86rem;word-break:break-word}
+.ccard a:hover{color:var(--blue)}
+.cta-band{background:var(--grad);border-radius:var(--radius-xl);padding:3rem 2rem;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-band::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.12);top:-140px;right:-80px}
+.cta-band h2{color:#fff;font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:.6rem;position:relative;z-index:1}
+.cta-band p{color:rgba(255,255,255,.85);margin-bottom:1.6rem;position:relative;z-index:1}
+.cta-band .btn{position:relative;z-index:1}
+.widget{margin-top:2.6rem;background:rgba(255,255,255,.92);border:1px solid rgba(37,99,235,.18);border-radius:var(--radius-xl);box-shadow:0 18px 40px rgba(37,99,235,.12);overflow:hidden}
+.widget-head{padding:1.4rem 1.8rem;background:var(--pgrad);color:#fff}
+.widget-head h3{color:#fff;font-size:1.15rem}
+.widget-head p{color:rgba(255,255,255,.85);font-size:.86rem}
+.widget-body{padding:1.6rem 1.8rem}
+.wchat{height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:.6rem;padding-bottom:.6rem}
+.wmsg{max-width:82%;padding:.65rem .95rem;border-radius:1rem;font-size:.89rem;line-height:1.55;animation:msgin .3s cubic-bezier(.22,1,.36,1) both}
+@keyframes msgin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.wmsg.bot{align-self:flex-start;background:#f1f5fb;border:1px solid rgba(15,23,42,.07);border-bottom-left-radius:.3rem;color:#1e293b}
+.wmsg.user{align-self:flex-end;background:var(--pgrad);color:#fff;border-bottom-right-radius:.3rem}
+.wtyping{align-self:flex-start;display:flex;gap:4px;padding:.8rem 1rem}
+.wtyping i{width:7px;height:7px;border-radius:50%;background:#94a3b8;animation:tb 1.2s infinite}
+.wtyping i:nth-child(2){animation-delay:.15s}.wtyping i:nth-child(3){animation-delay:.3s}
+@keyframes tb{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.winput{display:flex;gap:.6rem;margin-top:1rem}
+.winput input{flex:1;padding:.75rem 1rem;border:1px solid rgba(15,23,42,.14);border-radius:999px;font-family:inherit;font-size:.9rem;background:#f8fafc}
+.winput input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+.winput button{width:46px;height:46px;border-radius:50%;border:none;background:var(--pgrad);color:#fff;cursor:pointer;font-size:1rem}
+.wslider{width:100%;margin:1.1rem 0 .4rem;accent-color:var(--blue)}
+.wval{font-weight:800;color:var(--ink);font-size:1.3rem}
+.wouts{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.4rem}
+.wout{background:#f1f5fb;border:1px solid rgba(37,99,235,.15);border-radius:1rem;padding:1.2rem;text-align:center}
+.wout b{display:block;font-size:1.6rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.wout span{font-size:.8rem;color:var(--soft)}
+.wnote{font-size:.75rem;color:var(--soft);margin-top:.9rem;text-align:center}
+.wstages{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-top:.4rem}
+.wstages li{display:flex;align-items:center;gap:.7rem;padding:.7rem 1rem;background:#f1f5fb;border:1px solid rgba(15,23,42,.06);border-radius:.9rem;font-size:.89rem;color:#475569;transition:.3s;opacity:.55}
+.wstages li .st{width:22px;height:22px;flex-shrink:0;border-radius:50%;border:2px solid #cbd5e1;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#fff}
+.wstages li.run{opacity:1;border-color:rgba(37,99,235,.4);color:var(--ink)}
+.wstages li.run .st{border-color:var(--blue);background:var(--blue);animation:pulse 1s infinite}
+.wstages li.done{opacity:1;color:var(--ink)}
+.wstages li.done .st{border-color:#059669;background:#059669}
+.wstages li.done .st::before{content:'✓'}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.wdone{display:none;margin-top:1.1rem;padding:.85rem 1.1rem;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:.9rem;font-size:.9rem;font-weight:600;color:#047857}
+.wdone.show{display:block;animation:msgin .4s both}
+.wscan{position:relative;border-radius:1rem;overflow:hidden;margin-top:.4rem}
+.wscan img{display:block;width:100%;height:300px;object-fit:cover}
+.scanline{position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,#22d3ee,transparent);box-shadow:0 0 18px #22d3ee;display:none}
+.wscan.scanning .scanline{display:block;animation:scan 1.8s linear}
+@keyframes scan{from{top:0}to{top:100%}}
+.wbox{position:absolute;border:2px solid;border-radius:.4rem;opacity:0;transition:opacity .4s}
+.wbox.ok{border-color:#34d399}.wbox.bad{border-color:#f87171}
+.wbox span{position:absolute;top:-24px;left:0;font-size:.68rem;font-weight:700;padding:.15rem .5rem;border-radius:.4rem;white-space:nowrap;color:#fff}
+.wbox.ok span{background:#059669}.wbox.bad span{background:#dc2626}
+.wbox.show{opacity:1}
+footer{padding:2.5rem 0;background:linear-gradient(180deg,#eaf2ff,#dce8fb);border-top:1px solid rgba(37,99,235,.15);text-align:center;font-size:.88rem;color:var(--soft)}
+footer a{color:var(--blue);font-weight:600}
+footer .fnav{display:flex;justify-content:center;gap:1.4rem;margin-bottom:1rem;flex-wrap:wrap}
+footer .fnav a{color:var(--muted);font-weight:500;font-size:.85rem}
+footer .fnav a:hover{color:var(--blue)}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:none}
 @media(max-width:900px){
  .hero-grid{grid-template-columns:1fr}
  .hero-photo{display:none}
- .cards{grid-template-columns:1fr}
- .shots{grid-template-columns:1fr}
+ .cards,.shots,.plans{grid-template-columns:1fr}
  .checklist{grid-template-columns:1fr}
+ .contact-cards{grid-template-columns:1fr 1fr}
+ .wouts{grid-template-columns:1fr}
  .nav ul{position:fixed;top:64px;right:-100%;width:78%;max-width:300px;height:100vh;background:rgba(255,255,255,.97);flex-direction:column;align-items:flex-start;padding:2rem;gap:1.2rem;transition:.3s;box-shadow:-10px 0 30px rgba(15,23,42,.1)}
  .nav ul.open{right:0}
  .menu-btn{display:block}
-}</style>
+}
+@media(max-width:520px){.contact-cards{grid-template-columns:1fr}}</style>
 </head>
 <body>
 <header>
   <nav class="nav">
-    <a href="#home" class="brand"><span class="brand-mark">K</span> KA CRM</a>
-    <ul id="menu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#how">How It Works</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="login.html" class="btn btn-primary" style="padding:.55rem 1.2rem">Sales Team Login</a></li>
-    </ul>
+    <a href="index.html" class="brand"><span class="brand-mark">K</span> KA CRM</a>
+    <ul id="menu"><li><a href="index.html" class="active">Home</a></li><li><a href="about.html">About</a></li><li><a href="features.html">Features</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li><li><a href="login.html" class="btn btn-primary" style="padding:.55rem 1.2rem">Sales Team Login</a></li></ul>
     <button class="menu-btn" aria-label="Menu">☰</button>
   </nav>
 </header>
-
-<section class="hero" id="home">
+<section class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div>
   <div class="container hero-grid">
     <div>
       <div class="tag">Business Software</div>
@@ -128,94 +218,103 @@ footer a{color:var(--blue);font-weight:600}
       <p class="lead">Intelligent Customer Relationship Suite. A full CRM suite with AI lead scoring, sales pipeline automation, and predictive analytics that tells your team who to call next and why.</p>
       <div class="hero-cta">
         <a href="login.html" class="btn btn-white">Sales Team Login</a>
-        <a href="#about" class="btn btn-ghost">Explore KA CRM</a>
+        <a href="about.html" class="btn btn-ghost">Explore KA CRM</a>
       </div>
-      <div class="hero-stats"><div><b>300+</b><span>Businesses</span></div><div><b>35%</b><span>More Conversions</span></div><div><b>1M+</b><span>Leads Managed</span></div></div>
+      <div class="hero-stats"><div><b data-count="300+">300+</b><span>Businesses</span></div><div><b data-count="35%">35%</b><span>More Conversions</span></div><div><b data-count="1M+">1M+</b><span>Leads Managed</span></div></div>
     </div>
     <div class="hero-photo"><img src="cover.jpg" alt="KA CRM"></div>
   </div>
 </section>
 
-<section id="about">
-  <div class="container">
-    <span class="sec-badge">About</span>
-    <h2 class="sec-title">What is <span class="grad-text">KA CRM</span>?</h2>
-    <p class="sec-desc">KA CRM brings together contacts, deals, tasks, and conversations in one clean workspace. Its AI engine scores every lead based on behaviour and history, predicts which deals are likely to close, and automates follow-up reminders so nothing slips through. Built-in WhatsApp and email integration keeps all customer communication in one timeline, while customisable pipelines fit any sales process from real estate to SaaS.</p>
-    <div class="tech"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>Redis</span><span>Python ML</span><span>WhatsApp API</span></div>
-  </div>
-</section>
+<div class="marquee"><div class="marquee-track"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>Redis</span><span>Python ML</span><span>WhatsApp API</span><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>Redis</span><span>Python ML</span><span>WhatsApp API</span></div></div>
 
-<section id="why" style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">
+<section>
   <div class="container center">
     <span class="sec-badge">Why KA CRM</span>
-    <h2 class="sec-title">Built to Make a Difference</h2>
-    <div class="cards" style="text-align:left"><div class="card reveal"><div class="dot">1</div><h3>Know Who to Call Next</h3><p>AI lead scoring ranks every prospect by how likely they are to buy, so your team spends time on deals that will actually close.</p></div><div class="card reveal"><div class="dot">2</div><h3>Never Drop a Follow-up Again</h3><p>Automatic reminders and sequences mean every lead gets a timely touch - even the ones from six months ago.</p></div><div class="card reveal"><div class="dot">3</div><h3>WhatsApp-First, Like Your Customers</h3><p>Every WhatsApp chat, email, and call lands in one timeline per customer. No more scrolling personal phones for context.</p></div><div class="card reveal"><div class="dot">4</div><h3>Forecast You Can Trust</h3><p>Deal-win prediction and pipeline analytics give owners a revenue forecast grounded in behaviour, not gut feeling.</p></div></div>
+    <h2 class="sec-title">Loved For a Reason</h2>
+    <div class="cards" style="text-align:left"><div class="card reveal"><div class="dot">1</div><h3>Know Who to Call Next</h3><p>AI lead scoring ranks every prospect by how likely they are to buy, so your team spends time on deals that will actually close.</p></div><div class="card reveal"><div class="dot">2</div><h3>Never Drop a Follow-up Again</h3><p>Automatic reminders and sequences mean every lead gets a timely touch - even the ones from six months ago.</p></div><div class="card reveal"><div class="dot">3</div><h3>WhatsApp-First, Like Your Customers</h3><p>Every WhatsApp chat, email, and call lands in one timeline per customer. No more scrolling personal phones for context.</p></div></div>
+    <p style="margin-top:2rem"><a href="about.html" class="btn btn-outline">Read the Full Story →</a></p>
   </div>
 </section>
 
-<section id="features">
+<section style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">
   <div class="container">
-    <span class="sec-badge">Features</span>
-    <h2 class="sec-title">Everything Included</h2>
-    <ul class="checklist"><li>AI lead scoring and deal-win prediction</li><li>Visual drag-and-drop sales pipelines</li><li>WhatsApp, email and call tracking in one timeline</li><li>Automated follow-up and task reminders</li><li>Custom reports and revenue forecasting</li><li>Role-based access for sales teams of any size</li></ul>
+    <span class="sec-badge">Interactive Demo</span>
+    <h2 class="sec-title">Experience It Right Here</h2>
+    <div class="widget reveal">
+  <div class="widget-head"><h3>Revenue Impact Calculator</h3><p>See what AI lead scoring could add to your monthly revenue.</p></div>
+  <div class="widget-body">
+    <label style="font-weight:600;color:#14203a;font-size:.9rem">Leads you get per month: <span class="wval" id="wv">500</span></label>
+    <input type="range" class="wslider" id="ws" min="50" max="5000" value="500">
+    <div class="wouts"><div class="wout"><b id="wo0">—</b><span>Extra deals closed / month</span></div><div class="wout"><b id="wo1">—</b><span>Additional revenue / month</span></div></div>
+    <p class="wnote">Estimates only. Assuming a 10% base close rate improved by 35% with AI prioritisation · At an average deal value of Rs.50,000</p>
+  </div>
+</div>
   </div>
 </section>
 
-<section id="how" style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
-  <div class="container">
-    <span class="sec-badge">How It Works</span>
-    <h2 class="sec-title">From Zero to Running</h2>
-    <div class="steps"><div class="step reveal"><div class="step-n">1</div><div><h3>Import and Connect</h3><p>Bring in your contacts from Excel or any CRM, and connect WhatsApp, email, and your website forms in minutes.</p></div></div><div class="step reveal"><div class="step-n">2</div><div><h3>Set Up Your Pipeline</h3><p>Drag-and-drop stages to mirror how you actually sell - real estate site visits, SaaS demos, distributor onboarding, anything.</p></div></div><div class="step reveal"><div class="step-n">3</div><div><h3>Let the AI Prioritise</h3><p>Every lead is scored and routed. Reps open the app each morning to a ranked list of who to contact and why.</p></div></div><div class="step reveal"><div class="step-n">4</div><div><h3>Watch Revenue Climb</h3><p>Dashboards track conversion at every stage so you see exactly where deals leak and fix it.</p></div></div></div>
-  </div>
-</section>
-
-<section id="gallery">
+<section>
   <div class="container center">
     <span class="sec-badge">In Action</span>
     <h2 class="sec-title">KA CRM in the Real World</h2>
     <div class="shots"><figure class="shot reveal"><img src="shot1.jpg" alt="Sales pipeline dashboard in daily use" loading="lazy"><figcaption>Sales pipeline dashboard in daily use</figcaption></figure><figure class="shot reveal"><img src="shot2.jpg" alt="Revenue forecasting with AI scoring" loading="lazy"><figcaption>Revenue forecasting with AI scoring</figcaption></figure><figure class="shot reveal"><img src="shot3.jpg" alt="Sales teams reviewing the pipeline together" loading="lazy"><figcaption>Sales teams reviewing the pipeline together</figcaption></figure></div>
+    <p style="margin-top:2rem"><a href="gallery.html" class="btn btn-outline">View Full Gallery →</a></p>
   </div>
 </section>
 
-<section id="usecases" style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
+<section style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
   <div class="container">
-    <span class="sec-badge">Who It's For</span>
-    <h2 class="sec-title">Perfect For</h2>
-    <div class="chips"><span class="chip">Real Estate</span><span class="chip">SaaS &amp; IT Sales</span><span class="chip">Education Admissions</span><span class="chip">Automotive Dealers</span><span class="chip">Financial Services</span><span class="chip">Distributors &amp; B2B</span></div>
     <div class="quote reveal"><blockquote>“We moved from spreadsheets to KA CRM and closed 35% more deals in the first quarter - with the same team. The AI ranking is scary accurate.”</blockquote><div class="who"><b>Arjun Mehta</b><span>Sales Director, UrbanNest Properties</span></div></div>
-  </div>
-</section>
-
-<section id="faq" style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">
-  <div class="container">
-    <span class="sec-badge">FAQ</span>
-    <h2 class="sec-title">Common Questions</h2>
-    <div style="max-width:780px;margin-top:2rem"><details class="reveal"><summary>Can we migrate from our existing CRM or Excel?</summary><p>Yes. We provide free assisted migration from Excel, Zoho, Salesforce, and most CRMs, including your historical deals and notes.</p></details><details class="reveal"><summary>Is the official WhatsApp Business API included?</summary><p>Yes - we set up the official API for you, so the whole team shares one number with full history, templates, and compliance.</p></details><details class="reveal"><summary>How long does onboarding take?</summary><p>Most teams are live in under a week: one day for setup and import, and a guided training session for your sales team.</p></details></div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <div class="cta-band reveal">
+    <div class="cta-band reveal" style="margin-top:2.4rem">
       <h2>Ready to get started with KA CRM?</h2>
-      <p>Call +91 80566 53499 · Email info@kasoftware.in — demo within 48 hours.</p>
-      <a href="https://kasoftware.in/#contact" class="btn btn-white">Request a Demo</a>
+      <p>Free demo within 48 hours · Call +91 80566 53499</p>
+      <a href="contact.html" class="btn btn-white">Request a Demo</a>
     </div>
   </div>
 </section>
-
 <footer>
   <div class="container">
-    © <span id="yr"></span> KA CRM · A product of <a href="https://kasoftware.in/">KA Software</a>, Chennai, India
+    <div class="fnav">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="features.html">Features</a>
+      <a href="gallery.html">Gallery</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="login.html">Login</a>
+    </div>
+    © <span class="yr"></span> KA CRM · A product of <a href="https://kasoftware.in/">KA Software</a>, Chennai, India
   </div>
 </footer>
-
+<script>document.querySelectorAll('.yr').forEach(function(e){e.textContent=new Date().getFullYear()});</script>
 <script>
-document.getElementById('yr').textContent = new Date().getFullYear();
 document.querySelector('.menu-btn').addEventListener('click',function(){document.querySelector('.nav ul').classList.toggle('open')});
 document.querySelectorAll('.nav ul a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav ul').classList.remove('open')})});
 var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+var hdr=document.querySelector('header');
+if(hdr){window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>40)},{passive:true});}
+var pb=document.createElement('div');pb.className='progressbar';document.body.appendChild(pb);
+window.addEventListener('scroll',function(){var d=document.documentElement;var m=d.scrollHeight-d.clientHeight;pb.style.width=(m>0?(d.scrollTop/m)*100:0)+'%'},{passive:true});
+var tt=document.createElement('button');tt.className='totop';tt.innerHTML='↑';tt.setAttribute('aria-label','Top');document.body.appendChild(tt);
+tt.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'})});
+window.addEventListener('scroll',function(){tt.classList.toggle('show',scrollY>400)},{passive:true});
+document.querySelectorAll('[data-count]').forEach(function(el){
+ var raw=el.getAttribute('data-count');var m=raw.match(/^([^0-9]*)([0-9][0-9.,]*)(.*)$/);
+ if(!m){return}
+ var pre=m[1],num=parseFloat(m[2].replace(/,/g,'')),suf=m[3];
+ if(isNaN(num)){return}
+ var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){o.unobserve(el);
+  var t0=null;var dur=1600;
+  function tick(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1);p=1-Math.pow(1-p,3);
+   var v=num*p;el.textContent=pre+(num%1===0?Math.round(v).toLocaleString('en-IN'):v.toFixed(1))+suf;
+   if(p<1)requestAnimationFrame(tick)}
+  requestAnimationFrame(tick)}})},{threshold:.6});
+ o.observe(el)});
+(function(){
+ var outs=[[0.035,""," deals"],[1750,"Rs.",""]];
+ var s=document.getElementById('ws'),v=document.getElementById('wv');
+ if(!s)return;
+ function fmt(n){return Math.round(n).toLocaleString('en-IN')}
+ function upd(){var x=parseInt(s.value);v.textContent=fmt(x);
+  outs.forEach(function(o,i){document.getElementById('wo'+i).textContent=o[1]+fmt(x*o[0])+o[2]})}
+ s.addEventListener('input',upd);upd();
+})();
 </script>
 </body>
 </html>
