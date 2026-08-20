@@ -188,6 +188,43 @@ footer .fnav a{color:var(--muted);font-weight:500;font-size:.85rem}
 footer .fnav a:hover{color:var(--blue)}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:none}
+.fsocial{display:flex;justify-content:center;gap:.8rem;margin-bottom:1.2rem}
+.fsocial a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(15,23,42,.1);border-radius:.6rem;box-shadow:0 1px 2px rgba(15,23,42,.06);transition:.3s}
+.fsocial a:hover{transform:translateY(-3px)}
+.fsocial a.li:hover{background:#0a66c2}.fsocial a.fb:hover{background:#1877f2}.fsocial a.tw:hover{background:#000}.fsocial a.gh:hover{background:#24292e}
+.fsocial a.ig:hover{background:radial-gradient(circle at 30% 110%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
+.fsocial a:hover svg{fill:#fff}
+#sbot{position:fixed;bottom:1.6rem;left:1.6rem;z-index:180}
+.sbot-toggle{position:relative;width:54px;height:54px;border:none;border-radius:50%;background:var(--grad);color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 12px 26px rgba(37,99,235,.4);transition:.3s;display:flex;align-items:center;justify-content:center}
+.sbot-toggle:hover{transform:translateY(-3px) scale(1.05)}
+.sbot-pulse{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(37,99,235,.5);animation:spulse 2.4s ease-out infinite;pointer-events:none}
+#sbot.open .sbot-pulse{display:none}
+@keyframes spulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.7);opacity:0}}
+.sbot-panel{position:absolute;bottom:66px;left:0;width:340px;max-width:calc(100vw - 2.5rem);height:440px;max-height:calc(100vh - 130px);display:flex;flex-direction:column;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border:1px solid rgba(37,99,235,.18);border-radius:1.2rem;box-shadow:0 24px 60px rgba(11,18,32,.25);overflow:hidden;opacity:0;visibility:hidden;transform:translateY(14px) scale(.97);transition:.3s cubic-bezier(.22,1,.36,1)}
+#sbot.open .sbot-panel{opacity:1;visibility:visible;transform:none}
+.sbot-head{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.1rem;background:var(--pgrad);color:#fff}
+.sbot-head .av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center}
+.sbot-head b{display:block;font-size:.9rem}
+.sbot-head span{font-size:.72rem;opacity:.9}
+.sbot-msgs{flex:1;overflow-y:auto;padding:.9rem;display:flex;flex-direction:column;gap:.55rem;background:#f6f8fc}
+.sbot-msg{max-width:86%;padding:.55rem .85rem;border-radius:.9rem;font-size:.84rem;line-height:1.55;animation:msgin .3s both;word-wrap:break-word}
+.sbot-msg.bot{align-self:flex-start;background:#fff;border:1px solid rgba(15,23,42,.08);border-bottom-left-radius:.25rem;color:#1e293b}
+.sbot-msg.bot a{color:var(--blue);font-weight:600;text-decoration:underline}
+.sbot-msg.user{align-self:flex-end;background:var(--pgrad);color:#fff;border-bottom-right-radius:.25rem}
+.sbot-quick{display:flex;flex-wrap:wrap;gap:.35rem;padding:.5rem .8rem;background:#f6f8fc;border-top:1px solid rgba(15,23,42,.06)}
+.sbot-quick button{padding:.32rem .7rem;background:#fff;border:1px solid rgba(37,99,235,.3);border-radius:999px;font-size:.72rem;font-weight:600;color:#1d4ed8;cursor:pointer;font-family:inherit;transition:.3s}
+.sbot-quick button:hover{background:rgba(37,99,235,.08)}
+.sbot-in{display:flex;gap:.5rem;padding:.65rem .8rem;background:#fff;border-top:1px solid rgba(15,23,42,.08)}
+.sbot-in input{flex:1;padding:.55rem .85rem;border:1px solid rgba(15,23,42,.12);border-radius:999px;font-size:.84rem;font-family:inherit;background:#f6f8fc}
+.sbot-in input:focus{outline:none;border-color:var(--blue)}
+.sbot-in button{width:38px;height:38px;flex-shrink:0;border:none;border-radius:50%;background:var(--pgrad);color:#fff;cursor:pointer}
+.sbot-links{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
+.sbot-links a{display:inline-flex;padding:.3rem .65rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.25);border-radius:999px;font-size:.72rem;font-weight:600;color:#1d4ed8 !important;text-decoration:none !important}
+#swa{position:fixed;bottom:6.3rem;left:1.6rem;z-index:180}
+.swa-btn{position:relative;width:54px;height:54px;border:none;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;cursor:pointer;box-shadow:0 12px 26px rgba(37,211,102,.4);transition:.3s;display:flex;align-items:center;justify-content:center}
+.swa-btn:hover{transform:translateY(-3px) scale(1.05)}
+.swa-btn svg{width:26px;height:26px;fill:#fff}
+.swa-pulse{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(37,211,102,.55);animation:spulse 2.4s ease-out infinite;animation-delay:1.2s;pointer-events:none}
 @media(max-width:900px){
  .hero-grid{grid-template-columns:1fr}
  .hero-photo{display:none}
@@ -246,6 +283,13 @@ footer .fnav a:hover{color:var(--blue)}
 </section>
 <footer>
   <div class="container">
+    <div class="fsocial">
+  <a class="li" href="https://www.linkedin.com/company/kasoftware" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0a66c2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+  <a class="tw" href="https://twitter.com/kasoftware" target="_blank" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0f1419"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+  <a class="gh" href="https://github.com/kasoftware" target="_blank" rel="noopener" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="#24292e"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+  <a class="fb" href="https://www.facebook.com/kasoftware" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1877f2"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.378 14.192 5 15.115 5H18V0h-3.808C10.596 0 9 1.583 9 4.615V8z"/></svg></a>
+  <a class="ig" href="https://www.instagram.com/kasoftware" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="#e4405f"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+</div>
     <div class="fnav">
       <a href="index.html">Home</a><a href="about.html">About</a><a href="features.html">Features</a>
       <a href="gallery.html">Gallery</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="login.html">Login</a>
@@ -278,6 +322,65 @@ document.querySelectorAll('[data-count]').forEach(function(el){
    if(p<1)requestAnimationFrame(tick)}
   requestAnimationFrame(tick)}})},{threshold:.6});
  o.observe(el)});
+(function(){
+ var NAME="AgentForge";
+ var INTENTS=[["hi|hello|hey|vanakkam|good morning|good evening","Hello! 👋 I'm the AgentForge assistant. Ask me about <b>features</b>, <b>pricing</b>, <b>demo</b>, <b>login</b>, or <b>contact</b> — or tap a quick question below."],["what is|about|tell me about|explain","Design AI agents that actually do work — reading emails, updating systems, generating reports, and chaining multi-step workflows across your business tools. <a href=\"about.html\">Read the full story →</a>"],["feature|what can|capabilit|function|module","Top features: Visual drag-and-drop agent workflow builder · Connectors for email, WhatsApp, Slack, databases and APIs · Multi-step reasoning with tool use and approvals · Scheduled and event-triggered agent runs — and more. <a href=\"features.html\">See all features →</a>"],["price|pricing|cost|plan|quote|subscription|how much","We have Starter, Professional and Enterprise plans, priced to your scale. <a href=\"pricing.html\">View plans →</a> For an exact quote, we respond within 48 hours — <a href=\"contact.html\">contact us</a>."],["demo|trial|try|test","We'd love to show you! 🎥 We set up a personalised demo within 48 hours. <a href=\"contact.html\">Request a demo →</a> or call <a href=\"tel:+918056653499\">+91 80566 53499</a>."],["login|log in|sign in|signin|password|forgot|invalid|cant access|can't access","You can sign in on the <a href=\"login.html\">User Login page</a>. If your credentials show invalid or you forgot your password, please contact your administrator or email <a href=\"mailto:info@kasoftware.in\">info@kasoftware.in</a> and we'll restore access quickly."],["photo|image|screenshot|gallery|picture","See AgentForge in the real world 📸 — <a href=\"gallery.html\">open the gallery →</a>"],["how it works|setup|install|onboard|start|implement","Getting started is simple — see the step-by-step process on the <a href=\"features.html\">Features page</a>. Onboarding, training and data migration are included in every plan."],["support|help|issue|problem|error|bug|complain","Sorry you're facing trouble! Our support team responds fast:{LINKS}"],["contact|phone|call|email|reach|talk","Reach us anytime:<br>📞 <a href=\"tel:+918056653499\">+91 80566 53499</a><br>📧 <a href=\"mailto:info@kasoftware.in\">info@kasoftware.in</a><br>Or the <a href=\"contact.html\">contact page →</a>"],["address|location|where|office|chennai|visit","We're at Anna Nagar, Chennai - 600049, Tamil Nadu, India. 🏢 Mon–Sat, 9 AM to 8 PM. <a href=\"contact.html\">Contact details →</a>"],["ka software|company|who built|who made|developer","AgentForge is built and supported by <a href=\"https://kasoftware.in/\" target=\"_blank\" rel=\"noopener\">KA Software</a> — an AI-powered software company in Chennai with 500+ projects delivered."],["integrat|api|connect|tally|erp","AgentForge integrates with your existing systems — see the tech stack on the <a href=\"about.html\">About page</a>, or ask our team about your specific tools via the <a href=\"contact.html\">contact page</a>."],["secure|security|data|privacy|safe","Your data is encrypted in transit and at rest, with role-based access. Enterprise plans include on-premise deployment. Ask us anything security-related at <a href=\"mailto:info@kasoftware.in\">info@kasoftware.in</a>."],["thank|thanks|nandri","You're most welcome! 😊 Anything else I can help you with?"],["bye|goodbye|see you","Goodbye! 👋 Come back anytime — or reach us on WhatsApp for a quick chat."]];
+ var LINKS='<span class="sbot-links"><a href="contact.html">Contact Page</a><a href="tel:+918056653499">Call Us</a><a href="#" data-wa="1">WhatsApp</a><a href="mailto:info@kasoftware.in">Email</a></span>';
+ var FALLBACK='Hmm, I\'m not sure about that one 🤔 — but our team definitely can help:'+LINKS;
+ function openWA(){
+  var msg=encodeURIComponent('Hi! I\'m interested in '+NAME+'. Please share more details.');
+  var web='https://wa.me/918056653499?text='+msg;
+  if(!/android|iphone|ipad|ipod/i.test(navigator.userAgent)){window.open(web,'_blank','noopener');return}
+  var opened=false;function mark(){opened=true}
+  document.addEventListener('visibilitychange',mark,{once:true});
+  window.addEventListener('pagehide',mark,{once:true});window.addEventListener('blur',mark,{once:true});
+  location.href='whatsapp://send?phone=918056653499&text='+msg;
+  setTimeout(function(){if(!opened&&!document.hidden){location.href=web}},1600);
+ }
+ // WhatsApp floating button (left, above chatbot)
+ var wa=document.createElement('div');wa.id='swa';
+ wa.innerHTML='<button type="button" class="swa-btn" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="swa-pulse"></span></button>';
+ document.body.appendChild(wa);
+ wa.querySelector('.swa-btn').addEventListener('click',function(){
+  var b=document.getElementById('sbot');if(b)b.classList.remove('open');openWA();
+ });
+ // Chatbot (left)
+ var root=document.createElement('div');root.id='sbot';
+ root.innerHTML='<button type="button" class="sbot-toggle" aria-label="Chat with us">💬<span class="sbot-pulse"></span></button>'
+ +'<div class="sbot-panel"><div class="sbot-head"><div class="av">🤖</div><div><b>'+NAME+' Assistant</b><span>● Online — ask me anything</span></div></div>'
+ +'<div class="sbot-msgs" id="sbmsgs"></div><div class="sbot-quick" id="sbquick"></div>'
+ +'<form class="sbot-in" id="sbform"><input type="text" id="sbinp" placeholder="Type your question..." maxlength="250"><button type="submit">➤</button></form></div>';
+ document.body.appendChild(root);
+ var msgs=document.getElementById('sbmsgs'),form=document.getElementById('sbform'),inp=document.getElementById('sbinp'),quick=document.getElementById('sbquick');
+ var greeted=false;
+ function add(html,who,asHtml){var d=document.createElement('div');d.className='sbot-msg '+who;
+  if(asHtml){d.innerHTML=html}else{d.textContent=html}
+  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
+ function answer(text){
+  var low=text.toLowerCase(),ans=FALLBACK;
+  outer:for(var i=0;i<INTENTS.length;i++){var kws=INTENTS[i][0].split('|');
+   for(var k=0;k<kws.length;k++){if(low.indexOf(kws[k])!==-1){ans=INTENTS[i][1];break outer}}}
+  ans=ans.replace('{LINKS}',LINKS);
+  setTimeout(function(){add(ans,'bot',true)},650+Math.random()*450);
+ }
+ ['Features','Pricing','Request Demo','Login Help','Contact Support'].forEach(function(q){
+  var b=document.createElement('button');b.type='button';b.textContent=q;
+  b.addEventListener('click',function(){add(q,'user');answer(q==='Contact Support'?'support':q)});
+  quick.appendChild(b);
+ });
+ root.querySelector('.sbot-toggle').addEventListener('click',function(){
+  var open=root.classList.toggle('open');
+  if(open&&!greeted){greeted=true;
+   setTimeout(function(){add('Hi! 👋 I\'m the <b>'+NAME+' assistant</b>. Ask me about features, pricing, demos, login help — anything!','bot',true)},300);}
+  if(open){inp.focus()}
+ });
+ form.addEventListener('submit',function(e){e.preventDefault();var t=inp.value.trim();if(!t)return;
+  add(t,'user');inp.value='';answer(t)});
+ document.addEventListener('click',function(e){
+  var t=e.target.closest?e.target.closest('[data-wa]'):null;
+  if(t){e.preventDefault();openWA()}
+ });
+})();
 
 </script>
 </body>
