@@ -1850,3 +1850,7 @@ img { max-width: 100%; height: auto; }
     border-color: transparent;
     color: white;
 }
+
+/* Footer brand link */
+.footer-brand-link { color: var(--primary-600); font-weight: 600; }
+.footer-brand-link:hover { color: var(--secondary-600); text-decoration: underline; }

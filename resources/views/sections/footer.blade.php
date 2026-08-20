@@ -97,7 +97,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} KA Software. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} <a href="https://kasoftware.in/" class="footer-brand-link">KA Software</a>. All rights reserved.</p>
             <p class="footer-tagline">AI-Powered Software Development Company in Chennai, India</p>
         </div>
     </div>
