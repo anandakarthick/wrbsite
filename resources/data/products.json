@@ -109,7 +109,8 @@
                     "a": "Simple per-student annual licensing with unlimited usage. Volume discounts apply for institutions above 500 students - contact us for a quote."
                 }
             ],
-            "image": "images/cards/vahaai.jpg"
+            "image": "images/cards/vahaai.jpg",
+            "site_url": "https://vaha.kasoftware.in"
         },
         {
             "slug": "ka-crm",
@@ -220,7 +221,8 @@
                     "a": "Most teams are live in under a week: one day for setup and import, and a guided training session for your sales team."
                 }
             ],
-            "image": "images/cards/ka-crm.jpg"
+            "image": "images/cards/ka-crm.jpg",
+            "site_url": "https://crm.kasoftware.in"
         },
         {
             "slug": "pipeforge",
@@ -331,7 +333,8 @@
                     "a": "Yes, beta teams get unlimited builds free. Early adopters lock in launch pricing when we go GA."
                 }
             ],
-            "image": "images/cards/pipeforge.jpg"
+            "image": "images/cards/pipeforge.jpg",
+            "site_url": "https://pipeforge.kasoftware.in"
         },
         {
             "slug": "shopnest",
@@ -442,7 +445,8 @@
                     "a": "Absolutely. COD with courier reconciliation, NDR follow-ups, and fraud-risk flags is built in."
                 }
             ],
-            "image": "images/cards/shopnest.jpg"
+            "image": "images/cards/shopnest.jpg",
+            "site_url": "https://shopnest.kasoftware.in"
         },
         {
             "slug": "kartpos",
@@ -553,7 +557,8 @@
                     "a": "Yes - batch-wise stock, expiry alerts, and scheduled-drug registers are supported."
                 }
             ],
-            "image": "images/cards/kartpos.jpg"
+            "image": "images/cards/kartpos.jpg",
+            "site_url": "https://kartpos.kasoftware.in"
         },
         {
             "slug": "peoplecore",
@@ -664,7 +669,8 @@
                     "a": "Per employee per month, with slabs that get cheaper as you grow. No setup fee for annual plans."
                 }
             ],
-            "image": "images/cards/peoplecore.jpg"
+            "image": "images/cards/peoplecore.jpg",
+            "site_url": "https://peoplecore.kasoftware.in"
         },
         {
             "slug": "insightiq",
@@ -775,7 +781,8 @@
                     "a": "Yes, a native Tally connector pulls ledgers, sales, and inventory automatically."
                 }
             ],
-            "image": "images/cards/insightiq.jpg"
+            "image": "images/cards/insightiq.jpg",
+            "site_url": "https://insightiq.kasoftware.in"
         },
         {
             "slug": "convodesk",
@@ -886,7 +893,8 @@
                     "a": "Most businesses launch the same day: upload content, connect WhatsApp, test, and go."
                 }
             ],
-            "image": "images/cards/convodesk.jpg"
+            "image": "images/cards/convodesk.jpg",
+            "site_url": "https://convodesk.kasoftware.in"
         },
         {
             "slug": "visionkit",
@@ -997,7 +1005,8 @@
                     "a": "Only if you choose cloud mode. Fully on-premise deployment keeps every frame inside your network."
                 }
             ],
-            "image": "images/cards/visionkit.jpg"
+            "image": "images/cards/visionkit.jpg",
+            "site_url": "https://visionkit.kasoftware.in"
         },
         {
             "slug": "documind",
@@ -1108,7 +1117,8 @@
                     "a": "Documents are encrypted in transit and at rest, with role-based access and an on-premise option for banks and regulated firms."
                 }
             ],
-            "image": "images/cards/documind.jpg"
+            "image": "images/cards/documind.jpg",
+            "site_url": "https://documind.kasoftware.in"
         },
         {
             "slug": "voxa-ai",
@@ -1219,7 +1229,8 @@
                     "a": "Sentiment detection routes frustrated callers straight to a human, with the transcript attached so they never repeat themselves."
                 }
             ],
-            "image": "images/cards/voxa-ai.jpg"
+            "image": "images/cards/voxa-ai.jpg",
+            "site_url": "https://voxa.kasoftware.in"
         },
         {
             "slug": "agentforge",
@@ -1330,7 +1341,8 @@
                     "a": "No - the visual builder is designed for operations teams. Our engineers help design your first agents during onboarding."
                 }
             ],
-            "image": "images/cards/agentforge.jpg"
+            "image": "images/cards/agentforge.jpg",
+            "site_url": "https://agentforge.kasoftware.in"
         }
     ]
 }

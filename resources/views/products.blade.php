@@ -105,7 +105,7 @@
                                     Explore {{ $product['name'] }}
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
-                                <a href="{{ url('sites/' . $product['slug'] . '/index.html') }}" class="product-site-link" target="_blank" rel="noopener" title="Visit product website">
+                                <a href="{{ app()->environment('production') && !empty($product['site_url']) ? $product['site_url'] : url('sites/' . $product['slug'] . '/index.html') }}" class="product-site-link" target="_blank" rel="noopener" title="Visit product website">
                                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                 </a>
                                 </div>

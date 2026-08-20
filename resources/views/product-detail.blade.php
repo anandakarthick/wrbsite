@@ -202,7 +202,7 @@
                                 <span>Request a Demo</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
-                            <a href="{{ url('sites/' . $product['slug'] . '/index.html') }}" class="btn btn-outline btn-block" style="margin-top: 0.75rem;" target="_blank" rel="noopener">
+                            <a href="{{ app()->environment('production') && !empty($product['site_url']) ? $product['site_url'] : url('sites/' . $product['slug'] . '/index.html') }}" class="btn btn-outline btn-block" style="margin-top: 0.75rem;" target="_blank" rel="noopener">
                                 <span>Visit Product Website</span>
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
