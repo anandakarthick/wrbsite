@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews — KartPOS</title>
+<meta name="description" content="A modern point-of-sale that unifies your physical counter and online store — billing, inventory, barcode, and GST reports in one dashboard.">
+<style>:root{--blue:#2563eb;--violet:#7c3aed;--pink:#db2777;--ink:#0b1220;--body:#33415c;--muted:#526079;--soft:#64748b;--bg:#f6f8fc;--grad:linear-gradient(135deg,#2563eb 0%,#7c3aed 55%,#db2777 100%);--pgrad:linear-gradient(135deg, #d97706 0%, #fbbf24 100%);--radius:1rem;--radius-xl:1.5rem;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Poppins','Inter','Segoe UI',system-ui,sans-serif;color:var(--body);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--ink);line-height:1.2}
+a{text-decoration:none;color:inherit;transition:.3s}
+img{max-width:100%}
+.container{max-width:1180px;margin:0 auto;padding:0 1.5rem}
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.6rem;border-radius:1rem;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:.3s;font-family:inherit}
+.btn-primary{background:var(--pgrad);color:#fff;box-shadow:0 8px 20px rgba(37,99,235,.3);position:relative;overflow:hidden}
+.btn-primary::before{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(115deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn-primary:hover::before{left:130%}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(37,99,235,.4)}
+.btn-outline{background:rgba(255,255,255,.7);color:var(--ink);border:2px solid rgba(37,99,235,.3)}
+.btn-outline:hover{background:rgba(37,99,235,.08)}
+.progressbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:200}
+.totop{position:fixed;bottom:1.6rem;left:1.6rem;width:46px;height:46px;border-radius:50%;background:var(--pgrad);color:#fff;border:none;cursor:pointer;font-size:1rem;box-shadow:0 10px 24px rgba(37,99,235,.35);opacity:0;visibility:hidden;transform:translateY(10px);transition:.3s;z-index:150}
+.totop.show{opacity:1;visibility:visible;transform:none}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(16px) saturate(160%);border-bottom:1px solid rgba(15,23,42,.06);transition:.3s}
+header.scrolled{background:rgba(255,255,255,.95);box-shadow:0 10px 24px rgba(15,23,42,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem;max-width:1180px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:.65rem;font-weight:800;font-size:1.25rem;color:var(--ink)}
+.brand-mark{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--pgrad);border-radius:.8rem;color:#fff;font-weight:800;font-size:1.1rem}
+.nav ul{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav ul a{font-size:.92rem;font-weight:500;color:var(--muted);position:relative;padding:.3rem 0}
+.nav ul a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--grad);transition:.3s}
+.nav ul a:hover,.nav ul a.active{color:var(--ink)}
+.nav ul a:hover::after,.nav ul a.active::after{width:100%}
+.nav ul a.btn::after{display:none}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:1.4rem;color:var(--ink)}
+section{padding:5rem 0}
+.sec-badge{display:inline-block;padding:.45rem 1.1rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.25);border-radius:999px;font-size:.82rem;font-weight:600;color:var(--blue);margin-bottom:1rem}
+.sec-title{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.9rem}
+.sec-desc{color:var(--muted);max-width:660px}
+.center{text-align:center}.center .sec-desc{margin:0 auto}
+.hero{padding:9.5rem 0 5rem;background:var(--pgrad);color:#fff;position:relative;overflow:hidden}
+.hero .blob{position:absolute;border-radius:50%;background:rgba(255,255,255,.13);filter:blur(90px);animation:drift 14s ease-in-out infinite}
+.hero .b1{width:480px;height:480px;top:-160px;right:-120px}
+.hero .b2{width:360px;height:360px;bottom:-140px;left:-90px;animation-delay:4s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-24px) scale(1.1)}}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center;position:relative;z-index:1}
+.hero h1{color:#fff;font-size:clamp(2.2rem,4.5vw,3.4rem);margin:.5rem 0 1rem}
+.hero .tag{font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.9}
+.hero p.lead{color:rgba(255,255,255,.9);font-size:1.1rem;margin-bottom:1.9rem;max-width:540px}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
+.btn-ghost:hover{background:rgba(255,255,255,.15)}
+.hero-stats{display:flex;gap:2.6rem;flex-wrap:wrap}
+.hero-stats b{display:block;font-size:1.7rem}
+.hero-stats span{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;opacity:.85}
+.hero-photo{border-radius:var(--radius-xl);overflow:hidden;border:1px solid rgba(255,255,255,.35);box-shadow:0 24px 50px rgba(11,18,32,.35);transform:rotate(2deg);animation:heroin 1s cubic-bezier(.22,1,.36,1) .2s both}
+@keyframes heroin{from{opacity:0;transform:rotate(2deg) translateY(30px)}to{opacity:1;transform:rotate(2deg) translateY(0)}}
+.hero-photo img{display:block;width:100%}
+.page-hero{padding:8.5rem 0 3.5rem;background:var(--pgrad);color:#fff;position:relative;overflow:hidden}
+.page-hero .blob{position:absolute;border-radius:50%;background:rgba(255,255,255,.13);filter:blur(80px);width:420px;height:420px;top:-140px;right:-100px}
+.page-hero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.8rem);position:relative;z-index:1}
+.page-hero p{color:rgba(255,255,255,.88);margin-top:.5rem;max-width:640px;position:relative;z-index:1}
+.crumb{position:relative;z-index:1;font-size:.82rem;color:rgba(255,255,255,.75);margin-bottom:.8rem;display:block}
+.crumb a:hover{color:#fff}
+.marquee{overflow:hidden;background:#0d1730;padding:1rem 0}
+.marquee-track{display:flex;gap:2.6rem;width:max-content;animation:scrollx 22s linear infinite}
+.marquee span{color:#9fb0ce;font-weight:600;font-size:.9rem;white-space:nowrap}
+.marquee span::before{content:'◆ ';color:var(--blue)}
+@keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.6rem}
+.card{background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.07);border-radius:var(--radius-xl);padding:1.7rem;box-shadow:0 1px 3px rgba(15,23,42,.08);transition:.35s}
+.card:hover{transform:translateY(-6px);border-color:rgba(37,99,235,.3);box-shadow:0 18px 40px rgba(37,99,235,.18)}
+.card h3{font-size:1.05rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.92rem}
+.dot{width:44px;height:44px;border-radius:.9rem;background:var(--pgrad);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;margin-bottom:1rem;transition:.3s}
+.card:hover .dot{transform:scale(1.1) rotate(-6deg)}
+.checklist{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:2.2rem}
+.checklist li{list-style:none;display:flex;gap:.7rem;background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.07);border-radius:1rem;padding:.95rem 1.15rem;font-size:.93rem;transition:.3s}
+.checklist li:hover{transform:translateY(-3px);border-color:rgba(37,99,235,.3)}
+.checklist li::before{content:'✓';color:var(--blue);font-weight:800}
+.steps{margin-top:2.4rem;display:flex;flex-direction:column}
+.step{display:flex;gap:1.2rem;padding-bottom:1.7rem;position:relative}
+.step::before{content:'';position:absolute;left:21px;top:46px;bottom:0;width:2px;background:rgba(37,99,235,.2)}
+.step:last-child::before{display:none}
+.step-n{width:44px;height:44px;flex-shrink:0;border-radius:50%;background:var(--pgrad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;position:relative;z-index:1}
+.step h3{font-size:1.02rem;padding-top:.5rem}
+.step p{color:var(--muted);font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.chip{padding:.55rem 1.1rem;background:rgba(255,255,255,.85);border:1px solid rgba(37,99,235,.22);border-radius:999px;font-size:.88rem;font-weight:600;transition:.3s}
+.chip:hover{transform:translateY(-2px);border-color:rgba(37,99,235,.45)}
+.quote{margin-top:2.4rem;padding:2rem;background:linear-gradient(135deg,rgba(37,99,235,.05),rgba(124,58,237,.05));border:1px solid rgba(37,99,235,.15);border-radius:var(--radius-xl)}
+.quote blockquote{font-style:italic;color:#1e293b;font-size:1.05rem;margin-bottom:1.2rem}
+.quote .who b{display:block;color:var(--ink);font-size:.93rem}
+.quote .who span{color:var(--soft);font-size:.82rem}
+details{background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.07);border-radius:1rem;margin-bottom:.7rem;overflow:hidden}
+details[open]{border-color:rgba(37,99,235,.3)}
+summary{padding:1.05rem 1.4rem;cursor:pointer;font-weight:600;color:#14203a;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'▾';color:var(--blue);transition:.3s}
+details[open] summary::after{transform:rotate(180deg)}
+details p{padding:0 1.4rem 1.15rem;color:var(--muted);font-size:.93rem}
+.tech{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.tech span{padding:.4rem .85rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.8rem;color:#1d4ed8;font-weight:600}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem;text-align:left}
+.shot{margin:0;border-radius:var(--radius-xl);overflow:hidden;border:1px solid rgba(15,23,42,.07);box-shadow:0 10px 25px rgba(15,23,42,.08);position:relative}
+.shot img{display:block;width:100%;height:230px;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.shot:hover img{transform:scale(1.07)}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1.1rem .85rem;background:linear-gradient(180deg,transparent,rgba(11,18,32,.78));color:#fff;font-size:.85rem;font-weight:600}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.6rem;align-items:stretch}
+.plan{position:relative;display:flex;flex-direction:column;background:rgba(255,255,255,.9);border:1px solid rgba(15,23,42,.08);border-radius:var(--radius-xl);padding:2rem 1.7rem;transition:.35s}
+.plan:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(37,99,235,.18)}
+.plan.pop{border:2px solid rgba(37,99,235,.45);box-shadow:0 18px 40px rgba(37,99,235,.15)}
+.plan .pbadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;padding:.28rem .95rem;border-radius:999px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.plan h3{font-size:1.15rem;margin-bottom:.2rem}
+.plan .pfor{color:var(--soft);font-size:.85rem;margin-bottom:1.1rem}
+.plan .pprice{font-size:1.5rem;font-weight:800;color:var(--ink);margin-bottom:1.2rem}
+.plan .pprice small{font-size:.8rem;color:var(--soft);font-weight:500}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.6rem;flex:1}
+.plan ul li{display:flex;gap:.55rem;font-size:.88rem}
+.plan ul li::before{content:'✓';color:var(--blue);font-weight:800}
+.contact-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;margin-top:2.4rem}
+.ccard{background:rgba(255,255,255,.88);border:1px solid rgba(15,23,42,.07);border-radius:var(--radius-xl);padding:1.6rem;text-align:center;transition:.3s}
+.ccard:hover{transform:translateY(-5px);border-color:rgba(37,99,235,.3)}
+.ccard .ci{width:52px;height:52px;margin:0 auto 1rem;border-radius:50%;background:var(--pgrad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.ccard b{display:block;color:var(--ink);margin-bottom:.3rem;font-size:.95rem}
+.ccard span,.ccard a{color:var(--muted);font-size:.86rem;word-break:break-word}
+.ccard a:hover{color:var(--blue)}
+.cta-band{background:var(--grad);border-radius:var(--radius-xl);padding:3rem 2rem;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-band::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.12);top:-140px;right:-80px}
+.cta-band h2{color:#fff;font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:.6rem;position:relative;z-index:1}
+.cta-band p{color:rgba(255,255,255,.85);margin-bottom:1.6rem;position:relative;z-index:1}
+.cta-band .btn{position:relative;z-index:1}
+.widget{margin-top:2.6rem;background:rgba(255,255,255,.92);border:1px solid rgba(37,99,235,.18);border-radius:var(--radius-xl);box-shadow:0 18px 40px rgba(37,99,235,.12);overflow:hidden}
+.widget-head{padding:1.4rem 1.8rem;background:var(--pgrad);color:#fff}
+.widget-head h3{color:#fff;font-size:1.15rem}
+.widget-head p{color:rgba(255,255,255,.85);font-size:.86rem}
+.widget-body{padding:1.6rem 1.8rem}
+.wchat{height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:.6rem;padding-bottom:.6rem}
+.wmsg{max-width:82%;padding:.65rem .95rem;border-radius:1rem;font-size:.89rem;line-height:1.55;animation:msgin .3s cubic-bezier(.22,1,.36,1) both}
+@keyframes msgin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.wmsg.bot{align-self:flex-start;background:#f1f5fb;border:1px solid rgba(15,23,42,.07);border-bottom-left-radius:.3rem;color:#1e293b}
+.wmsg.user{align-self:flex-end;background:var(--pgrad);color:#fff;border-bottom-right-radius:.3rem}
+.wtyping{align-self:flex-start;display:flex;gap:4px;padding:.8rem 1rem}
+.wtyping i{width:7px;height:7px;border-radius:50%;background:#94a3b8;animation:tb 1.2s infinite}
+.wtyping i:nth-child(2){animation-delay:.15s}.wtyping i:nth-child(3){animation-delay:.3s}
+@keyframes tb{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.winput{display:flex;gap:.6rem;margin-top:1rem}
+.winput input{flex:1;padding:.75rem 1rem;border:1px solid rgba(15,23,42,.14);border-radius:999px;font-family:inherit;font-size:.9rem;background:#f8fafc}
+.winput input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+.winput button{width:46px;height:46px;border-radius:50%;border:none;background:var(--pgrad);color:#fff;cursor:pointer;font-size:1rem}
+.wslider{width:100%;margin:1.1rem 0 .4rem;accent-color:var(--blue)}
+.wval{font-weight:800;color:var(--ink);font-size:1.3rem}
+.wouts{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.4rem}
+.wout{background:#f1f5fb;border:1px solid rgba(37,99,235,.15);border-radius:1rem;padding:1.2rem;text-align:center}
+.wout b{display:block;font-size:1.6rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.wout span{font-size:.8rem;color:var(--soft)}
+.wnote{font-size:.75rem;color:var(--soft);margin-top:.9rem;text-align:center}
+.wstages{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-top:.4rem}
+.wstages li{display:flex;align-items:center;gap:.7rem;padding:.7rem 1rem;background:#f1f5fb;border:1px solid rgba(15,23,42,.06);border-radius:.9rem;font-size:.89rem;color:#475569;transition:.3s;opacity:.55}
+.wstages li .st{width:22px;height:22px;flex-shrink:0;border-radius:50%;border:2px solid #cbd5e1;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#fff}
+.wstages li.run{opacity:1;border-color:rgba(37,99,235,.4);color:var(--ink)}
+.wstages li.run .st{border-color:var(--blue);background:var(--blue);animation:pulse 1s infinite}
+.wstages li.done{opacity:1;color:var(--ink)}
+.wstages li.done .st{border-color:#059669;background:#059669}
+.wstages li.done .st::before{content:'✓'}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.wdone{display:none;margin-top:1.1rem;padding:.85rem 1.1rem;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:.9rem;font-size:.9rem;font-weight:600;color:#047857}
+.wdone.show{display:block;animation:msgin .4s both}
+.wscan{position:relative;border-radius:1rem;overflow:hidden;margin-top:.4rem}
+.wscan img{display:block;width:100%;height:300px;object-fit:cover}
+.scanline{position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,#22d3ee,transparent);box-shadow:0 0 18px #22d3ee;display:none}
+.wscan.scanning .scanline{display:block;animation:scan 1.8s linear}
+@keyframes scan{from{top:0}to{top:100%}}
+.wbox{position:absolute;border:2px solid;border-radius:.4rem;opacity:0;transition:opacity .4s}
+.wbox.ok{border-color:#34d399}.wbox.bad{border-color:#f87171}
+.wbox span{position:absolute;top:-24px;left:0;font-size:.68rem;font-weight:700;padding:.15rem .5rem;border-radius:.4rem;white-space:nowrap;color:#fff}
+.wbox.ok span{background:#059669}.wbox.bad span{background:#dc2626}
+.wbox.show{opacity:1}
+footer{padding:2.5rem 0;background:linear-gradient(180deg,#eaf2ff,#dce8fb);border-top:1px solid rgba(37,99,235,.15);text-align:center;font-size:.88rem;color:var(--soft)}
+footer a{color:var(--blue);font-weight:600}
+footer .fnav{display:flex;justify-content:center;gap:1.4rem;margin-bottom:1rem;flex-wrap:wrap}
+footer .fnav a{color:var(--muted);font-weight:500;font-size:.85rem}
+footer .fnav a:hover{color:var(--blue)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+.cmp{width:100%;border-collapse:collapse;margin-top:2.2rem;background:rgba(255,255,255,.9);border-radius:1.2rem;overflow:hidden;box-shadow:0 10px 25px rgba(15,23,42,.07)}
+.cmp th,.cmp td{padding:1rem 1.2rem;text-align:left;font-size:.9rem;border-bottom:1px solid rgba(15,23,42,.06)}
+.cmp thead th{background:var(--pgrad);color:#fff;font-size:.95rem}
+.cmp td:first-child{font-weight:600;color:var(--ink);width:26%}
+.cmp .no{color:#b91c1c}.cmp .no::before{content:"✗ ";font-weight:800}
+.cmp .yes{color:#047857}.cmp .yes::before{content:"✓ ";font-weight:800}
+.cmp tr:hover td{background:rgba(37,99,235,.04)}
+.cmp-wrap{overflow-x:auto}
+.inc-strip{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
+.inc-strip span{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.1rem;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--ink)}
+.inc-strip span::before{content:"✓";color:var(--blue);font-weight:800}
+.rev-summary{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.15);border-radius:1.2rem;padding:1.6rem 2rem;margin-top:2rem;box-shadow:0 10px 25px rgba(15,23,42,.06)}
+.rev-summary .big{font-size:3rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.rev-summary .rstars{color:#f59e0b;font-size:1.2rem;letter-spacing:2px}
+.rev-summary .rmeta{color:var(--soft);font-size:.85rem}
+.rev-grid{column-count:3;column-gap:1.3rem;margin-top:2.2rem}
+.rev-card{break-inside:avoid;background:rgba(255,255,255,.9);border:1px solid rgba(15,23,42,.07);border-radius:1.2rem;padding:1.4rem;margin-bottom:1.3rem;box-shadow:0 1px 3px rgba(15,23,42,.06);transition:.3s}
+.rev-card:hover{transform:translateY(-4px);border-color:rgba(37,99,235,.3);box-shadow:0 14px 32px rgba(37,99,235,.14)}
+.rev-stars{color:#f59e0b;font-size:1rem;letter-spacing:2px;margin-bottom:.6rem}
+.rev-stars em{font-style:normal;color:var(--soft);font-size:.78rem;letter-spacing:0}
+.rev-card p{font-size:.88rem;color:#1e293b;line-height:1.65;margin-bottom:1rem;font-style:italic}
+.rev-who{display:flex;align-items:center;gap:.7rem}
+.rev-av{width:38px;height:38px;flex-shrink:0;border-radius:50%;color:#fff;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.rev-who b{display:block;font-size:.85rem;color:var(--ink)}
+.rev-who i{font-style:normal;font-size:.72rem;color:var(--soft)}
+@media(max-width:1000px){.rev-grid{column-count:2}}
+@media(max-width:640px){.rev-grid{column-count:1}}
+.fsocial{display:flex;justify-content:center;gap:.8rem;margin-bottom:1.2rem}
+.fsocial a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(15,23,42,.1);border-radius:.6rem;box-shadow:0 1px 2px rgba(15,23,42,.06);transition:.3s}
+.fsocial a:hover{transform:translateY(-3px)}
+.fsocial a.li:hover{background:#0a66c2}.fsocial a.fb:hover{background:#1877f2}.fsocial a.tw:hover{background:#000}.fsocial a.gh:hover{background:#24292e}
+.fsocial a.ig:hover{background:radial-gradient(circle at 30% 110%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
+.fsocial a:hover svg{fill:#fff}
+#sbot{position:fixed;bottom:1.6rem;right:1.6rem;z-index:180}
+.sbot-toggle{position:relative;width:54px;height:54px;border:none;border-radius:50%;background:var(--grad);color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 12px 26px rgba(37,99,235,.4);transition:.3s;display:flex;align-items:center;justify-content:center}
+.sbot-toggle:hover{transform:translateY(-3px) scale(1.05)}
+.sbot-pulse{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(37,99,235,.5);animation:spulse 2.4s ease-out infinite;pointer-events:none}
+#sbot.open .sbot-pulse{display:none}
+@keyframes spulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.7);opacity:0}}
+.sbot-panel{position:absolute;bottom:66px;right:0;width:340px;max-width:calc(100vw - 2.5rem);height:440px;max-height:calc(100vh - 130px);display:flex;flex-direction:column;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border:1px solid rgba(37,99,235,.18);border-radius:1.2rem;box-shadow:0 24px 60px rgba(11,18,32,.25);overflow:hidden;opacity:0;visibility:hidden;transform:translateY(14px) scale(.97);transition:.3s cubic-bezier(.22,1,.36,1)}
+#sbot.open .sbot-panel{opacity:1;visibility:visible;transform:none}
+.sbot-head{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.1rem;background:var(--pgrad);color:#fff}
+.sbot-head .av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center}
+.sbot-head b{display:block;font-size:.9rem}
+.sbot-head span{font-size:.72rem;opacity:.9}
+.sbot-msgs{flex:1;overflow-y:auto;padding:.9rem;display:flex;flex-direction:column;gap:.55rem;background:#f6f8fc}
+.sbot-msg{max-width:86%;padding:.55rem .85rem;border-radius:.9rem;font-size:.84rem;line-height:1.55;animation:msgin .3s both;word-wrap:break-word}
+.sbot-msg.bot{align-self:flex-start;background:#fff;border:1px solid rgba(15,23,42,.08);border-bottom-left-radius:.25rem;color:#1e293b}
+.sbot-msg.bot a{color:var(--blue);font-weight:600;text-decoration:underline}
+.sbot-msg.user{align-self:flex-end;background:var(--pgrad);color:#fff;border-bottom-right-radius:.25rem}
+.sbot-quick{display:flex;flex-wrap:wrap;gap:.35rem;padding:.5rem .8rem;background:#f6f8fc;border-top:1px solid rgba(15,23,42,.06)}
+.sbot-quick button{padding:.32rem .7rem;background:#fff;border:1px solid rgba(37,99,235,.3);border-radius:999px;font-size:.72rem;font-weight:600;color:#1d4ed8;cursor:pointer;font-family:inherit;transition:.3s}
+.sbot-quick button:hover{background:rgba(37,99,235,.08)}
+.sbot-in{display:flex;gap:.5rem;padding:.65rem .8rem;background:#fff;border-top:1px solid rgba(15,23,42,.08)}
+.sbot-in input{flex:1;padding:.55rem .85rem;border:1px solid rgba(15,23,42,.12);border-radius:999px;font-size:.84rem;font-family:inherit;background:#f6f8fc}
+.sbot-in input:focus{outline:none;border-color:var(--blue)}
+.sbot-in button{width:38px;height:38px;flex-shrink:0;border:none;border-radius:50%;background:var(--pgrad);color:#fff;cursor:pointer}
+.sbot-links{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
+.sbot-links a{display:inline-flex;padding:.3rem .65rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.25);border-radius:999px;font-size:.72rem;font-weight:600;color:#1d4ed8 !important;text-decoration:none !important}
+#swa{position:fixed;bottom:6.3rem;right:1.6rem;z-index:180}
+.swa-btn{position:relative;width:54px;height:54px;border:none;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;cursor:pointer;box-shadow:0 12px 26px rgba(37,211,102,.4);transition:.3s;display:flex;align-items:center;justify-content:center}
+.swa-btn:hover{transform:translateY(-3px) scale(1.05)}
+.swa-btn svg{width:26px;height:26px;fill:#fff}
+.swa-pulse{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(37,211,102,.55);animation:spulse 2.4s ease-out infinite;animation-delay:1.2s;pointer-events:none}
+@media(max-width:900px){
+ .hero-grid{grid-template-columns:1fr}
+ .hero-photo{display:none}
+ .cards,.shots,.plans{grid-template-columns:1fr}
+ .checklist{grid-template-columns:1fr}
+ .contact-cards{grid-template-columns:1fr 1fr}
+ .wouts{grid-template-columns:1fr}
+ .nav ul{position:fixed;top:64px;right:-100%;width:78%;max-width:300px;height:100vh;background:rgba(255,255,255,.97);flex-direction:column;align-items:flex-start;padding:2rem;gap:1.2rem;transition:.3s;box-shadow:-10px 0 30px rgba(15,23,42,.1)}
+ .nav ul.open{right:0}
+ .menu-btn{display:block}
+}
+@media(max-width:520px){.contact-cards{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="index.html" class="brand"><span class="brand-mark">K</span> KartPOS</a>
+    <ul id="menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="features.html">Features</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="reviews.html" class="active">Reviews</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li><li><a href="login.html" class="btn btn-primary" style="padding:.55rem 1.2rem">Counter Login</a></li></ul>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </nav>
+</header>
+<section class="page-hero">
+  <div class="blob"></div>
+  <div class="container">
+    <span class="crumb"><a href="index.html">KartPOS</a> / Customer Reviews</span>
+    <h1>Customer Reviews</h1>
+    <p>What 24 teams and families say about KartPOS — in their own words.</p>
+  </div>
+</section><section>
+  <div class="container">
+    <div class="rev-summary reveal">
+      <div><span class="big">4.8</span></div>
+      <div><div class="rstars">★★★★★</div><div class="rmeta">Average rating from 24 verified customers</div></div>
+      <div class="rmeta">100% would recommend KartPOS to a peer</div>
+    </div>
+    <div class="rev-grid"><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Three branches, one dashboard. Stock mismatches dropped to almost zero and GST filing went from two days to twenty minutes."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#2563eb,#7c3aed)">SR</span><span><b>Sneha Reddy</b><i>Supermarket Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Billing during Diwali rush without a single hiccup — even when the internet died for an hour. It just synced later."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#db2777,#ec4899)">NS</span><span><b>Nikhil Sharma</b><i>Pharmacy Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"My pharmacy needed batch and expiry tracking — it handles both perfectly, with expiry alerts that have saved us lakhs in dead stock."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#0891b2,#22d3ee)">JA</span><span><b>Joseph Antony</b><i>Retail Chain MD · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★⯪ <em>4.5</em></div><p>"Staff learned it in one hour. The keyboard-first billing is faster than any POS we have used."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#059669,#34d399)">RG</span><span><b>Ramesh Gupta</b><i>Store Manager · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Online orders and counter sales finally share one stock. We stopped overselling completely."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#d97706,#fbbf24)">MF</span><span><b>Mohammed Faizal</b><i>Bakery Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"The dashboard tells me everything I need in the first thirty seconds of my day."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">SN</span><span><b>Sandhya Nair</b><i>Electronics Retailer · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★ <em>4</em></div><p>"We evaluated three alternatives. KartPOS won on ease of use, and six months in, we know we chose right."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#2563eb,#7c3aed)">AD</span><span><b>Anita Desai</b><i>Supermarket Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Data export is one click, no lock-in games. Ironically, that is why we will never leave."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#db2777,#ec4899)">RK</span><span><b>Rajesh Kumar</b><i>Pharmacy Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Onboarding was genuinely free and genuinely good. The team stayed with us until every user was comfortable."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#0891b2,#22d3ee)">FB</span><span><b>Fatima Begum</b><i>Retail Chain MD · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★⯪ <em>4.5</em></div><p>"Every update makes it a little better without breaking what we already use. Rare discipline."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#059669,#34d399)">PJ</span><span><b>Prakash Jain</b><i>Store Manager · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"KartPOS scaled with us from a small team to three times the size without a hiccup."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#d97706,#fbbf24)">SB</span><span><b>Suresh Babu</b><i>Bakery Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Security review by our IT team passed without any red flags. Documentation was ready and complete."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">KS</span><span><b>Karthik Subramanian</b><i>Electronics Retailer · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"After a year of daily use, the whole team agrees: this is the tool we would fight to keep."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#2563eb,#7c3aed)">GM</span><span><b>Ganesh Moorthy</b><i>Supermarket Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★⯪ <em>4.5</em></div><p>"The mobile experience is as good as the desktop one. My team practically lives on it."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#db2777,#ec4899)">PS</span><span><b>Priya Sharma</b><i>Pharmacy Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"It just works. In eight months we have had zero downtime that affected our business."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#0891b2,#22d3ee)">VP</span><span><b>Vignesh Prabhu</b><i>Retail Chain MD · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★ <em>4</em></div><p>"The team listened to our feature requests and two of them shipped within a month. They treat customers like partners."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#059669,#34d399)">DK</span><span><b>Divya Krishnan</b><i>Store Manager · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Support on WhatsApp actually replies in minutes. I have never experienced this with any software vendor before."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#d97706,#fbbf24)">MI</span><span><b>Meena Iyer</b><i>Bakery Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"The 90-day support after launch fixed every small issue we found. Nothing was ever &quot;out of scope&quot;."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">AM</span><span><b>Arjun Mehta</b><i>Electronics Retailer · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Fair, transparent pricing with a proper GST invoice every month. No surprises in one full year."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#2563eb,#7c3aed)">DV</span><span><b>Deepa Venkatesh</b><i>Supermarket Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★⯪ <em>4.5</em></div><p>"Training sessions were in plain language, not tech jargon. Even our least tech-savvy staff got comfortable fast."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#db2777,#ec4899)">SP</span><span><b>Santosh Pillai</b><i>Pharmacy Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Honest team — they told us what the product could NOT do before we paid. That honesty won our trust."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#0891b2,#22d3ee)">AM</span><span><b>Arun Menon</b><i>Retail Chain MD · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Migration from our old system was handled completely by their team — verified to the last record."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#059669,#34d399)">RB</span><span><b>Rahul Bhandari</b><i>Store Manager · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★⯪ <em>4.5</em></div><p>"Implementation finished ahead of the promised timeline. When does that ever happen with software?"</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#d97706,#fbbf24)">VC</span><span><b>Vikram Chandran</b><i>Bakery Owner · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"The ROI was visible in the very first month. Our CFO signed the renewal without a single question."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">NS</span><span><b>Nithya Suresh</b><i>Electronics Retailer · Verified customer</i></span></div></div></div>
+    <div class="cta-band reveal" style="margin-top:2.4rem">
+      <h2>Become our next happy customer</h2>
+      <p>Free demo within 48 hours · No commitment</p>
+      <a href="contact.html" class="btn btn-white">Request a Demo</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="fsocial">
+  <a class="li" href="https://www.linkedin.com/company/kasoftware" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0a66c2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+  <a class="tw" href="https://twitter.com/kasoftware" target="_blank" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0f1419"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+  <a class="gh" href="https://github.com/kasoftware" target="_blank" rel="noopener" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="#24292e"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+  <a class="fb" href="https://www.facebook.com/kasoftware" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1877f2"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.378 14.192 5 15.115 5H18V0h-3.808C10.596 0 9 1.583 9 4.615V8z"/></svg></a>
+  <a class="ig" href="https://www.instagram.com/kasoftware" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="#e4405f"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+</div>
+    <div class="fnav">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="features.html">Features</a>
+      <a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="login.html">Login</a>
+    </div>
+    © <span class="yr"></span> KartPOS · A product of <a href="https://kasoftware.in/">KA Software</a>, Chennai, India
+  </div>
+</footer>
+<script>document.querySelectorAll('.yr').forEach(function(e){e.textContent=new Date().getFullYear()});</script>
+<script>
+document.querySelector('.menu-btn').addEventListener('click',function(){document.querySelector('.nav ul').classList.toggle('open')});
+document.querySelectorAll('.nav ul a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav ul').classList.remove('open')})});
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+var hdr=document.querySelector('header');
+if(hdr){window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>40)},{passive:true});}
+var pb=document.createElement('div');pb.className='progressbar';document.body.appendChild(pb);
+window.addEventListener('scroll',function(){var d=document.documentElement;var m=d.scrollHeight-d.clientHeight;pb.style.width=(m>0?(d.scrollTop/m)*100:0)+'%'},{passive:true});
+var tt=document.createElement('button');tt.className='totop';tt.innerHTML='↑';tt.setAttribute('aria-label','Top');document.body.appendChild(tt);
+tt.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'})});
+window.addEventListener('scroll',function(){tt.classList.toggle('show',scrollY>400)},{passive:true});
+document.querySelectorAll('[data-count]').forEach(function(el){
+ var raw=el.getAttribute('data-count');var m=raw.match(/^([^0-9]*)([0-9][0-9.,]*)(.*)$/);
+ if(!m){return}
+ var pre=m[1],num=parseFloat(m[2].replace(/,/g,'')),suf=m[3];
+ if(isNaN(num)){return}
+ var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){o.unobserve(el);
+  var t0=null;var dur=1600;
+  function tick(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1);p=1-Math.pow(1-p,3);
+   var v=num*p;el.textContent=pre+(num%1===0?Math.round(v).toLocaleString('en-IN'):v.toFixed(1))+suf;
+   if(p<1)requestAnimationFrame(tick)}
+  requestAnimationFrame(tick)}})},{threshold:.6});
+ o.observe(el)});
+(function(){
+ var NAME="KartPOS";
+ var INTENTS=[["hi|hello|hey|vanakkam|good morning|good evening","Hello! 👋 I'm the KartPOS assistant. Ask me about <b>features</b>, <b>pricing</b>, <b>demo</b>, <b>login</b>, or <b>contact</b> — or tap a quick question below."],["what is|about|tell me about|explain","A modern point-of-sale that unifies your physical counter and online store — billing, inventory, barcode, and GST reports in one dashboard. <a href=\"about.html\">Read the full story →</a>"],["feature|what can|capabilit|function|module","Top features: Fast billing with barcode scanning and thermal printing · Real-time stock sync with online store · Offline mode with automatic sync · Supplier and purchase order management — and more. <a href=\"features.html\">See all features →</a>"],["price|pricing|cost|plan|quote|subscription|how much","We have Starter, Professional and Enterprise plans, priced to your scale. <a href=\"pricing.html\">View plans →</a> For an exact quote, we respond within 48 hours — <a href=\"contact.html\">contact us</a>."],["demo|trial|try|test","We'd love to show you! 🎥 We set up a personalised demo within 48 hours. <a href=\"contact.html\">Request a demo →</a> or call <a href=\"tel:+918056653499\">+91 80566 53499</a>."],["login|log in|sign in|signin|password|forgot|invalid|cant access|can't access","You can sign in on the <a href=\"login.html\">Counter Login page</a>. If your credentials show invalid or you forgot your password, please contact your administrator or email <a href=\"mailto:info@kasoftware.in\">info@kasoftware.in</a> and we'll restore access quickly."],["photo|image|screenshot|gallery|picture","See KartPOS in the real world 📸 — <a href=\"gallery.html\">open the gallery →</a>"],["how it works|setup|install|onboard|start|implement","Getting started is simple — see the step-by-step process on the <a href=\"features.html\">Features page</a>. Onboarding, training and data migration are included in every plan."],["support|help|issue|problem|error|bug|complain","Sorry you're facing trouble! Our support team responds fast:{LINKS}"],["contact|phone|call|email|reach|talk","Reach us anytime:<br>📞 <a href=\"tel:+918056653499\">+91 80566 53499</a><br>📧 <a href=\"mailto:info@kasoftware.in\">info@kasoftware.in</a><br>Or the <a href=\"contact.html\">contact page →</a>"],["address|location|where|office|chennai|visit","We're at Anna Nagar, Chennai - 600049, Tamil Nadu, India. 🏢 Mon–Sat, 9 AM to 8 PM. <a href=\"contact.html\">Contact details →</a>"],["ka software|company|who built|who made|developer","KartPOS is built and supported by <a href=\"https://kasoftware.in/\" target=\"_blank\" rel=\"noopener\">KA Software</a> — an AI-powered software company in Chennai with 500+ projects delivered."],["integrat|api|connect|tally|erp","KartPOS integrates with your existing systems — see the tech stack on the <a href=\"about.html\">About page</a>, or ask our team about your specific tools via the <a href=\"contact.html\">contact page</a>."],["secure|security|data|privacy|safe","Your data is encrypted in transit and at rest, with role-based access. Enterprise plans include on-premise deployment. Ask us anything security-related at <a href=\"mailto:info@kasoftware.in\">info@kasoftware.in</a>."],["thank|thanks|nandri","You're most welcome! 😊 Anything else I can help you with?"],["bye|goodbye|see you","Goodbye! 👋 Come back anytime — or reach us on WhatsApp for a quick chat."]];
+ var LINKS='<span class="sbot-links"><a href="contact.html">Contact Page</a><a href="tel:+918056653499">Call Us</a><a href="#" data-wa="1">WhatsApp</a><a href="mailto:info@kasoftware.in">Email</a></span>';
+ var FALLBACK='Hmm, I\'m not sure about that one 🤔 — but our team definitely can help:'+LINKS;
+ function openWA(){
+  var msg=encodeURIComponent('Hi! I\'m interested in '+NAME+'. Please share more details.');
+  var web='https://wa.me/918056653499?text='+msg;
+  if(!/android|iphone|ipad|ipod/i.test(navigator.userAgent)){window.open(web,'_blank','noopener');return}
+  var opened=false;function mark(){opened=true}
+  document.addEventListener('visibilitychange',mark,{once:true});
+  window.addEventListener('pagehide',mark,{once:true});window.addEventListener('blur',mark,{once:true});
+  location.href='whatsapp://send?phone=918056653499&text='+msg;
+  setTimeout(function(){if(!opened&&!document.hidden){location.href=web}},1600);
+ }
+ // WhatsApp floating button (left, above chatbot)
+ var wa=document.createElement('div');wa.id='swa';
+ wa.innerHTML='<button type="button" class="swa-btn" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="swa-pulse"></span></button>';
+ document.body.appendChild(wa);
+ wa.querySelector('.swa-btn').addEventListener('click',function(){
+  var b=document.getElementById('sbot');if(b)b.classList.remove('open');openWA();
+ });
+ // Chatbot (left)
+ var root=document.createElement('div');root.id='sbot';
+ root.innerHTML='<button type="button" class="sbot-toggle" aria-label="Chat with us"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/><circle cx="8" cy="10" r="1.35" fill="var(--blue)"/><circle cx="12" cy="10" r="1.35" fill="var(--blue)"/><circle cx="16" cy="10" r="1.35" fill="var(--blue)"/></svg><span class="sbot-pulse"></span></button>'
+ +'<div class="sbot-panel"><div class="sbot-head"><div class="av"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1v4h-2v1a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-1H2v-4h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zm-3.5 10a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm7 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg></div><div><b>'+NAME+' Assistant</b><span>● Online — ask me anything</span></div></div>'
+ +'<div class="sbot-msgs" id="sbmsgs"></div><div class="sbot-quick" id="sbquick"></div>'
+ +'<form class="sbot-in" id="sbform"><input type="text" id="sbinp" placeholder="Type your question..." maxlength="250"><button type="submit">➤</button></form></div>';
+ document.body.appendChild(root);
+ var msgs=document.getElementById('sbmsgs'),form=document.getElementById('sbform'),inp=document.getElementById('sbinp'),quick=document.getElementById('sbquick');
+ var greeted=false;
+ function add(html,who,asHtml){var d=document.createElement('div');d.className='sbot-msg '+who;
+  if(asHtml){d.innerHTML=html}else{d.textContent=html}
+  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
+ function answer(text){
+  var low=text.toLowerCase(),ans=FALLBACK;
+  outer:for(var i=0;i<INTENTS.length;i++){var kws=INTENTS[i][0].split('|');
+   for(var k=0;k<kws.length;k++){if(low.indexOf(kws[k])!==-1){ans=INTENTS[i][1];break outer}}}
+  ans=ans.replace('{LINKS}',LINKS);
+  setTimeout(function(){add(ans,'bot',true)},650+Math.random()*450);
+ }
+ ['Features','Pricing','Request Demo','Login Help','Contact Support'].forEach(function(q){
+  var b=document.createElement('button');b.type='button';b.textContent=q;
+  b.addEventListener('click',function(){add(q,'user');answer(q==='Contact Support'?'support':q)});
+  quick.appendChild(b);
+ });
+ root.querySelector('.sbot-toggle').addEventListener('click',function(){
+  var open=root.classList.toggle('open');
+  if(open&&!greeted){greeted=true;
+   setTimeout(function(){add('Hi! 👋 I\'m the <b>'+NAME+' assistant</b>. Ask me about features, pricing, demos, login help — anything!','bot',true)},300);}
+  if(open){inp.focus()}
+ });
+ form.addEventListener('submit',function(e){e.preventDefault();var t=inp.value.trim();if(!t)return;
+  add(t,'user');inp.value='';answer(t)});
+ document.addEventListener('click',function(e){
+  var t=e.target.closest?e.target.closest('[data-wa]'):null;
+  if(t){e.preventDefault();openWA()}
+ });
+})();
+
+</script>
+</body>
+</html>

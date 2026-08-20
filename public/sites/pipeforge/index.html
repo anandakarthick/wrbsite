@@ -199,6 +199,22 @@ footer .fnav a:hover{color:var(--blue)}
 .inc-strip{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
 .inc-strip span{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.1rem;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--ink)}
 .inc-strip span::before{content:"✓";color:var(--blue);font-weight:800}
+.rev-summary{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.15);border-radius:1.2rem;padding:1.6rem 2rem;margin-top:2rem;box-shadow:0 10px 25px rgba(15,23,42,.06)}
+.rev-summary .big{font-size:3rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.rev-summary .rstars{color:#f59e0b;font-size:1.2rem;letter-spacing:2px}
+.rev-summary .rmeta{color:var(--soft);font-size:.85rem}
+.rev-grid{column-count:3;column-gap:1.3rem;margin-top:2.2rem}
+.rev-card{break-inside:avoid;background:rgba(255,255,255,.9);border:1px solid rgba(15,23,42,.07);border-radius:1.2rem;padding:1.4rem;margin-bottom:1.3rem;box-shadow:0 1px 3px rgba(15,23,42,.06);transition:.3s}
+.rev-card:hover{transform:translateY(-4px);border-color:rgba(37,99,235,.3);box-shadow:0 14px 32px rgba(37,99,235,.14)}
+.rev-stars{color:#f59e0b;font-size:1rem;letter-spacing:2px;margin-bottom:.6rem}
+.rev-stars em{font-style:normal;color:var(--soft);font-size:.78rem;letter-spacing:0}
+.rev-card p{font-size:.88rem;color:#1e293b;line-height:1.65;margin-bottom:1rem;font-style:italic}
+.rev-who{display:flex;align-items:center;gap:.7rem}
+.rev-av{width:38px;height:38px;flex-shrink:0;border-radius:50%;color:#fff;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.rev-who b{display:block;font-size:.85rem;color:var(--ink)}
+.rev-who i{font-style:normal;font-size:.72rem;color:var(--soft)}
+@media(max-width:1000px){.rev-grid{column-count:2}}
+@media(max-width:640px){.rev-grid{column-count:1}}
 .fsocial{display:flex;justify-content:center;gap:.8rem;margin-bottom:1.2rem}
 .fsocial a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(15,23,42,.1);border-radius:.6rem;box-shadow:0 1px 2px rgba(15,23,42,.06);transition:.3s}
 .fsocial a:hover{transform:translateY(-3px)}
@@ -253,7 +269,7 @@ footer .fnav a:hover{color:var(--blue)}
 <header>
   <nav class="nav">
     <a href="index.html" class="brand"><span class="brand-mark">P</span> PipeForge</a>
-    <ul id="menu"><li><a href="index.html" class="active">Home</a></li><li><a href="about.html">About</a></li><li><a href="features.html">Features</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li><li><a href="login.html" class="btn btn-primary" style="padding:.55rem 1.2rem">Developer Login</a></li></ul>
+    <ul id="menu"><li><a href="index.html" class="active">Home</a></li><li><a href="about.html">About</a></li><li><a href="features.html">Features</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li><li><a href="login.html" class="btn btn-primary" style="padding:.55rem 1.2rem">Developer Login</a></li></ul>
     <button class="menu-btn" aria-label="Menu">☰</button>
   </nav>
 </header>
@@ -318,6 +334,15 @@ footer .fnav a:hover{color:var(--blue)}
   </div>
 </section>
 
+<section style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">
+  <div class="container center">
+    <span class="sec-badge">Reviews</span>
+    <h2 class="sec-title">Rated 4.8 ★ by 24 Customers</h2>
+    <div class="rev-grid" style="text-align:left"><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Deploys used to be a Friday-evening ritual of fear. Now interns ship to production safely. It paid for itself in the first outage it prevented."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#2563eb,#7c3aed)">MI</span><span><b>Meena Iyer</b><i>CTO · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Zero-config is real — it detected our Laravel stack and had a full pipeline running in minutes."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#db2777,#ec4899)">NS</span><span><b>Nikhil Sharma</b><i>DevOps Lead · Verified customer</i></span></div></div><div class="rev-card reveal"><div class="rev-stars">★★★★★ <em>5</em></div><p>"Preview environments for every pull request changed how our team reviews code. No more &quot;works on my machine&quot;."</p><div class="rev-who"><span class="rev-av" style="background:linear-gradient(135deg,#0891b2,#22d3ee)">RK</span><span><b>Rajesh Kumar</b><i>Engineering Manager · Verified customer</i></span></div></div></div>
+    <p style="margin-top:1.4rem"><a href="reviews.html" class="btn btn-outline">Read All 24 Reviews →</a></p>
+  </div>
+</section>
+
 <section style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
   <div class="container">
     <div class="quote reveal"><blockquote>“Deploys used to be a Friday-evening ritual of fear. Now interns ship to production safely. PipeForge paid for itself in the first outage it prevented.”</blockquote><div class="who"><b>Karthik Subramanian</b><span>CTO, Finlytica</span></div></div>
@@ -339,7 +364,7 @@ footer .fnav a:hover{color:var(--blue)}
 </div>
     <div class="fnav">
       <a href="index.html">Home</a><a href="about.html">About</a><a href="features.html">Features</a>
-      <a href="gallery.html">Gallery</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="login.html">Login</a>
+      <a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="login.html">Login</a>
     </div>
     © <span class="yr"></span> PipeForge · A product of <a href="https://kasoftware.in/">KA Software</a>, Chennai, India
   </div>

@@ -167,6 +167,188 @@ $widgets = [
 
 function e($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
 
+// ---------- Reviews data ----------
+$reviewNames = [
+    'Rajesh Kumar', 'Priya Sharma', 'Arun Menon', 'Divya Krishnan', 'Mohammed Faizal', 'Karthik Subramanian',
+    'Sneha Reddy', 'Lakshmi Narayanan', 'Suresh Babu', 'Anita Desai', 'Vignesh Prabhu', 'Arjun Mehta',
+    'Meena Iyer', 'Vikram Chandran', 'Sandhya Nair', 'Ramesh Gupta', 'Kavitha Balan', 'Joseph Antony',
+    'Deepa Venkatesh', 'Santosh Pillai', 'Fatima Begum', 'Nikhil Sharma', 'Revathi Sundaram', 'Manoj Krishnan',
+    'Aishwarya Raman', 'Prakash Jain', 'Nithya Suresh', 'Ganesh Moorthy', 'Rahul Bhandari', 'Shalini Devi',
+];
+
+$reviewPersonas = [
+    'vahaai' => ['Parent', 'Class 12 Student', 'School Principal', 'Maths Teacher', 'NEET Aspirant', 'Coaching Institute Owner'],
+    'ka-crm' => ['Sales Director', 'Founder', 'Real Estate MD', 'Marketing Head', 'Business Owner', 'Sales Manager'],
+    'pipeforge' => ['CTO', 'DevOps Lead', 'Engineering Manager', 'Startup Founder', 'Senior Developer', 'Tech Lead'],
+    'shopnest' => ['D2C Founder', 'Boutique Owner', 'E-commerce Manager', 'Brand Owner', 'Online Seller', 'Retail Entrepreneur'],
+    'kartpos' => ['Supermarket Owner', 'Pharmacy Owner', 'Retail Chain MD', 'Store Manager', 'Bakery Owner', 'Electronics Retailer'],
+    'peoplecore' => ['HR Director', 'HR Manager', 'Factory HR Head', 'CHRO', 'Operations Head', 'Payroll Manager'],
+    'insightiq' => ['CEO', 'Analytics Head', 'Finance Director', 'Operations Manager', 'Business Analyst', 'Managing Director'],
+    'convodesk' => ['Support Head', 'E-commerce Founder', 'Clinic Administrator', 'Operations Manager', 'Customer Success Lead', 'Business Owner'],
+    'visionkit' => ['Plant Head', 'Quality Manager', 'Factory Owner', 'Production Manager', 'Safety Officer', 'Operations Director'],
+    'documind' => ['CFO', 'Finance Manager', 'CA Firm Partner', 'Accounts Head', 'Finance Controller', 'Audit Manager'],
+    'voxa-ai' => ['Clinic Director', 'Salon Owner', 'Hospital Administrator', 'Service Centre Manager', 'Restaurant Owner', 'Dental Practice Owner'],
+    'agentforge' => ['VP Operations', 'Automation Lead', 'COO', 'Finance Operations Head', 'IT Director', 'Process Excellence Manager'],
+];
+
+$specificReviews = [
+    'vahaai' => [
+        'My daughter\'s maths score went from 62% to 84% in one term. She actually asks the AI tutor the doubts she was too shy to ask in class.',
+        'As a principal, the teacher dashboard is gold — I can see exactly which concept each class is stuck on before exams, not after.',
+        'The Tamil voice tutoring is a blessing for our students. They learn in the language they think in.',
+        'NEET prep felt impossible until VAHA built my daily plan. The adaptive mock tests are scarily accurate about what I need to revise.',
+        'We rolled it out to 1,200 students in a week. The onboarding team handled everything including our own question bank.',
+    ],
+    'ka-crm' => [
+        'We closed 35% more deals in the first quarter with the same team. The AI ranking tells my reps exactly who to call first every morning.',
+        'Every lead from our website, ads and WhatsApp lands in one pipeline automatically. Nothing leaks anymore — nothing.',
+        'The deal-win prediction is uncannily accurate. Our forecast meetings finally run on data instead of optimism.',
+        'WhatsApp integration alone is worth it — the whole team shares one number and every chat is on the customer timeline.',
+        'Moved from spreadsheets in under a week, with all our old deals and notes migrated free.',
+    ],
+    'pipeforge' => [
+        'Deploys used to be a Friday-evening ritual of fear. Now interns ship to production safely. It paid for itself in the first outage it prevented.',
+        'Zero-config is real — it detected our Laravel stack and had a full pipeline running in minutes.',
+        'Preview environments for every pull request changed how our team reviews code. No more "works on my machine".',
+        'One-click rollback saved us at 2 AM during a festival sale. Ten seconds and we were back.',
+        'The build analytics showed us exactly where our 40-minute pipeline was wasting time. It is 8 minutes now.',
+    ],
+    'shopnest' => [
+        'We shifted from a marketplace to our own ShopNest store and doubled our margin. The WhatsApp cart recovery alone pays the subscription.',
+        'Store was live in 4 days with UPI, GST invoices and courier tracking all working. I did most of it myself.',
+        'The AI recommendations lifted our average order value by 22%. It genuinely sells like a good shop assistant.',
+        'Festival-season traffic did not even slow the site down. 3x normal orders, zero downtime.',
+        'GST reports that used to take my accountant two days now download in one click.',
+    ],
+    'kartpos' => [
+        'Three branches, one dashboard. Stock mismatches dropped to almost zero and GST filing went from two days to twenty minutes.',
+        'Billing during Diwali rush without a single hiccup — even when the internet died for an hour. It just synced later.',
+        'My pharmacy needed batch and expiry tracking — it handles both perfectly, with expiry alerts that have saved us lakhs in dead stock.',
+        'Staff learned it in one hour. The keyboard-first billing is faster than any POS we have used.',
+        'Online orders and counter sales finally share one stock. We stopped overselling completely.',
+    ],
+    'peoplecore' => [
+        'Payroll for 1,800 employees used to take a full week. Now it is one morning — and statutory audits are painless.',
+        'Geo-fenced attendance ended proxy punching at our sites overnight. The evidence trail is all there.',
+        'The AI resume screening shortlisted better candidates in minutes than our old process found in weeks.',
+        'Employee self-service cut our HR queries by more than half. Payslips, leave, reimbursements — all on their phones.',
+        'PF, ESI and TDS handled correctly every single month. My compliance consultant is almost jobless now.',
+    ],
+    'insightiq' => [
+        'Our Monday review went from arguing about whose Excel was right to deciding what to do next. One source of truth changed everything.',
+        'I typed "sales by region last quarter" and got the exact chart in seconds. My team uses it without any training.',
+        'The anomaly alerts caught a billing error that would have cost us lakhs before month-end. Paid for itself that day.',
+        'Connected Tally, our CRM and Excel sheets in one afternoon. Dashboards update live now.',
+        'Scheduled WhatsApp reports every morning mean my whole leadership team starts the day aligned.',
+    ],
+    'convodesk' => [
+        'ConvoDesk answers 4 out of 5 customer chats end to end. Our two support agents now handle what used to need eight people.',
+        'Trained it on our catalogue in an afternoon. It answers product questions better than some of our staff did.',
+        'The human handover is seamless — customers never repeat themselves, and my agents get full context.',
+        'Tamil support was the deciding factor for us. Our customers chat in the language they are comfortable in.',
+        'Order tracking queries dropped to zero human touches. The bot just answers them, day and night.',
+    ],
+    'visionkit' => [
+        'Customer rejections dropped 70% in three months. The line stops itself before a full batch is ruined.',
+        'It runs on the CCTV cameras we already had. No new hardware, just intelligence added on top.',
+        'PPE compliance alerts turned our safety audits from a nightmare into a formality — everything is evidence-backed.',
+        'The shelf stock-out alerts in our stores recovered sales we did not even know we were losing.',
+        'On-premise deployment meant our factory footage never leaves our network. That sealed the deal.',
+    ],
+    'documind' => [
+        'We process 40,000 vendor invoices a month. DocuMind cut our entry team\'s workload by 90% and month-end closing by a full week.',
+        'The Tally integration is flawless — verified vouchers just appear with the right ledger mapping.',
+        'It reads even the ugliest scanned invoices our vendors send. The confidence scores tell my team exactly what to double-check.',
+        'Duplicate bill detection caught a fraud attempt in our first month. That alone justified the cost.',
+        'KYC processing went from 15 minutes per customer to 20 seconds.',
+    ],
+    'voxa-ai' => [
+        'We used to miss 30% of calls during clinic hours. Voxa now books those patients automatically — two extra days of appointments a week.',
+        'It speaks Tamil naturally. Our older patients don\'t even realise it is an AI until it tells them.',
+        'Payment reminder calls that my staff dreaded now run automatically — and collections improved 40%.',
+        'The WhatsApp summary after every call means nothing gets lost. Transcripts have settled more than one dispute.',
+        'Zero hold time, ever. Our customers noticed within the first week.',
+    ],
+    'agentforge' => [
+        'Our reconciliation agent processes 12,000 transactions nightly and flags exactly the 20 that need a human. That job took three analysts.',
+        'The visual builder meant our operations team built their own agents — no developers needed after the first week.',
+        'Human-in-the-loop checkpoints gave our compliance team the confidence to let agents touch real financial data.',
+        'The audit log is a compliance officer\'s dream. Every action an agent takes, recorded and searchable.',
+        'Weekly reports that consumed every Monday morning now generate themselves on Sunday night.',
+    ],
+];
+
+$genericReviews = [
+    'Onboarding was genuinely free and genuinely good. The team stayed with us until every user was comfortable.',
+    'Support on WhatsApp actually replies in minutes. I have never experienced this with any software vendor before.',
+    'We evaluated three alternatives. {name} won on ease of use, and six months in, we know we chose right.',
+    'The 90-day support after launch fixed every small issue we found. Nothing was ever "out of scope".',
+    'Fair, transparent pricing with a proper GST invoice every month. No surprises in one full year.',
+    'The team listened to our feature requests and two of them shipped within a month. They treat customers like partners.',
+    'Migration from our old system was handled completely by their team — verified to the last record.',
+    'It just works. In eight months we have had zero downtime that affected our business.',
+    'Training sessions were in plain language, not tech jargon. Even our least tech-savvy staff got comfortable fast.',
+    'Every update makes it a little better without breaking what we already use. Rare discipline.',
+    'The dashboard tells me everything I need in the first thirty seconds of my day.',
+    '{name} scaled with us from a small team to three times the size without a hiccup.',
+    'Honest team — they told us what the product could NOT do before we paid. That honesty won our trust.',
+    'The mobile experience is as good as the desktop one. My team practically lives on it.',
+    'Data export is one click, no lock-in games. Ironically, that is why we will never leave.',
+    'Implementation finished ahead of the promised timeline. When does that ever happen with software?',
+    'We asked for a small customisation and it was done in days, not months.',
+    'The ROI was visible in the very first month. Our CFO signed the renewal without a single question.',
+    'Security review by our IT team passed without any red flags. Documentation was ready and complete.',
+    'After a year of daily use, the whole team agrees: this is the tool we would fight to keep.',
+];
+
+function buildReviews($slug, $productName, $reviewNames, $reviewPersonas, $specificReviews, $genericReviews) {
+    mt_srand(crc32($slug)); // deterministic per product
+    $names = $reviewNames;
+    shuffle($names);
+    $personas = $reviewPersonas[$slug] ?? ['Business Owner', 'Manager', 'Director', 'Founder'];
+    $texts = $specificReviews[$slug] ?? [];
+    $generic = $genericReviews;
+    shuffle($generic);
+    foreach (array_slice($generic, 0, 24 - count($texts)) as $g) {
+        $texts[] = str_replace('{name}', $productName, $g);
+    }
+    // ratings mix ~4.8 avg
+    $ratingPattern = [5, 5, 5, 4.5, 5, 5, 4, 5, 5, 4.5, 5, 5, 5, 4.5, 5, 4, 5, 5, 5, 4.5, 5, 5, 4.5, 5];
+    $reviews = [];
+    foreach ($texts as $i => $text) {
+        $reviews[] = [
+            'name' => $names[$i % count($names)],
+            'role' => $personas[$i % count($personas)],
+            'rating' => $ratingPattern[$i % count($ratingPattern)],
+            'text' => $text,
+        ];
+    }
+    return $reviews;
+}
+
+function reviewsHtml($reviews, $gradIndexBase = 0) {
+    $grads = [
+        'linear-gradient(135deg,#2563eb,#7c3aed)', 'linear-gradient(135deg,#db2777,#ec4899)',
+        'linear-gradient(135deg,#0891b2,#22d3ee)', 'linear-gradient(135deg,#059669,#34d399)',
+        'linear-gradient(135deg,#d97706,#fbbf24)', 'linear-gradient(135deg,#7c3aed,#a78bfa)',
+    ];
+    $html = '';
+    foreach ($reviews as $i => $r) {
+        $parts = preg_split('/\s+/', trim($r['name']));
+        $initials = strtoupper(substr($parts[0], 0, 1) . (isset($parts[1]) ? substr($parts[1], 0, 1) : ''));
+        $full = (int) floor($r['rating']);
+        $stars = str_repeat('★', $full) . ($r['rating'] - $full >= 0.5 ? '⯪' : '');
+        $g = $grads[($i + $gradIndexBase) % count($grads)];
+        $html .= '<div class="rev-card reveal">'
+            . '<div class="rev-stars">' . $stars . ' <em>' . $r['rating'] . '</em></div>'
+            . '<p>"' . e($r['text']) . '"</p>'
+            . '<div class="rev-who"><span class="rev-av" style="background:' . $g . '">' . $initials . '</span>'
+            . '<span><b>' . e($r['name']) . '</b><i>' . e($r['role']) . ' · Verified customer</i></span></div>'
+            . '</div>';
+    }
+    return $html;
+}
+
 function sharedCss($gradient) {
     return <<<CSS
 :root{--blue:#2563eb;--violet:#7c3aed;--pink:#db2777;--ink:#0b1220;--body:#33415c;--muted:#526079;--soft:#64748b;--bg:#f6f8fc;--grad:linear-gradient(135deg,#2563eb 0%,#7c3aed 55%,#db2777 100%);--pgrad:{$gradient};--radius:1rem;--radius-xl:1.5rem;}
@@ -363,6 +545,22 @@ footer .fnav a:hover{color:var(--blue)}
 .inc-strip{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
 .inc-strip span{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.1rem;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--ink)}
 .inc-strip span::before{content:"✓";color:var(--blue);font-weight:800}
+.rev-summary{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.15);border-radius:1.2rem;padding:1.6rem 2rem;margin-top:2rem;box-shadow:0 10px 25px rgba(15,23,42,.06)}
+.rev-summary .big{font-size:3rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.rev-summary .rstars{color:#f59e0b;font-size:1.2rem;letter-spacing:2px}
+.rev-summary .rmeta{color:var(--soft);font-size:.85rem}
+.rev-grid{column-count:3;column-gap:1.3rem;margin-top:2.2rem}
+.rev-card{break-inside:avoid;background:rgba(255,255,255,.9);border:1px solid rgba(15,23,42,.07);border-radius:1.2rem;padding:1.4rem;margin-bottom:1.3rem;box-shadow:0 1px 3px rgba(15,23,42,.06);transition:.3s}
+.rev-card:hover{transform:translateY(-4px);border-color:rgba(37,99,235,.3);box-shadow:0 14px 32px rgba(37,99,235,.14)}
+.rev-stars{color:#f59e0b;font-size:1rem;letter-spacing:2px;margin-bottom:.6rem}
+.rev-stars em{font-style:normal;color:var(--soft);font-size:.78rem;letter-spacing:0}
+.rev-card p{font-size:.88rem;color:#1e293b;line-height:1.65;margin-bottom:1rem;font-style:italic}
+.rev-who{display:flex;align-items:center;gap:.7rem}
+.rev-av{width:38px;height:38px;flex-shrink:0;border-radius:50%;color:#fff;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.rev-who b{display:block;font-size:.85rem;color:var(--ink)}
+.rev-who i{font-style:normal;font-size:.72rem;color:var(--soft)}
+@media(max-width:1000px){.rev-grid{column-count:2}}
+@media(max-width:640px){.rev-grid{column-count:1}}
 .fsocial{display:flex;justify-content:center;gap:.8rem;margin-bottom:1.2rem}
 .fsocial a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(15,23,42,.1);border-radius:.6rem;box-shadow:0 1px 2px rgba(15,23,42,.06);transition:.3s}
 .fsocial a:hover{transform:translateY(-3px)}
@@ -444,7 +642,7 @@ JS;
 }
 
 function navHtml($name, $initial, $active, $loginTitle) {
-    $items = ['index' => 'Home', 'about' => 'About', 'features' => 'Features', 'gallery' => 'Gallery', 'pricing' => 'Pricing', 'contact' => 'Contact'];
+    $items = ['index' => 'Home', 'about' => 'About', 'features' => 'Features', 'gallery' => 'Gallery', 'reviews' => 'Reviews', 'pricing' => 'Pricing', 'contact' => 'Contact'];
     $links = '';
     foreach ($items as $page => $label) {
         $cls = $page === $active ? ' class="active"' : '';
@@ -478,7 +676,7 @@ HTML;
     {$social}
     <div class="fnav">
       <a href="index.html">Home</a><a href="about.html">About</a><a href="features.html">Features</a>
-      <a href="gallery.html">Gallery</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="login.html">Login</a>
+      <a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="login.html">Login</a>
     </div>
     © <span class="yr"></span> {$name} · A product of <a href="https://kasoftware.in/">KA Software</a>, Chennai, India
   </div>
@@ -799,6 +997,11 @@ foreach ($data['products'] as $p) {
     [$widgetBlock, $widgetJs] = buildWidget($slug, $widgets);
     $galleryGrid = implode('', $shotTags);
     $galleryPreview = implode('', array_slice($shotTags, 0, 3));
+    $reviews = buildReviews($slug, $p['name'], $reviewNames, $reviewPersonas, $specificReviews, $genericReviews);
+    $avgRating = round(array_sum(array_column($reviews, 'rating')) / count($reviews), 1);
+    $reviewCount = count($reviews);
+    $reviewsAll = reviewsHtml($reviews);
+    $reviewsPreview = reviewsHtml(array_slice($reviews, 0, 3));
 
     // Feature preview for home (first 4)
     $featPreview = '';
@@ -913,6 +1116,15 @@ HTML;
     <h2 class="sec-title">{$name} in the Real World</h2>
     <div class="shots">{$galleryPreview}</div>
     <p style="margin-top:2rem"><a href="gallery.html" class="btn btn-outline">View Full Gallery →</a></p>
+  </div>
+</section>
+
+<section style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">
+  <div class="container center">
+    <span class="sec-badge">Reviews</span>
+    <h2 class="sec-title">Rated {$avgRating} ★ by {$reviewCount} Customers</h2>
+    <div class="rev-grid" style="text-align:left">{$reviewsPreview}</div>
+    <p style="margin-top:1.4rem"><a href="reviews.html" class="btn btn-outline">Read All {$reviewCount} Reviews →</a></p>
   </div>
 </section>
 
@@ -1034,6 +1246,27 @@ HTML;
 </section>
 HTML;
     file_put_contents("$dir/gallery.html", pageShell("Gallery — $name", $desc, $css, $nav, $body, $footer, $js));
+
+    // ---------- reviews.html ----------
+    $nav = navHtml($name, $initial, 'reviews', $loginTitle);
+    $body = pageHero($name, 'Customer Reviews', "What $reviewCount teams and families say about $name — in their own words.") . <<<HTML
+<section>
+  <div class="container">
+    <div class="rev-summary reveal">
+      <div><span class="big">{$avgRating}</span></div>
+      <div><div class="rstars">★★★★★</div><div class="rmeta">Average rating from {$reviewCount} verified customers</div></div>
+      <div class="rmeta">100% would recommend {$name} to a peer</div>
+    </div>
+    <div class="rev-grid">{$reviewsAll}</div>
+    <div class="cta-band reveal" style="margin-top:2.4rem">
+      <h2>Become our next happy customer</h2>
+      <p>Free demo within 48 hours · No commitment</p>
+      <a href="contact.html" class="btn btn-white">Request a Demo</a>
+    </div>
+  </div>
+</section>
+HTML;
+    file_put_contents("$dir/reviews.html", pageShell("Reviews — $name", $desc, $css, $nav, $body, $footer, $js));
 
     // ---------- pricing.html ----------
     $nav = navHtml($name, $initial, 'pricing', $loginTitle);

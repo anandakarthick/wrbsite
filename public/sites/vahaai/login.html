@@ -198,6 +198,22 @@ footer .fnav a:hover{color:var(--blue)}
 .inc-strip{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
 .inc-strip span{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.1rem;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--ink)}
 .inc-strip span::before{content:"✓";color:var(--blue);font-weight:800}
+.rev-summary{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.15);border-radius:1.2rem;padding:1.6rem 2rem;margin-top:2rem;box-shadow:0 10px 25px rgba(15,23,42,.06)}
+.rev-summary .big{font-size:3rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.rev-summary .rstars{color:#f59e0b;font-size:1.2rem;letter-spacing:2px}
+.rev-summary .rmeta{color:var(--soft);font-size:.85rem}
+.rev-grid{column-count:3;column-gap:1.3rem;margin-top:2.2rem}
+.rev-card{break-inside:avoid;background:rgba(255,255,255,.9);border:1px solid rgba(15,23,42,.07);border-radius:1.2rem;padding:1.4rem;margin-bottom:1.3rem;box-shadow:0 1px 3px rgba(15,23,42,.06);transition:.3s}
+.rev-card:hover{transform:translateY(-4px);border-color:rgba(37,99,235,.3);box-shadow:0 14px 32px rgba(37,99,235,.14)}
+.rev-stars{color:#f59e0b;font-size:1rem;letter-spacing:2px;margin-bottom:.6rem}
+.rev-stars em{font-style:normal;color:var(--soft);font-size:.78rem;letter-spacing:0}
+.rev-card p{font-size:.88rem;color:#1e293b;line-height:1.65;margin-bottom:1rem;font-style:italic}
+.rev-who{display:flex;align-items:center;gap:.7rem}
+.rev-av{width:38px;height:38px;flex-shrink:0;border-radius:50%;color:#fff;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.rev-who b{display:block;font-size:.85rem;color:var(--ink)}
+.rev-who i{font-style:normal;font-size:.72rem;color:var(--soft)}
+@media(max-width:1000px){.rev-grid{column-count:2}}
+@media(max-width:640px){.rev-grid{column-count:1}}
 .fsocial{display:flex;justify-content:center;gap:.8rem;margin-bottom:1.2rem}
 .fsocial a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(15,23,42,.1);border-radius:.6rem;box-shadow:0 1px 2px rgba(15,23,42,.06);transition:.3s}
 .fsocial a:hover{transform:translateY(-3px)}
