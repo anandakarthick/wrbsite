@@ -1766,3 +1766,48 @@ img { max-width: 100%; height: auto; }
             rgba(247, 250, 255, 0.88) 100%);
     }
 }
+
+/* ============================================
+   Real-image cards & hero photos
+   ============================================ */
+/* Home service cards: full-bleed image banner */
+.service-image {
+    margin: -2rem -2rem 0;
+    height: 160px;
+    overflow: hidden;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-card:hover .service-image img { transform: scale(1.08); }
+.service-card .service-image + .service-icon,
+.service-card .service-image ~ .service-icon {
+    margin-top: -30px;
+    position: relative;
+    z-index: 2;
+    border: 3px solid white;
+}
+.service-card { overflow: hidden; }
+
+/* Detail hero photo (right side, desktop) */
+.product-hero .section-container { position: relative; }
+.product-hero-photo {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 0;
+    width: 360px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: var(--shadow-xl);
+    transform: rotate(2deg);
+    animation: heroEnter 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+.product-hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 1150px) {
+    .product-hero-photo { display: none; }
+}

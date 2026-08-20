@@ -71,6 +71,12 @@
                         @endforeach
                     </div>
                 </div>
+
+                    @if(!empty($service["image"]))
+                        <div class="product-hero-photo">
+                            <img src="{{ asset($service["image"]) }}" alt="{{ $service["name"] }}">
+                        </div>
+                    @endif
             </div>
         </section>
 

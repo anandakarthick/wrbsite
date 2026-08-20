@@ -70,7 +70,10 @@
                 <div class="products-grid">
                     @foreach($products as $product)
                         <div class="product-card {{ !empty($product['featured']) ? 'featured' : '' }}">
-                            <div class="product-card-top" style="background: {{ $product['gradient'] }};">
+                            <div class="product-card-top {{ !empty($product["image"]) ? "has-image" : "" }}" style="background: {{ $product["gradient"] }};">
+                                @if(!empty($product["image"]))
+                                    <img class="product-cover" src="{{ asset($product["image"]) }}" alt="{{ $product["name"] }}" loading="lazy">
+                                @endif
                                 <div class="product-icon">
                                     <i class="{{ $product['icon'] }}"></i>
                                 </div>

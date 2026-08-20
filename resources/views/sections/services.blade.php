@@ -13,6 +13,7 @@
         <div class="services-grid">
             <!-- Mobile App Development -->
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-image"><img src="{{ asset('images/cards/svc-mobile.jpg') }}" alt="Mobile app development" loading="lazy"></div>
                 <div class="service-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
@@ -41,6 +42,7 @@
             
             <!-- Web Applications -->
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-image"><img src="{{ asset('images/cards/svc-web.jpg') }}" alt="Web application development" loading="lazy"></div>
                 <div class="service-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10"></circle>
@@ -70,6 +72,7 @@
             
             <!-- E-commerce Platforms -->
             <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-image"><img src="{{ asset('images/cards/svc-ecommerce.jpg') }}" alt="E-commerce platform development" loading="lazy"></div>
                 <div class="service-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="9" cy="21" r="1"></circle>
@@ -99,6 +102,7 @@
             
             <!-- HRMS Solutions -->
             <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-image"><img src="{{ asset('images/cards/svc-hrms.jpg') }}" alt="HRMS solutions" loading="lazy"></div>
                 <div class="service-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -129,6 +133,7 @@
             
             <!-- CRM Systems -->
             <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-image"><img src="{{ asset('images/cards/svc-crm.jpg') }}" alt="CRM systems" loading="lazy"></div>
                 <div class="service-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="18" y1="20" x2="18" y2="10"></line>
@@ -158,6 +163,7 @@
             
             <!-- AI/ML Solutions -->
             <div class="service-card featured" data-aos="fade-up" data-aos-delay="600">
+                <div class="service-image"><img src="{{ asset('images/cards/svc-ai.jpg') }}" alt="AI and machine learning solutions" loading="lazy"></div>
                 <div class="service-badge">Popular</div>
                 <div class="service-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

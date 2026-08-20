@@ -186,10 +186,10 @@
                     <!-- Case Study 1: Healthcare AI -->
                     <article class="story-card featured">
                         <div class="story-image healthcare-bg">
+                        <img class="story-cover" src="{{ asset('images/cards/story-healthcare.jpg') }}" alt="healthcare case study" loading="lazy">
                             <div class="story-overlay">
                                 <span class="story-category">Healthcare</span>
                             </div>
-                            <div class="story-icon"><i class="fa-solid fa-hospital"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">
@@ -233,10 +233,10 @@
                     <!-- Case Study 2: E-commerce -->
                     <article class="story-card">
                         <div class="story-image ecommerce-bg">
+                        <img class="story-cover" src="{{ asset('images/cards/story-ecommerce.jpg') }}" alt="ecommerce case study" loading="lazy">
                             <div class="story-overlay">
                                 <span class="story-category">E-commerce</span>
                             </div>
-                            <div class="story-icon"><i class="fa-solid fa-cart-shopping"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">
@@ -280,10 +280,10 @@
                     <!-- Case Study 3: HRMS -->
                     <article class="story-card">
                         <div class="story-image hrms-bg">
+                        <img class="story-cover" src="{{ asset('images/cards/story-hrms.jpg') }}" alt="hrms case study" loading="lazy">
                             <div class="story-overlay">
                                 <span class="story-category">Enterprise</span>
                             </div>
-                            <div class="story-icon"><i class="fa-solid fa-users"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">
@@ -327,10 +327,10 @@
                     <!-- Case Study 4: CRM -->
                     <article class="story-card">
                         <div class="story-image crm-bg">
+                        <img class="story-cover" src="{{ asset('images/cards/story-crm.jpg') }}" alt="crm case study" loading="lazy">
                             <div class="story-overlay">
                                 <span class="story-category">Sales & CRM</span>
                             </div>
-                            <div class="story-icon"><i class="fa-solid fa-chart-pie"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">
@@ -374,10 +374,10 @@
                     <!-- Case Study 5: FinTech -->
                     <article class="story-card">
                         <div class="story-image fintech-bg">
+                        <img class="story-cover" src="{{ asset('images/cards/story-fintech.jpg') }}" alt="fintech case study" loading="lazy">
                             <div class="story-overlay">
                                 <span class="story-category">FinTech</span>
                             </div>
-                            <div class="story-icon"><i class="fa-solid fa-credit-card"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">
@@ -421,10 +421,10 @@
                     <!-- Case Study 6: Manufacturing IoT -->
                     <article class="story-card">
                         <div class="story-image manufacturing-bg">
+                        <img class="story-cover" src="{{ asset('images/cards/story-manufacturing.jpg') }}" alt="manufacturing case study" loading="lazy">
                             <div class="story-overlay">
                                 <span class="story-category">Manufacturing</span>
                             </div>
-                            <div class="story-icon"><i class="fa-solid fa-industry"></i></div>
                         </div>
                         <div class="story-content">
                             <div class="story-meta">

@@ -73,6 +73,12 @@
                         @endforeach
                     </div>
                 </div>
+
+                    @if(!empty($product["image"]))
+                        <div class="product-hero-photo">
+                            <img src="{{ asset($product["image"]) }}" alt="{{ $product["name"] }}">
+                        </div>
+                    @endif
             </div>
         </section>
 

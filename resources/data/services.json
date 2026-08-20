@@ -9,9 +9,18 @@
             "description": "Native Android & iOS apps with AI-powered features like smart recommendations, voice recognition, and predictive analytics for enhanced user experiences.",
             "long_description": "We design and build mobile apps that people actually keep on their phones. From the first wireframe to the app-store listing, our team handles UI/UX design, development, testing, and launch — then stays with you for updates and growth. Every app we ship is built for speed, offline resilience, and the small screen habits of real users. And because AI is in our DNA, your app can include smart recommendations, voice input in local languages, chat assistants, and analytics that tell you what users do next — not just what they did.",
             "stats": [
-                { "number": "200+", "label": "Apps Shipped" },
-                { "number": "4.6★", "label": "Avg Store Rating" },
-                { "number": "6-10 wk", "label": "Typical Launch" }
+                {
+                    "number": "200+",
+                    "label": "Apps Shipped"
+                },
+                {
+                    "number": "4.6★",
+                    "label": "Avg Store Rating"
+                },
+                {
+                    "number": "6-10 wk",
+                    "label": "Typical Launch"
+                }
             ],
             "deliverables": [
                 "UI/UX design with clickable prototype before coding starts",
@@ -22,26 +31,86 @@
                 "90-day post-launch support and crash monitoring"
             ],
             "benefits": [
-                { "icon": "fa-solid fa-gauge-high", "title": "Fast Without Feeling Rushed", "text": "A working prototype in the first two weeks, then weekly builds you can install and test. You always see progress on your own phone." },
-                { "icon": "fa-solid fa-wand-magic-sparkles", "title": "AI Features Built In", "text": "Recommendations, voice input in English and Tamil, smart search, and chat assistants come from our ready AI toolkit - not a research project." },
-                { "icon": "fa-solid fa-wifi", "title": "Works on Real Networks", "text": "Apps are engineered for patchy 4G and budget phones - offline caching, small download size, and battery-friendly sync." },
-                { "icon": "fa-solid fa-arrows-rotate", "title": "A Partner After Launch", "text": "Launch is the start. We monitor crashes, ship updates, and iterate on user feedback with a clear monthly plan." }
+                {
+                    "icon": "fa-solid fa-gauge-high",
+                    "title": "Fast Without Feeling Rushed",
+                    "text": "A working prototype in the first two weeks, then weekly builds you can install and test. You always see progress on your own phone."
+                },
+                {
+                    "icon": "fa-solid fa-wand-magic-sparkles",
+                    "title": "AI Features Built In",
+                    "text": "Recommendations, voice input in English and Tamil, smart search, and chat assistants come from our ready AI toolkit - not a research project."
+                },
+                {
+                    "icon": "fa-solid fa-wifi",
+                    "title": "Works on Real Networks",
+                    "text": "Apps are engineered for patchy 4G and budget phones - offline caching, small download size, and battery-friendly sync."
+                },
+                {
+                    "icon": "fa-solid fa-arrows-rotate",
+                    "title": "A Partner After Launch",
+                    "text": "Launch is the start. We monitor crashes, ship updates, and iterate on user feedback with a clear monthly plan."
+                }
             ],
             "process": [
-                { "title": "Discovery & Scope", "text": "We map your users, features, and success metrics in a working session, then fix scope, timeline, and price - in writing." },
-                { "title": "Design & Prototype", "text": "Wireframes become a clickable prototype you can put in front of real users before a line of code is written." },
-                { "title": "Build in Sprints", "text": "Weekly sprint builds land on your phone via TestFlight / internal testing, with a demo call every Friday." },
-                { "title": "Test & Harden", "text": "Automated and manual QA across devices, plus performance, security, and offline testing." },
-                { "title": "Launch & Grow", "text": "Store publishing, analytics dashboards, and a 90-day support runway - then ongoing iteration as your users grow." }
+                {
+                    "title": "Discovery & Scope",
+                    "text": "We map your users, features, and success metrics in a working session, then fix scope, timeline, and price - in writing."
+                },
+                {
+                    "title": "Design & Prototype",
+                    "text": "Wireframes become a clickable prototype you can put in front of real users before a line of code is written."
+                },
+                {
+                    "title": "Build in Sprints",
+                    "text": "Weekly sprint builds land on your phone via TestFlight / internal testing, with a demo call every Friday."
+                },
+                {
+                    "title": "Test & Harden",
+                    "text": "Automated and manual QA across devices, plus performance, security, and offline testing."
+                },
+                {
+                    "title": "Launch & Grow",
+                    "text": "Store publishing, analytics dashboards, and a 90-day support runway - then ongoing iteration as your users grow."
+                }
             ],
-            "tech": ["Flutter", "React Native", "Swift", "Kotlin", "Firebase", "Laravel APIs", "GPT Integration", "AWS"],
-            "industries": ["Healthcare", "Retail & D2C", "Education", "Logistics", "Fitness & Lifestyle", "FinTech"],
-            "products": ["vahaai", "shopnest"],
+            "tech": [
+                "Flutter",
+                "React Native",
+                "Swift",
+                "Kotlin",
+                "Firebase",
+                "Laravel APIs",
+                "GPT Integration",
+                "AWS"
+            ],
+            "industries": [
+                "Healthcare",
+                "Retail & D2C",
+                "Education",
+                "Logistics",
+                "Fitness & Lifestyle",
+                "FinTech"
+            ],
+            "products": [
+                "vahaai",
+                "shopnest"
+            ],
             "faq": [
-                { "q": "Native or cross-platform - which should we choose?", "a": "For most business apps, Flutter or React Native gives you both platforms from one codebase at roughly 60% of the cost. We recommend native Swift/Kotlin when you need heavy device features like AR, advanced camera work, or platform-specific performance." },
-                { "q": "How much does an app cost?", "a": "A focused MVP typically starts around a fixed scope we agree upfront; complex platforms are phased so you invest as milestones prove out. Every quote is fixed-price with a written scope - no hourly surprises." },
-                { "q": "Who owns the code and the accounts?", "a": "You do - completely. Code lives in your repository, and the app is published on your own Play Store and App Store accounts from day one." }
-            ]
+                {
+                    "q": "Native or cross-platform - which should we choose?",
+                    "a": "For most business apps, Flutter or React Native gives you both platforms from one codebase at roughly 60% of the cost. We recommend native Swift/Kotlin when you need heavy device features like AR, advanced camera work, or platform-specific performance."
+                },
+                {
+                    "q": "How much does an app cost?",
+                    "a": "A focused MVP typically starts around a fixed scope we agree upfront; complex platforms are phased so you invest as milestones prove out. Every quote is fixed-price with a written scope - no hourly surprises."
+                },
+                {
+                    "q": "Who owns the code and the accounts?",
+                    "a": "You do - completely. Code lives in your repository, and the app is published on your own Play Store and App Store accounts from day one."
+                }
+            ],
+            "image": "images/cards/svc-mobile.jpg"
         },
         {
             "slug": "web-applications",
@@ -52,9 +121,18 @@
             "description": "Responsive, scalable web applications with AI chatbots, automated workflows, and intelligent data processing for modern businesses.",
             "long_description": "From customer portals and booking systems to full SaaS products, we build web applications that stay fast at 10 users and at 100,000. Our stack pairs Laravel and Node.js backends with React and Vue frontends, deployed on infrastructure that scales automatically. Workflows that your team does by hand today - approvals, reports, follow-ups, reconciliation - become automated pipelines, and an AI layer can answer customer questions, extract data from documents, and surface insights from your database in plain English.",
             "stats": [
-                { "number": "150+", "label": "Platforms Built" },
-                { "number": "99.9%", "label": "Uptime Delivered" },
-                { "number": "<2s", "label": "Page Load Target" }
+                {
+                    "number": "150+",
+                    "label": "Platforms Built"
+                },
+                {
+                    "number": "99.9%",
+                    "label": "Uptime Delivered"
+                },
+                {
+                    "number": "<2s",
+                    "label": "Page Load Target"
+                }
             ],
             "deliverables": [
                 "Full-stack web application with responsive UI",
@@ -65,26 +143,86 @@
                 "Cloud deployment with CI/CD, backups and monitoring"
             ],
             "benefits": [
-                { "icon": "fa-solid fa-expand", "title": "Built to Scale From Day One", "text": "Queue workers, caching, and auto-scaling infrastructure mean growth is a pricing question, not a rewrite." },
-                { "icon": "fa-solid fa-robot", "title": "Automation That Pays Rent", "text": "We hunt the manual work in your process - approvals, reports, reminders - and turn it into workflows that run themselves." },
-                { "icon": "fa-solid fa-shield-halved", "title": "Security as Standard", "text": "Role-based access, audit logs, encrypted data, and OWASP-hardened code on every project - not as a paid extra." },
-                { "icon": "fa-solid fa-plug", "title": "Plays Well With Your Stack", "text": "Tally, Zoho, SAP, payment gateways, WhatsApp - we integrate with the systems you already run." }
+                {
+                    "icon": "fa-solid fa-expand",
+                    "title": "Built to Scale From Day One",
+                    "text": "Queue workers, caching, and auto-scaling infrastructure mean growth is a pricing question, not a rewrite."
+                },
+                {
+                    "icon": "fa-solid fa-robot",
+                    "title": "Automation That Pays Rent",
+                    "text": "We hunt the manual work in your process - approvals, reports, reminders - and turn it into workflows that run themselves."
+                },
+                {
+                    "icon": "fa-solid fa-shield-halved",
+                    "title": "Security as Standard",
+                    "text": "Role-based access, audit logs, encrypted data, and OWASP-hardened code on every project - not as a paid extra."
+                },
+                {
+                    "icon": "fa-solid fa-plug",
+                    "title": "Plays Well With Your Stack",
+                    "text": "Tally, Zoho, SAP, payment gateways, WhatsApp - we integrate with the systems you already run."
+                }
             ],
             "process": [
-                { "title": "Process Mapping", "text": "We sit with your team and map how work actually flows today - the spreadsheet handoffs, the WhatsApp approvals, all of it." },
-                { "title": "Design the System", "text": "Screens and data models designed around your process, reviewed with the people who will use them daily." },
-                { "title": "Build in Sprints", "text": "A staging site updates every week; your team clicks through real features and steers the roadmap." },
-                { "title": "Migrate & Train", "text": "We move your existing data in, run parallel for a safe period, and train every user role." },
-                { "title": "Operate & Improve", "text": "Monitoring, backups, and a monthly improvement cycle keep the platform sharp as your business changes." }
+                {
+                    "title": "Process Mapping",
+                    "text": "We sit with your team and map how work actually flows today - the spreadsheet handoffs, the WhatsApp approvals, all of it."
+                },
+                {
+                    "title": "Design the System",
+                    "text": "Screens and data models designed around your process, reviewed with the people who will use them daily."
+                },
+                {
+                    "title": "Build in Sprints",
+                    "text": "A staging site updates every week; your team clicks through real features and steers the roadmap."
+                },
+                {
+                    "title": "Migrate & Train",
+                    "text": "We move your existing data in, run parallel for a safe period, and train every user role."
+                },
+                {
+                    "title": "Operate & Improve",
+                    "text": "Monitoring, backups, and a monthly improvement cycle keep the platform sharp as your business changes."
+                }
             ],
-            "tech": ["Laravel", "Node.js", "React", "Vue.js", "PostgreSQL", "Redis", "Docker", "AWS"],
-            "industries": ["Manufacturing", "Healthcare", "Education", "Real Estate", "Logistics", "Professional Services"],
-            "products": ["insightiq", "agentforge"],
+            "tech": [
+                "Laravel",
+                "Node.js",
+                "React",
+                "Vue.js",
+                "PostgreSQL",
+                "Redis",
+                "Docker",
+                "AWS"
+            ],
+            "industries": [
+                "Manufacturing",
+                "Healthcare",
+                "Education",
+                "Real Estate",
+                "Logistics",
+                "Professional Services"
+            ],
+            "products": [
+                "insightiq",
+                "agentforge"
+            ],
             "faq": [
-                { "q": "Can you rebuild or modernise our existing system?", "a": "Yes - about half our projects are modernisations. We migrate your data, keep the old system running in parallel, and switch over module by module so business never stops." },
-                { "q": "What about hosting and maintenance?", "a": "We set up cloud hosting in your own account (AWS, DigitalOcean, or Indian providers), with automated backups and monitoring. Maintenance plans cover updates, security patches, and support SLAs." },
-                { "q": "How do you handle our data during development?", "a": "Development runs on anonymised or sample data, production access is restricted and logged, and we sign NDAs before the first conversation about your process." }
-            ]
+                {
+                    "q": "Can you rebuild or modernise our existing system?",
+                    "a": "Yes - about half our projects are modernisations. We migrate your data, keep the old system running in parallel, and switch over module by module so business never stops."
+                },
+                {
+                    "q": "What about hosting and maintenance?",
+                    "a": "We set up cloud hosting in your own account (AWS, DigitalOcean, or Indian providers), with automated backups and monitoring. Maintenance plans cover updates, security patches, and support SLAs."
+                },
+                {
+                    "q": "How do you handle our data during development?",
+                    "a": "Development runs on anonymised or sample data, production access is restricted and logged, and we sign NDAs before the first conversation about your process."
+                }
+            ],
+            "image": "images/cards/svc-web.jpg"
         },
         {
             "slug": "ecommerce-platforms",
@@ -95,9 +233,18 @@
             "description": "Smart e-commerce solutions with AI-driven product recommendations, dynamic pricing, fraud detection, and personalized shopping experiences.",
             "long_description": "We build online stores that do more than list products - they sell. Whether it is a custom D2C storefront, a multi-vendor marketplace, or a B2B ordering portal, we engineer the full funnel: fast mobile-first pages, frictionless UPI checkout, automated GST invoicing, courier integration, and the AI layer that big marketplaces use - personalised recommendations, abandoned-cart recovery on WhatsApp, and dynamic bundling. Already on Shopify or WooCommerce? We extend, optimise, and migrate without losing a single order.",
             "stats": [
-                { "number": "120+", "label": "Stores Launched" },
-                { "number": "2.4x", "label": "Avg Conversion Lift" },
-                { "number": "18%", "label": "Carts Recovered" }
+                {
+                    "number": "120+",
+                    "label": "Stores Launched"
+                },
+                {
+                    "number": "2.4x",
+                    "label": "Avg Conversion Lift"
+                },
+                {
+                    "number": "18%",
+                    "label": "Carts Recovered"
+                }
             ],
             "deliverables": [
                 "Custom storefront or Shopify / WooCommerce build",
@@ -108,26 +255,86 @@
                 "SEO, analytics and conversion tracking setup"
             ],
             "benefits": [
-                { "icon": "fa-solid fa-mobile-screen", "title": "Mobile-First, Because India Shops on Phones", "text": "90% of your traffic will be mobile. Every page is designed thumb-first and loads in under two seconds on 4G." },
-                { "icon": "fa-brands fa-whatsapp", "title": "WhatsApp Is Your Second Storefront", "text": "Order updates, cart recovery, and catalogue sharing on the app your customers open 50 times a day." },
-                { "icon": "fa-solid fa-wand-magic-sparkles", "title": "Amazon-Grade AI, Your Store", "text": "Personalised recommendations, smart search, and dynamic bundles lift average order value on autopilot." },
-                { "icon": "fa-solid fa-file-invoice", "title": "Compliance on Autopilot", "text": "GST invoices, courier manifests, COD reconciliation, and returns handled by the system, not your late nights." }
+                {
+                    "icon": "fa-solid fa-mobile-screen",
+                    "title": "Mobile-First, Because India Shops on Phones",
+                    "text": "90% of your traffic will be mobile. Every page is designed thumb-first and loads in under two seconds on 4G."
+                },
+                {
+                    "icon": "fa-brands fa-whatsapp",
+                    "title": "WhatsApp Is Your Second Storefront",
+                    "text": "Order updates, cart recovery, and catalogue sharing on the app your customers open 50 times a day."
+                },
+                {
+                    "icon": "fa-solid fa-wand-magic-sparkles",
+                    "title": "Amazon-Grade AI, Your Store",
+                    "text": "Personalised recommendations, smart search, and dynamic bundles lift average order value on autopilot."
+                },
+                {
+                    "icon": "fa-solid fa-file-invoice",
+                    "title": "Compliance on Autopilot",
+                    "text": "GST invoices, courier manifests, COD reconciliation, and returns handled by the system, not your late nights."
+                }
             ],
             "process": [
-                { "title": "Store Strategy", "text": "Products, pricing, logistics, and platform choice (custom vs Shopify vs WooCommerce) decided with real numbers." },
-                { "title": "Design for Conversion", "text": "Storefront designed around your catalogue and buyer behaviour - home, category, product, and checkout flows." },
-                { "title": "Build & Integrate", "text": "Payments, shipping, GST, and inventory wired in; AI recommendation and recovery flows configured." },
-                { "title": "Load & Launch", "text": "Bulk catalogue import, test orders end-to-end, then go live with tracking pixels and analytics in place." },
-                { "title": "Optimise Relentlessly", "text": "Monthly CRO cycle: heatmaps, funnel analysis, A/B tests - because launch-day conversion is never the ceiling." }
+                {
+                    "title": "Store Strategy",
+                    "text": "Products, pricing, logistics, and platform choice (custom vs Shopify vs WooCommerce) decided with real numbers."
+                },
+                {
+                    "title": "Design for Conversion",
+                    "text": "Storefront designed around your catalogue and buyer behaviour - home, category, product, and checkout flows."
+                },
+                {
+                    "title": "Build & Integrate",
+                    "text": "Payments, shipping, GST, and inventory wired in; AI recommendation and recovery flows configured."
+                },
+                {
+                    "title": "Load & Launch",
+                    "text": "Bulk catalogue import, test orders end-to-end, then go live with tracking pixels and analytics in place."
+                },
+                {
+                    "title": "Optimise Relentlessly",
+                    "text": "Monthly CRO cycle: heatmaps, funnel analysis, A/B tests - because launch-day conversion is never the ceiling."
+                }
             ],
-            "tech": ["Laravel", "React", "Shopify", "WooCommerce", "Razorpay", "Shiprocket", "Redis", "MySQL"],
-            "industries": ["Fashion & Apparel", "Grocery & FMCG", "Electronics", "Beauty & Cosmetics", "Home & Furniture", "B2B Wholesale"],
-            "products": ["shopnest", "kartpos"],
+            "tech": [
+                "Laravel",
+                "React",
+                "Shopify",
+                "WooCommerce",
+                "Razorpay",
+                "Shiprocket",
+                "Redis",
+                "MySQL"
+            ],
+            "industries": [
+                "Fashion & Apparel",
+                "Grocery & FMCG",
+                "Electronics",
+                "Beauty & Cosmetics",
+                "Home & Furniture",
+                "B2B Wholesale"
+            ],
+            "products": [
+                "shopnest",
+                "kartpos"
+            ],
             "faq": [
-                { "q": "Custom store or Shopify - what do you recommend?", "a": "Shopify/WooCommerce gets you live fastest and fits most D2C brands. Go custom when you need marketplace features, B2B pricing logic, deep ERP integration, or want zero platform fees at scale. We build both and will show you the honest math." },
-                { "q": "Can you migrate our existing store without losing orders or SEO?", "a": "Yes - products, customers, order history, and URL redirects are all migrated. Your search rankings are protected with a redirect map and we run both stores in parallel during cutover." },
-                { "q": "Do you handle ONDC integration?", "a": "Yes, we can make your catalogue ONDC-ready so you sell through the open network alongside your own store." }
-            ]
+                {
+                    "q": "Custom store or Shopify - what do you recommend?",
+                    "a": "Shopify/WooCommerce gets you live fastest and fits most D2C brands. Go custom when you need marketplace features, B2B pricing logic, deep ERP integration, or want zero platform fees at scale. We build both and will show you the honest math."
+                },
+                {
+                    "q": "Can you migrate our existing store without losing orders or SEO?",
+                    "a": "Yes - products, customers, order history, and URL redirects are all migrated. Your search rankings are protected with a redirect map and we run both stores in parallel during cutover."
+                },
+                {
+                    "q": "Do you handle ONDC integration?",
+                    "a": "Yes, we can make your catalogue ONDC-ready so you sell through the open network alongside your own store."
+                }
+            ],
+            "image": "images/cards/svc-ecommerce.jpg"
         },
         {
             "slug": "hrms-solutions",
@@ -138,9 +345,18 @@
             "description": "Intelligent HR management systems with AI-powered recruitment, performance analytics, employee insights, and automated workflows.",
             "long_description": "We implement HR systems that take the spreadsheet out of people management. Attendance from geo-fenced mobile punches or your biometric devices flows straight into payroll with PF, ESI, and TDS computed correctly every month. Recruitment gets an AI assistant that screens hundreds of resumes in minutes. Employees get a self-service app for leave, payslips, and reimbursements - and HR gets their week back. We deploy our PeopleCore platform configured to your policies, or build fully custom when your rules demand it.",
             "stats": [
-                { "number": "100+", "label": "HR Rollouts" },
-                { "number": "80K+", "label": "Employees on Our Systems" },
-                { "number": "60%", "label": "Less HR Admin Work" }
+                {
+                    "number": "100+",
+                    "label": "HR Rollouts"
+                },
+                {
+                    "number": "80K+",
+                    "label": "Employees on Our Systems"
+                },
+                {
+                    "number": "60%",
+                    "label": "Less HR Admin Work"
+                }
             ],
             "deliverables": [
                 "Attendance: geo-fenced mobile, biometric integration",
@@ -151,26 +367,86 @@
                 "Appraisals, onboarding and exit workflows"
             ],
             "benefits": [
-                { "icon": "fa-solid fa-calculator", "title": "Payroll in a Morning, Not a Week", "text": "Attendance flows into salary runs automatically - one click computes, generates payslips, and produces the bank file." },
-                { "icon": "fa-solid fa-scale-balanced", "title": "Compliance Without a Consultant", "text": "PF, ESI, TDS, and professional tax rules are built in and kept current - audits stop being scary." },
-                { "icon": "fa-solid fa-fingerprint", "title": "Attendance You Can Trust", "text": "Geo-fencing and biometric integration end proxy punches; every entry has evidence attached." },
-                { "icon": "fa-solid fa-user-check", "title": "Hire Weeks Faster", "text": "AI screens the resume pile to a ranked shortlist with reasons, so good candidates hear from you first." }
+                {
+                    "icon": "fa-solid fa-calculator",
+                    "title": "Payroll in a Morning, Not a Week",
+                    "text": "Attendance flows into salary runs automatically - one click computes, generates payslips, and produces the bank file."
+                },
+                {
+                    "icon": "fa-solid fa-scale-balanced",
+                    "title": "Compliance Without a Consultant",
+                    "text": "PF, ESI, TDS, and professional tax rules are built in and kept current - audits stop being scary."
+                },
+                {
+                    "icon": "fa-solid fa-fingerprint",
+                    "title": "Attendance You Can Trust",
+                    "text": "Geo-fencing and biometric integration end proxy punches; every entry has evidence attached."
+                },
+                {
+                    "icon": "fa-solid fa-user-check",
+                    "title": "Hire Weeks Faster",
+                    "text": "AI screens the resume pile to a ranked shortlist with reasons, so good candidates hear from you first."
+                }
             ],
             "process": [
-                { "title": "Policy Workshop", "text": "We document your shifts, leave rules, salary structures, and approval chains - the real ones, not the handbook version." },
-                { "title": "Configure & Integrate", "text": "System configured to your policies; biometric devices, Tally, and bank formats connected." },
-                { "title": "Pilot Run", "text": "One month of parallel payroll against your current process proves the numbers match to the rupee." },
-                { "title": "Company-Wide Rollout", "text": "Employee app rollout with training for HR, managers, and staff - in the languages your teams speak." },
-                { "title": "Support Every Cycle", "text": "We stay on call through the first payroll cycles and keep statutory rules updated as regulations change." }
+                {
+                    "title": "Policy Workshop",
+                    "text": "We document your shifts, leave rules, salary structures, and approval chains - the real ones, not the handbook version."
+                },
+                {
+                    "title": "Configure & Integrate",
+                    "text": "System configured to your policies; biometric devices, Tally, and bank formats connected."
+                },
+                {
+                    "title": "Pilot Run",
+                    "text": "One month of parallel payroll against your current process proves the numbers match to the rupee."
+                },
+                {
+                    "title": "Company-Wide Rollout",
+                    "text": "Employee app rollout with training for HR, managers, and staff - in the languages your teams speak."
+                },
+                {
+                    "title": "Support Every Cycle",
+                    "text": "We stay on call through the first payroll cycles and keep statutory rules updated as regulations change."
+                }
             ],
-            "tech": ["PeopleCore", "Laravel", "Flutter", "PostgreSQL", "Biometric SDKs", "Tally Integration", "AWS", "Python ML"],
-            "industries": ["Manufacturing", "Hospitals", "Retail Chains", "IT & Services", "Logistics", "Education"],
-            "products": ["peoplecore", "documind"],
+            "tech": [
+                "PeopleCore",
+                "Laravel",
+                "Flutter",
+                "PostgreSQL",
+                "Biometric SDKs",
+                "Tally Integration",
+                "AWS",
+                "Python ML"
+            ],
+            "industries": [
+                "Manufacturing",
+                "Hospitals",
+                "Retail Chains",
+                "IT & Services",
+                "Logistics",
+                "Education"
+            ],
+            "products": [
+                "peoplecore",
+                "documind"
+            ],
             "faq": [
-                { "q": "We have 5 branches and biometric devices from different brands - will it work?", "a": "Yes. We integrate all major biometric brands into one attendance stream, and multi-branch, multi-shift setups are standard configuration, not custom work." },
-                { "q": "How do you guarantee payroll accuracy during switchover?", "a": "We run at least one full parallel cycle: your old process and the new system compute the same month, and we reconcile to the rupee before you switch." },
-                { "q": "Can employees without smartphones use it?", "a": "Yes - biometric or kiosk punch-in covers non-smartphone staff, and HR can manage their leave and payslips on their behalf." }
-            ]
+                {
+                    "q": "We have 5 branches and biometric devices from different brands - will it work?",
+                    "a": "Yes. We integrate all major biometric brands into one attendance stream, and multi-branch, multi-shift setups are standard configuration, not custom work."
+                },
+                {
+                    "q": "How do you guarantee payroll accuracy during switchover?",
+                    "a": "We run at least one full parallel cycle: your old process and the new system compute the same month, and we reconcile to the rupee before you switch."
+                },
+                {
+                    "q": "Can employees without smartphones use it?",
+                    "a": "Yes - biometric or kiosk punch-in covers non-smartphone staff, and HR can manage their leave and payslips on their behalf."
+                }
+            ],
+            "image": "images/cards/svc-hrms.jpg"
         },
         {
             "slug": "crm-systems",
@@ -181,9 +457,18 @@
             "description": "AI-enhanced customer relationship management with predictive lead scoring, automated follow-ups, and intelligent sales forecasting.",
             "long_description": "Leads leak when they live in personal phones and memory. We implement CRM systems that capture every enquiry from your website, WhatsApp, ads, and walk-ins into one pipeline - then make sure every one gets followed up. AI scores each lead so your team calls the hottest first, automated sequences nurture the rest, and owners get forecasts based on behaviour rather than optimism. We deploy our KA CRM platform tailored to your sales process, extend Salesforce/Zoho, or build custom when your workflow demands it.",
             "stats": [
-                { "number": "90+", "label": "CRM Deployments" },
-                { "number": "35%", "label": "Avg Conversion Lift" },
-                { "number": "0", "label": "Leads Left Behind" }
+                {
+                    "number": "90+",
+                    "label": "CRM Deployments"
+                },
+                {
+                    "number": "35%",
+                    "label": "Avg Conversion Lift"
+                },
+                {
+                    "number": "0",
+                    "label": "Leads Left Behind"
+                }
             ],
             "deliverables": [
                 "Lead capture from website, ads, WhatsApp and calls",
@@ -194,26 +479,86 @@
                 "Dashboards, forecasting and team performance reports"
             ],
             "benefits": [
-                { "icon": "fa-solid fa-filter", "title": "Every Lead Captured", "text": "Website forms, Meta ads, WhatsApp, missed calls - every enquiry lands in the pipeline automatically with source tracking." },
-                { "icon": "fa-solid fa-bullseye", "title": "Call the Right Lead First", "text": "AI scoring ranks prospects by real buying signals, so your team's first hour goes to the leads most likely to close." },
-                { "icon": "fa-solid fa-bell", "title": "Follow-ups That Never Slip", "text": "Automated sequences and reminders mean the lead from last month still gets its call - without anyone remembering." },
-                { "icon": "fa-solid fa-chart-column", "title": "Forecasts Owners Can Bank On", "text": "Pipeline analytics show what will close this month and where deals die - so you fix the funnel, not blame the team." }
+                {
+                    "icon": "fa-solid fa-filter",
+                    "title": "Every Lead Captured",
+                    "text": "Website forms, Meta ads, WhatsApp, missed calls - every enquiry lands in the pipeline automatically with source tracking."
+                },
+                {
+                    "icon": "fa-solid fa-bullseye",
+                    "title": "Call the Right Lead First",
+                    "text": "AI scoring ranks prospects by real buying signals, so your team's first hour goes to the leads most likely to close."
+                },
+                {
+                    "icon": "fa-solid fa-bell",
+                    "title": "Follow-ups That Never Slip",
+                    "text": "Automated sequences and reminders mean the lead from last month still gets its call - without anyone remembering."
+                },
+                {
+                    "icon": "fa-solid fa-chart-column",
+                    "title": "Forecasts Owners Can Bank On",
+                    "text": "Pipeline analytics show what will close this month and where deals die - so you fix the funnel, not blame the team."
+                }
             ],
             "process": [
-                { "title": "Sales Process Audit", "text": "We shadow how leads actually flow today and find where they leak - usually within the first meeting." },
-                { "title": "Pipeline Design", "text": "Stages, fields, scoring rules, and automations designed around how your team really sells." },
-                { "title": "Connect Every Source", "text": "Website, Meta/Google ads, WhatsApp API, and telephony wired into the pipeline with source attribution." },
-                { "title": "Team Onboarding", "text": "Hands-on training with your live leads - reps see their day get easier, which is what makes CRM stick." },
-                { "title": "Review & Tune", "text": "Monthly reviews of conversion by stage and source; scoring and automations tuned as data accumulates." }
+                {
+                    "title": "Sales Process Audit",
+                    "text": "We shadow how leads actually flow today and find where they leak - usually within the first meeting."
+                },
+                {
+                    "title": "Pipeline Design",
+                    "text": "Stages, fields, scoring rules, and automations designed around how your team really sells."
+                },
+                {
+                    "title": "Connect Every Source",
+                    "text": "Website, Meta/Google ads, WhatsApp API, and telephony wired into the pipeline with source attribution."
+                },
+                {
+                    "title": "Team Onboarding",
+                    "text": "Hands-on training with your live leads - reps see their day get easier, which is what makes CRM stick."
+                },
+                {
+                    "title": "Review & Tune",
+                    "text": "Monthly reviews of conversion by stage and source; scoring and automations tuned as data accumulates."
+                }
             ],
-            "tech": ["KA CRM", "Salesforce", "Zoho", "WhatsApp API", "Laravel", "Vue.js", "Python ML", "MySQL"],
-            "industries": ["Real Estate", "Education Admissions", "Automotive", "Financial Services", "Healthcare", "B2B Sales"],
-            "products": ["ka-crm", "voxa-ai"],
+            "tech": [
+                "KA CRM",
+                "Salesforce",
+                "Zoho",
+                "WhatsApp API",
+                "Laravel",
+                "Vue.js",
+                "Python ML",
+                "MySQL"
+            ],
+            "industries": [
+                "Real Estate",
+                "Education Admissions",
+                "Automotive",
+                "Financial Services",
+                "Healthcare",
+                "B2B Sales"
+            ],
+            "products": [
+                "ka-crm",
+                "voxa-ai"
+            ],
             "faq": [
-                { "q": "Our sales team hates data entry - how will this be different?", "a": "Most data enters itself: leads auto-capture from every source, WhatsApp chats log automatically, and mobile voice notes replace typing. Reps use it because it hands them a ranked call list, not homework." },
-                { "q": "Should we buy Salesforce/Zoho or build custom?", "a": "If a standard tool fits your process, we implement and customise it honestly. Custom makes sense when licensing costs at your team size exceed build cost, or your workflow just does not fit the mould. We will show you both numbers." },
-                { "q": "Can it integrate with our existing telephony or IVR?", "a": "Yes - calls log against leads with recordings, and missed calls auto-create follow-up tasks. We support all major Indian cloud telephony providers." }
-            ]
+                {
+                    "q": "Our sales team hates data entry - how will this be different?",
+                    "a": "Most data enters itself: leads auto-capture from every source, WhatsApp chats log automatically, and mobile voice notes replace typing. Reps use it because it hands them a ranked call list, not homework."
+                },
+                {
+                    "q": "Should we buy Salesforce/Zoho or build custom?",
+                    "a": "If a standard tool fits your process, we implement and customise it honestly. Custom makes sense when licensing costs at your team size exceed build cost, or your workflow just does not fit the mould. We will show you both numbers."
+                },
+                {
+                    "q": "Can it integrate with our existing telephony or IVR?",
+                    "a": "Yes - calls log against leads with recordings, and missed calls auto-create follow-up tasks. We support all major Indian cloud telephony providers."
+                }
+            ],
+            "image": "images/cards/svc-crm.jpg"
         },
         {
             "slug": "ai-ml-solutions",
@@ -222,12 +567,20 @@
             "icon": "fa-solid fa-brain",
             "gradient": "linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)",
             "description": "Custom artificial intelligence and machine learning solutions including computer vision, NLP, predictive analytics, and automation.",
-            "long_description": "AI creates value when it is aimed at a specific, measurable business problem - not adopted for the press release. We build custom AI systems that inspect products on your line, read your documents, answer your customers, forecast your demand, and automate your workflows. Our team works across computer vision, natural language processing, predictive modelling, and LLM-powered agents, and we are blunt about one thing: if a simpler solution beats AI for your problem, we will tell you before you spend."
-            ,
+            "long_description": "AI creates value when it is aimed at a specific, measurable business problem - not adopted for the press release. We build custom AI systems that inspect products on your line, read your documents, answer your customers, forecast your demand, and automate your workflows. Our team works across computer vision, natural language processing, predictive modelling, and LLM-powered agents, and we are blunt about one thing: if a simpler solution beats AI for your problem, we will tell you before you spend.",
             "stats": [
-                { "number": "60+", "label": "AI Systems in Production" },
-                { "number": "150+", "label": "Models Deployed" },
-                { "number": "4-6 wk", "label": "Typical Pilot" }
+                {
+                    "number": "60+",
+                    "label": "AI Systems in Production"
+                },
+                {
+                    "number": "150+",
+                    "label": "Models Deployed"
+                },
+                {
+                    "number": "4-6 wk",
+                    "label": "Typical Pilot"
+                }
             ],
             "deliverables": [
                 "Computer vision: defect detection, safety, OCR",
@@ -238,26 +591,87 @@
                 "AI strategy audit and feasibility proof-of-concept"
             ],
             "benefits": [
-                { "icon": "fa-solid fa-bullseye", "title": "Business Metric First", "text": "Every engagement starts with the number you want to move - rejection rate, response time, forecast error - and is judged against it." },
-                { "icon": "fa-solid fa-flask", "title": "Prove It Small, Then Scale", "text": "A 4-6 week pilot on your real data shows accuracy and ROI before you commit to production budgets." },
-                { "icon": "fa-solid fa-lock", "title": "Your Data Stays Yours", "text": "On-premise and private-cloud deployment options mean sensitive data never leaves your infrastructure." },
-                { "icon": "fa-solid fa-gears", "title": "Production, Not Prototype", "text": "Monitoring, drift detection, and retraining pipelines keep models accurate long after the demo - AI that survives contact with reality." }
+                {
+                    "icon": "fa-solid fa-bullseye",
+                    "title": "Business Metric First",
+                    "text": "Every engagement starts with the number you want to move - rejection rate, response time, forecast error - and is judged against it."
+                },
+                {
+                    "icon": "fa-solid fa-flask",
+                    "title": "Prove It Small, Then Scale",
+                    "text": "A 4-6 week pilot on your real data shows accuracy and ROI before you commit to production budgets."
+                },
+                {
+                    "icon": "fa-solid fa-lock",
+                    "title": "Your Data Stays Yours",
+                    "text": "On-premise and private-cloud deployment options mean sensitive data never leaves your infrastructure."
+                },
+                {
+                    "icon": "fa-solid fa-gears",
+                    "title": "Production, Not Prototype",
+                    "text": "Monitoring, drift detection, and retraining pipelines keep models accurate long after the demo - AI that survives contact with reality."
+                }
             ],
             "process": [
-                { "title": "Problem & Data Audit", "text": "We define the metric to move and audit whether your data can move it - honestly, including when it cannot yet." },
-                { "title": "Feasibility Pilot", "text": "A focused 4-6 week proof-of-concept on your real data, with accuracy numbers you can take to the board." },
-                { "title": "Production Build", "text": "The pilot hardens into a production system with APIs, UI, and integration into your existing tools." },
-                { "title": "Deploy Your Way", "text": "Cloud, on-premise, or edge deployment with security review - whatever your data policy requires." },
-                { "title": "Monitor & Retrain", "text": "Live accuracy dashboards, drift alerts, and scheduled retraining keep the system sharp as your data evolves." }
+                {
+                    "title": "Problem & Data Audit",
+                    "text": "We define the metric to move and audit whether your data can move it - honestly, including when it cannot yet."
+                },
+                {
+                    "title": "Feasibility Pilot",
+                    "text": "A focused 4-6 week proof-of-concept on your real data, with accuracy numbers you can take to the board."
+                },
+                {
+                    "title": "Production Build",
+                    "text": "The pilot hardens into a production system with APIs, UI, and integration into your existing tools."
+                },
+                {
+                    "title": "Deploy Your Way",
+                    "text": "Cloud, on-premise, or edge deployment with security review - whatever your data policy requires."
+                },
+                {
+                    "title": "Monitor & Retrain",
+                    "text": "Live accuracy dashboards, drift alerts, and scheduled retraining keep the system sharp as your data evolves."
+                }
             ],
-            "tech": ["Python", "TensorFlow", "PyTorch", "OpenAI / GPT", "LangChain", "OpenCV", "FastAPI", "NVIDIA Jetson"],
-            "industries": ["Manufacturing", "Healthcare", "BFSI", "Retail", "Agriculture", "Logistics"],
-            "products": ["visionkit", "documind", "convodesk"],
+            "tech": [
+                "Python",
+                "TensorFlow",
+                "PyTorch",
+                "OpenAI / GPT",
+                "LangChain",
+                "OpenCV",
+                "FastAPI",
+                "NVIDIA Jetson"
+            ],
+            "industries": [
+                "Manufacturing",
+                "Healthcare",
+                "BFSI",
+                "Retail",
+                "Agriculture",
+                "Logistics"
+            ],
+            "products": [
+                "visionkit",
+                "documind",
+                "convodesk"
+            ],
             "faq": [
-                { "q": "We're not sure if our problem needs AI - can you tell us?", "a": "Yes, and we will be honest. The audit phase exists to say 'this needs AI', 'this needs a rules engine', or 'this needs better data first'. About a third of audits end with us recommending something cheaper than AI." },
-                { "q": "How much data do we need to get started?", "a": "Less than you think for many problems - modern foundation models mean document AI and chatbots can start with hundreds of examples, not millions. Vision and forecasting need more; the audit tells you exactly." },
-                { "q": "Can everything run on-premise for compliance?", "a": "Yes - vision systems, document AI, and even LLM-based systems can run fully inside your network using open-weight models when regulations demand it." }
-            ]
+                {
+                    "q": "We're not sure if our problem needs AI - can you tell us?",
+                    "a": "Yes, and we will be honest. The audit phase exists to say 'this needs AI', 'this needs a rules engine', or 'this needs better data first'. About a third of audits end with us recommending something cheaper than AI."
+                },
+                {
+                    "q": "How much data do we need to get started?",
+                    "a": "Less than you think for many problems - modern foundation models mean document AI and chatbots can start with hundreds of examples, not millions. Vision and forecasting need more; the audit tells you exactly."
+                },
+                {
+                    "q": "Can everything run on-premise for compliance?",
+                    "a": "Yes - vision systems, document AI, and even LLM-based systems can run fully inside your network using open-weight models when regulations demand it."
+                }
+            ],
+            "image": "images/cards/svc-ai.jpg"
         }
     ]
 }

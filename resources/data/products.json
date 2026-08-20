@@ -108,7 +108,8 @@
                     "q": "How is pricing structured?",
                     "a": "Simple per-student annual licensing with unlimited usage. Volume discounts apply for institutions above 500 students - contact us for a quote."
                 }
-            ]
+            ],
+            "image": "images/cards/vahaai.jpg"
         },
         {
             "slug": "ka-crm",
@@ -218,7 +219,8 @@
                     "q": "How long does onboarding take?",
                     "a": "Most teams are live in under a week: one day for setup and import, and a guided training session for your sales team."
                 }
-            ]
+            ],
+            "image": "images/cards/ka-crm.jpg"
         },
         {
             "slug": "pipeforge",
@@ -328,7 +330,8 @@
                     "q": "Is there a free tier while in beta?",
                     "a": "Yes, beta teams get unlimited builds free. Early adopters lock in launch pricing when we go GA."
                 }
-            ]
+            ],
+            "image": "images/cards/pipeforge.jpg"
         },
         {
             "slug": "shopnest",
@@ -438,7 +441,8 @@
                     "q": "Does it work for COD-heavy businesses?",
                     "a": "Absolutely. COD with courier reconciliation, NDR follow-ups, and fraud-risk flags is built in."
                 }
-            ]
+            ],
+            "image": "images/cards/shopnest.jpg"
         },
         {
             "slug": "kartpos",
@@ -548,7 +552,8 @@
                     "q": "Can it handle batch and expiry for a pharmacy?",
                     "a": "Yes - batch-wise stock, expiry alerts, and scheduled-drug registers are supported."
                 }
-            ]
+            ],
+            "image": "images/cards/kartpos.jpg"
         },
         {
             "slug": "peoplecore",
@@ -658,7 +663,8 @@
                     "q": "How is it priced?",
                     "a": "Per employee per month, with slabs that get cheaper as you grow. No setup fee for annual plans."
                 }
-            ]
+            ],
+            "image": "images/cards/peoplecore.jpg"
         },
         {
             "slug": "insightiq",
@@ -768,7 +774,8 @@
                     "q": "Does it work with Tally?",
                     "a": "Yes, a native Tally connector pulls ledgers, sales, and inventory automatically."
                 }
-            ]
+            ],
+            "image": "images/cards/insightiq.jpg"
         },
         {
             "slug": "convodesk",
@@ -878,7 +885,8 @@
                     "q": "How fast can we go live?",
                     "a": "Most businesses launch the same day: upload content, connect WhatsApp, test, and go."
                 }
-            ]
+            ],
+            "image": "images/cards/convodesk.jpg"
         },
         {
             "slug": "visionkit",
@@ -988,7 +996,8 @@
                     "q": "Is our factory footage sent to the cloud?",
                     "a": "Only if you choose cloud mode. Fully on-premise deployment keeps every frame inside your network."
                 }
-            ]
+            ],
+            "image": "images/cards/visionkit.jpg"
         },
         {
             "slug": "documind",
@@ -1098,7 +1107,8 @@
                     "q": "Is our financial data secure?",
                     "a": "Documents are encrypted in transit and at rest, with role-based access and an on-premise option for banks and regulated firms."
                 }
-            ]
+            ],
+            "image": "images/cards/documind.jpg"
         },
         {
             "slug": "voxa-ai",
@@ -1208,7 +1218,8 @@
                     "q": "What about sensitive or angry callers?",
                     "a": "Sentiment detection routes frustrated callers straight to a human, with the transcript attached so they never repeat themselves."
                 }
-            ]
+            ],
+            "image": "images/cards/voxa-ai.jpg"
         },
         {
             "slug": "agentforge",
@@ -1318,7 +1329,8 @@
                     "q": "Do we need AI engineers to use it?",
                     "a": "No - the visual builder is designed for operations teams. Our engineers help design your first agents during onboarding."
                 }
-            ]
+            ],
+            "image": "images/cards/agentforge.jpg"
         }
     ]
 }

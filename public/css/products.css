@@ -585,3 +585,33 @@
 }
 .sidebar-services-list a:hover { background: rgba(37, 99, 235, 0.07); color: var(--primary-700); }
 .sidebar-services-list a i { color: var(--primary-600); width: 18px; text-align: center; }
+
+/* Product cards with real cover images */
+.product-card-top.has-image { height: 170px; position: relative; overflow: hidden; }
+.product-cover {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.product-card:hover .product-cover { transform: scale(1.08); }
+.product-card-top.has-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(11, 18, 32, 0.35) 100%);
+    pointer-events: none;
+}
+.product-card-top.has-image .product-icon {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.25);
+}
+.product-card-top.has-image .product-status { z-index: 2; }
