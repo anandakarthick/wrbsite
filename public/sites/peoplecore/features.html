@@ -188,6 +188,17 @@ footer .fnav a{color:var(--muted);font-weight:500;font-size:.85rem}
 footer .fnav a:hover{color:var(--blue)}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:none}
+.cmp{width:100%;border-collapse:collapse;margin-top:2.2rem;background:rgba(255,255,255,.9);border-radius:1.2rem;overflow:hidden;box-shadow:0 10px 25px rgba(15,23,42,.07)}
+.cmp th,.cmp td{padding:1rem 1.2rem;text-align:left;font-size:.9rem;border-bottom:1px solid rgba(15,23,42,.06)}
+.cmp thead th{background:var(--pgrad);color:#fff;font-size:.95rem}
+.cmp td:first-child{font-weight:600;color:var(--ink);width:26%}
+.cmp .no{color:#b91c1c}.cmp .no::before{content:"✗ ";font-weight:800}
+.cmp .yes{color:#047857}.cmp .yes::before{content:"✓ ";font-weight:800}
+.cmp tr:hover td{background:rgba(37,99,235,.04)}
+.cmp-wrap{overflow-x:auto}
+.inc-strip{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
+.inc-strip span{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.1rem;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--ink)}
+.inc-strip span::before{content:"✓";color:var(--blue);font-weight:800}
 .fsocial{display:flex;justify-content:center;gap:.8rem;margin-bottom:1.2rem}
 .fsocial a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(15,23,42,.1);border-radius:.6rem;box-shadow:0 1px 2px rgba(15,23,42,.06);transition:.3s}
 .fsocial a:hover{transform:translateY(-3px)}
@@ -258,6 +269,23 @@ footer .fnav a:hover{color:var(--blue)}
     <span class="sec-badge">Features</span>
     <h2 class="sec-title">Everything Included</h2>
     <ul class="checklist"><li class="reveal">Geo-fenced mobile and biometric attendance</li><li class="reveal">Automated payroll with PF, ESI and TDS compliance</li><li class="reveal">AI resume screening and candidate ranking</li><li class="reveal">Employee self-service mobile app</li><li class="reveal">Leave, shift and overtime management</li><li class="reveal">Performance reviews and appraisal cycles</li></ul>
+  </div>
+</section>
+<section style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
+  <div class="container">
+    <span class="sec-badge">The Difference</span>
+    <h2 class="sec-title">Before vs After PeopleCore</h2>
+    <div class="cmp-wrap reveal"><table class="cmp">
+  <thead><tr><th>Aspect</th><th>Without PeopleCore</th><th>With PeopleCore</th></tr></thead>
+  <tbody>
+    <tr><td>Getting started</td><td class="no">Weeks of setup and configuration</td><td class="yes">Live in days with guided onboarding</td></tr>
+    <tr><td>Daily work</td><td class="no">Manual entry, spreadsheets, follow-ups</td><td class="yes">Automated workflows and AI assistance</td></tr>
+    <tr><td>Visibility</td><td class="no">Month-end surprises and guesswork</td><td class="yes">Real-time dashboards and instant alerts</td></tr>
+    <tr><td>Errors</td><td class="no">Human slips that cost money</td><td class="yes">Validations and checks on every step</td></tr>
+    <tr><td>Support</td><td class="no">You are on your own</td><td class="yes">Dedicated team, WhatsApp support &amp; SLA</td></tr>
+    <tr><td>Cost</td><td class="no">Hidden overruns and surprise bills</td><td class="yes">Transparent plans that scale with you</td></tr>
+  </tbody>
+</table></div>
   </div>
 </section>
 <section style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">

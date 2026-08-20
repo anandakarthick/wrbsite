@@ -188,6 +188,17 @@ footer .fnav a{color:var(--muted);font-weight:500;font-size:.85rem}
 footer .fnav a:hover{color:var(--blue)}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:none}
+.cmp{width:100%;border-collapse:collapse;margin-top:2.2rem;background:rgba(255,255,255,.9);border-radius:1.2rem;overflow:hidden;box-shadow:0 10px 25px rgba(15,23,42,.07)}
+.cmp th,.cmp td{padding:1rem 1.2rem;text-align:left;font-size:.9rem;border-bottom:1px solid rgba(15,23,42,.06)}
+.cmp thead th{background:var(--pgrad);color:#fff;font-size:.95rem}
+.cmp td:first-child{font-weight:600;color:var(--ink);width:26%}
+.cmp .no{color:#b91c1c}.cmp .no::before{content:"✗ ";font-weight:800}
+.cmp .yes{color:#047857}.cmp .yes::before{content:"✓ ";font-weight:800}
+.cmp tr:hover td{background:rgba(37,99,235,.04)}
+.cmp-wrap{overflow-x:auto}
+.inc-strip{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
+.inc-strip span{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.1rem;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--ink)}
+.inc-strip span::before{content:"✓";color:var(--blue);font-weight:800}
 .fsocial{display:flex;justify-content:center;gap:.8rem;margin-bottom:1.2rem}
 .fsocial a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(15,23,42,.1);border-radius:.6rem;box-shadow:0 1px 2px rgba(15,23,42,.06);transition:.3s}
 .fsocial a:hover{transform:translateY(-3px)}
@@ -276,7 +287,18 @@ footer .fnav a:hover{color:var(--blue)}
         <a href="contact.html" class="btn btn-outline" style="width:100%">Talk to Sales</a>
       </div>
     </div>
-    <p style="text-align:center;color:var(--soft);font-size:.85rem;margin-top:1.8rem">Every plan includes free onboarding, training, and data migration assistance.</p>
+    <p style="text-align:center;color:var(--soft);font-size:.85rem;margin-top:1.8rem">Every plan includes:</p>
+    <div class="inc-strip"><span>Free onboarding</span><span>Role-based training</span><span>Data migration</span><span>Regular updates</span><span>GST invoices</span></div>
+  </div>
+</section>
+<section style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
+  <div class="container">
+    <span class="sec-badge">Pricing FAQ</span>
+    <h2 class="sec-title">Fair Questions, Straight Answers</h2>
+    <div style="max-width:780px;margin-top:2rem"><details class="reveal"><summary>Why is pricing "Custom"?</summary><p>Because paying for what you don't use is unfair. Pricing depends on your team size, usage volume, and modules — tell us your scale and you'll have an exact, written quote within 48 hours. No hidden charges, ever.</p></details>
+<details class="reveal"><summary>Do you provide GST invoices?</summary><p>Yes — proper GST tax invoices for every payment, monthly or annual. Annual billing includes a discount.</p></details>
+<details class="reveal"><summary>Can we cancel anytime? What happens to our data?</summary><p>Monthly plans cancel anytime with no lock-in. Your data is always yours — we provide a full export in standard formats within 7 days of any cancellation request.</p></details>
+<details class="reveal"><summary>Is onboarding and training really free?</summary><p>Yes. Every plan includes guided onboarding, role-based training sessions, and assisted data migration at no extra cost — because a product you can't adopt is worthless.</p></details></div>
   </div>
 </section>
 <footer>

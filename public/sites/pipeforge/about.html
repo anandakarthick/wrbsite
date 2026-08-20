@@ -188,6 +188,17 @@ footer .fnav a{color:var(--muted);font-weight:500;font-size:.85rem}
 footer .fnav a:hover{color:var(--blue)}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:none}
+.cmp{width:100%;border-collapse:collapse;margin-top:2.2rem;background:rgba(255,255,255,.9);border-radius:1.2rem;overflow:hidden;box-shadow:0 10px 25px rgba(15,23,42,.07)}
+.cmp th,.cmp td{padding:1rem 1.2rem;text-align:left;font-size:.9rem;border-bottom:1px solid rgba(15,23,42,.06)}
+.cmp thead th{background:var(--pgrad);color:#fff;font-size:.95rem}
+.cmp td:first-child{font-weight:600;color:var(--ink);width:26%}
+.cmp .no{color:#b91c1c}.cmp .no::before{content:"✗ ";font-weight:800}
+.cmp .yes{color:#047857}.cmp .yes::before{content:"✓ ";font-weight:800}
+.cmp tr:hover td{background:rgba(37,99,235,.04)}
+.cmp-wrap{overflow-x:auto}
+.inc-strip{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
+.inc-strip span{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.1rem;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--ink)}
+.inc-strip span::before{content:"✓";color:var(--blue);font-weight:800}
 .fsocial{display:flex;justify-content:center;gap:.8rem;margin-bottom:1.2rem}
 .fsocial a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(15,23,42,.1);border-radius:.6rem;box-shadow:0 1px 2px rgba(15,23,42,.06);transition:.3s}
 .fsocial a:hover{transform:translateY(-3px)}
@@ -266,6 +277,29 @@ footer .fnav a:hover{color:var(--blue)}
     <span class="sec-badge">Why Teams Choose Us</span>
     <h2 class="sec-title">Built to Make a Difference</h2>
     <div class="cards" style="text-align:left"><div class="card reveal"><div class="dot">1</div><h3>Ship Every Day, Not Every Month</h3><p>Automated pipelines take code from commit to production in minutes, so features reach customers while they still matter.</p></div><div class="card reveal"><div class="dot">2</div><h3>Catch Bugs Before Customers Do</h3><p>Every push runs your tests and security scans automatically. Broken builds never reach production.</p></div><div class="card reveal"><div class="dot">3</div><h3>One-Click Rollback Safety Net</h3><p>A bad release is a 10-second fix, not a midnight emergency. Roll back to any previous version instantly.</p></div><div class="card reveal"><div class="dot">4</div><h3>DevOps Without a DevOps Team</h3><p>Zero-config pipelines mean small teams get big-company automation without hiring specialists.</p></div></div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <span class="sec-badge">Your First 90 Days</span>
+    <h2 class="sec-title">From Signup to ROI</h2>
+    <div class="steps">
+  <div class="step reveal"><div class="step-n">1</div><div><h3>Day 1 — Kickoff &amp; Setup</h3><p>Your account is provisioned, branding applied, and your data import begins. You meet your dedicated onboarding specialist the same day.</p></div></div>
+  <div class="step reveal"><div class="step-n">2</div><div><h3>Week 1 — Onboarding &amp; Training</h3><p>Hands-on training sessions for every user role, in plain language. Your existing data is migrated, verified, and signed off by your team.</p></div></div>
+  <div class="step reveal"><div class="step-n">3</div><div><h3>Month 1 — Full Adoption</h3><p>PipeForge becomes part of the daily routine. We fine-tune settings from real usage, and weekly check-ins remove any friction fast.</p></div></div>
+  <div class="step reveal"><div class="step-n">4</div><div><h3>Quarter 1 — Measurable ROI</h3><p>A business review with real numbers: time saved, errors reduced, growth unlocked. From here, quarterly reviews keep the value compounding.</p></div></div>
+</div>
+  </div>
+</section>
+<section style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">
+  <div class="container center">
+    <span class="sec-badge">Security &amp; Privacy</span>
+    <h2 class="sec-title">Your Data, Protected</h2>
+    <div class="cards" style="text-align:left">
+  <div class="card reveal"><div class="dot">🔒</div><h3>Encrypted Everywhere</h3><p>All data is encrypted in transit (TLS 1.2+) and at rest (AES-256). Backups run daily with point-in-time recovery.</p></div>
+  <div class="card reveal"><div class="dot">👤</div><h3>Role-Based Access</h3><p>Every user sees exactly what their role allows — with full audit logs of who did what, and when.</p></div>
+  <div class="card reveal"><div class="dot">🏢</div><h3>Your Infrastructure, If You Prefer</h3><p>Cloud-hosted by default; Enterprise plans support on-premise or private-cloud deployment inside your own network.</p></div>
+</div>
   </div>
 </section>
 <section>

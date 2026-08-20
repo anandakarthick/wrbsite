@@ -352,6 +352,17 @@ footer .fnav a{color:var(--muted);font-weight:500;font-size:.85rem}
 footer .fnav a:hover{color:var(--blue)}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:none}
+.cmp{width:100%;border-collapse:collapse;margin-top:2.2rem;background:rgba(255,255,255,.9);border-radius:1.2rem;overflow:hidden;box-shadow:0 10px 25px rgba(15,23,42,.07)}
+.cmp th,.cmp td{padding:1rem 1.2rem;text-align:left;font-size:.9rem;border-bottom:1px solid rgba(15,23,42,.06)}
+.cmp thead th{background:var(--pgrad);color:#fff;font-size:.95rem}
+.cmp td:first-child{font-weight:600;color:var(--ink);width:26%}
+.cmp .no{color:#b91c1c}.cmp .no::before{content:"✗ ";font-weight:800}
+.cmp .yes{color:#047857}.cmp .yes::before{content:"✓ ";font-weight:800}
+.cmp tr:hover td{background:rgba(37,99,235,.04)}
+.cmp-wrap{overflow-x:auto}
+.inc-strip{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
+.inc-strip span{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.1rem;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--ink)}
+.inc-strip span::before{content:"✓";color:var(--blue);font-weight:800}
 .fsocial{display:flex;justify-content:center;gap:.8rem;margin-bottom:1.2rem}
 .fsocial a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(15,23,42,.1);border-radius:.6rem;box-shadow:0 1px 2px rgba(15,23,42,.06);transition:.3s}
 .fsocial a:hover{transform:translateY(-3px)}
@@ -789,6 +800,61 @@ foreach ($data['products'] as $p) {
     $galleryGrid = implode('', $shotTags);
     $galleryPreview = implode('', array_slice($shotTags, 0, 3));
 
+    // Feature preview for home (first 4)
+    $featPreview = '';
+    foreach (array_slice($p['features'], 0, 4) as $x) { $featPreview .= '<li class="reveal">' . e($x) . '</li>'; }
+
+    // Generic Before/After comparison
+    $comparison = <<<HTML
+<div class="cmp-wrap reveal"><table class="cmp">
+  <thead><tr><th>Aspect</th><th>Without {$name}</th><th>With {$name}</th></tr></thead>
+  <tbody>
+    <tr><td>Getting started</td><td class="no">Weeks of setup and configuration</td><td class="yes">Live in days with guided onboarding</td></tr>
+    <tr><td>Daily work</td><td class="no">Manual entry, spreadsheets, follow-ups</td><td class="yes">Automated workflows and AI assistance</td></tr>
+    <tr><td>Visibility</td><td class="no">Month-end surprises and guesswork</td><td class="yes">Real-time dashboards and instant alerts</td></tr>
+    <tr><td>Errors</td><td class="no">Human slips that cost money</td><td class="yes">Validations and checks on every step</td></tr>
+    <tr><td>Support</td><td class="no">You are on your own</td><td class="yes">Dedicated team, WhatsApp support &amp; SLA</td></tr>
+    <tr><td>Cost</td><td class="no">Hidden overruns and surprise bills</td><td class="yes">Transparent plans that scale with you</td></tr>
+  </tbody>
+</table></div>
+HTML;
+
+    // First 90 days timeline
+    $journey = <<<HTML
+<div class="steps">
+  <div class="step reveal"><div class="step-n">1</div><div><h3>Day 1 — Kickoff &amp; Setup</h3><p>Your account is provisioned, branding applied, and your data import begins. You meet your dedicated onboarding specialist the same day.</p></div></div>
+  <div class="step reveal"><div class="step-n">2</div><div><h3>Week 1 — Onboarding &amp; Training</h3><p>Hands-on training sessions for every user role, in plain language. Your existing data is migrated, verified, and signed off by your team.</p></div></div>
+  <div class="step reveal"><div class="step-n">3</div><div><h3>Month 1 — Full Adoption</h3><p>{$name} becomes part of the daily routine. We fine-tune settings from real usage, and weekly check-ins remove any friction fast.</p></div></div>
+  <div class="step reveal"><div class="step-n">4</div><div><h3>Quarter 1 — Measurable ROI</h3><p>A business review with real numbers: time saved, errors reduced, growth unlocked. From here, quarterly reviews keep the value compounding.</p></div></div>
+</div>
+HTML;
+
+    // Security cards
+    $security = <<<HTML
+<div class="cards" style="text-align:left">
+  <div class="card reveal"><div class="dot">🔒</div><h3>Encrypted Everywhere</h3><p>All data is encrypted in transit (TLS 1.2+) and at rest (AES-256). Backups run daily with point-in-time recovery.</p></div>
+  <div class="card reveal"><div class="dot">👤</div><h3>Role-Based Access</h3><p>Every user sees exactly what their role allows — with full audit logs of who did what, and when.</p></div>
+  <div class="card reveal"><div class="dot">🏢</div><h3>Your Infrastructure, If You Prefer</h3><p>Cloud-hosted by default; Enterprise plans support on-premise or private-cloud deployment inside your own network.</p></div>
+</div>
+HTML;
+
+    // Pricing FAQ
+    $pricingFaq = <<<HTML
+<details class="reveal"><summary>Why is pricing "Custom"?</summary><p>Because paying for what you don't use is unfair. Pricing depends on your team size, usage volume, and modules — tell us your scale and you'll have an exact, written quote within 48 hours. No hidden charges, ever.</p></details>
+<details class="reveal"><summary>Do you provide GST invoices?</summary><p>Yes — proper GST tax invoices for every payment, monthly or annual. Annual billing includes a discount.</p></details>
+<details class="reveal"><summary>Can we cancel anytime? What happens to our data?</summary><p>Monthly plans cancel anytime with no lock-in. Your data is always yours — we provide a full export in standard formats within 7 days of any cancellation request.</p></details>
+<details class="reveal"><summary>Is onboarding and training really free?</summary><p>Yes. Every plan includes guided onboarding, role-based training sessions, and assisted data migration at no extra cost — because a product you can't adopt is worthless.</p></details>
+HTML;
+
+    // Contact response cards
+    $responseCards = <<<HTML
+<div class="cards" style="text-align:left">
+  <div class="card reveal"><div class="dot">⚡</div><h3>WhatsApp — under 15 min</h3><p>During business hours (Mon–Sat, 9 AM–8 PM IST), WhatsApp messages get a human reply in minutes, not days.</p></div>
+  <div class="card reveal"><div class="dot">✉</div><h3>Email — under 24 hours</h3><p>Every email gets a substantive reply within one business day — usually much faster.</p></div>
+  <div class="card reveal"><div class="dot">🛡</div><h3>Critical Issues — SLA-backed</h3><p>Enterprise customers get an SLA with 4-hour response on critical issues, 24/7 — with escalation contacts that actually answer.</p></div>
+</div>
+HTML;
+
     // ---------- index.html ----------
     $nav = navHtml($name, $initial, 'index', $loginTitle);
     $topBenefits = '';
@@ -821,6 +887,15 @@ foreach ($data['products'] as $p) {
     <h2 class="sec-title">Loved For a Reason</h2>
     <div class="cards" style="text-align:left">{$topBenefits}</div>
     <p style="margin-top:2rem"><a href="about.html" class="btn btn-outline">Read the Full Story →</a></p>
+  </div>
+</section>
+
+<section style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
+  <div class="container">
+    <span class="sec-badge">What You Get</span>
+    <h2 class="sec-title">Highlights</h2>
+    <ul class="checklist">{$featPreview}</ul>
+    <p style="margin-top:1.8rem"><a href="features.html" class="btn btn-outline">All Features →</a></p>
   </div>
 </section>
 
@@ -874,6 +949,20 @@ HTML;
 </section>
 <section>
   <div class="container">
+    <span class="sec-badge">Your First 90 Days</span>
+    <h2 class="sec-title">From Signup to ROI</h2>
+    {$journey}
+  </div>
+</section>
+<section style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">
+  <div class="container center">
+    <span class="sec-badge">Security &amp; Privacy</span>
+    <h2 class="sec-title">Your Data, Protected</h2>
+    {$security}
+  </div>
+</section>
+<section>
+  <div class="container">
     {$quote}
     <div class="cta-band reveal" style="margin-top:2.4rem">
       <h2>See {$name} live</h2>
@@ -893,6 +982,13 @@ HTML;
     <span class="sec-badge">Features</span>
     <h2 class="sec-title">Everything Included</h2>
     <ul class="checklist">{$features}</ul>
+  </div>
+</section>
+<section style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
+  <div class="container">
+    <span class="sec-badge">The Difference</span>
+    <h2 class="sec-title">Before vs After {$name}</h2>
+    {$comparison}
   </div>
 </section>
 <section style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">
@@ -969,7 +1065,15 @@ HTML;
         <a href="contact.html" class="btn btn-outline" style="width:100%">Talk to Sales</a>
       </div>
     </div>
-    <p style="text-align:center;color:var(--soft);font-size:.85rem;margin-top:1.8rem">Every plan includes free onboarding, training, and data migration assistance.</p>
+    <p style="text-align:center;color:var(--soft);font-size:.85rem;margin-top:1.8rem">Every plan includes:</p>
+    <div class="inc-strip"><span>Free onboarding</span><span>Role-based training</span><span>Data migration</span><span>Regular updates</span><span>GST invoices</span></div>
+  </div>
+</section>
+<section style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
+  <div class="container">
+    <span class="sec-badge">Pricing FAQ</span>
+    <h2 class="sec-title">Fair Questions, Straight Answers</h2>
+    <div style="max-width:780px;margin-top:2rem">{$pricingFaq}</div>
   </div>
 </section>
 HTML;
@@ -986,6 +1090,11 @@ HTML;
       <div class="ccard reveal"><div class="ci">✉</div><b>Email</b><a href="mailto:info@kasoftware.in">info@kasoftware.in</a></div>
       <div class="ccard reveal"><div class="ci">✦</div><b>WhatsApp</b><a href="https://wa.me/918056653499?text=Hi!%20I%27m%20interested%20in%20{$waName}" target="_blank" rel="noopener">Chat with us</a></div>
       <div class="ccard reveal"><div class="ci">⌂</div><b>Visit</b><span>Anna Nagar, Chennai - 600049, India</span></div>
+    </div>
+    <div style="margin-top:3rem">
+      <span class="sec-badge">Response Times</span>
+      <h2 class="sec-title">How Fast We Reply</h2>
+      {$responseCards}
     </div>
     <div class="cta-band reveal" style="margin-top:2.6rem">
       <h2>Request a {$name} demo</h2>

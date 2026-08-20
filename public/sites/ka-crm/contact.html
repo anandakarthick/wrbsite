@@ -188,6 +188,17 @@ footer .fnav a{color:var(--muted);font-weight:500;font-size:.85rem}
 footer .fnav a:hover{color:var(--blue)}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:none}
+.cmp{width:100%;border-collapse:collapse;margin-top:2.2rem;background:rgba(255,255,255,.9);border-radius:1.2rem;overflow:hidden;box-shadow:0 10px 25px rgba(15,23,42,.07)}
+.cmp th,.cmp td{padding:1rem 1.2rem;text-align:left;font-size:.9rem;border-bottom:1px solid rgba(15,23,42,.06)}
+.cmp thead th{background:var(--pgrad);color:#fff;font-size:.95rem}
+.cmp td:first-child{font-weight:600;color:var(--ink);width:26%}
+.cmp .no{color:#b91c1c}.cmp .no::before{content:"✗ ";font-weight:800}
+.cmp .yes{color:#047857}.cmp .yes::before{content:"✓ ";font-weight:800}
+.cmp tr:hover td{background:rgba(37,99,235,.04)}
+.cmp-wrap{overflow-x:auto}
+.inc-strip{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
+.inc-strip span{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.1rem;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--ink)}
+.inc-strip span::before{content:"✓";color:var(--blue);font-weight:800}
 .fsocial{display:flex;justify-content:center;gap:.8rem;margin-bottom:1.2rem}
 .fsocial a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(15,23,42,.1);border-radius:.6rem;box-shadow:0 1px 2px rgba(15,23,42,.06);transition:.3s}
 .fsocial a:hover{transform:translateY(-3px)}
@@ -260,6 +271,15 @@ footer .fnav a:hover{color:var(--blue)}
       <div class="ccard reveal"><div class="ci">✉</div><b>Email</b><a href="mailto:info@kasoftware.in">info@kasoftware.in</a></div>
       <div class="ccard reveal"><div class="ci">✦</div><b>WhatsApp</b><a href="https://wa.me/918056653499?text=Hi!%20I%27m%20interested%20in%20KA%20CRM" target="_blank" rel="noopener">Chat with us</a></div>
       <div class="ccard reveal"><div class="ci">⌂</div><b>Visit</b><span>Anna Nagar, Chennai - 600049, India</span></div>
+    </div>
+    <div style="margin-top:3rem">
+      <span class="sec-badge">Response Times</span>
+      <h2 class="sec-title">How Fast We Reply</h2>
+      <div class="cards" style="text-align:left">
+  <div class="card reveal"><div class="dot">⚡</div><h3>WhatsApp — under 15 min</h3><p>During business hours (Mon–Sat, 9 AM–8 PM IST), WhatsApp messages get a human reply in minutes, not days.</p></div>
+  <div class="card reveal"><div class="dot">✉</div><h3>Email — under 24 hours</h3><p>Every email gets a substantive reply within one business day — usually much faster.</p></div>
+  <div class="card reveal"><div class="dot">🛡</div><h3>Critical Issues — SLA-backed</h3><p>Enterprise customers get an SLA with 4-hour response on critical issues, 24/7 — with escalation contacts that actually answer.</p></div>
+</div>
     </div>
     <div class="cta-band reveal" style="margin-top:2.6rem">
       <h2>Request a KA CRM demo</h2>
