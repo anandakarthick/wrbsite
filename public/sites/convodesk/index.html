@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConvoDesk — AI Chatbot &amp; WhatsApp Automation Platform</title>
+<meta name="description" content="Build AI chatbots that answer customers 24/7 on WhatsApp, your website, and Instagram — trained on your own documents, products, and FAQs in minutes.">
+<style>:root{--blue:#2563eb;--violet:#7c3aed;--pink:#db2777;--ink:#0b1220;--body:#33415c;--muted:#526079;--soft:#64748b;--bg:#f6f8fc;--grad:linear-gradient(135deg,#2563eb 0%,#7c3aed 55%,#db2777 100%);--pgrad:linear-gradient(135deg, #7c3aed 0%, #db2777 100%);--radius:1rem;--radius-xl:1.5rem;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Poppins','Inter','Segoe UI',system-ui,sans-serif;color:var(--body);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--ink);line-height:1.2}
+a{text-decoration:none;color:inherit;transition:.3s}
+img{max-width:100%}
+.container{max-width:1180px;margin:0 auto;padding:0 1.5rem}
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.6rem;border-radius:1rem;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:.3s;font-family:inherit}
+.btn-primary{background:var(--pgrad);color:#fff;box-shadow:0 8px 20px rgba(37,99,235,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(37,99,235,.4)}
+.btn-outline{background:rgba(255,255,255,.7);color:var(--ink);border:2px solid rgba(37,99,235,.3)}
+.btn-outline:hover{background:rgba(37,99,235,.08)}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(16px) saturate(160%);border-bottom:1px solid rgba(15,23,42,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem;max-width:1180px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:.65rem;font-weight:800;font-size:1.25rem;color:var(--ink)}
+.brand-mark{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--pgrad);border-radius:.8rem;color:#fff;font-weight:800;font-size:1.1rem}
+.nav ul{display:flex;gap:1.75rem;list-style:none;align-items:center}
+.nav ul a{font-size:.92rem;font-weight:500;color:var(--muted)}
+.nav ul a:hover{color:var(--ink)}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:1.4rem;color:var(--ink)}
+section{padding:5.5rem 0}
+.sec-badge{display:inline-block;padding:.45rem 1.1rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.25);border-radius:999px;font-size:.82rem;font-weight:600;color:var(--blue);margin-bottom:1rem}
+.sec-title{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.9rem}
+.sec-desc{color:var(--muted);max-width:640px}
+.center{text-align:center}.center .sec-desc{margin:0 auto}
+.hero{padding:9.5rem 0 5rem;background:var(--pgrad);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;width:480px;height:480px;border-radius:50%;background:rgba(255,255,255,.12);filter:blur(90px);top:-160px;right:-120px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center;position:relative;z-index:1}
+.hero h1{color:#fff;font-size:clamp(2.2rem,4.5vw,3.4rem);margin:.5rem 0 1rem}
+.hero .tag{font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.9}
+.hero p.lead{color:rgba(255,255,255,.9);font-size:1.1rem;margin-bottom:1.9rem;max-width:540px}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
+.btn-ghost:hover{background:rgba(255,255,255,.15)}
+.hero-stats{display:flex;gap:2.6rem;flex-wrap:wrap}
+.hero-stats b{display:block;font-size:1.7rem}
+.hero-stats span{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;opacity:.85}
+.hero-photo{border-radius:var(--radius-xl);overflow:hidden;border:1px solid rgba(255,255,255,.35);box-shadow:0 24px 50px rgba(11,18,32,.35);transform:rotate(2deg)}
+.hero-photo img{display:block;width:100%}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.6rem}
+.card{background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.07);border-radius:var(--radius-xl);padding:1.7rem;box-shadow:0 1px 3px rgba(15,23,42,.08);transition:.3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(37,99,235,.3);box-shadow:0 18px 40px rgba(37,99,235,.18)}
+.card h3{font-size:1.05rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.92rem}
+.dot{width:44px;height:44px;border-radius:.9rem;background:var(--pgrad);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;margin-bottom:1rem}
+.checklist{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:2.2rem}
+.checklist li{list-style:none;display:flex;gap:.7rem;background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.07);border-radius:1rem;padding:.95rem 1.15rem;font-size:.93rem}
+.checklist li::before{content:'✓';color:var(--blue);font-weight:800}
+.steps{margin-top:2.4rem;display:flex;flex-direction:column}
+.step{display:flex;gap:1.2rem;padding-bottom:1.7rem;position:relative}
+.step::before{content:'';position:absolute;left:21px;top:46px;bottom:0;width:2px;background:rgba(37,99,235,.2)}
+.step:last-child::before{display:none}
+.step-n{width:44px;height:44px;flex-shrink:0;border-radius:50%;background:var(--pgrad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;position:relative;z-index:1}
+.step h3{font-size:1.02rem;padding-top:.5rem}
+.step p{color:var(--muted);font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.chip{padding:.55rem 1.1rem;background:rgba(255,255,255,.85);border:1px solid rgba(37,99,235,.22);border-radius:999px;font-size:.88rem;font-weight:600}
+.quote{margin-top:2.4rem;padding:2rem;background:linear-gradient(135deg,rgba(37,99,235,.05),rgba(124,58,237,.05));border:1px solid rgba(37,99,235,.15);border-radius:var(--radius-xl)}
+.quote blockquote{font-style:italic;color:#1e293b;font-size:1.05rem;margin-bottom:1.2rem}
+.quote .who b{display:block;color:var(--ink);font-size:.93rem}
+.quote .who span{color:var(--soft);font-size:.82rem}
+details{background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.07);border-radius:1rem;margin-bottom:.7rem;overflow:hidden}
+details[open]{border-color:rgba(37,99,235,.3)}
+summary{padding:1.05rem 1.4rem;cursor:pointer;font-weight:600;color:#14203a;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'▾';color:var(--blue);transition:.3s}
+details[open] summary::after{transform:rotate(180deg)}
+details p{padding:0 1.4rem 1.15rem;color:var(--muted);font-size:.93rem}
+.tech{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.tech span{padding:.4rem .85rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.8rem;color:#1d4ed8;font-weight:600}
+.cta-band{background:var(--grad);border-radius:var(--radius-xl);padding:3rem 2rem;text-align:center;color:#fff}
+.cta-band h2{color:#fff;font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:.6rem}
+.cta-band p{color:rgba(255,255,255,.85);margin-bottom:1.6rem}
+footer{padding:2.5rem 0;background:linear-gradient(180deg,#eaf2ff,#dce8fb);border-top:1px solid rgba(37,99,235,.15);text-align:center;font-size:.88rem;color:var(--soft)}
+footer a{color:var(--blue);font-weight:600}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem;text-align:left}
+.shot{margin:0;border-radius:var(--radius-xl);overflow:hidden;border:1px solid rgba(15,23,42,.07);box-shadow:0 10px 25px rgba(15,23,42,.08);position:relative}
+.shot img{display:block;width:100%;height:230px;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.shot:hover img{transform:scale(1.07)}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1.1rem .85rem;background:linear-gradient(180deg,transparent,rgba(11,18,32,.78));color:#fff;font-size:.85rem;font-weight:600}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){
+ .hero-grid{grid-template-columns:1fr}
+ .hero-photo{display:none}
+ .cards{grid-template-columns:1fr}
+ .shots{grid-template-columns:1fr}
+ .checklist{grid-template-columns:1fr}
+ .nav ul{position:fixed;top:64px;right:-100%;width:78%;max-width:300px;height:100vh;background:rgba(255,255,255,.97);flex-direction:column;align-items:flex-start;padding:2rem;gap:1.2rem;transition:.3s;box-shadow:-10px 0 30px rgba(15,23,42,.1)}
+ .nav ul.open{right:0}
+ .menu-btn{display:block}
+}</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="#home" class="brand"><span class="brand-mark">C</span> ConvoDesk</a>
+    <ul id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="login.html" class="btn btn-primary" style="padding:.55rem 1.2rem">Agent Login</a></li>
+    </ul>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="tag">AI &amp; Automation</div>
+      <h1>ConvoDesk</h1>
+      <p class="lead">AI Chatbot &amp; WhatsApp Automation Platform. Build AI chatbots that answer customers 24/7 on WhatsApp, your website, and Instagram — trained on your own documents, products, and FAQs in minutes.</p>
+      <div class="hero-cta">
+        <a href="login.html" class="btn btn-white">Agent Login</a>
+        <a href="#about" class="btn btn-ghost">Explore ConvoDesk</a>
+      </div>
+      <div class="hero-stats"><div><b>2M+</b><span>Chats Handled</span></div><div><b>80%</b><span>Auto-Resolved</span></div><div><b>3 min</b><span>Setup to Live</span></div></div>
+    </div>
+    <div class="hero-photo"><img src="cover.jpg" alt="ConvoDesk"></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <span class="sec-badge">About</span>
+    <h2 class="sec-title">What is <span class="grad-text">ConvoDesk</span>?</h2>
+    <p class="sec-desc">ConvoDesk lets any business deploy a customer-support AI without writing code. Upload your product catalogue, FAQs, and policies, and the bot instantly answers customer questions in natural language across WhatsApp, web chat, and Instagram DMs. It books appointments, tracks orders, collects leads, and hands over to a human agent with full context when the conversation needs one. Supports English, Tamil, and Hindi out of the box, with a live dashboard showing every conversation and resolution rate.</p>
+    <div class="tech"><span>Python</span><span>GPT Integration</span><span>LangChain</span><span>WhatsApp API</span><span>Laravel</span><span>Redis</span></div>
+  </div>
+</section>
+
+<section id="why" style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">
+  <div class="container center">
+    <span class="sec-badge">Why ConvoDesk</span>
+    <h2 class="sec-title">Built to Make a Difference</h2>
+    <div class="cards" style="text-align:left"><div class="card reveal"><div class="dot">1</div><h3>Support That Never Sleeps</h3><p>80% of customer questions get accurate, instant answers at 2 AM as easily as 2 PM - without growing your team.</p></div><div class="card reveal"><div class="dot">2</div><h3>Chats That Become Orders</h3><p>The bot shares product cards, checks stock, and takes orders right inside WhatsApp where your customers already are.</p></div><div class="card reveal"><div class="dot">3</div><h3>Humans for the Hard Stuff</h3><p>Complex conversations hand over to your agents with full context - customers never repeat themselves.</p></div><div class="card reveal"><div class="dot">4</div><h3>Speaks Your Customer&#039;s Language</h3><p>English, Tamil, and Hindi replies out of the box, matched automatically to the language the customer uses.</p></div></div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <span class="sec-badge">Features</span>
+    <h2 class="sec-title">Everything Included</h2>
+    <ul class="checklist"><li>No-code bot builder trained on your own content</li><li>WhatsApp, website and Instagram channels in one inbox</li><li>Order tracking, appointment booking and lead capture</li><li>Smart human handover with full conversation context</li><li>Multilingual replies - English, Tamil and Hindi</li><li>Conversation analytics and resolution-rate dashboard</li></ul>
+  </div>
+</section>
+
+<section id="how" style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
+  <div class="container">
+    <span class="sec-badge">How It Works</span>
+    <h2 class="sec-title">From Zero to Running</h2>
+    <div class="steps"><div class="step reveal"><div class="step-n">1</div><div><h3>Train It on Your Business</h3><p>Upload your catalogue, FAQs, and policies. The bot learns your business in minutes - no code, no flowcharts.</p></div></div><div class="step reveal"><div class="step-n">2</div><div><h3>Connect Your Channels</h3><p>Official WhatsApp API, website chat widget, and Instagram DMs feed into one shared inbox.</p></div></div><div class="step reveal"><div class="step-n">3</div><div><h3>Go Live and Watch</h3><p>The dashboard shows every conversation, resolution rates, and the questions the bot could not answer.</p></div></div><div class="step reveal"><div class="step-n">4</div><div><h3>Improve Continuously</h3><p>One click teaches the bot from missed questions, so it gets smarter every week.</p></div></div></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container center">
+    <span class="sec-badge">In Action</span>
+    <h2 class="sec-title">ConvoDesk in the Real World</h2>
+    <div class="shots"><figure class="shot reveal"><img src="shot1.jpg" alt="Customers chatting with the AI assistant" loading="lazy"><figcaption>Customers chatting with the AI assistant</figcaption></figure><figure class="shot reveal"><img src="shot2.jpg" alt="One inbox for WhatsApp, web and Instagram" loading="lazy"><figcaption>One inbox for WhatsApp, web and Instagram</figcaption></figure><figure class="shot reveal"><img src="shot3.jpg" alt="Agents supervising smart handovers" loading="lazy"><figcaption>Agents supervising smart handovers</figcaption></figure></div>
+  </div>
+</section>
+
+<section id="usecases" style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
+  <div class="container">
+    <span class="sec-badge">Who It's For</span>
+    <h2 class="sec-title">Perfect For</h2>
+    <div class="chips"><span class="chip">E-commerce Stores</span><span class="chip">Clinics &amp; Hospitals</span><span class="chip">Real Estate</span><span class="chip">Travel Agencies</span><span class="chip">Educational Institutes</span><span class="chip">Service Businesses</span></div>
+    <div class="quote reveal"><blockquote>“ConvoDesk answers 4 out of 5 customer chats end to end. Our two support agents now handle what used to need eight people.”</blockquote><div class="who"><b>Sneha Reddy</b><span>Operations Head, GlowKart Cosmetics</span></div></div>
+  </div>
+</section>
+
+<section id="faq" style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">
+  <div class="container">
+    <span class="sec-badge">FAQ</span>
+    <h2 class="sec-title">Common Questions</h2>
+    <div style="max-width:780px;margin-top:2rem"><details class="reveal"><summary>Will the bot say wrong things about my business?</summary><p>The bot answers only from the content you provide and says &quot;let me connect you to the team&quot; when unsure. You review missed questions and approve improvements.</p></details><details class="reveal"><summary>Is this the official WhatsApp API?</summary><p>Yes - fully official Meta WhatsApp Business API, with green-tick verification support.</p></details><details class="reveal"><summary>How fast can we go live?</summary><p>Most businesses launch the same day: upload content, connect WhatsApp, test, and go.</p></details></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Ready to get started with ConvoDesk?</h2>
+      <p>Call +91 80566 53499 · Email info@kasoftware.in — demo within 48 hours.</p>
+      <a href="https://kasoftware.in/#contact" class="btn btn-white">Request a Demo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © <span id="yr"></span> ConvoDesk · A product of <a href="https://kasoftware.in/">KA Software</a>, Chennai, India
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.querySelector('.menu-btn').addEventListener('click',function(){document.querySelector('.nav ul').classList.toggle('open')});
+document.querySelectorAll('.nav ul a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav ul').classList.remove('open')})});
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+</script>
+</body>
+</html>

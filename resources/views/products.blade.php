@@ -100,10 +100,15 @@
                                     @endforeach
                                 </div>
 
+<div class="product-links">
                                 <a href="{{ route('product.show', $product['slug']) }}" class="product-link">
                                     Explore {{ $product['name'] }}
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
+                                <a href="{{ url('sites/' . $product['slug'] . '/index.html') }}" class="product-site-link" target="_blank" rel="noopener" title="Visit product website">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                                </div>
                             </div>
                         </div>
                     @endforeach
