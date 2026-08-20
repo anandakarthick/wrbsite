@@ -1854,3 +1854,140 @@ img { max-width: 100%; height: auto; }
 /* Footer brand link */
 .footer-brand-link { color: var(--primary-600); font-weight: 600; }
 .footer-brand-link:hover { color: var(--secondary-600); text-decoration: underline; }
+
+/* ============================================
+   Why Choose Us
+   ============================================ */
+.why-choose { padding: 8rem 0; background: linear-gradient(180deg, #f6f8fc 0%, #eef4ff 100%); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.why-card {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+.why-card:hover { transform: translateY(-6px); border-color: rgba(37, 99, 235, 0.3); box-shadow: var(--shadow-glow); }
+.why-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+    transition: transform var(--transition);
+}
+.why-card:hover .why-icon { transform: scale(1.1) rotate(-5deg); }
+.why-card h3 { font-size: 1.125rem; margin-bottom: 0.625rem; }
+.why-card p { color: var(--gray-400); font-size: 0.9375rem; line-height: 1.7; }
+
+/* ============================================
+   Engagement Models
+   ============================================ */
+.engagement { padding: 8rem 0; background: var(--gray-950); }
+.engagement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; align-items: stretch; }
+.plan-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2.25rem 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+.plan-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-glow); }
+.plan-card.popular {
+    border: 2px solid rgba(37, 99, 235, 0.45);
+    box-shadow: var(--shadow-glow);
+}
+.plan-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.3rem 1rem;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: white;
+    white-space: nowrap;
+}
+.plan-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-warm);
+    border-radius: var(--radius-lg);
+    color: white;
+    font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+}
+.plan-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.plan-desc { color: var(--gray-400); font-size: 0.9375rem; line-height: 1.65; margin-bottom: 1.25rem; }
+.plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    margin-bottom: 1.75rem;
+    flex: 1;
+}
+.plan-features li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.9rem; color: var(--gray-300); }
+.plan-features li i { color: var(--primary-600); margin-top: 4px; font-size: 0.8rem; }
+
+/* ============================================
+   Home FAQ
+   ============================================ */
+.home-faq { padding: 8rem 0; background: linear-gradient(180deg, #eef4ff 0%, #f6f8fc 100%); }
+.home-faq-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+.home-faq .faq-item {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: var(--transition);
+}
+.home-faq .faq-item[open] { border-color: rgba(37, 99, 235, 0.3); box-shadow: var(--shadow-md); }
+.home-faq .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.125rem 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.975rem;
+    color: var(--gray-100);
+    list-style: none;
+}
+.home-faq .faq-item summary::-webkit-details-marker { display: none; }
+.home-faq .faq-item summary i { color: var(--primary-600); transition: transform var(--transition); flex-shrink: 0; }
+.home-faq .faq-item[open] summary i { transform: rotate(180deg); }
+.home-faq .faq-item p { padding: 0 1.5rem 1.25rem; color: var(--gray-400); font-size: 0.9375rem; line-height: 1.7; }
+
+@media (max-width: 1024px) {
+    .why-grid, .engagement-grid { grid-template-columns: 1fr 1fr; }
+    .plan-card.popular { grid-column: span 2; }
+}
+@media (max-width: 768px) {
+    .why-choose, .engagement, .home-faq { padding: 5rem 0; }
+    .why-grid, .engagement-grid { grid-template-columns: 1fr; }
+    .plan-card.popular { grid-column: span 1; }
+}

@@ -223,10 +223,13 @@
     <main>
         @include('sections.hero')
         @include('sections.services')
+        @include('sections.why-choose')
         @include('sections.ai-features')
         @include('sections.workspace')
         @include('sections.stats')
         @include('sections.tech-insights')
+        @include('sections.engagement')
+        @include('sections.home-faq')
         {{-- @include('sections.portfolio') --}}
         @include('sections.contact')
         @include('sections.cta')
