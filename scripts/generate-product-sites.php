@@ -545,6 +545,7 @@ footer .fnav a:hover{color:var(--blue)}
 .inc-strip{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
 .inc-strip span{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.1rem;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--ink)}
 .inc-strip span::before{content:"✓";color:var(--blue);font-weight:800}
+.gmeta{float:right;font-style:normal;font-size:.72rem;color:var(--soft);font-weight:500;margin-left:.6rem}
 .rev-summary{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;background:rgba(255,255,255,.9);border:1px solid rgba(37,99,235,.15);border-radius:1.2rem;padding:1.6rem 2rem;margin-top:2rem;box-shadow:0 10px 25px rgba(15,23,42,.06)}
 .rev-summary .big{font-size:3rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
 .rev-summary .rstars{color:#f59e0b;font-size:1.2rem;letter-spacing:2px}
@@ -642,7 +643,7 @@ JS;
 }
 
 function navHtml($name, $initial, $active, $loginTitle) {
-    $items = ['index' => 'Home', 'about' => 'About', 'features' => 'Features', 'gallery' => 'Gallery', 'reviews' => 'Reviews', 'pricing' => 'Pricing', 'contact' => 'Contact'];
+    $items = ['index' => 'Home', 'about' => 'About', 'features' => 'Features', 'gallery' => 'Gallery', 'reviews' => 'Reviews', 'resources' => 'Guides', 'pricing' => 'Pricing', 'contact' => 'Contact'];
     $links = '';
     foreach ($items as $page => $label) {
         $cls = $page === $active ? ' class="active"' : '';
@@ -676,7 +677,7 @@ HTML;
     {$social}
     <div class="fnav">
       <a href="index.html">Home</a><a href="about.html">About</a><a href="features.html">Features</a>
-      <a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="login.html">Login</a>
+      <a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="resources.html">Guides</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="login.html">Login</a>
     </div>
     © <span class="yr"></span> {$name} · A product of <a href="https://kasoftware.in/">KA Software</a>, Chennai, India
   </div>
@@ -1058,6 +1059,62 @@ HTML;
 </div>
 HTML;
 
+    // Trust strip (index)
+    $trustStrip = <<<HTML
+<div class="inc-strip reveal" style="margin-top:2.4rem">
+  <span>Made in India 🇮🇳</span><span>GST-compliant billing</span><span>Data encrypted at rest</span><span>No lock-in, full data export</span><span>500+ projects by KA Software</span>
+</div>
+HTML;
+
+    // Integrations (features page)
+    $integrations = '';
+    foreach (array_merge($p['tech'], ['WhatsApp Business API', 'Excel Import/Export', 'REST API & Webhooks', 'Email & SMS Alerts']) as $ig) {
+        $integrations .= '<span class="chip">' . e($ig) . '</span>';
+    }
+
+    // Our Promise (about page)
+    $promise = <<<HTML
+<ul class="checklist">
+  <li class="reveal">A written, fixed quote before you pay anything</li>
+  <li class="reveal">Free onboarding, training and data migration on every plan</li>
+  <li class="reveal">Your data is always exportable — no lock-in, ever</li>
+  <li class="reveal">A human replies on WhatsApp within minutes in business hours</li>
+  <li class="reveal">Statutory and security updates included, not sold separately</li>
+  <li class="reveal">If {$name} is not the right fit, we will tell you honestly</li>
+</ul>
+HTML;
+
+    // Contact mini-FAQ
+    $contactFaq = <<<HTML
+<details class="reveal"><summary>How long is a demo?</summary><p>About 30 minutes — a live walkthrough of {$name} focused on your use case, with time for every question. Online or at your premises in Chennai.</p></details>
+<details class="reveal"><summary>Which languages do you support?</summary><p>Our team supports you in English and Tamil (Hindi on request). Product interfaces are in English, with local-language support where the product offers it.</p></details>
+<details class="reveal"><summary>We're outside Chennai — can you still serve us?</summary><p>Absolutely. Most of our customers are served fully remotely across India, with online onboarding, training and support. On-site visits are available for Enterprise rollouts.</p></details>
+HTML;
+
+    // Guides (resources page) - 5 expandable articles built from product data
+    $g1steps = '';
+    foreach ($p['how_it_works'] ?? [] as $i => $s) {
+        $g1steps .= '<b>' . ($i + 1) . '. ' . e($s['title']) . ':</b> ' . e($s['text']) . '<br>';
+    }
+    $g2points = '';
+    foreach (array_slice($p['benefits'] ?? [], 0, 3) as $b) {
+        $g2points .= '<b>' . e($b['title']) . '.</b> ' . e($b['text']) . '<br>';
+    }
+    $gLastFeats = '';
+    foreach (array_slice($p['features'], -3) as $x) { $gLastFeats .= '<b>· ' . e($x) . '</b><br>'; }
+    $guidesHtml = <<<HTML
+<details class="reveal"><summary>Getting started with {$name}: a practical checklist <em class="gmeta">4 min read</em></summary>
+<p>The fastest rollouts we see share one habit: they treat week one as a project with an owner. Name one person on your side as the {$name} champion, give them this checklist, and you will be live before most companies finish their first internal meeting.<br><br>{$g1steps}<br>Two practical tips from hundreds of rollouts: start with one team or location rather than everyone at once, and schedule the training session in the first week while enthusiasm is high. Our onboarding specialist drives all of this with you — the checklist is simply so you know what good looks like.</p></details>
+<details class="reveal"><summary>How {$name} pays for itself: the ROI breakdown <em class="gmeta">3 min read</em></summary>
+<p>Software should be an investment, not an expense. Here is where the return actually comes from:<br><br>{$g2points}<br>Add these together and most customers see the subscription cost recovered within the first one to two months. On your demo call, ask us to run the numbers with your actual volumes — we will show the working, not just the conclusion.</p></details>
+<details class="reveal"><summary>Rolling out {$name} without team resistance <em class="gmeta">4 min read</em></summary>
+<p>New software fails when the team feels it was done <i>to</i> them, not <i>for</i> them. The fix is simple and almost never done: involve the actual daily users before go-live, not after.<br><br><b>1. Show, don't announce.</b> Let your team see the demo too — people support what they helped choose.<br><b>2. Start with the pain.</b> Lead the rollout with the task everyone hates most; when {$name} removes it in week one, adoption sells itself.<br><b>3. Name a champion.</b> One enthusiastic user per team answers the small questions faster than any helpdesk.<br><b>4. Keep the old system read-only for a month.</b> A safety net removes fear — and nobody ever goes back to it.<br><br>Our training sessions are built around this playbook, in plain language, in English or Tamil.</p></details>
+<details class="reveal"><summary>The security checklist your IT team will ask about <em class="gmeta">3 min read</em></summary>
+<p>Sooner or later, someone senior asks "is our data safe in {$name}?" Here are the answers, ready to forward:<br><br><b>Encryption:</b> TLS 1.2+ in transit, AES-256 at rest.<br><b>Access:</b> Role-based permissions with full audit logs of every action.<br><b>Backups:</b> Automated daily backups with point-in-time recovery.<br><b>Data ownership:</b> Your data is yours — full export in standard formats, anytime, and within 7 days of any cancellation.<br><b>Deployment:</b> Cloud by default; private-cloud and on-premise available on Enterprise plans for regulated industries.<br><br>Need a formal security questionnaire filled in? Send it to info@kasoftware.in — completed documentation usually goes back within three business days.</p></details>
+<details class="reveal"><summary>Features you might be missing in {$name} <em class="gmeta">2 min read</em></summary>
+<p>Long-time users tell us the same thing: the features they discovered late are the ones they now use daily. Check whether your team is using these:<br><br>{$gLastFeats}<br>Every plan includes all of these — no upsell. If you would like a 20-minute "power user" session for your team to unlock them, ask on WhatsApp and we will schedule one free.</p></details>
+HTML;
+
     // ---------- index.html ----------
     $nav = navHtml($name, $initial, 'index', $loginTitle);
     $topBenefits = '';
@@ -1083,6 +1140,8 @@ HTML;
 </section>
 
 <div class="marquee"><div class="marquee-track">{$marqueeTrack}</div></div>
+
+<div class="container">{$trustStrip}</div>
 
 <section>
   <div class="container center">
@@ -1159,6 +1218,13 @@ HTML;
     <div class="cards" style="text-align:left">{$benefitCards}</div>
   </div>
 </section>
+<section style="background:linear-gradient(180deg,#f6f8fc,#eef4ff)">
+  <div class="container">
+    <span class="sec-badge">Our Promise</span>
+    <h2 class="sec-title">Six Things We Guarantee</h2>
+    {$promise}
+  </div>
+</section>
 <section>
   <div class="container">
     <span class="sec-badge">Your First 90 Days</span>
@@ -1201,6 +1267,14 @@ HTML;
     <span class="sec-badge">The Difference</span>
     <h2 class="sec-title">Before vs After {$name}</h2>
     {$comparison}
+  </div>
+</section>
+<section>
+  <div class="container">
+    <span class="sec-badge">Integrations</span>
+    <h2 class="sec-title">Plays Well With Your Tools</h2>
+    <p class="sec-desc">Built on a modern stack, connected to the tools your business already runs on.</p>
+    <div class="chips">{$integrations}</div>
   </div>
 </section>
 <section style="background:linear-gradient(180deg,#eef4ff,#f6f8fc)">
@@ -1268,6 +1342,22 @@ HTML;
 HTML;
     file_put_contents("$dir/reviews.html", pageShell("Reviews — $name", $desc, $css, $nav, $body, $footer, $js));
 
+    // ---------- resources.html (Guides) ----------
+    $nav = navHtml($name, $initial, 'resources', $loginTitle);
+    $body = pageHero($name, 'Guides & Resources', "Practical, no-fluff guides for getting the most out of $name — written from real rollouts.") . <<<HTML
+<section>
+  <div class="container">
+    <div style="max-width:840px;margin-top:.5rem">{$guidesHtml}</div>
+    <div class="cta-band reveal" style="margin-top:2.6rem">
+      <h2>Want a guide walked through live?</h2>
+      <p>Our team runs free 20-minute sessions on any of these topics for your team.</p>
+      <a href="contact.html" class="btn btn-white">Book a Session</a>
+    </div>
+  </div>
+</section>
+HTML;
+    file_put_contents("$dir/resources.html", pageShell("Guides — $name", $desc, $css, $nav, $body, $footer, $js));
+
     // ---------- pricing.html ----------
     $nav = navHtml($name, $initial, 'pricing', $loginTitle);
     $f = $p['features'];
@@ -1328,6 +1418,11 @@ HTML;
       <span class="sec-badge">Response Times</span>
       <h2 class="sec-title">How Fast We Reply</h2>
       {$responseCards}
+    </div>
+    <div style="margin-top:3rem">
+      <span class="sec-badge">Quick Questions</span>
+      <h2 class="sec-title">Before You Reach Out</h2>
+      <div style="max-width:780px;margin-top:1.6rem">{$contactFaq}</div>
     </div>
     <div class="cta-band reveal" style="margin-top:2.6rem">
       <h2>Request a {$name} demo</h2>
