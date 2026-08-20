@@ -692,6 +692,9 @@
     position: relative;
     z-index: 2;
     background: white;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: initial;
     border-radius: 50%;
     box-shadow: var(--shadow-md);
     font-size: 1.5rem;
