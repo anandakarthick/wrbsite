@@ -478,41 +478,49 @@
                 
                 <div class="industries-grid">
                     <div class="industry-card">
+                        <div class="industry-image"><img src="{{ asset('images/cards/ind-healthcare.jpg') }}" alt="Healthcare industry" loading="lazy"></div>
                         <span class="industry-icon"><i class="fa-solid fa-hospital"></i></span>
                         <h3>Healthcare</h3>
                         <p>AI diagnostics, patient management, telemedicine platforms</p>
                     </div>
                     <div class="industry-card">
+                        <div class="industry-image"><img src="{{ asset('images/cards/ind-retail.jpg') }}" alt="Retail and e-commerce" loading="lazy"></div>
                         <span class="industry-icon"><i class="fa-solid fa-cart-shopping"></i></span>
                         <h3>E-commerce</h3>
                         <p>Online stores, marketplaces, inventory management</p>
                     </div>
                     <div class="industry-card">
+                        <div class="industry-image"><img src="{{ asset('images/cards/ind-finance.jpg') }}" alt="Finance and banking" loading="lazy"></div>
                         <span class="industry-icon"><i class="fa-solid fa-coins"></i></span>
                         <h3>FinTech</h3>
                         <p>Banking apps, payment systems, fraud detection</p>
                     </div>
                     <div class="industry-card">
+                        <div class="industry-image"><img src="{{ asset('images/cards/ind-manufacturing.jpg') }}" alt="Manufacturing" loading="lazy"></div>
                         <span class="industry-icon"><i class="fa-solid fa-industry"></i></span>
                         <h3>Manufacturing</h3>
                         <p>IoT solutions, predictive maintenance, automation</p>
                     </div>
                     <div class="industry-card">
+                        <div class="industry-image"><img src="{{ asset('images/cards/ind-education.jpg') }}" alt="Education" loading="lazy"></div>
                         <span class="industry-icon"><i class="fa-solid fa-graduation-cap"></i></span>
                         <h3>Education</h3>
                         <p>E-learning platforms, LMS, virtual classrooms</p>
                     </div>
                     <div class="industry-card">
+                        <div class="industry-image"><img src="{{ asset('images/cards/ind-automotive.jpg') }}" alt="Automotive" loading="lazy"></div>
                         <span class="industry-icon"><i class="fa-solid fa-car"></i></span>
                         <h3>Automotive</h3>
                         <p>Fleet management, connected vehicles, diagnostics</p>
                     </div>
                     <div class="industry-card">
+                        <div class="industry-image"><img src="{{ asset('images/cards/ind-hospitality.jpg') }}" alt="Hospitality" loading="lazy"></div>
                         <span class="industry-icon"><i class="fa-solid fa-hotel"></i></span>
                         <h3>Hospitality</h3>
                         <p>Booking systems, guest experience, operations</p>
                     </div>
                     <div class="industry-card">
+                        <div class="industry-image"><img src="{{ asset('images/cards/ind-logistics.jpg') }}" alt="Logistics" loading="lazy"></div>
                         <span class="industry-icon"><i class="fa-solid fa-boxes-stacked"></i></span>
                         <h3>Logistics</h3>
                         <p>Supply chain, tracking, route optimization</p>
