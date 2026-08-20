@@ -1833,3 +1833,19 @@ img { max-width: 100%; height: auto; }
     z-index: 2;
     border: 3px solid white;
 }
+
+/* Social icons: real brand colors */
+.social-link.linkedin { color: #0a66c2; }
+.social-link.facebook { color: #1877f2; }
+.social-link.instagram { color: #e4405f; }
+.social-link.twitter { color: #e7ecf3; }
+.social-link.github { color: #e7ecf3; }
+.social-link.linkedin:hover { background: #0a66c2; border-color: #0a66c2; color: white; }
+.social-link.facebook:hover { background: #1877f2; border-color: #1877f2; color: white; }
+.social-link.twitter:hover { background: #000000; border-color: #3f3f3f; color: white; }
+.social-link.github:hover { background: #24292e; border-color: #4b5563; color: white; }
+.social-link.instagram:hover {
+    background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    border-color: transparent;
+    color: white;
+}
