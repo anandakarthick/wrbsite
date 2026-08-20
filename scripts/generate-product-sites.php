@@ -167,6 +167,91 @@ $widgets = [
 
 function e($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
 
+// ---------- Per-site design variants ----------
+// hero: gradient | light | dark | centered   radius: xl | sharp | pill
+// cards: glass | solid | shadow | flat        pattern: none | dots | grid | stripes
+// nav: light | dark | solid                   head: normal | upper
+$designs = [
+    'vahaai'     => ['hero' => 'centered', 'radius' => 'pill',  'cards' => 'shadow', 'pattern' => 'dots',    'nav' => 'light', 'head' => 'normal'],
+    'ka-crm'     => ['hero' => 'light',    'radius' => 'sharp', 'cards' => 'solid',  'pattern' => 'dots',    'nav' => 'solid', 'head' => 'upper'],
+    'pipeforge'  => ['hero' => 'dark',     'radius' => 'sharp', 'cards' => 'flat',   'pattern' => 'grid',    'nav' => 'dark',  'head' => 'upper'],
+    'shopnest'   => ['hero' => 'centered', 'radius' => 'pill',  'cards' => 'glass',  'pattern' => 'none',    'nav' => 'light', 'head' => 'normal'],
+    'kartpos'    => ['hero' => 'light',    'radius' => 'xl',    'cards' => 'flat',   'pattern' => 'stripes', 'nav' => 'solid', 'head' => 'normal'],
+    'peoplecore' => ['hero' => 'gradient', 'radius' => 'pill',  'cards' => 'solid',  'pattern' => 'none',    'nav' => 'light', 'head' => 'normal'],
+    'insightiq'  => ['hero' => 'dark',     'radius' => 'xl',    'cards' => 'shadow', 'pattern' => 'grid',    'nav' => 'dark',  'head' => 'normal'],
+    'convodesk'  => ['hero' => 'gradient', 'radius' => 'pill',  'cards' => 'glass',  'pattern' => 'dots',    'nav' => 'light', 'head' => 'normal'],
+    'visionkit'  => ['hero' => 'dark',     'radius' => 'sharp', 'cards' => 'solid',  'pattern' => 'stripes', 'nav' => 'dark',  'head' => 'upper'],
+    'documind'   => ['hero' => 'light',    'radius' => 'xl',    'cards' => 'shadow', 'pattern' => 'none',    'nav' => 'solid', 'head' => 'normal'],
+    'voxa-ai'    => ['hero' => 'gradient', 'radius' => 'sharp', 'cards' => 'shadow', 'pattern' => 'stripes', 'nav' => 'light', 'head' => 'upper'],
+    'agentforge' => ['hero' => 'centered', 'radius' => 'xl',    'cards' => 'flat',   'pattern' => 'grid',    'nav' => 'dark',  'head' => 'normal'],
+];
+
+function designCss($slug, $designs) {
+    $d = $designs[$slug] ?? [];
+    $css = "\n/* --- design variant: " . implode('/', $d) . " --- */\n";
+    $surfaces = '.card,.checklist li,.plan,.rev-card,details,.ccard,.shot,.widget,.quote,.cta-band,.rev-summary,.cmp';
+
+    // Corner style
+    if (($d['radius'] ?? '') === 'sharp') {
+        $css .= "{$surfaces}{border-radius:.45rem}.btn{border-radius:.5rem}.hero-photo,.page-hero,.wscan{border-radius:.45rem}.chip,.inc-strip span,.tech span,.sec-badge{border-radius:.3rem}.dot,.brand-mark{border-radius:.4rem}\n";
+    } elseif (($d['radius'] ?? '') === 'pill') {
+        $css .= "{$surfaces}{border-radius:1.9rem}.btn{border-radius:999px}.hero-photo{border-radius:1.9rem}.dot,.brand-mark{border-radius:50%}\n";
+    }
+
+    // Heading style
+    if (($d['head'] ?? '') === 'upper') {
+        $css .= ".sec-title{text-transform:uppercase;letter-spacing:.05em;font-size:clamp(1.45rem,3.2vw,2.05rem)}\n";
+    }
+
+    // Background pattern
+    $pattern = $d['pattern'] ?? 'none';
+    if ($pattern === 'dots') {
+        $css .= "body{background-image:radial-gradient(rgba(37,99,235,.09) 1px,transparent 1px);background-size:22px 22px}\n";
+    } elseif ($pattern === 'grid') {
+        $css .= "body{background-image:linear-gradient(rgba(37,99,235,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.05) 1px,transparent 1px);background-size:34px 34px}\n";
+    } elseif ($pattern === 'stripes') {
+        $css .= "body{background-image:repeating-linear-gradient(45deg,rgba(37,99,235,.045) 0 2px,transparent 2px 20px)}\n";
+    }
+
+    // Nav style
+    $nav = $d['nav'] ?? 'light';
+    if ($nav === 'dark') {
+        $css .= "header{background:rgba(11,18,32,.88);border-bottom-color:rgba(255,255,255,.08)}header.scrolled{background:rgba(11,18,32,.98)}.brand{color:#fff}.nav ul a{color:#9fb0ce}.nav ul a:hover,.nav ul a.active{color:#fff}.menu-btn{color:#fff}\n";
+        $css .= "@media(max-width:900px){.nav ul{background:rgba(11,18,32,.98)}.nav ul a{color:#cbd5e1}}\n";
+    } elseif ($nav === 'solid') {
+        $css .= "header{background:#fff;backdrop-filter:none;box-shadow:0 1px 0 rgba(15,23,42,.07)}\n";
+    }
+
+    // Card style
+    $cards = $d['cards'] ?? 'glass';
+    if ($cards === 'solid') {
+        $css .= ".card,.rev-card,.ccard,.checklist li,details{background:#fff;border:1px solid rgba(15,23,42,.09);border-left:4px solid var(--blue);box-shadow:none}\n";
+    } elseif ($cards === 'shadow') {
+        $css .= ".card,.checklist li,.rev-card,.ccard,details,.plan,.shot{border:none;box-shadow:0 12px 30px rgba(15,23,42,.09)}\n";
+    } elseif ($cards === 'flat') {
+        $css .= ".card,.checklist li,.rev-card,.ccard,details,.plan{background:#fff;border:1.5px solid rgba(15,23,42,.14);box-shadow:none}\n";
+    }
+
+    // Hero style
+    $hero = $d['hero'] ?? 'gradient';
+    if ($hero === 'light') {
+        $css .= ".hero{background:linear-gradient(180deg,#ffffff,#eef4ff);color:var(--ink)}.hero .blob{background:rgba(37,99,235,.12)}.hero h1{color:var(--ink)}.hero .tag{color:var(--blue)}.hero p.lead{color:var(--muted)}.hero-stats b{color:var(--ink)}.hero-stats span{color:var(--soft)}\n";
+        $css .= ".hero .btn-white{background:var(--pgrad);color:#fff;box-shadow:0 8px 20px rgba(37,99,235,.3)}.hero .btn-ghost{color:var(--ink);border-color:rgba(37,99,235,.4)}.hero .btn-ghost:hover{background:rgba(37,99,235,.08)}\n";
+        $css .= ".hero-photo{border-color:rgba(15,23,42,.08);box-shadow:0 24px 50px rgba(15,23,42,.16)}\n";
+        $css .= ".page-hero{background:linear-gradient(180deg,#ffffff,#eef4ff)}.page-hero h1{color:var(--ink)}.page-hero p{color:var(--muted)}.crumb,.crumb a{color:var(--soft)}.crumb a:hover{color:var(--ink)}.page-hero .blob{background:rgba(37,99,235,.12)}\n";
+    } elseif ($hero === 'dark') {
+        $css .= ".hero{background:linear-gradient(135deg,#0b1220,#16233f)}.hero .blob{background:rgba(37,99,235,.28)}\n";
+        $css .= ".page-hero{background:linear-gradient(135deg,#0b1220,#16233f)}.page-hero .blob{background:rgba(37,99,235,.28)}\n";
+    } elseif ($hero === 'centered') {
+        $css .= ".hero-grid{grid-template-columns:1fr;text-align:center;gap:2rem}.hero p.lead{margin:0 auto 1.9rem}.hero-cta,.hero-stats{justify-content:center}\n";
+        $css .= ".hero-photo{transform:none;max-width:720px;margin:1.5rem auto 0;animation-name:heroinFlat}\n";
+        $css .= "@keyframes heroinFlat{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}\n";
+        $css .= "@media(max-width:900px){.hero-photo{display:block}}\n";
+    }
+
+    return $css;
+}
+
 // ---------- Reviews data ----------
 $reviewNames = [
     'Rajesh Kumar', 'Priya Sharma', 'Arun Menon', 'Divya Krishnan', 'Mohammed Faizal', 'Karthik Subramanian',
@@ -959,7 +1044,7 @@ foreach ($data['products'] as $p) {
     $name = e($p['name']);
     $tag = e($p['tagline']);
     $initial = strtoupper(substr(preg_replace('/[^A-Za-z]/', '', $p['name']), 0, 1));
-    $css = sharedCss($p['gradient']);
+    $css = sharedCss($p['gradient']) . designCss($slug, $designs);
     $js = sharedJs() . "\n" . siteBotJs($p, $loginTitle);
     $footer = footerHtml($name);
     $desc = e($p['description']);

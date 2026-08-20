@@ -264,7 +264,14 @@ footer .fnav a:hover{color:var(--blue)}
  .nav ul.open{right:0}
  .menu-btn{display:block}
 }
-@media(max-width:520px){.contact-cards{grid-template-columns:1fr}}</style>
+@media(max-width:520px){.contact-cards{grid-template-columns:1fr}}
+/* --- design variant: centered/pill/glass/none/light/normal --- */
+.card,.checklist li,.plan,.rev-card,details,.ccard,.shot,.widget,.quote,.cta-band,.rev-summary,.cmp{border-radius:1.9rem}.btn{border-radius:999px}.hero-photo{border-radius:1.9rem}.dot,.brand-mark{border-radius:50%}
+.hero-grid{grid-template-columns:1fr;text-align:center;gap:2rem}.hero p.lead{margin:0 auto 1.9rem}.hero-cta,.hero-stats{justify-content:center}
+.hero-photo{transform:none;max-width:720px;margin:1.5rem auto 0;animation-name:heroinFlat}
+@keyframes heroinFlat{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.hero-photo{display:block}}
+</style>
 </head>
 <body>
 <header>
