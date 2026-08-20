@@ -13,6 +13,7 @@
         <div class="ai-grid">
             <!-- Machine Learning Integration -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="ai-image"><img src="{{ asset('images/cards/ai-ml.jpg') }}" alt="Machine learning integration" loading="lazy"></div>
                 <div class="ai-icon">
                     <span class="icon-emoji"><i class="fa-solid fa-brain"></i></span>
                 </div>
@@ -25,6 +26,7 @@
             
             <!-- Intelligent Chatbots -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="ai-image"><img src="{{ asset('images/cards/ai-chatbot.jpg') }}" alt="Intelligent chatbots" loading="lazy"></div>
                 <div class="ai-icon">
                     <span class="icon-emoji"><i class="fa-solid fa-comments"></i></span>
                 </div>
@@ -37,6 +39,7 @@
             
             <!-- Computer Vision -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="ai-image"><img src="{{ asset('images/cards/ai-vision.jpg') }}" alt="Computer vision" loading="lazy"></div>
                 <div class="ai-icon">
                     <span class="icon-emoji"><i class="fa-solid fa-eye"></i></span>
                 </div>
@@ -49,6 +52,7 @@
             
             <!-- Predictive Analytics -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="ai-image"><img src="{{ asset('images/cards/ai-analytics.jpg') }}" alt="Predictive analytics" loading="lazy"></div>
                 <div class="ai-icon">
                     <span class="icon-emoji"><i class="fa-solid fa-chart-line"></i></span>
                 </div>
@@ -61,6 +65,7 @@
             
             <!-- Smart Recommendations -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="ai-image"><img src="{{ asset('images/cards/ai-recommend.jpg') }}" alt="Smart recommendations" loading="lazy"></div>
                 <div class="ai-icon">
                     <span class="icon-emoji"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
                 </div>
@@ -73,6 +78,7 @@
             
             <!-- Process Automation -->
             <div class="ai-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="ai-image"><img src="{{ asset('images/cards/ai-automation.jpg') }}" alt="Process automation" loading="lazy"></div>
                 <div class="ai-icon">
                     <span class="icon-emoji"><i class="fa-solid fa-bolt"></i></span>
                 </div>

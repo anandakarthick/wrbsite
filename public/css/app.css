@@ -1811,3 +1811,25 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 1150px) {
     .product-hero-photo { display: none; }
 }
+
+/* AI feature cards: real image banner with overlapping icon */
+.ai-card { overflow: hidden; }
+.ai-image {
+    margin: -2rem -2rem 0;
+    height: 150px;
+    overflow: hidden;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+.ai-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ai-card:hover .ai-image img { transform: scale(1.08); }
+.ai-image + .ai-icon {
+    margin-top: -40px;
+    position: relative;
+    z-index: 2;
+    border: 3px solid white;
+}
