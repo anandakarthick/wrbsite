@@ -22,7 +22,7 @@ img{max-width:100%}
 .btn-outline{background:rgba(255,255,255,.7);color:var(--ink);border:2px solid rgba(37,99,235,.3)}
 .btn-outline:hover{background:rgba(37,99,235,.08)}
 .progressbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:200}
-.totop{position:fixed;bottom:1.6rem;right:1.6rem;width:46px;height:46px;border-radius:50%;background:var(--pgrad);color:#fff;border:none;cursor:pointer;font-size:1rem;box-shadow:0 10px 24px rgba(37,99,235,.35);opacity:0;visibility:hidden;transform:translateY(10px);transition:.3s;z-index:150}
+.totop{position:fixed;bottom:1.6rem;left:1.6rem;width:46px;height:46px;border-radius:50%;background:var(--pgrad);color:#fff;border:none;cursor:pointer;font-size:1rem;box-shadow:0 10px 24px rgba(37,99,235,.35);opacity:0;visibility:hidden;transform:translateY(10px);transition:.3s;z-index:150}
 .totop.show{opacity:1;visibility:visible;transform:none}
 header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(16px) saturate(160%);border-bottom:1px solid rgba(15,23,42,.06);transition:.3s}
 header.scrolled{background:rgba(255,255,255,.95);box-shadow:0 10px 24px rgba(15,23,42,.08)}
@@ -194,13 +194,13 @@ footer .fnav a:hover{color:var(--blue)}
 .fsocial a.li:hover{background:#0a66c2}.fsocial a.fb:hover{background:#1877f2}.fsocial a.tw:hover{background:#000}.fsocial a.gh:hover{background:#24292e}
 .fsocial a.ig:hover{background:radial-gradient(circle at 30% 110%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
 .fsocial a:hover svg{fill:#fff}
-#sbot{position:fixed;bottom:1.6rem;left:1.6rem;z-index:180}
+#sbot{position:fixed;bottom:1.6rem;right:1.6rem;z-index:180}
 .sbot-toggle{position:relative;width:54px;height:54px;border:none;border-radius:50%;background:var(--grad);color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 12px 26px rgba(37,99,235,.4);transition:.3s;display:flex;align-items:center;justify-content:center}
 .sbot-toggle:hover{transform:translateY(-3px) scale(1.05)}
 .sbot-pulse{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(37,99,235,.5);animation:spulse 2.4s ease-out infinite;pointer-events:none}
 #sbot.open .sbot-pulse{display:none}
 @keyframes spulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.7);opacity:0}}
-.sbot-panel{position:absolute;bottom:66px;left:0;width:340px;max-width:calc(100vw - 2.5rem);height:440px;max-height:calc(100vh - 130px);display:flex;flex-direction:column;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border:1px solid rgba(37,99,235,.18);border-radius:1.2rem;box-shadow:0 24px 60px rgba(11,18,32,.25);overflow:hidden;opacity:0;visibility:hidden;transform:translateY(14px) scale(.97);transition:.3s cubic-bezier(.22,1,.36,1)}
+.sbot-panel{position:absolute;bottom:66px;right:0;width:340px;max-width:calc(100vw - 2.5rem);height:440px;max-height:calc(100vh - 130px);display:flex;flex-direction:column;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border:1px solid rgba(37,99,235,.18);border-radius:1.2rem;box-shadow:0 24px 60px rgba(11,18,32,.25);overflow:hidden;opacity:0;visibility:hidden;transform:translateY(14px) scale(.97);transition:.3s cubic-bezier(.22,1,.36,1)}
 #sbot.open .sbot-panel{opacity:1;visibility:visible;transform:none}
 .sbot-head{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.1rem;background:var(--pgrad);color:#fff}
 .sbot-head .av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center}
@@ -220,7 +220,7 @@ footer .fnav a:hover{color:var(--blue)}
 .sbot-in button{width:38px;height:38px;flex-shrink:0;border:none;border-radius:50%;background:var(--pgrad);color:#fff;cursor:pointer}
 .sbot-links{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
 .sbot-links a{display:inline-flex;padding:.3rem .65rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.25);border-radius:999px;font-size:.72rem;font-weight:600;color:#1d4ed8 !important;text-decoration:none !important}
-#swa{position:fixed;bottom:6.3rem;left:1.6rem;z-index:180}
+#swa{position:fixed;bottom:6.3rem;right:1.6rem;z-index:180}
 .swa-btn{position:relative;width:54px;height:54px;border:none;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;cursor:pointer;box-shadow:0 12px 26px rgba(37,211,102,.4);transition:.3s;display:flex;align-items:center;justify-content:center}
 .swa-btn:hover{transform:translateY(-3px) scale(1.05)}
 .swa-btn svg{width:26px;height:26px;fill:#fff}
@@ -344,8 +344,8 @@ document.querySelectorAll('[data-count]').forEach(function(el){
  });
  // Chatbot (left)
  var root=document.createElement('div');root.id='sbot';
- root.innerHTML='<button type="button" class="sbot-toggle" aria-label="Chat with us">💬<span class="sbot-pulse"></span></button>'
- +'<div class="sbot-panel"><div class="sbot-head"><div class="av">🤖</div><div><b>'+NAME+' Assistant</b><span>● Online — ask me anything</span></div></div>'
+ root.innerHTML='<button type="button" class="sbot-toggle" aria-label="Chat with us"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/><circle cx="8" cy="10" r="1.35" fill="var(--blue)"/><circle cx="12" cy="10" r="1.35" fill="var(--blue)"/><circle cx="16" cy="10" r="1.35" fill="var(--blue)"/></svg><span class="sbot-pulse"></span></button>'
+ +'<div class="sbot-panel"><div class="sbot-head"><div class="av"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1v4h-2v1a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-1H2v-4h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zm-3.5 10a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm7 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg></div><div><b>'+NAME+' Assistant</b><span>● Online — ask me anything</span></div></div>'
  +'<div class="sbot-msgs" id="sbmsgs"></div><div class="sbot-quick" id="sbquick"></div>'
  +'<form class="sbot-in" id="sbform"><input type="text" id="sbinp" placeholder="Type your question..." maxlength="250"><button type="submit">➤</button></form></div>';
  document.body.appendChild(root);
