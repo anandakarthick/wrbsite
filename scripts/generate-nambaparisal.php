@@ -6,15 +6,15 @@ $dir = $base . '/public/sites/nambaparisal';
 
 // copy images into the site folder (self-contained docroot)
 $images = [
-    'hero.jpg' => 'images/tech/earth-network.jpg',
-    'about.jpg' => 'images/office/team-collaboration.jpg',
+    'hero.jpg' => 'images/office/team-laptops.jpg',
+    'about.jpg' => 'images/office/whiteboard-planning.jpg',
     'svc-web.jpg' => 'images/cards/svc-web.jpg',
-    'svc-mobile.jpg' => 'images/cards/svc-mobile.jpg',
-    'svc-ecom.jpg' => 'images/cards/svc-ecommerce.jpg',
-    'office.jpg' => 'images/office/office-workspace.jpg',
+    'svc-mobile.jpg' => 'images/cards/ai-chatbot.jpg',
+    'svc-ecom.jpg' => 'images/cards/ind-retail.jpg',
+    'office.jpg' => 'images/office/office-meeting.jpg',
     'work1.jpg' => 'images/office/team-meeting.jpg',
-    'work2.jpg' => 'images/office/developer-desk.jpg',
-    'work3.jpg' => 'images/office/whiteboard-planning.jpg',
+    'work2.jpg' => 'images/tech/code-screen.jpg',
+    'work3.jpg' => 'images/cards/ind-education.jpg',
 ];
 foreach ($images as $to => $from) {
     if (file_exists("$base/public/$from")) { copy("$base/public/$from", "$dir/$to"); }
