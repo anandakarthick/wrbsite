@@ -55,6 +55,7 @@ header.scrolled{background:rgba(255,255,255,.97);box-shadow:0 10px 24px rgba(42,
 .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem;max-width:1160px;margin:0 auto}
 .brand{display:flex;align-items:center;gap:.65rem;font-weight:800;font-size:1.15rem;color:var(--ink)}
 .brand-mark{width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:var(--grad);border-radius:.7rem;color:#fff;font-weight:800;font-size:1.2rem;transform:rotate(-6deg)}
+.brand-logo{width:46px;height:46px;object-fit:contain}
 .brand small{display:block;font-size:.62rem;font-weight:600;color:var(--soft);letter-spacing:.08em;text-transform:uppercase}
 .nav ul{display:flex;gap:1.7rem;list-style:none;align-items:center}
 .nav ul a{font-size:.92rem;font-weight:500;color:var(--muted);position:relative;padding:.3rem 0}
@@ -246,7 +247,7 @@ function nav($active) {
     return <<<HTML
 <header>
   <nav class="nav">
-    <a href="index.html" class="brand"><span class="brand-mark">sv</span><span>SVProducts<small>Web Developments</small></span></a>
+    <a href="index.html" class="brand"><img src="logo.png" alt="SVProducts logo" class="brand-logo"><span>SVProducts<small>Web Developments</small></span></a>
     <ul>{$links}</ul>
     <button class="menu-btn" aria-label="Menu">☰</button>
   </nav>
@@ -260,7 +261,7 @@ function footerHtml($PHONE, $EMAIL, $ADDRESS) {
   <div class="container">
     <div class="fgrid">
       <div>
-        <div class="fbrand"><span class="brand-mark">sv</span> SVProducts Web Developments</div>
+        <div class="fbrand"><img src="logo.png" alt="SVProducts logo" class="brand-logo"> SVProducts Web Developments</div>
         <p style="font-size:.9rem;max-width:320px">Affordable, reliable software for growing businesses — websites, apps, billing and business software, built in Chennai.</p>
       </div>
       <div>
@@ -293,6 +294,7 @@ function shell($title, $desc, $css, $navHtml, $body, $footer, $js) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{$title}</title>
 <meta name="description" content="{$desc}">
+<link rel="icon" type="image/png" href="logo.png">
 <style>{$css}</style>
 </head>
 <body>
