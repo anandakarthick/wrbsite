@@ -237,7 +237,7 @@ document.querySelectorAll('.yr').forEach(function(e){e.textContent=new Date().ge
 JS;
 
 function nav($active) {
-    $items = ['index' => 'Home', 'services' => 'Services', 'products' => 'Products', 'about' => 'About Us', 'contact' => 'Contact'];
+    $items = ['index' => 'Home', 'services' => 'Expertise', 'products' => 'Store Suite', 'about' => 'Studio', 'contact' => 'Contact'];
     $links = '';
     foreach ($items as $p => $l) {
         $cls = $p === $active ? ' class="active"' : '';
@@ -266,7 +266,7 @@ function footerHtml($PHONE, $EMAIL, $ADDRESS) {
       </div>
       <div>
         <h4>Quick Links</h4>
-        <ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="products.html">Products</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+        <ul><li><a href="index.html">Home</a></li><li><a href="services.html">Expertise</a></li><li><a href="products.html">Store Suite</a></li><li><a href="about.html">Studio</a></li><li><a href="contact.html">Contact</a></li></ul>
       </div>
       <div>
         <h4>Contact</h4>
@@ -327,8 +327,8 @@ $body = <<<HTML
   <div class="container hero-grid">
     <div>
       <span class="badge">Software Company · Choolaimedu, Chennai</span>
-      <h1>Software That Grows <span class="grad-text">Your Business</span></h1>
-      <p class="lead">SVProducts Web Developments builds websites, mobile apps, billing and business software for shops, startups and companies — at prices that make sense.</p>
+      <h1>We Build Brands That <span class="grad-text">Sell Online</span></h1>
+      <p class="lead">SVProducts is an e-commerce studio from Chennai. We design, build and grow online stores for D2C brands — storefronts, marketplaces, logistics and the marketing that makes them sell.</p>
       <div class="hero-cta">
         <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
         <a href="services.html" class="btn btn-outline">Our Services</a>
@@ -348,12 +348,12 @@ $body = <<<HTML
     <span class="badge">What We Do</span>
     <h2 class="sec-title">Services Built Around You</h2>
     <div class="cards" style="text-align:left">
-      <div class="card reveal"><div class="icon">🌐</div><h3>Website Development</h3><p>Business websites, portfolios and landing pages that look professional and load fast on every phone.</p></div>
-      <div class="card reveal"><div class="icon">📱</div><h3>Mobile App Development</h3><p>Android and iOS apps for your business idea — from design to Play Store launch.</p></div>
-      <div class="card reveal"><div class="icon">🛒</div><h3>E-commerce Stores</h3><p>Sell online with UPI payments, GST invoices and delivery integration built in.</p></div>
-      <div class="card reveal"><div class="icon">🧾</div><h3>Billing Software</h3><p>Fast GST billing for shops and businesses — barcode, stock and daily reports included.</p></div>
-      <div class="card reveal"><div class="icon">⚙️</div><h3>Custom Software</h3><p>Software made for exactly how your business works — no forcing your process into someone else's tool.</p></div>
-      <div class="card reveal"><div class="icon">🎯</div><h3>Digital Marketing</h3><p>Google and social media presence that brings customers, not just clicks.</p></div>
+      <div class="card reveal"><div class="icon">🛍️</div><h3>D2C Storefronts</h3><p>Custom online stores engineered for conversion — fast pages, frictionless UPI checkout, beautiful product pages.</p></div>
+      <div class="card reveal"><div class="icon">📦</div><h3>Marketplace Launch</h3><p>Amazon, Flipkart and Meesho done right — listings, A+ content, pricing and account health.</p></div>
+      <div class="card reveal"><div class="icon">🎨</div><h3>Brand &amp; Catalogue Design</h3><p>Product photography direction, packaging-ready design and catalogues that make people want to buy.</p></div>
+      <div class="card reveal"><div class="icon">🚚</div><h3>Payments &amp; Logistics</h3><p>Razorpay, courier partners, COD reconciliation and returns — the plumbing of e-commerce, handled.</p></div>
+      <div class="card reveal"><div class="icon">📈</div><h3>Performance Marketing</h3><p>Meta and Google ads run on ROAS, not vibes — with landing pages built to convert the click.</p></div>
+      <div class="card reveal"><div class="icon">🔁</div><h3>Retention &amp; CRO</h3><p>Cart recovery, email/WhatsApp flows and A/B testing that grow repeat revenue every month.</p></div>
     </div>
     <p style="margin-top:2rem"><a href="services.html" class="btn btn-outline">Explore All Services →</a></p>
   </div>
@@ -400,9 +400,9 @@ $body = pageHero('Our Services', 'Everything a growing business needs — websit
 <section>
   <div class="container">
     <div class="cards" style="grid-template-columns:repeat(3,1fr)">
-      <div class="img-card reveal"><img src="svc-web.jpg" alt="Website development"><div class="pad"><h3>Website Development</h3><p>Business sites, landing pages, portfolios. Mobile-first, SEO-ready, delivered in days. Domain and hosting handled for you.</p></div></div>
-      <div class="img-card reveal"><img src="svc-mobile.jpg" alt="Mobile app development"><div class="pad"><h3>Mobile Apps</h3><p>Android & iOS apps built with modern tools. Booking apps, delivery apps, business apps — idea to Play Store.</p></div></div>
-      <div class="img-card reveal"><img src="svc-ecom.jpg" alt="E-commerce development"><div class="pad"><h3>E-commerce Stores</h3><p>Online stores with UPI/card payments, GST invoicing, WhatsApp order updates and courier integration.</p></div></div>
+      <div class="img-card reveal"><img src="svc-web.jpg" alt="Website development"><div class="pad"><h3>D2C Storefronts</h3><p>Conversion-first store design: sub-2-second pages, sticky checkout, trust badges — engineered to turn visitors into buyers.</p></div></div>
+      <div class="img-card reveal"><img src="svc-mobile.jpg" alt="Mobile app development"><div class="pad"><h3>Marketplace Management</h3><p>Win the Buy Box: optimised listings, review strategy and ad campaigns across Amazon, Flipkart and Meesho.</p></div></div>
+      <div class="img-card reveal"><img src="svc-ecom.jpg" alt="E-commerce development"><div class="pad"><h3>Growth Marketing</h3><p>Full-funnel: ads that acquire, WhatsApp flows that recover carts, loyalty that brings customers back.</p></div></div>
     </div>
     <div class="cards">
       <div class="card reveal"><div class="icon">🧾</div><h3>GST Billing Software</h3><p>Barcode billing, stock tracking, GST reports, daily sales summary on your phone. Works offline too.</p></div>
@@ -442,23 +442,23 @@ $body = pageHero('Our Products', 'Ready-made software you can start using this w
 <section>
   <div class="container">
     <div class="cards">
-      <div class="plan reveal"><span class="tagp">Retail</span><h3>SV Billing</h3><p class="desc">GST billing software for shops and supermarkets.</p>
-        <ul><li>Barcode scanning & thermal printing</li><li>Stock & expiry tracking</li><li>GST reports in one click</li><li>Works offline, syncs later</li><li>Daily sales on your phone</li></ul>
+      <div class="plan reveal"><span class="tagp">Storefront</span><h3>SV Storefront</h3><p class="desc">Launch-ready D2C store theme, tuned for India.</p>
+        <ul><li>Sub-2s mobile pages</li><li>UPI-first express checkout</li><li>GST invoices automatic</li><li>Instagram shop sync</li><li>Built-in SEO structure</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">E-commerce</span><h3>SV Store</h3><p class="desc">Your own online store with payments and delivery.</p>
-        <ul><li>UPI, card & COD payments</li><li>WhatsApp order alerts</li><li>GST invoices automatically</li><li>Courier integration</li><li>Simple product manager</li></ul>
+      <div class="plan reveal"><span class="tagp">Recovery</span><h3>SV Recover</h3><p class="desc">Abandoned carts brought back over WhatsApp.</p>
+        <ul><li>Smart 3-step reminder flows</li><li>Personalised discount nudges</li><li>One-tap resume checkout</li><li>Recovers up to 18% of carts</li><li>ROI dashboard included</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">Education</span><h3>SV School</h3><p class="desc">School & tuition centre management made easy.</p>
-        <ul><li>Student records & attendance</li><li>Fees with receipts & reminders</li><li>Exam marks & report cards</li><li>Parent SMS/WhatsApp updates</li><li>Staff & timetable management</li></ul>
+      <div class="plan reveal"><span class="tagp">Catalogue</span><h3>SV Catalog</h3><p class="desc">One catalogue, every channel, always in sync.</p>
+        <ul><li>Bulk product upload &amp; edit</li><li>Sync to store + marketplaces</li><li>Price &amp; stock rules per channel</li><li>Image optimisation built in</li><li>Variant management done right</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">Restaurants</span><h3>SV Food</h3><p class="desc">Restaurant billing, KOT and table management.</p>
-        <ul><li>Fast table & parcel billing</li><li>Kitchen order tickets (KOT)</li><li>Menu & rate management</li><li>Daily & monthly reports</li><li>GST-ready invoices</li></ul>
+      <div class="plan reveal"><span class="tagp">Shipping</span><h3>SV Ship</h3><p class="desc">Multi-courier shipping without the chaos.</p>
+        <ul><li>Cheapest-courier auto selection</li><li>Label printing &amp; manifests</li><li>NDR follow-up automation</li><li>COD remittance tracking</li><li>Branded tracking page</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">Clinics</span><h3>SV Care</h3><p class="desc">Clinic appointments, patients and billing.</p>
-        <ul><li>Appointment booking & queue</li><li>Patient history records</li><li>Prescription printing</li><li>Billing & reports</li><li>SMS/WhatsApp reminders</li></ul>
+      <div class="plan reveal"><span class="tagp">Analytics</span><h3>SV Insights</h3><p class="desc">Know exactly what sells, and why.</p>
+        <ul><li>Revenue &amp; ROAS dashboards</li><li>Product-level profitability</li><li>Cohort &amp; repeat-rate views</li><li>Ad spend attribution</li><li>Weekly WhatsApp summary</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">Any Business</span><h3>SV Custom</h3><p class="desc">Your idea, built as your own software product.</p>
-        <ul><li>Made for your exact workflow</li><li>Web + mobile app options</li><li>You own the software fully</li><li>Fixed price, clear timeline</li><li>Training & support included</li></ul>
+      <div class="plan reveal"><span class="tagp">Loyalty</span><h3>SV Loyalty</h3><p class="desc">Turn buyers into regulars with points &amp; perks.</p>
+        <ul><li>Points on every order</li><li>Referral rewards</li><li>Birthday &amp; win-back offers</li><li>WhatsApp reward alerts</li><li>Works on store &amp; POS</li></ul>
         <a href="contact.html" class="btn btn-primary">Discuss Your Idea</a></div>
     </div>
     <div class="cta-band reveal" style="margin-top:2.6rem">

@@ -185,7 +185,7 @@ document.querySelectorAll('.yr').forEach(function(e){e.textContent=new Date().ge
 JS;
 
 function nav($active) {
-    $items = ['index' => 'Home', 'services' => 'Services', 'products' => 'Products', 'about' => 'About Us', 'contact' => 'Contact'];
+    $items = ['index' => 'Home', 'services' => 'What We Do', 'products' => 'Solutions', 'about' => 'Our Story', 'contact' => 'Reach Us'];
     $links = '';
     foreach ($items as $p => $l) {
         $cls = $p === $active ? ' class="active"' : '';
@@ -214,7 +214,7 @@ function footerHtml($PHONE, $EMAIL, $ADDRESS) {
       </div>
       <div>
         <h4>Quick Links</h4>
-        <ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="products.html">Products</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+        <ul><li><a href="index.html">Home</a></li><li><a href="services.html">What We Do</a></li><li><a href="products.html">Solutions</a></li><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Reach Us</a></li></ul>
       </div>
       <div>
         <h4>Contact</h4>
@@ -275,8 +275,8 @@ $body = <<<HTML
   <div class="container hero-grid">
     <div>
       <span class="badge">Software Company · Ashok Nagar, Chennai</span>
-      <h1>Software That Grows <span class="grad-text">Your Business</span></h1>
-      <p class="lead">nambaparisal IT Software Developments builds websites, mobile apps, billing and business software for shops, startups and companies — at prices that make sense.</p>
+      <h1>Your Neighbourhood <span class="grad-text">Tech Partner</span></h1>
+      <p class="lead">From the corner shop to the growing company — nambaparisal builds simple, affordable technology for local businesses: websites, billing, school software and more. In your language, at your pace.</p>
       <div class="hero-cta">
         <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
         <a href="services.html" class="btn btn-outline">Our Services</a>
@@ -296,12 +296,12 @@ $body = <<<HTML
     <span class="badge">What We Do</span>
     <h2 class="sec-title">Services Built Around You</h2>
     <div class="cards" style="text-align:left">
-      <div class="card reveal"><div class="icon">🌐</div><h3>Website Development</h3><p>Business websites, portfolios and landing pages that look professional and load fast on every phone.</p></div>
-      <div class="card reveal"><div class="icon">📱</div><h3>Mobile App Development</h3><p>Android and iOS apps for your business idea — from design to Play Store launch.</p></div>
-      <div class="card reveal"><div class="icon">🛒</div><h3>E-commerce Stores</h3><p>Sell online with UPI payments, GST invoices and delivery integration built in.</p></div>
-      <div class="card reveal"><div class="icon">🧾</div><h3>Billing Software</h3><p>Fast GST billing for shops and businesses — barcode, stock and daily reports included.</p></div>
-      <div class="card reveal"><div class="icon">⚙️</div><h3>Custom Software</h3><p>Software made for exactly how your business works — no forcing your process into someone else's tool.</p></div>
-      <div class="card reveal"><div class="icon">🎯</div><h3>Digital Marketing</h3><p>Google and social media presence that brings customers, not just clicks.</p></div>
+      <div class="card reveal"><div class="icon">🏪</div><h3>Shop &amp; Business Websites</h3><p>A professional website with your catalogue, photos and WhatsApp button — live within a week.</p></div>
+      <div class="card reveal"><div class="icon">🧾</div><h3>GST Billing Setup</h3><p>Billing software installed at your counter with your items loaded — billing from day one.</p></div>
+      <div class="card reveal"><div class="icon">🏫</div><h3>School &amp; Tuition Software</h3><p>Fees, attendance, marks and parent messages — made simple for local institutions.</p></div>
+      <div class="card reveal"><div class="icon">💬</div><h3>WhatsApp for Business</h3><p>Catalogues, auto-replies and broadcast messages that turn WhatsApp into your best salesman.</p></div>
+      <div class="card reveal"><div class="icon">🗺️</div><h3>Google My Business</h3><p>Get found on Google Maps and search — photos, reviews, timings all set up properly.</p></div>
+      <div class="card reveal"><div class="icon">🛠️</div><h3>Yearly Care Plans</h3><p>We maintain your website and software all year — updates, backups and fixes covered.</p></div>
     </div>
     <p style="margin-top:2rem"><a href="services.html" class="btn btn-outline">Explore All Services →</a></p>
   </div>
@@ -348,9 +348,9 @@ $body = pageHero('Our Services', 'Everything a growing business needs — websit
 <section>
   <div class="container">
     <div class="cards" style="grid-template-columns:repeat(3,1fr)">
-      <div class="img-card reveal"><img src="svc-web.jpg" alt="Website development"><div class="pad"><h3>Website Development</h3><p>Business sites, landing pages, portfolios. Mobile-first, SEO-ready, delivered in days. Domain and hosting handled for you.</p></div></div>
-      <div class="img-card reveal"><img src="svc-mobile.jpg" alt="Mobile app development"><div class="pad"><h3>Mobile Apps</h3><p>Android & iOS apps built with modern tools. Booking apps, delivery apps, business apps — idea to Play Store.</p></div></div>
-      <div class="img-card reveal"><img src="svc-ecom.jpg" alt="E-commerce development"><div class="pad"><h3>E-commerce Stores</h3><p>Online stores with UPI/card payments, GST invoicing, WhatsApp order updates and courier integration.</p></div></div>
+      <div class="img-card reveal"><img src="svc-web.jpg" alt="Website development"><div class="pad"><h3>Shop &amp; Business Websites</h3><p>Your shop on the internet — catalogue, photos, directions and a WhatsApp order button. Domain, hosting and email handled by us.</p></div></div>
+      <div class="img-card reveal"><img src="svc-mobile.jpg" alt="Mobile app development"><div class="pad"><h3>WhatsApp for Business</h3><p>Official WhatsApp catalogues, auto-replies for common questions, and festival broadcast messages to your customer list.</p></div></div>
+      <div class="img-card reveal"><img src="svc-ecom.jpg" alt="E-commerce development"><div class="pad"><h3>Local Online Selling</h3><p>Take orders online from your area — UPI payments, delivery slots, and order alerts straight to your phone.</p></div></div>
     </div>
     <div class="cards">
       <div class="card reveal"><div class="icon">🧾</div><h3>GST Billing Software</h3><p>Barcode billing, stock tracking, GST reports, daily sales summary on your phone. Works offline too.</p></div>
@@ -390,20 +390,20 @@ $body = pageHero('Our Products', 'Ready-made software you can start using this w
 <section>
   <div class="container">
     <div class="cards">
-      <div class="plan reveal"><span class="tagp">Retail</span><h3>Parisal Billing</h3><p class="desc">GST billing software for shops and supermarkets.</p>
+      <div class="plan reveal"><span class="tagp">Retail</span><h3>Parisal Billing</h3><p class="desc">GST billing for shops, supermarkets and medicals.</p>
         <ul><li>Barcode scanning & thermal printing</li><li>Stock & expiry tracking</li><li>GST reports in one click</li><li>Works offline, syncs later</li><li>Daily sales on your phone</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">E-commerce</span><h3>Parisal Store</h3><p class="desc">Your own online store with payments and delivery.</p>
-        <ul><li>UPI, card & COD payments</li><li>WhatsApp order alerts</li><li>GST invoices automatically</li><li>Courier integration</li><li>Simple product manager</li></ul>
+      <div class="plan reveal"><span class="tagp">Retail POS</span><h3>Parisal Kadai</h3><p class="desc">Complete counter system for your kadai — billing plus stock.</p>
+        <ul><li>Tamil &amp; English billing screen</li><li>Stock with purchase entry</li><li>Credit (kadan) customer book</li><li>Daily profit summary</li><li>Works without internet</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
       <div class="plan reveal"><span class="tagp">Education</span><h3>Parisal School</h3><p class="desc">School & tuition centre management made easy.</p>
         <ul><li>Student records & attendance</li><li>Fees with receipts & reminders</li><li>Exam marks & report cards</li><li>Parent SMS/WhatsApp updates</li><li>Staff & timetable management</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">Restaurants</span><h3>Parisal Food</h3><p class="desc">Restaurant billing, KOT and table management.</p>
-        <ul><li>Fast table & parcel billing</li><li>Kitchen order tickets (KOT)</li><li>Menu & rate management</li><li>Daily & monthly reports</li><li>GST-ready invoices</li></ul>
+      <div class="plan reveal"><span class="tagp">Events</span><h3>Parisal Events</h3><p class="desc">Function &amp; event gift management — true to our name!</p>
+        <ul><li>Guest list &amp; invitations</li><li>Moi/parisal entry register</li><li>Instant thank-you messages</li><li>Function expense tracking</li><li>Reports after the function</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">Clinics</span><h3>Parisal Care</h3><p class="desc">Clinic appointments, patients and billing.</p>
-        <ul><li>Appointment booking & queue</li><li>Patient history records</li><li>Prescription printing</li><li>Billing & reports</li><li>SMS/WhatsApp reminders</li></ul>
+      <div class="plan reveal"><span class="tagp">Accounts</span><h3>Parisal Accounts</h3><p class="desc">Simple daily accounts for small businesses.</p>
+        <ul><li>Income &amp; expense entry</li><li>Kadan/credit tracking</li><li>Monthly profit view</li><li>GST-ready summaries</li><li>Your accountant will love it</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
       <div class="plan reveal"><span class="tagp">Any Business</span><h3>Parisal Custom</h3><p class="desc">Your idea, built as your own software product.</p>
         <ul><li>Made for your exact workflow</li><li>Web + mobile app options</li><li>You own the software fully</li><li>Fixed price, clear timeline</li><li>Training & support included</li></ul>

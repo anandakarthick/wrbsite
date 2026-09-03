@@ -208,7 +208,7 @@ document.querySelectorAll('.yr').forEach(function(e){e.textContent=new Date().ge
 JS;
 
 function nav($active) {
-    $items = ['index' => 'Home', 'services' => 'Services', 'products' => 'Products', 'about' => 'About Us', 'contact' => 'Contact'];
+    $items = ['index' => 'Home', 'services' => 'Services', 'products' => 'Platforms', 'about' => 'Company', 'contact' => 'Get In Touch'];
     $links = '';
     foreach ($items as $p => $l) {
         $cls = $p === $active ? ' class="active"' : '';
@@ -237,7 +237,7 @@ function footerHtml($PHONE, $EMAIL, $ADDRESS) {
       </div>
       <div>
         <h4>Quick Links</h4>
-        <ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="products.html">Products</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+        <ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="products.html">Platforms</a></li><li><a href="about.html">Company</a></li><li><a href="contact.html">Get In Touch</a></li></ul>
       </div>
       <div>
         <h4>Contact</h4>
@@ -298,8 +298,8 @@ $body = <<<HTML
   <div class="container hero-grid">
     <div>
       <span class="badge">Software Company · Tambaram, Chennai</span>
-      <h1>Software That Grows <span class="grad-text">Your Business</span></h1>
-      <p class="lead">Tennext Soft builds websites, mobile apps, billing and business software for shops, startups and companies — at prices that make sense.</p>
+      <h1>Enterprise Software, <span class="grad-text">Next-Gen Speed</span></h1>
+      <p class="lead">Tennext Soft engineers business platforms for companies that have outgrown spreadsheets — ERP, HR, CRM and custom systems, delivered with enterprise discipline at mid-market cost.</p>
       <div class="hero-cta">
         <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
         <a href="services.html" class="btn btn-outline">Our Services</a>
@@ -319,12 +319,12 @@ $body = <<<HTML
     <span class="badge">What We Do</span>
     <h2 class="sec-title">Services Built Around You</h2>
     <div class="cards" style="text-align:left">
-      <div class="card reveal"><div class="icon">🌐</div><h3>Website Development</h3><p>Business websites, portfolios and landing pages that look professional and load fast on every phone.</p></div>
-      <div class="card reveal"><div class="icon">📱</div><h3>Mobile App Development</h3><p>Android and iOS apps for your business idea — from design to Play Store launch.</p></div>
-      <div class="card reveal"><div class="icon">🛒</div><h3>E-commerce Stores</h3><p>Sell online with UPI payments, GST invoices and delivery integration built in.</p></div>
-      <div class="card reveal"><div class="icon">🧾</div><h3>Billing Software</h3><p>Fast GST billing for shops and businesses — barcode, stock and daily reports included.</p></div>
-      <div class="card reveal"><div class="icon">⚙️</div><h3>Custom Software</h3><p>Software made for exactly how your business works — no forcing your process into someone else's tool.</p></div>
-      <div class="card reveal"><div class="icon">🎯</div><h3>Digital Marketing</h3><p>Google and social media presence that brings customers, not just clicks.</p></div>
+      <div class="card reveal"><div class="icon">🏢</div><h3>Enterprise Web Applications</h3><p>Portals, workflow systems and internal tools that stay fast at hundreds of concurrent users.</p></div>
+      <div class="card reveal"><div class="icon">☁️</div><h3>Cloud &amp; DevOps</h3><p>AWS/Azure architecture, CI/CD pipelines and monitoring — deployments without downtime.</p></div>
+      <div class="card reveal"><div class="icon">🔄</div><h3>Business Process Automation</h3><p>Approvals, reports and reconciliations that run themselves instead of consuming your team.</p></div>
+      <div class="card reveal"><div class="icon">📊</div><h3>Data &amp; Analytics</h3><p>Dashboards and reporting layers on top of your existing systems — one truth for every meeting.</p></div>
+      <div class="card reveal"><div class="icon">🔌</div><h3>API &amp; System Integration</h3><p>Tally, SAP, banks, government portals — we make your systems finally talk to each other.</p></div>
+      <div class="card reveal"><div class="icon">👥</div><h3>IT Consulting &amp; Teams</h3><p>Architecture reviews, technology roadmaps, and dedicated developer teams on demand.</p></div>
     </div>
     <p style="margin-top:2rem"><a href="services.html" class="btn btn-outline">Explore All Services →</a></p>
   </div>
@@ -371,9 +371,9 @@ $body = pageHero('Our Services', 'Everything a growing business needs — websit
 <section>
   <div class="container">
     <div class="cards" style="grid-template-columns:repeat(3,1fr)">
-      <div class="img-card reveal"><img src="svc-web.jpg" alt="Website development"><div class="pad"><h3>Website Development</h3><p>Business sites, landing pages, portfolios. Mobile-first, SEO-ready, delivered in days. Domain and hosting handled for you.</p></div></div>
-      <div class="img-card reveal"><img src="svc-mobile.jpg" alt="Mobile app development"><div class="pad"><h3>Mobile Apps</h3><p>Android & iOS apps built with modern tools. Booking apps, delivery apps, business apps — idea to Play Store.</p></div></div>
-      <div class="img-card reveal"><img src="svc-ecom.jpg" alt="E-commerce development"><div class="pad"><h3>E-commerce Stores</h3><p>Online stores with UPI/card payments, GST invoicing, WhatsApp order updates and courier integration.</p></div></div>
+      <div class="img-card reveal"><img src="svc-web.jpg" alt="Website development"><div class="pad"><h3>Enterprise Applications</h3><p>Role-based portals, audit trails, and workflow engines — built on Laravel/.NET with security reviews as standard.</p></div></div>
+      <div class="img-card reveal"><img src="svc-mobile.jpg" alt="Mobile app development"><div class="pad"><h3>Cloud &amp; DevOps</h3><p>Migrations to AWS/Azure, infrastructure as code, automated pipelines and 24/7 monitoring with real SLAs.</p></div></div>
+      <div class="img-card reveal"><img src="svc-ecom.jpg" alt="E-commerce development"><div class="pad"><h3>System Integration</h3><p>ERP-to-bank, CRM-to-Tally, portal-to-government APIs — reliable integrations with retry, logging and alerts.</p></div></div>
     </div>
     <div class="cards">
       <div class="card reveal"><div class="icon">🧾</div><h3>GST Billing Software</h3><p>Barcode billing, stock tracking, GST reports, daily sales summary on your phone. Works offline too.</p></div>
@@ -413,23 +413,23 @@ $body = pageHero('Our Products', 'Ready-made software you can start using this w
 <section>
   <div class="container">
     <div class="cards">
-      <div class="plan reveal"><span class="tagp">Retail</span><h3>Tennext Billing</h3><p class="desc">GST billing software for shops and supermarkets.</p>
-        <ul><li>Barcode scanning & thermal printing</li><li>Stock & expiry tracking</li><li>GST reports in one click</li><li>Works offline, syncs later</li><li>Daily sales on your phone</li></ul>
+      <div class="plan reveal"><span class="tagp">ERP</span><h3>TenERP</h3><p class="desc">Sales, purchase, inventory and accounts — unified.</p>
+        <ul><li>Multi-branch &amp; multi-godown</li><li>Approvals &amp; audit trails</li><li>GST filing-ready reports</li><li>Tally import/export</li><li>Role-based dashboards</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">E-commerce</span><h3>Tennext Store</h3><p class="desc">Your own online store with payments and delivery.</p>
-        <ul><li>UPI, card & COD payments</li><li>WhatsApp order alerts</li><li>GST invoices automatically</li><li>Courier integration</li><li>Simple product manager</li></ul>
+      <div class="plan reveal"><span class="tagp">HR</span><h3>TenHR</h3><p class="desc">Attendance to payslip, compliant and automatic.</p>
+        <ul><li>Biometric &amp; geo attendance</li><li>PF/ESI/TDS payroll engine</li><li>Leave &amp; shift management</li><li>Employee self-service app</li><li>Statutory report pack</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">Education</span><h3>Tennext School</h3><p class="desc">School & tuition centre management made easy.</p>
-        <ul><li>Student records & attendance</li><li>Fees with receipts & reminders</li><li>Exam marks & report cards</li><li>Parent SMS/WhatsApp updates</li><li>Staff & timetable management</li></ul>
+      <div class="plan reveal"><span class="tagp">CRM</span><h3>TenCRM</h3><p class="desc">Pipeline discipline for serious sales teams.</p>
+        <ul><li>Lead capture from all sources</li><li>Stage-wise pipeline &amp; targets</li><li>Quotation &amp; follow-up engine</li><li>Team performance analytics</li><li>Mobile app for field sales</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">Restaurants</span><h3>Tennext Food</h3><p class="desc">Restaurant billing, KOT and table management.</p>
-        <ul><li>Fast table & parcel billing</li><li>Kitchen order tickets (KOT)</li><li>Menu & rate management</li><li>Daily & monthly reports</li><li>GST-ready invoices</li></ul>
+      <div class="plan reveal"><span class="tagp">Helpdesk</span><h3>TenDesk</h3><p class="desc">Support tickets with SLAs your clients can feel.</p>
+        <ul><li>Email/WhatsApp to ticket</li><li>SLA timers &amp; escalations</li><li>Knowledge base portal</li><li>CSAT after every ticket</li><li>Client-wise reporting</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">Clinics</span><h3>Tennext Care</h3><p class="desc">Clinic appointments, patients and billing.</p>
-        <ul><li>Appointment booking & queue</li><li>Patient history records</li><li>Prescription printing</li><li>Billing & reports</li><li>SMS/WhatsApp reminders</li></ul>
+      <div class="plan reveal"><span class="tagp">Projects</span><h3>TenTrack</h3><p class="desc">Projects, tasks and timesheets in one view.</p>
+        <ul><li>Gantt &amp; kanban boards</li><li>Timesheets &amp; billing hours</li><li>Client-visible progress</li><li>Resource utilisation view</li><li>Slack/Teams notifications</li></ul>
         <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
-      <div class="plan reveal"><span class="tagp">Any Business</span><h3>Tennext Custom</h3><p class="desc">Your idea, built as your own software product.</p>
-        <ul><li>Made for your exact workflow</li><li>Web + mobile app options</li><li>You own the software fully</li><li>Fixed price, clear timeline</li><li>Training & support included</li></ul>
+      <div class="plan reveal"><span class="tagp">Custom</span><h3>TenBuild</h3><p class="desc">Your platform, engineered to enterprise standard.</p>
+        <ul><li>Discovery &amp; architecture phase</li><li>Security review included</li><li>Full IP ownership</li><li>Documentation &amp; handover</li><li>SLA-backed support plans</li></ul>
         <a href="contact.html" class="btn btn-primary">Discuss Your Idea</a></div>
     </div>
     <div class="cta-band reveal" style="margin-top:2.6rem">
