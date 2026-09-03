@@ -1,0 +1,511 @@
+<?php
+// Generate svproducts.store website: 5-page static site, emerald/teal theme
+$base = dirname(__DIR__);
+$dir = $base . '/public/sites/svproducts';
+@mkdir($dir, 0777, true);
+
+// copy images into the site folder (self-contained docroot)
+$images = [
+    'hero.jpg' => 'images/tech/earth-network.jpg',
+    'about.jpg' => 'images/office/team-collaboration.jpg',
+    'svc-web.jpg' => 'images/cards/svc-web.jpg',
+    'svc-mobile.jpg' => 'images/cards/svc-mobile.jpg',
+    'svc-ecom.jpg' => 'images/cards/svc-ecommerce.jpg',
+    'office.jpg' => 'images/office/office-workspace.jpg',
+    'work1.jpg' => 'images/office/team-meeting.jpg',
+    'work2.jpg' => 'images/office/developer-desk.jpg',
+    'work3.jpg' => 'images/office/whiteboard-planning.jpg',
+];
+foreach ($images as $to => $from) {
+    if (file_exists("$base/public/$from")) { copy("$base/public/$from", "$dir/$to"); }
+}
+
+$NAME = 'SVProducts Web Developments';
+$SHORT = 'SVProducts';
+$PHONE = '+91 90927 23242';
+$PHONE_RAW = '919092723242';
+$EMAIL = 'team@svproducts.store';
+$ADDRESS = 'Choolaimedu, Chennai - 600094, Tamil Nadu, India';
+
+$CSS = <<<CSS
+:root{--g1:#be123c;--g2:#e11d48;--g3:#fb923c;--ink:#2a0a10;--body:#4a2d35;--muted:#745560;--soft:#87656e;--bg:#fdf7f6;--grad:linear-gradient(135deg,#be123c 0%,#e11d48 55%,#fb923c 100%)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Poppins','Segoe UI',system-ui,sans-serif;color:var(--body);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--ink);line-height:1.2}
+a{text-decoration:none;color:inherit;transition:.3s}
+img{max-width:100%}
+.container{max-width:1160px;margin:0 auto;padding:0 1.5rem}
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.7rem;border-radius:.7rem;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:.3s;font-family:inherit}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 20px rgba(190,18,60,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(225,29,72,.4)}
+.btn-outline{background:#fff;color:var(--g1);border:2px solid rgba(190,18,60,.35)}
+.btn-outline:hover{background:rgba(190,18,60,.07)}
+.btn-white{background:#fff;color:var(--g1)}
+.btn-white:hover{transform:translateY(-2px)}
+.progressbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:200}
+.totop{position:fixed;bottom:1.6rem;left:1.6rem;width:46px;height:46px;border-radius:50%;background:var(--grad);color:#fff;border:none;cursor:pointer;font-size:1rem;box-shadow:0 10px 24px rgba(190,18,60,.35);opacity:0;visibility:hidden;transform:translateY(10px);transition:.3s;z-index:150}
+.totop.show{opacity:1;visibility:visible;transform:none}
+.wa-float{position:fixed;bottom:1.6rem;right:1.6rem;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 26px rgba(37,211,102,.4);transition:.3s;z-index:150}
+.wa-float:hover{transform:translateY(-3px) scale(1.05)}
+.wa-float svg{width:27px;height:27px;fill:#fff}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(42,10,16,.06);transition:.3s}
+header.scrolled{background:rgba(255,255,255,.97);box-shadow:0 10px 24px rgba(42,10,16,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem;max-width:1160px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:.65rem;font-weight:800;font-size:1.15rem;color:var(--ink)}
+.brand-mark{width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:var(--grad);border-radius:.7rem;color:#fff;font-weight:800;font-size:1.2rem;transform:rotate(-6deg)}
+.brand small{display:block;font-size:.62rem;font-weight:600;color:var(--soft);letter-spacing:.08em;text-transform:uppercase}
+.nav ul{display:flex;gap:1.7rem;list-style:none;align-items:center}
+.nav ul a{font-size:.92rem;font-weight:500;color:var(--muted);position:relative;padding:.3rem 0}
+.nav ul a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--grad);transition:.3s}
+.nav ul a:hover,.nav ul a.active{color:var(--ink)}
+.nav ul a:hover::after,.nav ul a.active::after{width:100%}
+.nav ul a.btn::after{display:none}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:1.4rem;color:var(--ink)}
+section{padding:5rem 0}
+.badge{display:inline-block;padding:.45rem 1.1rem;background:rgba(190,18,60,.09);border:1px solid rgba(190,18,60,.3);border-radius:.5rem;font-size:.8rem;font-weight:700;color:var(--g1);margin-bottom:1rem;letter-spacing:.04em;text-transform:uppercase}
+.sec-title{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:.9rem}
+.sec-desc{color:var(--muted);max-width:640px}
+.center{text-align:center}.center .sec-desc{margin:0 auto}
+.hero{padding:9.5rem 0 0;background:linear-gradient(160deg,#fdeef0 0%,#fdf7f6 55%,#fef3e8 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(251,146,60,.16),transparent 65%);top:-180px;right:-140px}
+.hero::after{content:'';position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(225,29,72,.14),transparent 65%);bottom:-80px;left:-120px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;position:relative;z-index:1;padding-bottom:5rem}
+.hero h1{font-size:clamp(2.1rem,4.5vw,3.2rem);margin-bottom:1.1rem}
+.hero p.lead{color:var(--muted);font-size:1.08rem;margin-bottom:1.9rem;max-width:520px}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.hero-stats{display:flex;gap:2.4rem;flex-wrap:wrap}
+.hero-stats b{display:block;font-size:1.6rem;color:var(--ink)}
+.hero-stats span{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+.hero-img{position:relative}
+.hero-img img{display:block;width:100%;border-radius:1.4rem;box-shadow:0 30px 60px rgba(42,10,16,.2);border:6px solid #fff}
+.hero-img::after{content:'';position:absolute;inset:-14px auto auto -14px;width:90px;height:90px;border-radius:1rem;background:var(--grad);z-index:-1;transform:rotate(-8deg)}
+.page-hero{padding:8.5rem 0 3.5rem;background:linear-gradient(135deg,#881337,#9f1239);color:#fff;position:relative;overflow:hidden}
+.page-hero::after{content:'';position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(251,146,60,.2);filter:blur(70px);top:-120px;right:-80px}
+.page-hero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.7rem);position:relative;z-index:1}
+.page-hero p{color:rgba(255,255,255,.85);margin-top:.5rem;max-width:640px;position:relative;z-index:1}
+.crumb{position:relative;z-index:1;font-size:.8rem;color:rgba(255,255,255,.7);margin-bottom:.7rem;display:block}
+.crumb a:hover{color:#fff}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem}
+.card{background:#fff;border:1px solid rgba(42,10,16,.07);border-left:4px solid var(--g1);border-radius:1rem;padding:1.7rem;transition:.35s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(190,18,60,.16);border-left-color:var(--g3)}
+.card h3{font-size:1.05rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.92rem}
+.icon{width:48px;height:48px;border-radius:.8rem;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;margin-bottom:1rem;transition:.3s}
+.card:hover .icon{transform:scale(1.1) rotate(-6deg)}
+.img-card{background:#fff;border:1px solid rgba(42,10,16,.07);border-radius:1rem;overflow:hidden;transition:.35s}
+.img-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(190,18,60,.16)}
+.img-card img{width:100%;height:170px;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.img-card:hover img{transform:scale(1.07)}
+.img-card .pad{padding:1.5rem}
+.img-card h3{font-size:1.05rem;margin-bottom:.45rem}
+.img-card p{color:var(--muted);font-size:.9rem}
+.checklist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:2rem}
+.checklist li{display:flex;gap:.7rem;background:#fff;border:1px solid rgba(42,10,16,.07);border-radius:.8rem;padding:.95rem 1.15rem;font-size:.93rem;transition:.3s}
+.checklist li:hover{transform:translateY(-3px);border-color:rgba(190,18,60,.4)}
+.checklist li::before{content:'✔';color:var(--g1);font-weight:800}
+.steps{margin-top:2.4rem}
+.step{display:flex;gap:1.2rem;padding-bottom:1.7rem;position:relative}
+.step::before{content:'';position:absolute;left:21px;top:46px;bottom:0;width:2px;background:rgba(190,18,60,.25)}
+.step:last-child::before{display:none}
+.step-n{width:44px;height:44px;flex-shrink:0;border-radius:.8rem;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;position:relative;z-index:1}
+.step h3{font-size:1rem;padding-top:.5rem}
+.step p{color:var(--muted);font-size:.92rem}
+.plan{background:#fff;border:1px solid rgba(42,10,16,.08);border-radius:1rem;padding:1.9rem 1.6rem;display:flex;flex-direction:column;transition:.35s;position:relative}
+.plan:hover{transform:translateY(-7px);box-shadow:0 18px 40px rgba(190,18,60,.16)}
+.plan .tagp{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--g1)}
+.plan h3{font-size:1.15rem;margin:.3rem 0 .5rem}
+.plan p.desc{color:var(--muted);font-size:.9rem;margin-bottom:1.1rem}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem;flex:1}
+.plan ul li{display:flex;gap:.55rem;font-size:.87rem}
+.plan ul li::before{content:'✔';color:var(--g1);font-weight:800}
+.quote{margin-top:2.4rem;padding:2rem;background:linear-gradient(135deg,rgba(190,18,60,.06),rgba(251,146,60,.07));border:1px solid rgba(190,18,60,.2);border-radius:1rem}
+.quote blockquote{font-style:italic;color:#3b1723;font-size:1.02rem;margin-bottom:1rem}
+.quote b{color:var(--ink);font-size:.9rem}.quote span{color:var(--soft);font-size:.8rem;display:block}
+details{background:#fff;border:1px solid rgba(42,10,16,.07);border-radius:.8rem;margin-bottom:.7rem;overflow:hidden}
+details[open]{border-color:rgba(190,18,60,.4)}
+summary{padding:1rem 1.35rem;cursor:pointer;font-weight:600;color:#12332а;color:#33121c;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'▾';color:var(--g1);transition:.3s}
+details[open] summary::after{transform:rotate(180deg)}
+details p{padding:0 1.35rem 1.1rem;color:var(--muted);font-size:.92rem}
+.cta-band{background:var(--grad);border-radius:1.2rem;padding:2.8rem 2rem;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-band::after{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.14);top:-130px;right:-70px}
+.cta-band h2{color:#fff;font-size:clamp(1.4rem,3vw,2rem);margin-bottom:.5rem;position:relative;z-index:1}
+.cta-band p{color:rgba(255,255,255,.88);margin-bottom:1.5rem;position:relative;z-index:1}
+.cta-band .btn{position:relative;z-index:1}
+.contact-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;margin-top:2.4rem}
+.ccard{background:#fff;border:1px solid rgba(42,10,16,.07);border-radius:1rem;padding:1.6rem;text-align:center;transition:.3s}
+.ccard:hover{transform:translateY(-5px);border-color:rgba(190,18,60,.4)}
+.ccard .ci{width:52px;height:52px;margin:0 auto 1rem;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.ccard b{display:block;color:var(--ink);margin-bottom:.3rem;font-size:.95rem}
+.ccard span,.ccard a{color:var(--muted);font-size:.85rem;word-break:break-word}
+.ccard a:hover{color:var(--g1)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.split img{border-radius:1.2rem;box-shadow:0 22px 45px rgba(42,10,16,.15)}
+footer{background:#2a0a12;color:#d9a7b4;padding:3rem 0 1.5rem}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem}
+footer h4{color:#fff;font-size:1rem;margin-bottom:1rem}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+footer a{color:#d9a7b4;font-size:.9rem}
+footer a:hover{color:#fb923c}
+.fbrand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.05rem;color:#fff;margin-bottom:.8rem}
+.fbottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.3rem;text-align:center;font-size:.83rem;color:#b98795}
+.fbottom a{color:#fb923c;font-weight:600}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){
+ .hero-grid,.split{grid-template-columns:1fr}
+ .cards{grid-template-columns:1fr}
+ .checklist{grid-template-columns:1fr}
+ .contact-cards{grid-template-columns:1fr 1fr}
+ .fgrid{grid-template-columns:1fr}
+ .nav ul{position:fixed;top:64px;right:-100%;width:78%;max-width:300px;height:100vh;background:rgba(255,255,255,.98);flex-direction:column;align-items:flex-start;padding:2rem;gap:1.2rem;transition:.3s;box-shadow:-10px 0 30px rgba(42,10,16,.12)}
+ .nav ul.open{right:0}
+ .menu-btn{display:block}
+}
+@media(max-width:520px){.contact-cards{grid-template-columns:1fr}}
+CSS;
+
+$JS = <<<'JS'
+document.querySelector('.menu-btn').addEventListener('click',function(){document.querySelector('.nav ul').classList.toggle('open')});
+document.querySelectorAll('.nav ul a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav ul').classList.remove('open')})});
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+var hdr=document.querySelector('header');
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>40)},{passive:true});
+var pb=document.createElement('div');pb.className='progressbar';document.body.appendChild(pb);
+window.addEventListener('scroll',function(){var d=document.documentElement;var m=d.scrollHeight-d.clientHeight;pb.style.width=(m>0?(d.scrollTop/m)*100:0)+'%'},{passive:true});
+var tt=document.createElement('button');tt.className='totop';tt.innerHTML='↑';document.body.appendChild(tt);
+tt.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'})});
+window.addEventListener('scroll',function(){tt.classList.toggle('show',scrollY>400)},{passive:true});
+document.querySelectorAll('.yr').forEach(function(e){e.textContent=new Date().getFullYear()});
+JS;
+
+function nav($active) {
+    $items = ['index' => 'Home', 'services' => 'Services', 'products' => 'Products', 'about' => 'About Us', 'contact' => 'Contact'];
+    $links = '';
+    foreach ($items as $p => $l) {
+        $cls = $p === $active ? ' class="active"' : '';
+        $links .= "<li><a href=\"$p.html\"$cls>$l</a></li>";
+    }
+    $links .= '<li><a href="contact.html" class="btn btn-primary" style="padding:.55rem 1.2rem">Get Quote</a></li>';
+    return <<<HTML
+<header>
+  <nav class="nav">
+    <a href="index.html" class="brand"><span class="brand-mark">sv</span><span>SVProducts<small>Web Developments</small></span></a>
+    <ul>{$links}</ul>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </nav>
+</header>
+HTML;
+}
+
+function footerHtml($PHONE, $EMAIL, $ADDRESS) {
+    return <<<HTML
+<footer>
+  <div class="container">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand"><span class="brand-mark">sv</span> SVProducts Web Developments</div>
+        <p style="font-size:.9rem;max-width:320px">Affordable, reliable software for growing businesses — websites, apps, billing and business software, built in Chennai.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="products.html">Products</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919092723242">📞 {$PHONE}</a></li>
+          <li><a href="mailto:{$EMAIL}">✉ {$EMAIL}</a></li>
+          <li>📍 {$ADDRESS}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbottom">© <span class="yr"></span> SVProducts Web Developments · All rights reserved · <a href="https://svproducts.store/">svproducts.store</a></div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/919092723242?text=Hi%20SVProducts!%20I%20need%20a%20software%20solution." target="_blank" rel="noopener" aria-label="WhatsApp">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+HTML;
+}
+
+function shell($title, $desc, $css, $navHtml, $body, $footer, $js) {
+    return <<<HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{$title}</title>
+<meta name="description" content="{$desc}">
+<style>{$css}</style>
+</head>
+<body>
+{$navHtml}
+{$body}
+{$footer}
+<script>{$js}</script>
+</body>
+</html>
+HTML;
+}
+
+function pageHero($title, $sub) {
+    return <<<HTML
+<section class="page-hero">
+  <div class="container">
+    <span class="crumb"><a href="index.html">Home</a> / {$title}</span>
+    <h1>{$title}</h1>
+    <p>{$sub}</p>
+  </div>
+</section>
+HTML;
+}
+
+$footer = footerHtml($PHONE, $EMAIL, $ADDRESS);
+
+// ================= index.html =================
+$body = <<<HTML
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">Software Company · Choolaimedu, Chennai</span>
+      <h1>Software That Grows <span class="grad-text">Your Business</span></h1>
+      <p class="lead">SVProducts Web Developments builds websites, mobile apps, billing and business software for shops, startups and companies — at prices that make sense.</p>
+      <div class="hero-cta">
+        <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
+        <a href="services.html" class="btn btn-outline">Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>50+</b><span>Projects Done</span></div>
+        <div><b>100%</b><span>On-Time Delivery</span></div>
+        <div><b>24hr</b><span>Support Response</span></div>
+      </div>
+    </div>
+    <div class="hero-img reveal"><img src="hero.jpg" alt="Technology solutions by SVProducts"></div>
+  </div>
+</section>
+
+<section>
+  <div class="container center">
+    <span class="badge">What We Do</span>
+    <h2 class="sec-title">Services Built Around You</h2>
+    <div class="cards" style="text-align:left">
+      <div class="card reveal"><div class="icon">🌐</div><h3>Website Development</h3><p>Business websites, portfolios and landing pages that look professional and load fast on every phone.</p></div>
+      <div class="card reveal"><div class="icon">📱</div><h3>Mobile App Development</h3><p>Android and iOS apps for your business idea — from design to Play Store launch.</p></div>
+      <div class="card reveal"><div class="icon">🛒</div><h3>E-commerce Stores</h3><p>Sell online with UPI payments, GST invoices and delivery integration built in.</p></div>
+      <div class="card reveal"><div class="icon">🧾</div><h3>Billing Software</h3><p>Fast GST billing for shops and businesses — barcode, stock and daily reports included.</p></div>
+      <div class="card reveal"><div class="icon">⚙️</div><h3>Custom Software</h3><p>Software made for exactly how your business works — no forcing your process into someone else's tool.</p></div>
+      <div class="card reveal"><div class="icon">🎯</div><h3>Digital Marketing</h3><p>Google and social media presence that brings customers, not just clicks.</p></div>
+    </div>
+    <p style="margin-top:2rem"><a href="services.html" class="btn btn-outline">Explore All Services →</a></p>
+  </div>
+</section>
+
+<section style="background:linear-gradient(180deg,#fdeef0,#fdf7f6)">
+  <div class="container split">
+    <img src="about.jpg" alt="Our team at work" class="reveal">
+    <div>
+      <span class="badge">Why SVProducts</span>
+      <h2 class="sec-title">Local Team. Honest Pricing. Real Support.</h2>
+      <ul class="checklist" style="grid-template-columns:1fr">
+        <li class="reveal">Fixed price agreed before work starts — no surprises</li>
+        <li class="reveal">Talk to us in Tamil or English, on WhatsApp or in person</li>
+        <li class="reveal">You own your website, code and accounts fully</li>
+        <li class="reveal">Free support after launch until you are comfortable</li>
+      </ul>
+      <p style="margin-top:1.6rem"><a href="about.html" class="btn btn-primary">Know More About Us</a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="quote reveal">
+      <blockquote>"They built our shop's billing software and website within our budget. Whenever we call, they pick up — that itself is rare!"</blockquote>
+      <b>Saravanan V</b><span>Boutique Owner, Choolaimedu</span>
+    </div>
+    <div class="cta-band reveal" style="margin-top:2.4rem">
+      <h2>Have an idea or a problem to solve?</h2>
+      <p>Call {$PHONE} or WhatsApp us — free consultation, quote within 2 days.</p>
+      <a href="contact.html" class="btn btn-white">Contact Us Today</a>
+    </div>
+  </div>
+</section>
+HTML;
+file_put_contents("$dir/index.html", shell(
+    'SVProducts Web Developments — Websites, Apps & Business Software in Chennai',
+    'Website development, mobile apps, e-commerce, billing and custom software in Choolaimedu, Chennai. Call +91 90927 23242.',
+    $CSS, nav('index'), $body, $footer, $JS));
+
+// ================= services.html =================
+$body = pageHero('Our Services', 'Everything a growing business needs — websites, apps, and software that actually helps you sell and manage.') . <<<HTML
+<section>
+  <div class="container">
+    <div class="cards" style="grid-template-columns:repeat(3,1fr)">
+      <div class="img-card reveal"><img src="svc-web.jpg" alt="Website development"><div class="pad"><h3>Website Development</h3><p>Business sites, landing pages, portfolios. Mobile-first, SEO-ready, delivered in days. Domain and hosting handled for you.</p></div></div>
+      <div class="img-card reveal"><img src="svc-mobile.jpg" alt="Mobile app development"><div class="pad"><h3>Mobile Apps</h3><p>Android & iOS apps built with modern tools. Booking apps, delivery apps, business apps — idea to Play Store.</p></div></div>
+      <div class="img-card reveal"><img src="svc-ecom.jpg" alt="E-commerce development"><div class="pad"><h3>E-commerce Stores</h3><p>Online stores with UPI/card payments, GST invoicing, WhatsApp order updates and courier integration.</p></div></div>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="icon">🧾</div><h3>GST Billing Software</h3><p>Barcode billing, stock tracking, GST reports, daily sales summary on your phone. Works offline too.</p></div>
+      <div class="card reveal"><div class="icon">⚙️</div><h3>Custom Business Software</h3><p>Inventory, school management, clinic management, job-work tracking — built for your exact workflow.</p></div>
+      <div class="card reveal"><div class="icon">🎯</div><h3>Digital Marketing</h3><p>Google Business setup, social media pages, WhatsApp catalogues and ads that bring local customers.</p></div>
+      <div class="card reveal"><div class="icon">🛠️</div><h3>Website Care & AMC</h3><p>Updates, backups, security and content changes for your existing site — yearly maintenance plans.</p></div>
+      <div class="card reveal"><div class="icon">☁️</div><h3>Domain & Hosting</h3><p>Domain booking, business email (like sales@yourname.com), SSL and hosting — fully managed.</p></div>
+      <div class="card reveal"><div class="icon">🤖</div><h3>AI & Automation</h3><p>WhatsApp chatbots and simple automations that answer customers and save your time.</p></div>
+    </div>
+  </div>
+</section>
+<section style="background:linear-gradient(180deg,#fdeef0,#fdf7f6)">
+  <div class="container">
+    <span class="badge">How We Work</span>
+    <h2 class="sec-title">Simple 4-Step Process</h2>
+    <div class="steps">
+      <div class="step reveal"><div class="step-n">1</div><div><h3>Free Discussion</h3><p>Tell us your need — over call, WhatsApp or chai at our Choolaimedu office. We understand before we quote.</p></div></div>
+      <div class="step reveal"><div class="step-n">2</div><div><h3>Fixed Quote in 2 Days</h3><p>A clear written price and timeline. What you see is what you pay.</p></div></div>
+      <div class="step reveal"><div class="step-n">3</div><div><h3>Build & Show Progress</h3><p>We build fast and show you progress every few days — your feedback shapes the result.</p></div></div>
+      <div class="step reveal"><div class="step-n">4</div><div><h3>Launch & Support</h3><p>We launch, train you, and stay available. Support is a WhatsApp message away.</p></div></div>
+    </div>
+    <div class="cta-band reveal" style="margin-top:2rem">
+      <h2>Not sure what you need?</h2>
+      <p>Describe your business problem — we'll suggest the simplest solution, honestly.</p>
+      <a href="contact.html" class="btn btn-white">Ask Us Free</a>
+    </div>
+  </div>
+</section>
+HTML;
+file_put_contents("$dir/services.html", shell(
+    'Services — SVProducts Web Developments',
+    'Website development, mobile apps, e-commerce, GST billing software, custom software and digital marketing in Chennai.',
+    $CSS, nav('services'), $body, $footer, $JS));
+
+// ================= products.html =================
+$body = pageHero('Our Products', 'Ready-made software you can start using this week — priced for small and medium businesses.') . <<<HTML
+<section>
+  <div class="container">
+    <div class="cards">
+      <div class="plan reveal"><span class="tagp">Retail</span><h3>SV Billing</h3><p class="desc">GST billing software for shops and supermarkets.</p>
+        <ul><li>Barcode scanning & thermal printing</li><li>Stock & expiry tracking</li><li>GST reports in one click</li><li>Works offline, syncs later</li><li>Daily sales on your phone</li></ul>
+        <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
+      <div class="plan reveal"><span class="tagp">E-commerce</span><h3>SV Store</h3><p class="desc">Your own online store with payments and delivery.</p>
+        <ul><li>UPI, card & COD payments</li><li>WhatsApp order alerts</li><li>GST invoices automatically</li><li>Courier integration</li><li>Simple product manager</li></ul>
+        <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
+      <div class="plan reveal"><span class="tagp">Education</span><h3>SV School</h3><p class="desc">School & tuition centre management made easy.</p>
+        <ul><li>Student records & attendance</li><li>Fees with receipts & reminders</li><li>Exam marks & report cards</li><li>Parent SMS/WhatsApp updates</li><li>Staff & timetable management</li></ul>
+        <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
+      <div class="plan reveal"><span class="tagp">Restaurants</span><h3>SV Food</h3><p class="desc">Restaurant billing, KOT and table management.</p>
+        <ul><li>Fast table & parcel billing</li><li>Kitchen order tickets (KOT)</li><li>Menu & rate management</li><li>Daily & monthly reports</li><li>GST-ready invoices</li></ul>
+        <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
+      <div class="plan reveal"><span class="tagp">Clinics</span><h3>SV Care</h3><p class="desc">Clinic appointments, patients and billing.</p>
+        <ul><li>Appointment booking & queue</li><li>Patient history records</li><li>Prescription printing</li><li>Billing & reports</li><li>SMS/WhatsApp reminders</li></ul>
+        <a href="contact.html" class="btn btn-primary">Request Demo</a></div>
+      <div class="plan reveal"><span class="tagp">Any Business</span><h3>SV Custom</h3><p class="desc">Your idea, built as your own software product.</p>
+        <ul><li>Made for your exact workflow</li><li>Web + mobile app options</li><li>You own the software fully</li><li>Fixed price, clear timeline</li><li>Training & support included</li></ul>
+        <a href="contact.html" class="btn btn-primary">Discuss Your Idea</a></div>
+    </div>
+    <div class="cta-band reveal" style="margin-top:2.6rem">
+      <h2>See any product live before you decide</h2>
+      <p>Free demo at your shop or on a video call — {$PHONE}</p>
+      <a href="contact.html" class="btn btn-white">Book Free Demo</a>
+    </div>
+  </div>
+</section>
+HTML;
+file_put_contents("$dir/products.html", shell(
+    'Products — SVProducts Web Developments',
+    'Ready software products: GST billing, online store, school management, restaurant POS, clinic management. Free demo in Chennai.',
+    $CSS, nav('products'), $body, $footer, $JS));
+
+// ================= about.html =================
+$body = pageHero('About Us', 'A Chennai software company that believes good software should be affordable, understandable and reliable.') . <<<HTML
+<section>
+  <div class="container split">
+    <div>
+      <span class="badge">Our Story</span>
+      <h2 class="sec-title">Who We Are</h2>
+      <p style="color:var(--muted);margin-bottom:1rem">SVProducts Web Developments is a software company based in Choolaimedu, Chennai. We started with a simple observation: small and medium businesses around us were paying too much for software they didn't understand, or struggling with tools that didn't fit how they actually work.</p>
+      <p style="color:var(--muted);margin-bottom:1rem">So we build differently — we sit with you, understand your daily routine, and build websites, apps and software that fit into it naturally. In Tamil or English, over WhatsApp or across a table, we speak your language, not tech jargon.</p>
+      <p style="color:var(--muted)">From a one-page website to complete business software, every project gets the same promise: honest pricing, on-time delivery, and support that actually responds.</p>
+    </div>
+    <img src="office.jpg" alt="SVProducts office" class="reveal">
+  </div>
+</section>
+<section style="background:linear-gradient(180deg,#fdeef0,#fdf7f6)">
+  <div class="container center">
+    <span class="badge">Our Values</span>
+    <h2 class="sec-title">What We Stand For</h2>
+    <div class="cards" style="text-align:left">
+      <div class="card reveal"><div class="icon">🤝</div><h3>Honesty First</h3><p>If a ₹10,000 solution solves your problem, we won't sell you a ₹1 lakh one. Long relationships beat big invoices.</p></div>
+      <div class="card reveal"><div class="icon">⏱️</div><h3>On-Time, Every Time</h3><p>We commit to dates we can keep, and we keep the dates we commit. Your launch plan can rely on us.</p></div>
+      <div class="card reveal"><div class="icon">📞</div><h3>Support That Answers</h3><p>After launch, we don't disappear. Calls get picked up, WhatsApp gets replied — that's a promise.</p></div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="cards" style="grid-template-columns:repeat(3,1fr)">
+      <div class="img-card reveal"><img src="work1.jpg" alt="Team discussion"><div class="pad"><h3>We Listen First</h3><p>Every project starts with understanding your business, not showing off technology.</p></div></div>
+      <div class="img-card reveal"><img src="work2.jpg" alt="Development work"><div class="pad"><h3>We Build Carefully</h3><p>Modern tools, clean work, tested properly before it reaches you.</p></div></div>
+      <div class="img-card reveal"><img src="work3.jpg" alt="Planning session"><div class="pad"><h3>We Stay With You</h3><p>Training, support and improvements — we grow along with your business.</p></div></div>
+    </div>
+    <div class="cta-band reveal" style="margin-top:2.6rem">
+      <h2>Let's build something for your business</h2>
+      <p>Visit us in Choolaimedu or start with a WhatsApp message.</p>
+      <a href="contact.html" class="btn btn-white">Get In Touch</a>
+    </div>
+  </div>
+</section>
+HTML;
+file_put_contents("$dir/about.html", shell(
+    'About Us — SVProducts Web Developments',
+    'SVProducts Web Developments is a Chennai software company in Choolaimedu building affordable websites, apps and business software.',
+    $CSS, nav('about'), $body, $footer, $JS));
+
+// ================= contact.html =================
+$body = pageHero('Contact Us', 'Free consultation — tell us your need and get a clear quote within 2 days.') . <<<HTML
+<section>
+  <div class="container">
+    <div class="contact-cards">
+      <div class="ccard reveal"><div class="ci">✆</div><b>Call Us</b><a href="tel:+919092723242">{$PHONE}</a></div>
+      <div class="ccard reveal"><div class="ci">✦</div><b>WhatsApp</b><a href="https://wa.me/919092723242?text=Hi%20SVProducts!" target="_blank" rel="noopener">Chat with us now</a></div>
+      <div class="ccard reveal"><div class="ci">✉</div><b>Email</b><a href="mailto:{$EMAIL}">{$EMAIL}</a></div>
+      <div class="ccard reveal"><div class="ci">⌂</div><b>Visit Us</b><span>{$ADDRESS}</span></div>
+    </div>
+    <div style="margin-top:3rem">
+      <span class="badge">Working Hours</span>
+      <h2 class="sec-title">When We're Available</h2>
+      <ul class="checklist">
+        <li class="reveal">Monday to Saturday — 9:30 AM to 7:30 PM</li>
+        <li class="reveal">Sunday — WhatsApp support for urgent issues</li>
+        <li class="reveal">Free demo visits across Chennai</li>
+        <li class="reveal">Video call demos anywhere in Tamil Nadu</li>
+      </ul>
+    </div>
+    <div style="margin-top:3rem">
+      <span class="badge">Quick Questions</span>
+      <h2 class="sec-title">Before You Call</h2>
+      <div style="max-width:760px;margin-top:1.5rem">
+        <details class="reveal"><summary>How much does a website cost?</summary><p>Simple business websites start affordable — the exact price depends on pages and features. Tell us your need and you'll get a fixed written quote within 2 days. No hidden charges, ever.</p></details>
+        <details class="reveal"><summary>How long does it take?</summary><p>Basic websites: under a week. Billing software setup: 1–2 days with your data. Apps and custom software: 3–8 weeks depending on size. We commit dates in writing.</p></details>
+        <details class="reveal"><summary>Do you provide support after delivery?</summary><p>Yes — free support period after every launch, then simple yearly maintenance plans. And we actually answer the phone.</p></details>
+        <details class="reveal"><summary>Can we meet in person?</summary><p>Of course! We're in Choolaimedu, Chennai. Call or WhatsApp to fix a time — or we can visit your shop or office for a demo.</p></details>
+      </div>
+    </div>
+    <div class="cta-band reveal" style="margin-top:2.8rem">
+      <h2>Ready when you are</h2>
+      <p>{$PHONE} · {$EMAIL}</p>
+      <a href="https://wa.me/919092723242?text=Hi%20SVProducts!%20I%20want%20a%20quote." class="btn btn-white" target="_blank" rel="noopener">WhatsApp Us Now</a>
+    </div>
+  </div>
+</section>
+HTML;
+file_put_contents("$dir/contact.html", shell(
+    'Contact — SVProducts Web Developments',
+    'Contact SVProducts Web Developments, Choolaimedu, Chennai. Call +91 90927 23242 or email team@svproducts.store.',
+    $CSS, nav('contact'), $body, $footer, $JS));
+
+echo "SVProducts site generated: index, services, products, about, contact + " . count($images) . " images\n";
