@@ -37,7 +37,17 @@
                             <p>+91 8056653499</p>
                         </div>
                     </div>
-                    
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-brands fa-whatsapp" style="font-size:24px;color:#25D366;"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/919789616885" target="_blank" rel="noopener">+91 97896 16885</a></p>
+                        </div>
+                    </div>
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

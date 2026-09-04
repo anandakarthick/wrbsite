@@ -7,10 +7,11 @@
 
     var CONTACT = {
         phone: '+918056653499',
-        phoneDigits: '918056653499',
+        phoneDigits: '919789616885',
         phoneDisplay: '+91 80566 53499',
+        waDisplay: '+91 97896 16885',
         email: 'info@kasoftware.in',
-        whatsapp: 'https://wa.me/918056653499',
+        whatsapp: 'https://wa.me/919789616885',
         contactUrl: '/#contact'
     };
 
@@ -288,7 +289,7 @@
                     '<div class="kawa-avatar"><i class="fa-brands fa-whatsapp"></i></div>' +
                     '<div>' +
                         '<strong>KA Software</strong>' +
-                        '<span>' + CONTACT.phoneDisplay + ' &middot; Replies within minutes</span>' +
+                        '<span>' + CONTACT.waDisplay + ' &middot; Replies within minutes</span>' +
                     '</div>' +
                 '</div>' +
                 '<div class="kawa-body">' +
