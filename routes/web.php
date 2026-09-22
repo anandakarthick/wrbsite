@@ -64,5 +64,14 @@ Route::post('/contact', [ContactController::class, 'submit'])
     ->middleware('throttle:5,1')
     ->name('contact.submit');
 
+// Vaha AI app policy pages (static HTML in public/vaha/, required by app stores)
+Route::get('/vaha/privacy', function () {
+    return response()->file(public_path('vaha/privacy.html'));
+})->name('vaha.privacy');
+
+Route::get('/vaha/delete-account', function () {
+    return response()->file(public_path('vaha/delete-account.html'));
+})->name('vaha.delete-account');
+
 // Sitemap
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
