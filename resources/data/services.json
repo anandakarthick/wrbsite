@@ -94,7 +94,7 @@
             ],
             "products": [
                 "vahaai",
-                "shopnest"
+                "kadaispot"
             ],
             "faq": [
                 {
@@ -205,8 +205,7 @@
                 "Professional Services"
             ],
             "products": [
-                "insightiq",
-                "agentforge"
+                "kadaispot"
             ],
             "faq": [
                 {
@@ -317,8 +316,7 @@
                 "B2B Wholesale"
             ],
             "products": [
-                "shopnest",
-                "kartpos"
+                "kadaispot"
             ],
             "faq": [
                 {
@@ -428,10 +426,7 @@
                 "Logistics",
                 "Education"
             ],
-            "products": [
-                "peoplecore",
-                "documind"
-            ],
+            "products": [],
             "faq": [
                 {
                     "q": "We have 5 branches and biometric devices from different brands - will it work?",
@@ -540,10 +535,7 @@
                 "Healthcare",
                 "B2B Sales"
             ],
-            "products": [
-                "ka-crm",
-                "voxa-ai"
-            ],
+            "products": [],
             "faq": [
                 {
                     "q": "Our sales team hates data entry - how will this be different?",
@@ -653,9 +645,7 @@
                 "Logistics"
             ],
             "products": [
-                "visionkit",
-                "documind",
-                "convodesk"
+                "vahaai"
             ],
             "faq": [
                 {

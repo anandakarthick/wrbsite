@@ -5,10 +5,15 @@ standalone static satellite sites. Git remote: `github.com/anandakarthick/wrbsit
 work is committed directly to `main` and deployed by `git pull` on the server
 (behind Cloudflare).
 
+Production host (since 2026-11-18): new server 172.237.104.184 (plain nginx, no aaPanel). Checkout at
+`/var/www/live/wrbsite` (also reachable as `/www/wwwroot/wrbsite`), nginx site `/etc/nginx/sites-enabled/live-kasoftware.in.conf`,
+PHP 8.3 FPM. Deployed by cicd.kasoftware.in (git fetch + reset --hard origin/main, then artisan migrate/clears).
+Only kasoftware.in itself is hosted; the old product subdomains, nambaparisal.com, svproducts.store and tennextsoft.com are not.
+
 ## Local tooling
 
-- `php` is not on PATH on this machine. Use `C:\xampp\php\php.exe`.
-- Quick smoke test: `C:\xampp\php\php.exe artisan serve --port=8123` then hit the URL.
+- `php` (XAMPP PHP 8.3, `C:\xampp\php`) is on the user PATH since 2026-10-15. Terminals opened before that still need `C:\xampp\php\php.exe`.
+- Quick smoke test: `php artisan serve --port=8123` then hit the URL.
 - `.env` holds secrets — do not read or commit it.
 
 ## Layout
@@ -35,11 +40,10 @@ falls back to `sites/<slug>/index.html`. Current live-app overrides:
 | Product | site_url |
 |---------|----------|
 | vahaai | https://vaha.ai.kasoftware.in |
-| ka-crm | https://crm.kasoftware.in |
-| pipeforge | https://cicd.kasoftware.in |
-| shopnest | https://saas.ecom.kasoftware.in |
-| voxa-ai | https://voxa.kasoftware.in |
-| others | `https://<slug>.kasoftware.in` |
+| kadaispot | https://kadaispot.com |
+
+Only these two products are listed (2026-11-18). Old product URLs redirect in `ProductController::show`:
+`/products/shopnest` → `/products/kadaispot`, the other retired slugs → `/products` (301).
 
 To point a product at a new URL: edit only `site_url` in `products.json`, commit, push.
 
@@ -65,3 +69,6 @@ Email setup: `EMAIL_SETUP_GUIDE.md`.
 | 2026-09-19 | `17d1bfc` | PipeForge `site_url` → `https://cicd.kasoftware.in` (`products.json`). |
 | 2026-09-22 | `9fa1224` | Added Vaha AI policy pages: `public/vaha/privacy.html`, `public/vaha/delete-account.html`, served at `/vaha/privacy` and `/vaha/delete-account` via routes in `web.php`. |
 | 2026-10-09 | — | Added this `CLAUDE.md`. |
+| 2026-10-09 | — | Documented production host/paths in `CLAUDE.md` (no code change). |
+| 2026-10-15 | — | Fixed user PATH: entry was `C:\xampp\php\php.exe` (a file), replaced with `C:\xampp\php`; `php` now resolves. Updated Local tooling notes. |
+| 2026-11-18 | — | Products reduced to VAHA AI + KadaiSpot (`products.json`, KadaiSpot replaces ShopNest, site_url https://kadaispot.com); service pages link only these two (`services.json`); 301s for retired product URLs; products page meta updated; production host moved to 172.237.104.184. |

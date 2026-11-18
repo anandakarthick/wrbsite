@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Products - KA Software | VAHA AI, KA CRM, ShopNest, PipeForge & More</title>
-    <meta name="description" content="Explore KA Software's product suite: VAHA AI tutor, KA CRM, ShopNest e-commerce, KartPOS billing, PipeForge CI/CD, PeopleCore HRMS, and InsightIQ analytics. AI-powered software products built in Chennai, India.">
-    <meta name="keywords" content="KA Software products, VAHA AI tutor, KA CRM, ShopNest ecommerce platform, KartPOS billing software, PipeForge CICD, PeopleCore HRMS, InsightIQ analytics, software products india">
+    <title>Products - KA Software | VAHA AI &amp; KadaiSpot</title>
+    <meta name="description" content="KA Software products: VAHA AI, the AI tutor for Class 1–12, and KadaiSpot, online store, POS billing and GST software for Indian businesses. Built in Chennai, India.">
+    <meta name="keywords" content="KA Software products, VAHA AI tutor, AI learning app, KadaiSpot, online store software, POS billing software, GST billing software india">
     <meta name="author" content="KA Software">
     <meta name="robots" content="index, follow, max-image-preview:large">
 
@@ -16,13 +16,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kasoftware.in/products">
     <meta property="og:title" content="Products - KA Software | AI-Powered Software Products">
-    <meta property="og:description" content="VAHA AI tutor, KA CRM, ShopNest e-commerce, PipeForge CI/CD and more - software products built by KA Software.">
+    <meta property="og:description" content="VAHA AI tutor and KadaiSpot online store &amp; POS billing - software products built by KA Software.">
     <meta property="og:site_name" content="KA Software">
     <meta property="og:locale" content="en_IN">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Products - KA Software">
-    <meta name="twitter:description" content="AI-powered software products: VAHA AI, KA CRM, ShopNest, PipeForge and more.">
+    <meta name="twitter:description" content="Software products by KA Software: VAHA AI and KadaiSpot.">
 
     <meta name="theme-color" content="#2563eb">
 

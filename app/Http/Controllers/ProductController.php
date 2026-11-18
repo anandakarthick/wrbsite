@@ -23,6 +23,17 @@ class ProductController extends Controller
 
         $product = collect($products)->firstWhere('slug', $slug);
 
+        // Products we no longer list: ShopNest became KadaiSpot, the rest go to the product list.
+        if ($product === null) {
+            $retired = ['ka-crm', 'pipeforge', 'kartpos', 'peoplecore', 'insightiq', 'convodesk', 'visionkit', 'documind', 'voxa-ai', 'agentforge'];
+            if ($slug === 'shopnest') {
+                return redirect()->route('product.show', 'kadaispot', 301);
+            }
+            if (in_array($slug, $retired, true)) {
+                return redirect()->route('products', [], 301);
+            }
+        }
+
         abort_if($product === null, 404);
 
         $related = collect($products)
